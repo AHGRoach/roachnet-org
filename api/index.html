@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RoachNet API</title>
+    <meta
+      name="description"
+      content="Detailed runtime and setup API docs for RoachNet, with grouped endpoints, payloads, and implementation notes."
+    />
+    <meta name="theme-color" content="#0a1016" />
+    <link rel="canonical" href="https://roachnet.org/api/" />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="RoachNet API" />
+    <meta
+      property="og:description"
+      content="Grouped docs for the setup server, runtime endpoints, services, and native callers inside RoachNet."
+    />
+    <meta property="og:url" content="https://roachnet.org/api/" />
+    <meta property="og:image" content="https://roachnet.org/assets/screens/roachnet-native-dev.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="RoachNet API" />
+    <meta
+      name="twitter:description"
+      content="Runtime and setup route docs for RoachNet with implementation notes, payloads, and endpoint groups."
+    />
+    <meta name="twitter:image" content="https://roachnet.org/assets/screens/roachnet-native-dev.jpg" />
+    <link rel="stylesheet" href="../app.css" />
+  </head>
+  <body data-page="api">
+    <div class="bg-glow bg-glow--blue" aria-hidden="true"></div>
+    <div class="bg-glow bg-glow--green" aria-hidden="true"></div>
+
+    <div class="api-docs-shell">
+      <aside class="api-docs-sidebar" aria-label="API groups">
+        <a class="api-docs-brand" href="https://roachnet.org/" aria-label="Back to RoachNet">
+          <img class="api-docs-brand__mark" src="../assets/roachnet-logo.png" alt="RoachNet logo" />
+          <div class="api-docs-brand__copy">
+            <span>RoachNet API</span>
+            <strong>Runtime, setup, and service routes.</strong>
+          </div>
+        </a>
+
+        <section class="api-docs-sidebar__intro">
+          <span class="api-docs-kicker">Reference</span>
+          <h1>Click a route. See how RoachNet wires it.</h1>
+          <p>Setup API, runtime API, controllers, services, and native callers in one place.</p>
+        </section>
+
+        <div class="api-docs-sidebar__stats" id="api-stats"></div>
+        <nav class="api-docs-sidebar__nav" id="api-group-nav"></nav>
+
+        <div class="api-docs-sidebar__links">
+          <a class="cta cta--ghost" href="https://roachnet.org/">Back to RoachNet</a>
+          <a class="cta cta--ghost" href="https://apps.roachnet.org/">Browse Apps</a>
+        </div>
+      </aside>
+
+      <main class="api-docs-main">
+        <header class="api-docs-topbar">
+          <div class="api-docs-topbar__title">
+            <span class="api-docs-kicker">API</span>
+            <strong id="api-view-title">All endpoints</strong>
+          </div>
+
+          <label class="api-docs-search" for="api-search">
+            <span class="sr-only">Search RoachNet API routes</span>
+            <input id="api-search" type="search" autocomplete="off" placeholder="Search path, controller, service, or caller" />
+          </label>
+
+          <div class="api-docs-topbar__links">
+            <a href="https://github.com/AHGRoach/RoachNet" target="_blank" rel="noreferrer">GitHub</a>
+            <a href="https://apps.roachnet.org" target="_blank" rel="noreferrer">Apps</a>
+          </div>
+        </header>
+
+        <section class="api-docs-hero" id="api-group-summary"></section>
+
+        <div class="api-docs-methods" id="api-method-filter" aria-label="HTTP method filters"></div>
+
+        <div class="api-docs-workspace">
+          <section class="api-route-pane">
+            <div class="api-route-pane__toolbar">
+              <span class="api-docs-kicker">Routes</span>
+              <strong id="api-route-count">0</strong>
+            </div>
+            <div class="api-route-list" id="api-route-list" aria-live="polite"></div>
+          </section>
+
+          <aside class="api-detail-pane" id="api-detail-pane" aria-live="polite"></aside>
+        </div>
+      </main>
+    </div>
+
+    <script src="../api.js" type="module"></script>
+  </body>
+</html>

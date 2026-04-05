@@ -1,0 +1,1641 @@
+const apiGroups = [
+  {
+    id: 'setup',
+    label: 'Setup API',
+    scope: 'setup',
+    basePath: '/api',
+    summary: 'Bootstraps clean installs before the full runtime exists.',
+    stack: 'Setup server -> run-roachnet-setup.mjs -> installer workflow helpers',
+    callers: ['RoachNet Setup.app'],
+    endpoints: [
+      {
+        id: 'setup-state',
+        method: 'GET',
+        path: '/state',
+        title: 'Installer state',
+        summary: 'Returns machine state, dependency scan, saved config, and active setup task state.',
+        handler: 'getInstallerState',
+        request: [
+          'Query: installPath, installedAppPath, sourceMode, sourceRepoUrl, sourceRef',
+          'Flags: autoInstallDependencies, installRoachClaw, autoLaunch, autoCheckUpdates, launchAtLogin, dryRun',
+          'Options: roachClawDefaultModel, releaseChannel, updateBaseUrl',
+        ],
+        response: [
+          'system, config, installPath, nativeApp, installLooksReady',
+          'containerRuntime, dependencies, activeTask, lastCompletedTask, sourceModes',
+        ],
+        implementation:
+          'Normalizes installer config, probes package manager and dependency state, checks the container runtime, and merges persisted installer settings before the UI paints.',
+        usedBy: ['Setup overview screen', 'Install-path editor', 'Dependency readiness cards'],
+      },
+      {
+        id: 'setup-install',
+        method: 'POST',
+        path: '/install',
+        title: 'Start install workflow',
+        summary: 'Starts the full install, build, and native-app handoff task.',
+        handler: 'handleInstallRequest',
+        request: [
+          'Body: installer config payload from the setup UI',
+          'Supports dryRun preview mode for non-executing install previews',
+        ],
+        response: ['JSON: { ok: true } or { ok: true, task } in dryRun mode', '409 if a setup task is already running'],
+        implementation:
+          'Validates that no other setup task is active, derives defaults, then launches the install workflow that checks dependencies, ensures Docker, fetches source, prepares env files, starts support services, builds admin, and installs the native app.',
+        usedBy: ['Primary install button in Setup.app'],
+      },
+      {
+        id: 'setup-container-runtime-start',
+        method: 'POST',
+        path: '/container-runtime/start',
+        title: 'Start container runtime',
+        summary: 'Boots or installs the contained container runtime lane for setup.',
+        handler: 'handleContainerRuntimeStartRequest',
+        request: ['No body required'],
+        response: ['JSON: { ok: true, runtime }', '400 on runtime bootstrap failure'],
+        implementation:
+          'Calls the runtime starter used by setup so Docker or the compatible container lane is available before service installs begin.',
+        usedBy: ['Setup dependency/runtime stage'],
+      },
+      {
+        id: 'setup-config',
+        method: 'POST',
+        path: '/config',
+        title: 'Persist installer config',
+        summary: 'Writes setup choices without starting the install.',
+        handler: 'handleConfigRequest',
+        request: ['Body: partial installer config payload'],
+        response: ['JSON: { ok: true, config }'],
+        implementation:
+          'Runs the same config normalization as install, then persists the result so the setup UI can resume cleanly.',
+        usedBy: ['Install-path chooser', 'RoachClaw toggles', 'setup preference screens'],
+      },
+      {
+        id: 'setup-launch',
+        method: 'POST',
+        path: '/launch',
+        title: 'Launch RoachNet after setup',
+        summary: 'Opens the native app or falls back to the installed runtime launcher.',
+        handler: 'handleLaunchRequest',
+        request: ['Body: installPath and optional installedAppPath'],
+        response: ['JSON: { ok: true, launched: "native-app", installedAppPath } or { ok: true }'],
+        implementation:
+          'Prefers the native installed app when present, otherwise launches the installed RoachNet runtime entry script and records the last-opened mode.',
+        usedBy: ['Finish / launch step in Setup.app'],
+      },
+    ],
+  },
+  {
+    id: 'bootstrap',
+    label: 'Bootstrap',
+    scope: 'runtime',
+    basePath: '',
+    summary: 'Small bootstrap routes used by health checks and first-run setup.',
+    stack: 'Adonis routes -> EasySetupController / inline handlers',
+    callers: ['ManagedAppRuntime', 'Easy Setup flow', 'health probes'],
+    endpoints: [
+      {
+        id: 'health',
+        method: 'GET',
+        path: '/api/health',
+        title: 'Health check',
+        summary: 'Minimal runtime readiness check.',
+        handler: 'inline handler',
+        request: ['No body required'],
+        response: ['JSON: { status: "ok" }'],
+        implementation: 'Used as the fast liveness route for native runtime boot checks and container health probes.',
+        usedBy: ['ManagedAppRuntime', 'scripts/run-roachnet.mjs', 'container health checks'],
+      },
+      {
+        id: 'easy-setup-curated-categories',
+        method: 'GET',
+        path: '/api/easy-setup/curated-categories',
+        title: 'Easy setup curated categories',
+        summary: 'Returns the curated ZIM categories shown during easy setup.',
+        handler: 'EasySetupController.listCuratedCategories',
+        request: ['No body required'],
+        response: ['Category and tier catalog from ZimService'],
+        implementation: 'Bridges the setup UI to the curated ZIM catalog used for first-run content recommendations.',
+        usedBy: ['Easy Setup content selection'],
+      },
+      {
+        id: 'manifests-refresh',
+        method: 'POST',
+        path: '/api/manifests/refresh',
+        title: 'Refresh manifests',
+        summary: 'Refreshes cached ZIM, maps, and Wikipedia manifest specs.',
+        handler: 'EasySetupController.refreshManifests',
+        request: ['No body required'],
+        response: ['JSON: { success, changed: { zim_categories, maps, wikipedia } }'],
+        implementation: 'Fetches and caches the manifest specs that power content catalogs inside setup and the runtime.',
+        usedBy: ['Easy Setup refresh action', 'content admin workflows'],
+      },
+    ],
+  },
+  {
+    id: 'content-updates',
+    label: 'Content Updates',
+    scope: 'runtime',
+    basePath: '/api/content-updates',
+    summary: 'Checks and applies upstream collection updates.',
+    stack: 'CollectionUpdatesController -> CollectionUpdateService',
+    callers: ['Settings update surfaces', 'content maintenance flows'],
+    endpoints: [
+      {
+        id: 'content-updates-check',
+        method: 'POST',
+        path: '/check',
+        title: 'Check updates',
+        summary: 'Scans mirrored collections for newer upstream versions.',
+        handler: 'checkForUpdates',
+        request: ['No body required'],
+        response: ['Array of update candidates with download metadata'],
+        implementation: 'Builds a content-update list by comparing mirrored manifest data with upstream versions.',
+        usedBy: ['Content update checker'],
+      },
+      {
+        id: 'content-updates-apply',
+        method: 'POST',
+        path: '/apply',
+        title: 'Apply one update',
+        summary: 'Applies a single collection update.',
+        handler: 'applyUpdate',
+        request: ['Body: validated update payload including download_url'],
+        response: ['Service result for the applied update'],
+        implementation: 'Validates the update payload, blocks private URLs, then runs the single-update flow through CollectionUpdateService.',
+        usedBy: ['Per-item apply action'],
+      },
+      {
+        id: 'content-updates-apply-all',
+        method: 'POST',
+        path: '/apply-all',
+        title: 'Apply all updates',
+        summary: 'Applies a batch of collection updates.',
+        handler: 'applyAllUpdates',
+        request: ['Body: { updates: [...] }'],
+        response: ['Batch result from CollectionUpdateService'],
+        implementation: 'Validates every update, blocks private URLs, then processes the whole queue through the batch updater.',
+        usedBy: ['Apply all content updates'],
+      },
+    ],
+  },
+  {
+    id: 'maps',
+    label: 'Maps',
+    scope: 'runtime',
+    basePath: '/api/maps',
+    summary: 'Map catalog, style generation, and download orchestration.',
+    stack: 'MapsController -> MapService',
+    callers: ['Maps surface', 'ManagedAppRuntime', 'Apps install handoff'],
+    endpoints: [
+      {
+        id: 'maps-regions',
+        method: 'GET',
+        path: '/regions',
+        title: 'List installed regions',
+        summary: 'Returns installed map region files.',
+        handler: 'listRegions',
+        request: ['No body required'],
+        response: ['Installed region file listing'],
+        implementation: 'Reads the local map storage state from MapService.',
+        usedBy: ['Maps browser', 'native runtime snapshot'],
+      },
+      {
+        id: 'maps-styles',
+        method: 'GET',
+        path: '/styles',
+        title: 'Generate styles JSON',
+        summary: 'Returns the live style bundle used by the map renderer.',
+        handler: 'styles',
+        request: ['Host and protocol are derived from the incoming request'],
+        response: ['MapLibre style JSON'],
+        implementation: 'Ensures base assets exist first, then generates style JSON with the current host and protocol wired in.',
+        usedBy: ['Map renderer bootstrap'],
+      },
+      {
+        id: 'maps-curated-collections',
+        method: 'GET',
+        path: '/curated-collections',
+        title: 'Curated collections',
+        summary: 'Returns the install-ready map collections catalog.',
+        handler: 'listCuratedCollections',
+        request: ['No body required'],
+        response: ['Curated collections manifest'],
+        implementation: 'Reads the curated map collection spec exposed to the native app and the Apps handoff lane.',
+        usedBy: ['Apps install flow', 'ManagedAppRuntime'],
+      },
+      {
+        id: 'maps-fetch-latest-collections',
+        method: 'POST',
+        path: '/fetch-latest-collections',
+        title: 'Refresh map collections',
+        summary: 'Refreshes the remote map collections manifest.',
+        handler: 'fetchLatestCollections',
+        request: ['No body required'],
+        response: ['JSON: { success }'],
+        implementation: 'Fetches the newest collection spec and updates the cached manifest used by the maps lane.',
+        usedBy: ['Maps admin refresh'],
+      },
+      {
+        id: 'maps-download-base-assets',
+        method: 'POST',
+        path: '/download-base-assets',
+        title: 'Download base assets',
+        summary: 'Downloads the shared basemap assets used by all region packs.',
+        handler: 'downloadBaseAssets',
+        request: ['Body: optional { url } override'],
+        response: ['JSON: { success: true }'],
+        implementation: 'Optionally accepts a mirror URL, blocks private URLs, then downloads the shared atlas assets through MapService.',
+        usedBy: ['Base atlas install', 'Maps first-run prep'],
+      },
+      {
+        id: 'maps-download-remote',
+        method: 'POST',
+        path: '/download-remote',
+        title: 'Download one remote map file',
+        summary: 'Queues a direct remote map-file download.',
+        handler: 'downloadRemote',
+        request: ['Body: { url }'],
+        response: ['JSON: { message, filename, url }'],
+        implementation: 'Validates the remote URL, blocks private targets, and starts a background region download.',
+        usedBy: ['Manual map import'],
+      },
+      {
+        id: 'maps-download-remote-preflight',
+        method: 'POST',
+        path: '/download-remote-preflight',
+        title: 'Map download preflight',
+        summary: 'Returns metadata before a map download starts.',
+        handler: 'downloadRemotePreflight',
+        request: ['Body: { url }'],
+        response: ['Remote file metadata / preflight info'],
+        implementation: 'Runs a safe metadata pass before the background download begins so the UI can warn or confirm.',
+        usedBy: ['Manual import confirmation UI'],
+      },
+      {
+        id: 'maps-download-collection',
+        method: 'POST',
+        path: '/download-collection',
+        title: 'Download collection',
+        summary: 'Queues every resource in a named map collection.',
+        handler: 'downloadCollection',
+        request: ['Body: { slug }'],
+        response: ['JSON: { message, slug, resources }'],
+        implementation: 'Looks up the named curated collection and dispatches every resource in that bundle.',
+        usedBy: ['Apps install handoff', 'ManagedAppRuntime.downloadMapCollection'],
+      },
+      {
+        id: 'maps-delete',
+        method: 'DELETE',
+        path: '/:filename',
+        title: 'Delete map file',
+        summary: 'Deletes one installed map asset.',
+        handler: 'delete',
+        request: ['Path param: filename'],
+        response: ['JSON: { message }', '404 if the file key is missing'],
+        implementation: 'Validates the filename param, removes the file from map storage, and translates missing files to a 404.',
+        usedBy: ['Map cleanup actions'],
+      },
+    ],
+  },
+  {
+    id: 'docs',
+    label: 'Docs',
+    scope: 'runtime',
+    basePath: '/api/docs',
+    summary: 'Internal document listing used by the docs surface.',
+    stack: 'DocsController -> DocsService',
+    callers: ['Docs browser'],
+    endpoints: [
+      {
+        id: 'docs-list',
+        method: 'GET',
+        path: '/list',
+        title: 'List docs',
+        summary: 'Returns available RoachNet docs entries.',
+        handler: 'DocsController.list',
+        request: ['No body required'],
+        response: ['Docs list'],
+        implementation: 'Reads the docs inventory used by the internal docs browser.',
+        usedBy: ['Docs index'],
+      },
+    ],
+  },
+  {
+    id: 'downloads',
+    label: 'Downloads',
+    scope: 'runtime',
+    basePath: '/api/downloads',
+    summary: 'Background download job inspection and cleanup.',
+    stack: 'DownloadsController -> DownloadService',
+    callers: ['ManagedAppRuntime', 'download status widgets'],
+    endpoints: [
+      {
+        id: 'downloads-jobs',
+        method: 'GET',
+        path: '/jobs',
+        title: 'List download jobs',
+        summary: 'Returns all tracked download jobs.',
+        handler: 'index',
+        request: ['No body required'],
+        response: ['Full download job list'],
+        implementation: 'Reads current download job state from DownloadService.',
+        usedBy: ['ManagedAppRuntime', 'download dashboard'],
+      },
+      {
+        id: 'downloads-jobs-filetype',
+        method: 'GET',
+        path: '/jobs/:filetype',
+        title: 'List download jobs by filetype',
+        summary: 'Returns jobs filtered to one filetype.',
+        handler: 'filetype',
+        request: ['Path param: filetype'],
+        response: ['Filtered download job list'],
+        implementation: 'Validates the filetype param and filters the job view inside DownloadService.',
+        usedBy: ['Scoped download panes'],
+      },
+      {
+        id: 'downloads-remove-job',
+        method: 'DELETE',
+        path: '/jobs/:jobId',
+        title: 'Remove failed job',
+        summary: 'Removes a failed or stale download job from the queue state.',
+        handler: 'removeJob',
+        request: ['Path param: jobId'],
+        response: ['JSON: { success: true }'],
+        implementation: 'Clears failed-job state without touching completed local files.',
+        usedBy: ['Download error recovery'],
+      },
+    ],
+  },
+  {
+    id: 'ollama',
+    label: 'Ollama',
+    scope: 'runtime',
+    basePath: '/api/ollama',
+    summary: 'Model catalog, local/cloud chat, and model lifecycle operations.',
+    stack: 'OllamaController -> OllamaService / RagService / ChatService',
+    callers: ['RoachClaw', 'AI chat', 'model store', 'ManagedAppRuntime'],
+    endpoints: [
+      {
+        id: 'ollama-chat',
+        method: 'POST',
+        path: '/chat',
+        title: 'Chat',
+        summary: 'Runs chat requests, optional SSE streaming, and RAG context injection.',
+        handler: 'chat',
+        request: [
+          'Body: validated chat payload from chatSchema',
+          'Core keys include model, messages, stream, think, and optional sessionId',
+        ],
+        response: [
+          'JSON chat result for non-streaming requests',
+          'SSE stream with status, chunk, done, and error events when stream=true',
+        ],
+        implementation:
+          'Injects default system prompts, rewrites search queries for RAG when needed, optionally pulls relevant documents, saves chat history, and streams or returns the final model response through OllamaService.',
+        usedBy: ['RoachClaw chat pane', 'native AI chat surface'],
+      },
+      {
+        id: 'ollama-models-list',
+        method: 'GET',
+        path: '/models',
+        title: 'Available models',
+        summary: 'Returns the model catalog filtered for search, sort, and recommendations.',
+        handler: 'availableModels',
+        request: ['Query: sort, recommendedOnly, query, limit, force'],
+        response: ['Available model catalog'],
+        implementation: 'Validates the request, then asks OllamaService for the curated or searched model list.',
+        usedBy: ['Model store', 'AI settings'],
+      },
+      {
+        id: 'ollama-models-download',
+        method: 'POST',
+        path: '/models',
+        title: 'Queue model download',
+        summary: 'Dispatches a model download job.',
+        handler: 'dispatchModelDownload',
+        request: ['Body: { model }'],
+        response: ['JSON: { success, message }'],
+        implementation: 'Validates the model name and dispatches the download through OllamaService.',
+        usedBy: ['Model store install actions'],
+      },
+      {
+        id: 'ollama-models-delete',
+        method: 'DELETE',
+        path: '/models',
+        title: 'Delete model',
+        summary: 'Deletes one installed model.',
+        handler: 'deleteModel',
+        request: ['Body: { model }'],
+        response: ['JSON: { success, message }'],
+        implementation: 'Validates the model name, then removes it through OllamaService.',
+        usedBy: ['Model cleanup actions'],
+      },
+      {
+        id: 'ollama-installed-models',
+        method: 'GET',
+        path: '/installed-models',
+        title: 'Installed models',
+        summary: 'Returns installed local models with a safe empty fallback.',
+        handler: 'installedModels',
+        request: ['No body required'],
+        response: ['Installed model array'],
+        implementation: 'Reads the installed-model list and falls back to an empty array if the runtime is unavailable.',
+        usedBy: ['ManagedAppRuntime', 'RoachClaw status', 'model picker'],
+      },
+    ],
+  },
+  {
+    id: 'openclaw',
+    label: 'OpenClaw',
+    scope: 'runtime',
+    basePath: '/api/openclaw',
+    summary: 'Skill discovery and install endpoints for the OpenClaw lane.',
+    stack: 'OpenClawController -> OpenClawService',
+    callers: ['RoachClaw setup', 'skills browser'],
+    endpoints: [
+      {
+        id: 'openclaw-skills-status',
+        method: 'GET',
+        path: '/skills/status',
+        title: 'Skill CLI status',
+        summary: 'Returns status for the OpenClaw skill CLI.',
+        handler: 'getSkillCliStatus',
+        request: ['No body required'],
+        response: ['CLI status object'],
+        implementation: 'Checks the underlying OpenClaw skill CLI so the native shell can show install readiness.',
+        usedBy: ['RoachClaw status UI'],
+      },
+      {
+        id: 'openclaw-skills-search',
+        method: 'GET',
+        path: '/skills/search',
+        title: 'Search skills',
+        summary: 'Searches ClawHub skills by query.',
+        handler: 'searchSkills',
+        request: ['Query: query, limit'],
+        response: ['Search result list'],
+        implementation: 'Normalizes the query, bounds the limit, then sends the search through OpenClawService.',
+        usedBy: ['Skill search UI'],
+      },
+      {
+        id: 'openclaw-skills-installed',
+        method: 'GET',
+        path: '/skills/installed',
+        title: 'Installed skills',
+        summary: 'Returns installed OpenClaw skills.',
+        handler: 'listInstalledSkills',
+        request: ['No body required'],
+        response: ['Installed skills array'],
+        implementation: 'Reads installed skills from OpenClawService.',
+        usedBy: ['ManagedAppRuntime', 'skills status cards'],
+      },
+      {
+        id: 'openclaw-skills-install',
+        method: 'POST',
+        path: '/skills/install',
+        title: 'Install skill',
+        summary: 'Installs one ClawHub skill.',
+        handler: 'installSkill',
+        request: ['Body: { slug, version? }'],
+        response: ['Install result or 422 / 400 error'],
+        implementation: 'Requires a skill slug, then delegates the install to OpenClawService with an optional version pin.',
+        usedBy: ['Skill install action'],
+      },
+    ],
+  },
+  {
+    id: 'roachclaw',
+    label: 'RoachClaw',
+    scope: 'runtime',
+    basePath: '/api/roachclaw',
+    summary: 'RoachClaw status and onboarding application.',
+    stack: 'RoachClawController -> RoachClawService',
+    callers: ['RoachClaw pane', 'ManagedAppRuntime'],
+    endpoints: [
+      {
+        id: 'roachclaw-status',
+        method: 'GET',
+        path: '/status',
+        title: 'RoachClaw status',
+        summary: 'Returns the current RoachClaw runtime state.',
+        handler: 'getStatus',
+        request: ['No body required'],
+        response: ['RoachClaw status object'],
+        implementation: 'Returns the resolved local/cloud lane status, configured model, and service reachability from RoachClawService.',
+        usedBy: ['RoachClaw status card', 'ManagedAppRuntime'],
+      },
+      {
+        id: 'roachclaw-apply',
+        method: 'POST',
+        path: '/apply',
+        title: 'Apply onboarding',
+        summary: 'Writes model and endpoint choices into the RoachClaw lane.',
+        handler: 'apply',
+        request: ['Body: { model, workspacePath, ollamaBaseUrl, openclawBaseUrl }'],
+        response: ['Onboarding apply result or 400 error'],
+        implementation: 'Accepts the onboarding payload directly, then asks RoachClawService to persist and apply it.',
+        usedBy: ['RoachClaw first-run flow'],
+      },
+    ],
+  },
+  {
+    id: 'site-archives',
+    label: 'Site Archives',
+    scope: 'runtime',
+    basePath: '/api/site-archives',
+    summary: 'Creates and deletes local static site archives.',
+    stack: 'SiteArchivesController -> SiteArchiveService',
+    callers: ['Site archive screen'],
+    endpoints: [
+      {
+        id: 'site-archives-list',
+        method: 'GET',
+        path: '/',
+        title: 'List archives',
+        summary: 'Returns every local site archive.',
+        handler: 'list',
+        request: ['No body required'],
+        response: ['JSON: { archives }'],
+        implementation: 'Reads archive metadata from SiteArchiveService.',
+        usedBy: ['Site archive index'],
+      },
+      {
+        id: 'site-archives-create',
+        method: 'POST',
+        path: '/',
+        title: 'Create archive',
+        summary: 'Creates a new website archive.',
+        handler: 'create',
+        request: ['Body: { url, title }'],
+        response: ['Archive creation result or 400 error'],
+        implementation: 'Passes the user-supplied URL and title into SiteArchiveService, which captures and stores the archive bundle.',
+        usedBy: ['Archive capture form'],
+      },
+      {
+        id: 'site-archives-destroy',
+        method: 'DELETE',
+        path: '/:slug',
+        title: 'Delete archive',
+        summary: 'Deletes one stored archive.',
+        handler: 'destroy',
+        request: ['Path param: slug'],
+        response: ['JSON: { success: true }'],
+        implementation: 'Deletes the named archive bundle and its metadata.',
+        usedBy: ['Archive delete action'],
+      },
+    ],
+  },
+  {
+    id: 'chat',
+    label: 'Chat Sessions',
+    scope: 'runtime',
+    basePath: '/api/chat',
+    summary: 'Session CRUD and suggestion endpoints for the native chat lane.',
+    stack: 'ChatsController -> ChatService / AIRuntimeService',
+    callers: ['Native chat UI', 'RoachClaw chat lane'],
+    endpoints: [
+      {
+        id: 'chat-sessions-index',
+        method: 'GET',
+        path: '/sessions/',
+        title: 'List sessions',
+        summary: 'Returns all saved chat sessions.',
+        handler: 'index',
+        request: ['No body required'],
+        response: ['Session array'],
+        implementation: 'Reads every session from ChatService.',
+        usedBy: ['Chat sidebar'],
+      },
+      {
+        id: 'chat-sessions-create',
+        method: 'POST',
+        path: '/sessions/',
+        title: 'Create session',
+        summary: 'Creates a new chat session.',
+        handler: 'store',
+        request: ['Body: { title, model }'],
+        response: ['201 with created session'],
+        implementation: 'Validates the payload and creates a new session row through ChatService.',
+        usedBy: ['New chat action'],
+      },
+      {
+        id: 'chat-sessions-destroy-all',
+        method: 'DELETE',
+        path: '/sessions/all',
+        title: 'Delete all sessions',
+        summary: 'Clears every stored chat session.',
+        handler: 'destroyAll',
+        request: ['No body required'],
+        response: ['JSON result from deleteAllSessions'],
+        implementation: 'Runs the bulk-delete path in ChatService.',
+        usedBy: ['Danger-zone cleanup action'],
+      },
+      {
+        id: 'chat-sessions-show',
+        method: 'GET',
+        path: '/sessions/:id',
+        title: 'Show session',
+        summary: 'Returns one chat session.',
+        handler: 'show',
+        request: ['Path param: id'],
+        response: ['Session object or 404'],
+        implementation: 'Parses the numeric session id and returns the full thread from ChatService.',
+        usedBy: ['Chat thread loader'],
+      },
+      {
+        id: 'chat-sessions-update',
+        method: 'PUT',
+        path: '/sessions/:id',
+        title: 'Update session',
+        summary: 'Updates one chat session.',
+        handler: 'update',
+        request: ['Path param: id', 'Body: validated updateSessionSchema payload'],
+        response: ['Updated session object'],
+        implementation: 'Validates the incoming update and applies it through ChatService.',
+        usedBy: ['Rename / model change actions'],
+      },
+      {
+        id: 'chat-sessions-delete',
+        method: 'DELETE',
+        path: '/sessions/:id',
+        title: 'Delete session',
+        summary: 'Deletes one chat session.',
+        handler: 'destroy',
+        request: ['Path param: id'],
+        response: ['204 on success'],
+        implementation: 'Deletes one session row and its messages through ChatService.',
+        usedBy: ['Per-thread delete action'],
+      },
+      {
+        id: 'chat-sessions-add-message',
+        method: 'POST',
+        path: '/sessions/:id/messages',
+        title: 'Add message',
+        summary: 'Adds a message to a saved chat session.',
+        handler: 'addMessage',
+        request: ['Path param: id', 'Body: { role, content }'],
+        response: ['201 with created message'],
+        implementation: 'Validates the message payload and appends it to the session in ChatService.',
+        usedBy: ['Message persistence flows'],
+      },
+      {
+        id: 'chat-suggestions',
+        method: 'GET',
+        path: '/suggestions',
+        title: 'Chat suggestions',
+        summary: 'Returns starter prompts with a fallback set.',
+        handler: 'suggestions',
+        request: ['No body required'],
+        response: ['JSON: { suggestions }'],
+        implementation: 'Fetches live chat suggestions and falls back to a built-in set if generation fails or returns nothing.',
+        usedBy: ['Chat empty state'],
+      },
+    ],
+  },
+  {
+    id: 'rag',
+    label: 'RAG',
+    scope: 'runtime',
+    basePath: '/api/rag',
+    summary: 'File upload, embedding jobs, and vector-store sync.',
+    stack: 'RagController -> RagService / EmbedFileJob',
+    callers: ['Knowledge/RAG workflows', 'AI chat context'],
+    endpoints: [
+      {
+        id: 'rag-upload',
+        method: 'POST',
+        path: '/upload',
+        title: 'Upload file',
+        summary: 'Uploads a file and queues embedding.',
+        handler: 'upload',
+        request: ['Multipart form-data with file field'],
+        response: ['202 with { message, jobId, fileName, filePath, alreadyProcessing }'],
+        implementation: 'Stores the uploaded file in RAG storage, generates a unique name, and dispatches the embedding background job.',
+        usedBy: ['Knowledge file upload'],
+      },
+      {
+        id: 'rag-files',
+        method: 'GET',
+        path: '/files',
+        title: 'Stored files',
+        summary: 'Returns stored RAG files.',
+        handler: 'getStoredFiles',
+        request: ['No body required'],
+        response: ['JSON: { files }'],
+        implementation: 'Reads the stored-file list from RagService.',
+        usedBy: ['Knowledge file inventory'],
+      },
+      {
+        id: 'rag-files-delete',
+        method: 'DELETE',
+        path: '/files',
+        title: 'Delete stored file',
+        summary: 'Deletes a stored RAG file by source.',
+        handler: 'deleteFile',
+        request: ['Body / validated payload: { source }'],
+        response: ['JSON: { message } or 500 error'],
+        implementation: 'Deletes the file and its vectorized representation by source identifier.',
+        usedBy: ['Knowledge cleanup'],
+      },
+      {
+        id: 'rag-active-jobs',
+        method: 'GET',
+        path: '/active-jobs',
+        title: 'Active jobs',
+        summary: 'Returns active embedding jobs.',
+        handler: 'getActiveJobs',
+        request: ['No body required'],
+        response: ['Active job array'],
+        implementation: 'Lists active EmbedFileJob entries.',
+        usedBy: ['Knowledge job status widgets'],
+      },
+      {
+        id: 'rag-job-status',
+        method: 'GET',
+        path: '/job-status',
+        title: 'Job status',
+        summary: 'Returns embedding status for one uploaded file.',
+        handler: 'getJobStatus',
+        request: ['Query / validated payload: filePath'],
+        response: ['Status object or 404'],
+        implementation: 'Maps the file path back into upload storage and asks EmbedFileJob for the current status.',
+        usedBy: ['Post-upload progress polling'],
+      },
+      {
+        id: 'rag-sync',
+        method: 'POST',
+        path: '/sync',
+        title: 'Scan and sync',
+        summary: 'Scans storage and syncs vector references.',
+        handler: 'scanAndSync',
+        request: ['No body required'],
+        response: ['Sync result or 500 error'],
+        implementation: 'Runs the storage scan and vector-store reconciliation path in RagService.',
+        usedBy: ['Knowledge maintenance'],
+      },
+    ],
+  },
+  {
+    id: 'system',
+    label: 'System',
+    scope: 'runtime',
+    basePath: '/api/system',
+    summary: 'Status, services, updates, sync, and key-value settings.',
+    stack:
+      'SystemController -> SystemService / DockerService / AIRuntimeService / SystemUpdateService / UpstreamSyncService / NativeRuntimeSnapshotService / ContainerRegistryService',
+    callers: ['ManagedAppRuntime', 'Settings pages', 'service controls', 'update flows'],
+    endpoints: [
+      {
+        id: 'system-debug-info',
+        method: 'GET',
+        path: '/debug-info',
+        title: 'Debug info',
+        summary: 'Returns debug information gathered from SystemService.',
+        handler: 'getDebugInfo',
+        request: ['No body required'],
+        response: ['JSON: { debugInfo }'],
+        implementation: 'Wraps the lower-level debug snapshot in a single response object for the native debug sheet.',
+        usedBy: ['Debug info modal'],
+      },
+      {
+        id: 'system-info',
+        method: 'GET',
+        path: '/info',
+        title: 'System info',
+        summary: 'Returns host and environment information.',
+        handler: 'getSystemInfo',
+        request: ['No body required'],
+        response: ['System info object'],
+        implementation: 'Passes through SystemService host/environment details.',
+        usedBy: ['ManagedAppRuntime snapshot', 'system settings'],
+      },
+      {
+        id: 'system-internet-status',
+        method: 'GET',
+        path: '/internet-status',
+        title: 'Internet status',
+        summary: 'Returns current connectivity state.',
+        handler: 'getInternetStatus',
+        request: ['No body required'],
+        response: ['Connectivity status object'],
+        implementation: 'Delegates to SystemService for internet reachability checks.',
+        usedBy: ['ManagedAppRuntime', 'status cards'],
+      },
+      {
+        id: 'system-services',
+        method: 'GET',
+        path: '/services',
+        title: 'Services',
+        summary: 'Returns managed service status across the runtime.',
+        handler: 'getServices',
+        request: ['No body required'],
+        response: ['Service list including installed and available services'],
+        implementation: 'Queries SystemService for the full managed service list with installedOnly=false.',
+        usedBy: ['ManagedAppRuntime', 'system settings services page'],
+      },
+      {
+        id: 'system-ai-providers',
+        method: 'GET',
+        path: '/ai/providers',
+        title: 'AI providers',
+        summary: 'Returns detected AI runtime providers.',
+        handler: 'getAIRuntimeProviders',
+        request: ['No body required'],
+        response: ['Provider array'],
+        implementation: 'Reads provider availability from AIRuntimeService.',
+        usedBy: ['AI settings', 'ManagedAppRuntime'],
+      },
+      {
+        id: 'system-native-snapshot',
+        method: 'GET',
+        path: '/native-snapshot',
+        title: 'Native snapshot',
+        summary: 'Returns a compact native-shell snapshot for the macOS client.',
+        handler: 'getNativeSnapshot',
+        request: ['No body required'],
+        response: ['Native runtime snapshot'],
+        implementation: 'Packages the small native-facing snapshot from NativeRuntimeSnapshotService.',
+        usedBy: ['Native shell overview'],
+      },
+      {
+        id: 'system-services-affect',
+        method: 'POST',
+        path: '/services/affect',
+        title: 'Affect service',
+        summary: 'Starts, stops, restarts, or otherwise affects a managed service.',
+        handler: 'affectService',
+        request: ['Body: validated { service_name, action }'],
+        response: ['JSON: { success, message }'],
+        implementation: 'Validates the requested action and sends it into DockerService.affectContainer.',
+        usedBy: ['Service action buttons'],
+      },
+      {
+        id: 'system-services-install',
+        method: 'POST',
+        path: '/services/install',
+        title: 'Install service',
+        summary: 'Runs a preflight install for one managed service.',
+        handler: 'installService',
+        request: ['Body: validated { service_name }'],
+        response: ['JSON: { success, message }'],
+        implementation: 'Runs the container preflight installer path in DockerService and returns the result.',
+        usedBy: ['Install service controls'],
+      },
+      {
+        id: 'system-services-force-reinstall',
+        method: 'POST',
+        path: '/services/force-reinstall',
+        title: 'Force reinstall service',
+        summary: 'Forces a service reinstall.',
+        handler: 'forceReinstallService',
+        request: ['Body: validated { service_name }'],
+        response: ['JSON: { success, message }'],
+        implementation: 'Calls DockerService.forceReinstall after validation.',
+        usedBy: ['Repair / reset service actions'],
+      },
+      {
+        id: 'system-services-check-updates',
+        method: 'POST',
+        path: '/services/check-updates',
+        title: 'Check service updates',
+        summary: 'Dispatches the background service-update check.',
+        handler: 'checkServiceUpdates',
+        request: ['No body required'],
+        response: ['JSON: { success: true, message }'],
+        implementation: 'Dispatches CheckServiceUpdatesJob and returns immediately.',
+        usedBy: ['Service updates page'],
+      },
+      {
+        id: 'system-services-available-versions',
+        method: 'GET',
+        path: '/services/:name/available-versions',
+        title: 'Available service versions',
+        summary: 'Returns installable versions for one service.',
+        handler: 'getAvailableVersions',
+        request: ['Path param: name'],
+        response: ['JSON: { versions } or 404 / 500 error'],
+        implementation: 'Looks up the installed service record, detects host architecture, then asks ContainerRegistryService for matching tags.',
+        usedBy: ['Version picker in updates UI'],
+      },
+      {
+        id: 'system-services-update',
+        method: 'POST',
+        path: '/services/update',
+        title: 'Update service',
+        summary: 'Moves a service to a target version.',
+        handler: 'updateService',
+        request: ['Body: validated { service_name, target_version }'],
+        response: ['JSON: { success, message } or 400 error'],
+        implementation: 'Calls DockerService.updateContainer with the requested target version.',
+        usedBy: ['Pinned service update action'],
+      },
+      {
+        id: 'system-subscribe-release-notes',
+        method: 'POST',
+        path: '/subscribe-release-notes',
+        title: 'Subscribe to release notes',
+        summary: 'Subscribes an email to release notes.',
+        handler: 'subscribeToReleaseNotes',
+        request: ['Body: validated { email }'],
+        response: ['Subscription result'],
+        implementation: 'Validates the email and forwards it to SystemService.',
+        usedBy: ['Support / update forms'],
+      },
+      {
+        id: 'system-latest-version',
+        method: 'GET',
+        path: '/latest-version',
+        title: 'Latest version',
+        summary: 'Checks the latest available RoachNet version.',
+        handler: 'checkLatestVersion',
+        request: ['Query: force'],
+        response: ['Version status payload'],
+        implementation: 'Validates the force flag and asks SystemService for the latest-version check result.',
+        usedBy: ['Update page'],
+      },
+      {
+        id: 'system-update',
+        method: 'POST',
+        path: '/update',
+        title: 'Request system update',
+        summary: 'Starts a system update if the updater sidecar is present.',
+        handler: 'requestSystemUpdate',
+        request: ['No body required'],
+        response: ['JSON success/error with note about status polling'],
+        implementation: 'Guards on sidecar availability, then asks SystemUpdateService to request the update.',
+        usedBy: ['Update button'],
+      },
+      {
+        id: 'system-update-status',
+        method: 'GET',
+        path: '/update/status',
+        title: 'Update status',
+        summary: 'Returns current system update status.',
+        handler: 'getSystemUpdateStatus',
+        request: ['No body required'],
+        response: ['Update status object or 500 error'],
+        implementation: 'Returns the in-memory/system update status snapshot.',
+        usedBy: ['Update progress UI'],
+      },
+      {
+        id: 'system-update-logs',
+        method: 'GET',
+        path: '/update/logs',
+        title: 'Update logs',
+        summary: 'Returns current system update logs.',
+        handler: 'getSystemUpdateLogs',
+        request: ['No body required'],
+        response: ['JSON: { logs }'],
+        implementation: 'Passes through update logs from SystemUpdateService.',
+        usedBy: ['Update troubleshooting UI'],
+      },
+      {
+        id: 'system-upstream-sync-status',
+        method: 'GET',
+        path: '/upstream-sync/status',
+        title: 'Upstream sync status',
+        summary: 'Returns upstream mirror sync status.',
+        handler: 'getUpstreamSyncStatus',
+        request: ['Query: force'],
+        response: ['Upstream sync status payload'],
+        implementation: 'Supports a force refresh flag and returns the sync state from UpstreamSyncService.',
+        usedBy: ['Mirror/sync status UI'],
+      },
+      {
+        id: 'system-upstream-sync',
+        method: 'POST',
+        path: '/upstream-sync',
+        title: 'Request upstream sync',
+        summary: 'Starts the upstream sync run.',
+        handler: 'requestUpstreamSync',
+        request: ['No body required'],
+        response: ['Sync result or 409 error'],
+        implementation: 'Asks UpstreamSyncService to start a sync and exposes the conflict state if one is already active.',
+        usedBy: ['Mirror sync action'],
+      },
+      {
+        id: 'system-upstream-sync-logs',
+        method: 'GET',
+        path: '/upstream-sync/logs',
+        title: 'Upstream sync logs',
+        summary: 'Returns sync logs from the current or last run.',
+        handler: 'getUpstreamSyncLogs',
+        request: ['No body required'],
+        response: ['JSON: { logs }'],
+        implementation: 'Returns logs captured by UpstreamSyncService.',
+        usedBy: ['Mirror sync diagnostics'],
+      },
+      {
+        id: 'system-settings-get',
+        method: 'GET',
+        path: '/settings',
+        title: 'Get setting',
+        summary: 'Returns one persisted key-value setting.',
+        handler: 'getSetting',
+        request: ['Query: key'],
+        response: ['JSON: { key, value }'],
+        implementation: 'Reads the requested key from KVStore.',
+        usedBy: ['Settings page loaders'],
+      },
+      {
+        id: 'system-settings-update',
+        method: 'PATCH',
+        path: '/settings',
+        title: 'Update setting',
+        summary: 'Updates one persisted key-value setting.',
+        handler: 'updateSetting',
+        request: ['Body: validated { key, value }'],
+        response: ['JSON: { success: true, message }'],
+        implementation: 'Validates the key/value payload and persists it through SystemService.',
+        usedBy: ['Settings toggles and forms'],
+      },
+    ],
+  },
+  {
+    id: 'zim',
+    label: 'ZIM',
+    scope: 'runtime',
+    basePath: '/api/zim',
+    summary: 'ZIM library inventory, remote catalogs, curated tiers, and Wikipedia selection.',
+    stack: 'ZimController -> ZimService',
+    callers: ['Education surfaces', 'Apps install handoff', 'ManagedAppRuntime'],
+    endpoints: [
+      {
+        id: 'zim-list',
+        method: 'GET',
+        path: '/list',
+        title: 'List local ZIM files',
+        summary: 'Returns local ZIM inventory.',
+        handler: 'list',
+        request: ['No body required'],
+        response: ['Local ZIM inventory'],
+        implementation: 'Reads the current local ZIM state from ZimService.',
+        usedBy: ['ZIM settings page'],
+      },
+      {
+        id: 'zim-list-remote',
+        method: 'GET',
+        path: '/list-remote',
+        title: 'List remote ZIM files',
+        summary: 'Searches the remote ZIM catalog.',
+        handler: 'listRemote',
+        request: ['Query: start, count, query'],
+        response: ['Remote ZIM search results'],
+        implementation: 'Validates pagination/search params, then asks ZimService for the remote catalog window.',
+        usedBy: ['Remote explorer'],
+      },
+      {
+        id: 'zim-curated-categories',
+        method: 'GET',
+        path: '/curated-categories',
+        title: 'Curated categories',
+        summary: 'Returns the curated ZIM category/tier catalog.',
+        handler: 'listCuratedCategories',
+        request: ['No body required'],
+        response: ['Curated category tree'],
+        implementation: 'Returns the curated education/reference catalog used by setup, apps, and managed runtime surfaces.',
+        usedBy: ['ManagedAppRuntime', 'Apps install flow', 'Easy Setup'],
+      },
+      {
+        id: 'zim-download-remote',
+        method: 'POST',
+        path: '/download-remote',
+        title: 'Download remote ZIM',
+        summary: 'Queues a remote ZIM download.',
+        handler: 'downloadRemote',
+        request: ['Body: validated { url, metadata? }'],
+        response: ['JSON: { message, filename, jobId, url }'],
+        implementation: 'Validates the remote URL, blocks private targets, and dispatches the remote ZIM download through ZimService.',
+        usedBy: ['Remote explorer install'],
+      },
+      {
+        id: 'zim-download-category-tier',
+        method: 'POST',
+        path: '/download-category-tier',
+        title: 'Download category tier',
+        summary: 'Queues every resource in one curated category tier.',
+        handler: 'downloadCategoryTier',
+        request: ['Body: { categorySlug, tierSlug }'],
+        response: ['JSON: { message, categorySlug, tierSlug, resources }'],
+        implementation: 'Looks up the category tier and dispatches every resource inside that tier.',
+        usedBy: ['Apps install handoff', 'ManagedAppRuntime.downloadCategoryTier'],
+      },
+      {
+        id: 'zim-wikipedia',
+        method: 'GET',
+        path: '/wikipedia',
+        title: 'Wikipedia state',
+        summary: 'Returns the current selected Wikipedia pack state.',
+        handler: 'getWikipediaState',
+        request: ['No body required'],
+        response: ['Wikipedia selection state'],
+        implementation: 'Reads the current Wikipedia option state from ZimService.',
+        usedBy: ['ManagedAppRuntime', 'Wikipedia selector'],
+      },
+      {
+        id: 'zim-wikipedia-select',
+        method: 'POST',
+        path: '/wikipedia/select',
+        title: 'Select Wikipedia pack',
+        summary: 'Sets the active Wikipedia option.',
+        handler: 'selectWikipedia',
+        request: ['Body: { optionId }'],
+        response: ['Selection result'],
+        implementation: 'Validates the option id, then switches the active Wikipedia pack in ZimService.',
+        usedBy: ['Wikipedia selector UI'],
+      },
+      {
+        id: 'zim-delete',
+        method: 'DELETE',
+        path: '/:filename',
+        title: 'Delete ZIM file',
+        summary: 'Deletes one installed ZIM file.',
+        handler: 'delete',
+        request: ['Path param: filename'],
+        response: ['JSON: { message } or 404'],
+        implementation: 'Validates the filename and removes it from local ZIM storage.',
+        usedBy: ['ZIM cleanup action'],
+      },
+    ],
+  },
+  {
+    id: 'benchmark',
+    label: 'Benchmark',
+    scope: 'runtime',
+    basePath: '/api/benchmark',
+    summary: 'Benchmark execution, results, submission, and settings.',
+    stack: 'BenchmarkController -> BenchmarkService / RunBenchmarkJob',
+    callers: ['Benchmark page'],
+    endpoints: [
+      {
+        id: 'benchmark-run',
+        method: 'POST',
+        path: '/run',
+        title: 'Run benchmark',
+        summary: 'Starts a full, system, or AI benchmark run.',
+        handler: 'run',
+        request: ['Body: validated benchmark payload', 'Optional sync=true for synchronous dev execution'],
+        response: ['201 queued result or direct synchronous benchmark result', '409 if one is already running'],
+        implementation: 'Validates the requested benchmark type, guards against concurrent runs, and either executes immediately or dispatches RunBenchmarkJob.',
+        usedBy: ['Primary benchmark action'],
+      },
+      {
+        id: 'benchmark-run-system',
+        method: 'POST',
+        path: '/run/system',
+        title: 'Run system benchmark',
+        summary: 'Starts a system-only benchmark.',
+        handler: 'runSystem',
+        request: ['No body required'],
+        response: ['201 with benchmark_id or 409 on active run'],
+        implementation: 'Queues a system-only RunBenchmarkJob.',
+        usedBy: ['System benchmark quick action'],
+      },
+      {
+        id: 'benchmark-run-ai',
+        method: 'POST',
+        path: '/run/ai',
+        title: 'Run AI benchmark',
+        summary: 'Starts an AI-only benchmark.',
+        handler: 'runAI',
+        request: ['No body required'],
+        response: ['201 with benchmark_id or 409 on active run'],
+        implementation: 'Queues an AI-only RunBenchmarkJob.',
+        usedBy: ['AI benchmark quick action'],
+      },
+      {
+        id: 'benchmark-results',
+        method: 'GET',
+        path: '/results',
+        title: 'All results',
+        summary: 'Returns every benchmark result.',
+        handler: 'results',
+        request: ['No body required'],
+        response: ['JSON: { results, total }'],
+        implementation: 'Returns the full benchmark history from BenchmarkService.',
+        usedBy: ['Benchmark results view'],
+      },
+      {
+        id: 'benchmark-results-latest',
+        method: 'GET',
+        path: '/results/latest',
+        title: 'Latest result',
+        summary: 'Returns the latest benchmark result.',
+        handler: 'latest',
+        request: ['No body required'],
+        response: ['JSON: { result }'],
+        implementation: 'Reads the newest benchmark result or null if nothing has run yet.',
+        usedBy: ['Latest result card'],
+      },
+      {
+        id: 'benchmark-results-show',
+        method: 'GET',
+        path: '/results/:id',
+        title: 'Result by id',
+        summary: 'Returns one benchmark result.',
+        handler: 'show',
+        request: ['Path param: id'],
+        response: ['JSON: { result } or 404'],
+        implementation: 'Loads one stored result by id and returns 404 when it is missing.',
+        usedBy: ['Benchmark detail view'],
+      },
+      {
+        id: 'benchmark-submit',
+        method: 'POST',
+        path: '/submit',
+        title: 'Submit result',
+        summary: 'Submits a result to the central benchmark repository.',
+        handler: 'submit',
+        request: ['Body: validated submit payload', 'Optional anonymous=true'],
+        response: ['JSON: { success, repository_id, percentile } or error'],
+        implementation: 'Validates the submission, then forwards it to BenchmarkService with optional anonymous mode.',
+        usedBy: ['Submit benchmark action'],
+      },
+      {
+        id: 'benchmark-builder-tag',
+        method: 'POST',
+        path: '/builder-tag',
+        title: 'Update builder tag',
+        summary: 'Assigns or clears a builder tag on a result.',
+        handler: 'updateBuilderTag',
+        request: ['Body: { benchmark_id, builder_tag }'],
+        response: ['JSON: { success, builder_tag } or validation errors'],
+        implementation: 'Loads the result, validates the tag format, then persists the builder tag.',
+        usedBy: ['Benchmark metadata editor'],
+      },
+      {
+        id: 'benchmark-comparison',
+        method: 'GET',
+        path: '/comparison',
+        title: 'Comparison stats',
+        summary: 'Returns comparison stats from the central repository.',
+        handler: 'comparison',
+        request: ['No body required'],
+        response: ['JSON: { stats }'],
+        implementation: 'Returns comparison aggregates from BenchmarkService.',
+        usedBy: ['Benchmark comparison view'],
+      },
+      {
+        id: 'benchmark-status',
+        method: 'GET',
+        path: '/status',
+        title: 'Benchmark status',
+        summary: 'Returns the current run status.',
+        handler: 'status',
+        request: ['No body required'],
+        response: ['Current benchmark status'],
+        implementation: 'Returns the live status snapshot from BenchmarkService.',
+        usedBy: ['Benchmark progress state'],
+      },
+      {
+        id: 'benchmark-settings',
+        method: 'GET',
+        path: '/settings',
+        title: 'Benchmark settings',
+        summary: 'Returns persisted benchmark settings.',
+        handler: 'settings',
+        request: ['No body required'],
+        response: ['Benchmark settings object'],
+        implementation: 'Reads all benchmark settings from the BenchmarkSetting model.',
+        usedBy: ['Benchmark settings page'],
+      },
+      {
+        id: 'benchmark-settings-update',
+        method: 'POST',
+        path: '/settings',
+        title: 'Update benchmark settings',
+        summary: 'Updates persisted benchmark settings.',
+        handler: 'updateSettings',
+        request: ['Body: currently supports allow_anonymous_submission'],
+        response: ['JSON: { success, settings }'],
+        implementation: 'Updates persisted benchmark settings and returns the refreshed settings payload.',
+        usedBy: ['Benchmark settings form'],
+      },
+    ],
+  },
+]
+
+const methodOrder = ['ALL', 'GET', 'POST', 'PUT', 'PATCH', 'DELETE']
+const groupNav = document.querySelector('#api-group-nav')
+const statsMount = document.querySelector('#api-stats')
+const groupSummary = document.querySelector('#api-group-summary')
+const routeList = document.querySelector('#api-route-list')
+const detailPane = document.querySelector('#api-detail-pane')
+const searchInput = document.querySelector('#api-search')
+const methodFilter = document.querySelector('#api-method-filter')
+const routeCount = document.querySelector('#api-route-count')
+const viewTitle = document.querySelector('#api-view-title')
+
+const flattenedRoutes = apiGroups.flatMap((group) =>
+  group.endpoints.map((endpoint) => ({
+    ...endpoint,
+    scope: group.scope,
+    groupId: group.id,
+    groupLabel: group.label,
+    groupSummary: group.summary,
+    groupStack: group.stack,
+    groupCallers: group.callers,
+    fullPath: `${group.basePath}${endpoint.path}`.replace(/\/{2,}/g, '/'),
+  }))
+)
+
+let activeGroup = 'all'
+let activeMethod = 'ALL'
+let activeRouteId = flattenedRoutes[0]?.id || null
+let searchQuery = ''
+
+function renderStats() {
+  const setupCount = flattenedRoutes.filter((route) => route.scope === 'setup').length
+  const runtimeCount = flattenedRoutes.filter((route) => route.scope === 'runtime').length
+
+  statsMount.innerHTML = `
+    <article class="api-docs-stat">
+      <strong>${flattenedRoutes.length}</strong>
+      <span>Total routes</span>
+    </article>
+    <article class="api-docs-stat">
+      <strong>${runtimeCount}</strong>
+      <span>Runtime</span>
+    </article>
+    <article class="api-docs-stat">
+      <strong>${setupCount}</strong>
+      <span>Setup</span>
+    </article>
+  `
+}
+
+function renderGroupNav() {
+  const items = [
+    {
+      id: 'all',
+      label: 'All routes',
+      count: flattenedRoutes.length,
+      summary: 'Every documented setup and runtime route.',
+    },
+    ...apiGroups.map((group) => ({
+      id: group.id,
+      label: group.label,
+      count: group.endpoints.length,
+      summary: group.summary,
+    })),
+  ]
+
+  groupNav.innerHTML = items
+    .map(
+      (item) => `
+        <button class="api-docs-group${item.id === activeGroup ? ' is-active' : ''}" data-group-id="${item.id}" type="button">
+          <span class="api-docs-group__copy">
+            <strong>${item.label}</strong>
+            <small>${item.summary}</small>
+          </span>
+          <span class="api-docs-group__count">${item.count}</span>
+        </button>
+      `
+    )
+    .join('')
+
+  groupNav.querySelectorAll('[data-group-id]').forEach((button) => {
+    button.addEventListener('click', () => {
+      activeGroup = button.getAttribute('data-group-id') || 'all'
+      syncSelection()
+      renderAll()
+    })
+  })
+}
+
+function renderMethodFilter() {
+  const counts = methodOrder.reduce((acc, method) => {
+    acc[method] =
+      method === 'ALL'
+        ? flattenedRoutes.length
+        : flattenedRoutes.filter((route) => route.method === method).length
+    return acc
+  }, {})
+
+  methodFilter.innerHTML = methodOrder
+    .map(
+      (method) => `
+        <button class="api-method-chip${method === activeMethod ? ' is-active' : ''}" data-method="${method}" type="button">
+          ${method}
+          <span>${counts[method]}</span>
+        </button>
+      `
+    )
+    .join('')
+
+  methodFilter.querySelectorAll('[data-method]').forEach((button) => {
+    button.addEventListener('click', () => {
+      activeMethod = button.getAttribute('data-method') || 'ALL'
+      syncSelection()
+      renderAll()
+    })
+  })
+}
+
+function getCurrentGroup() {
+  if (activeGroup === 'all') {
+    return null
+  }
+  return apiGroups.find((group) => group.id === activeGroup) || null
+}
+
+function getFilteredRoutes() {
+  return flattenedRoutes.filter((route) => {
+    const matchesGroup = activeGroup === 'all' || route.groupId === activeGroup
+    const matchesMethod = activeMethod === 'ALL' || route.method === activeMethod
+    const haystack = [
+      route.groupLabel,
+      route.title,
+      route.summary,
+      route.fullPath,
+      route.handler,
+      route.groupStack,
+      ...(route.usedBy || []),
+      ...(route.request || []),
+      ...(route.response || []),
+      route.implementation,
+    ]
+      .join(' ')
+      .toLowerCase()
+    const matchesSearch = !searchQuery || haystack.includes(searchQuery)
+    return matchesGroup && matchesMethod && matchesSearch
+  })
+}
+
+function syncSelection() {
+  const filtered = getFilteredRoutes()
+  if (!filtered.find((route) => route.id === activeRouteId)) {
+    activeRouteId = filtered[0]?.id || null
+  }
+}
+
+function renderSummary() {
+  const currentGroup = getCurrentGroup()
+  const filtered = getFilteredRoutes()
+  const title = currentGroup ? currentGroup.label : searchQuery ? 'Search results' : 'All endpoints'
+  const summary = currentGroup
+    ? currentGroup.summary
+    : searchQuery
+      ? `Filtered by “${searchQuery}”.`
+      : 'Setup routes, runtime routes, and the service edges behind them.'
+
+  viewTitle.textContent = title
+  routeCount.textContent = `${filtered.length} routes`
+
+  groupSummary.innerHTML = `
+    <div class="api-docs-hero__copy">
+      <span class="api-docs-kicker">${currentGroup ? currentGroup.scope : 'runtime + setup'}</span>
+      <h2>${title}</h2>
+      <p>${summary}</p>
+    </div>
+    <div class="api-docs-hero__meta">
+      <article>
+        <span>Visible</span>
+        <strong>${filtered.length}</strong>
+      </article>
+      <article>
+        <span>Group</span>
+        <strong>${currentGroup ? currentGroup.endpoints.length : flattenedRoutes.length}</strong>
+      </article>
+      <article>
+        <span>Stack</span>
+        <strong>${currentGroup ? currentGroup.stack.split(' -> ').length : apiGroups.length} layers</strong>
+      </article>
+    </div>
+  `
+}
+
+function renderRouteList() {
+  const filtered = getFilteredRoutes()
+
+  if (!filtered.length) {
+    routeList.innerHTML = `
+      <div class="api-empty-state">
+        <span class="api-docs-kicker">No matches</span>
+        <h3>Nothing matches this filter.</h3>
+        <p>Try a different group, method, or search term.</p>
+      </div>
+    `
+    return
+  }
+
+  routeList.innerHTML = filtered
+    .map(
+      (route) => `
+        <button class="api-route-card${route.id === activeRouteId ? ' is-active' : ''}" data-route-id="${route.id}" type="button">
+          <div class="api-route-card__top">
+            <span class="api-route-card__method api-route-card__method--${route.method.toLowerCase()}">${route.method}</span>
+            <span class="api-route-card__group">${route.groupLabel}</span>
+          </div>
+          <strong>${route.title}</strong>
+          <code>${route.fullPath}</code>
+          <p>${route.summary}</p>
+          <span class="api-route-card__handler">${route.handler}</span>
+        </button>
+      `
+    )
+    .join('')
+
+  routeList.querySelectorAll('[data-route-id]').forEach((button) => {
+    button.addEventListener('click', () => {
+      activeRouteId = button.getAttribute('data-route-id')
+      renderRouteList()
+      renderDetail()
+      updateHash()
+    })
+  })
+}
+
+function renderDetail() {
+  const route = flattenedRoutes.find((item) => item.id === activeRouteId)
+
+  if (!route) {
+    detailPane.innerHTML = `
+      <div class="api-empty-state api-empty-state--detail">
+        <span class="api-docs-kicker">Select a route</span>
+        <h3>Pick an endpoint.</h3>
+        <p>Click any route on the left to see request shape, response shape, and the RoachNet implementation stack behind it.</p>
+      </div>
+    `
+    return
+  }
+
+  detailPane.innerHTML = `
+    <div class="api-detail-header">
+      <div class="api-detail-header__badges">
+        <span class="api-route-card__method api-route-card__method--${route.method.toLowerCase()}">${route.method}</span>
+        <span class="api-detail-header__group">${route.groupLabel}</span>
+      </div>
+      <h3>${route.title}</h3>
+      <code>${route.fullPath}</code>
+      <p>${route.summary}</p>
+    </div>
+
+    <section class="api-detail-block">
+      <span class="api-docs-kicker">Handler</span>
+      <strong>${route.handler}</strong>
+      <p>${route.groupStack}</p>
+    </section>
+
+    <section class="api-detail-block">
+      <span class="api-docs-kicker">Request</span>
+      <ul>${(route.request || []).map((item) => `<li>${item}</li>`).join('')}</ul>
+    </section>
+
+    <section class="api-detail-block">
+      <span class="api-docs-kicker">Response</span>
+      <ul>${(route.response || []).map((item) => `<li>${item}</li>`).join('')}</ul>
+    </section>
+
+    <section class="api-detail-block">
+      <span class="api-docs-kicker">Implementation</span>
+      <p>${route.implementation}</p>
+    </section>
+
+    <section class="api-detail-block">
+      <span class="api-docs-kicker">Called from</span>
+      <ul>${(route.usedBy || route.groupCallers || []).map((item) => `<li>${item}</li>`).join('')}</ul>
+    </section>
+  `
+}
+
+function updateHash() {
+  if (!activeRouteId) {
+    return
+  }
+  history.replaceState(null, '', `#${activeRouteId}`)
+}
+
+function hydrateFromHash() {
+  const id = window.location.hash.replace(/^#/, '').trim()
+  if (!id) {
+    return
+  }
+  const route = flattenedRoutes.find((item) => item.id === id)
+  if (!route) {
+    return
+  }
+  activeGroup = route.groupId
+  activeRouteId = route.id
+}
+
+function renderAll() {
+  renderStats()
+  renderGroupNav()
+  renderMethodFilter()
+  renderSummary()
+  renderRouteList()
+  renderDetail()
+}
+
+searchInput?.addEventListener('input', (event) => {
+  searchQuery = String(event.currentTarget.value || '').trim().toLowerCase()
+  syncSelection()
+  renderAll()
+})
+
+hydrateFromHash()
+syncSelection()
+renderAll()
