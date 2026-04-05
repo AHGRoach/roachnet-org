@@ -4036,3 +4036,422 @@ body[data-page="apps"] .apps-card:nth-child(3n) {
     animation: none !important;
   }
 }
+
+body:not([data-page="apps"]) .page-shell {
+  gap: 78px;
+  padding-top: 52px;
+  padding-bottom: 82px;
+}
+
+body:not([data-page="apps"]) .site-nav a,
+body:not([data-page="apps"]) .site-footer a {
+  color: rgba(222, 229, 236, 0.74);
+}
+
+body:not([data-page="apps"]) .site-nav a:hover,
+body:not([data-page="apps"]) .site-footer a:hover {
+  color: #c5ffdc;
+}
+
+body:not([data-page="apps"]) .hero {
+  position: relative;
+  grid-template-columns: minmax(0, 0.96fr) minmax(420px, 0.92fr);
+  gap: 34px;
+  padding: 52px 0 8px;
+  align-items: center;
+}
+
+body:not([data-page="apps"]) .hero::before,
+body:not([data-page="apps"]) .hero::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  border-radius: 999px;
+}
+
+body:not([data-page="apps"]) .hero::before {
+  top: -20px;
+  left: -60px;
+  width: 420px;
+  height: 420px;
+  border: 1px solid rgba(255, 79, 216, 0.08);
+  opacity: 0.6;
+}
+
+body:not([data-page="apps"]) .hero::after {
+  top: 26px;
+  left: 30px;
+  width: 280px;
+  height: 280px;
+  border: 1px solid rgba(255, 79, 216, 0.05);
+  opacity: 0.5;
+}
+
+body:not([data-page="apps"]) .hero-copy {
+  max-width: 620px;
+}
+
+body:not([data-page="apps"]) .hero h1 {
+  font-size: clamp(3.3rem, 6vw, 5.4rem);
+  line-height: 0.92;
+}
+
+body:not([data-page="apps"]) .hero-body {
+  max-width: 32ch;
+  font-size: 1.08rem;
+  line-height: 1.58;
+}
+
+body:not([data-page="apps"]) .hero-actions {
+  margin-top: 26px;
+  gap: 12px;
+}
+
+body:not([data-page="apps"]) .cta {
+  min-height: 50px;
+  padding: 0 18px;
+  border-radius: 16px;
+  font-size: 0.95rem;
+  letter-spacing: -0.01em;
+}
+
+body:not([data-page="apps"]) .cta--primary {
+  color: #fff7fd;
+  background:
+    linear-gradient(135deg, rgba(255, 79, 216, 0.94), rgba(201, 64, 171, 0.94)),
+    rgba(20, 20, 24, 0.88);
+  border-color: rgba(255, 79, 216, 0.28);
+  box-shadow:
+    0 18px 40px rgba(255, 79, 216, 0.22),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12);
+}
+
+body:not([data-page="apps"]) .cta--ghost {
+  color: #d7ffe7;
+  background: rgba(11, 15, 21, 0.72);
+  border-color: rgba(50, 255, 126, 0.18);
+  box-shadow:
+    0 12px 28px rgba(0, 0, 0, 0.14),
+    inset 0 1px 0 rgba(255, 255, 255, 0.03);
+}
+
+body:not([data-page="apps"]) .cta--ghost:hover {
+  border-color: rgba(50, 255, 126, 0.34);
+}
+
+body:not([data-page="apps"]) .hero-footnote,
+body:not([data-page="apps"]) .download-meta,
+body:not([data-page="apps"]) .hero-status__note {
+  color: rgba(216, 222, 230, 0.6);
+}
+
+body:not([data-page="apps"]) .hero-status {
+  margin-top: 14px;
+  background: rgba(255, 255, 255, 0.03);
+  border-color: rgba(255, 255, 255, 0.05);
+  color: rgba(216, 222, 230, 0.66);
+}
+
+body:not([data-page="apps"]) .hero-visual {
+  justify-self: end;
+  width: min(100%, 560px);
+}
+
+body:not([data-page="apps"]) .screen-frame--hero {
+  transform: perspective(1800px) rotateX(5deg) rotateY(-8deg) rotateZ(1deg);
+}
+
+body:not([data-page="apps"]) .screen-chip {
+  color: #d7ffe7;
+  border-color: rgba(50, 255, 126, 0.16);
+  background: rgba(10, 20, 14, 0.34);
+}
+
+body:not([data-page="apps"]) .section-head {
+  max-width: 720px;
+  gap: 12px;
+}
+
+body:not([data-page="apps"]) .section-head h2 {
+  font-size: clamp(2rem, 3.8vw, 3.2rem);
+  line-height: 0.96;
+}
+
+body:not([data-page="apps"]) .content-section {
+  gap: 24px;
+}
+
+body:not([data-page="apps"]) .pillar-grid,
+body:not([data-page="apps"]) .usecase-grid,
+body:not([data-page="apps"]) .runtime-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+body:not([data-page="apps"]) .shelf-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+}
+
+body:not([data-page="apps"]) .pillar-card,
+body:not([data-page="apps"]) .usecase-card,
+body:not([data-page="apps"]) .runtime-card,
+body:not([data-page="apps"]) .shelf-card,
+body:not([data-page="apps"]) .download-hero-card,
+body:not([data-page="apps"]) .download-side-card,
+body:not([data-page="apps"]) .surface-card,
+body:not([data-page="apps"]) .support-card {
+  position: relative;
+  overflow: hidden;
+  display: grid;
+  gap: 10px;
+  padding: 22px;
+  border-radius: 24px;
+  background:
+    linear-gradient(180deg, rgba(19, 24, 31, 0.9), rgba(11, 15, 20, 0.92)),
+    rgba(11, 15, 20, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow: 0 26px 70px rgba(0, 0, 0, 0.2);
+  transition:
+    transform 220ms cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 220ms ease,
+    box-shadow 220ms ease;
+}
+
+body:not([data-page="apps"]) .pillar-card::before,
+body:not([data-page="apps"]) .usecase-card::before,
+body:not([data-page="apps"]) .runtime-card::before,
+body:not([data-page="apps"]) .shelf-card::before,
+body:not([data-page="apps"]) .download-hero-card::before,
+body:not([data-page="apps"]) .download-side-card::before,
+body:not([data-page="apps"]) .surface-card::before,
+body:not([data-page="apps"]) .support-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(120deg, transparent 0%, rgba(255, 255, 255, 0.06) 48%, transparent 70%);
+  opacity: 0;
+}
+
+body:not([data-page="apps"]) .pillar-card:hover,
+body:not([data-page="apps"]) .usecase-card:hover,
+body:not([data-page="apps"]) .runtime-card:hover,
+body:not([data-page="apps"]) .shelf-card:hover,
+body:not([data-page="apps"]) .download-hero-card:hover,
+body:not([data-page="apps"]) .download-side-card:hover,
+body:not([data-page="apps"]) .surface-card:hover,
+body:not([data-page="apps"]) .support-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(50, 255, 126, 0.18);
+  box-shadow:
+    0 32px 82px rgba(0, 0, 0, 0.24),
+    0 0 0 1px rgba(50, 255, 126, 0.05);
+}
+
+body:not([data-page="apps"]) .pillar-card:hover::before,
+body:not([data-page="apps"]) .usecase-card:hover::before,
+body:not([data-page="apps"]) .runtime-card:hover::before,
+body:not([data-page="apps"]) .shelf-card:hover::before,
+body:not([data-page="apps"]) .download-hero-card:hover::before,
+body:not([data-page="apps"]) .download-side-card:hover::before,
+body:not([data-page="apps"]) .surface-card:hover::before,
+body:not([data-page="apps"]) .support-card:hover::before {
+  animation: rn-sheen 900ms ease;
+}
+
+body:not([data-page="apps"]) .pillar-card h3,
+body:not([data-page="apps"]) .usecase-card h3,
+body:not([data-page="apps"]) .runtime-card h3,
+body:not([data-page="apps"]) .shelf-card h3,
+body:not([data-page="apps"]) .surface-card h3,
+body:not([data-page="apps"]) .download-hero-card strong,
+body:not([data-page="apps"]) .download-side-card strong,
+body:not([data-page="apps"]) .support-card h3 {
+  margin: 0;
+  color: var(--rn-text);
+  font-size: 1.12rem;
+  line-height: 1.28;
+  letter-spacing: -0.03em;
+}
+
+body:not([data-page="apps"]) .pillar-card p,
+body:not([data-page="apps"]) .surface-card p,
+body:not([data-page="apps"]) .support-card p,
+body:not([data-page="apps"]) .download-hero-card small,
+body:not([data-page="apps"]) .download-side-card small {
+  margin: 0;
+  color: rgba(216, 222, 230, 0.74);
+  line-height: 1.6;
+}
+
+body:not([data-page="apps"]) .surface-grid {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: 16px;
+}
+
+body:not([data-page="apps"]) .surface-card {
+  grid-column: span 6;
+  padding: 16px;
+  gap: 14px;
+}
+
+body:not([data-page="apps"]) .surface-card:first-child,
+body:not([data-page="apps"]) .surface-card:nth-child(5) {
+  grid-column: span 12;
+}
+
+body:not([data-page="apps"]) .surface-card__shot {
+  overflow: hidden;
+}
+
+body:not([data-page="apps"]) .surface-card__copy {
+  display: grid;
+  gap: 8px;
+  padding: 4px 4px 2px;
+}
+
+body:not([data-page="apps"]) .surface-card code {
+  padding: 0.12rem 0.34rem;
+  border-radius: 999px;
+  background: rgba(50, 255, 126, 0.12);
+  color: #d7ffe7;
+}
+
+body:not([data-page="apps"]) .content-section--fit .section-head,
+body:not([data-page="apps"]) .content-section--runtime .section-head {
+  max-width: 620px;
+}
+
+body:not([data-page="apps"]) .usecase-card {
+  min-height: 170px;
+  align-content: start;
+}
+
+body:not([data-page="apps"]) .shelf-card {
+  min-height: 180px;
+}
+
+body:not([data-page="apps"]) .section-actions {
+  display: flex;
+  justify-content: flex-start;
+}
+
+body:not([data-page="apps"]) .download-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.16fr) minmax(280px, 0.84fr);
+  gap: 16px;
+}
+
+body:not([data-page="apps"]) .download-hero-card,
+body:not([data-page="apps"]) .download-side-card {
+  text-align: left;
+  text-decoration: none;
+  color: var(--rn-text);
+}
+
+body:not([data-page="apps"]) .download-hero-card {
+  min-height: 240px;
+  align-content: end;
+  background:
+    radial-gradient(circle at top right, rgba(255, 79, 216, 0.16), transparent 34%),
+    linear-gradient(180deg, rgba(20, 24, 31, 0.92), rgba(11, 15, 20, 0.96));
+  border-color: rgba(255, 79, 216, 0.12);
+}
+
+body:not([data-page="apps"]) .download-side-grid {
+  display: grid;
+  gap: 16px;
+}
+
+body:not([data-page="apps"]) .download-side-card {
+  min-height: 112px;
+  align-content: start;
+}
+
+body:not([data-page="apps"]) .download-side-card small,
+body:not([data-page="apps"]) .download-hero-card small {
+  color: #d7ffe7;
+  font-weight: 600;
+}
+
+body:not([data-page="apps"]) .downloads-actions {
+  margin-top: 6px;
+}
+
+body:not([data-page="apps"]) .support-card {
+  min-height: 100%;
+  align-content: start;
+}
+
+body:not([data-page="apps"]) .support-card__actions {
+  margin-top: 8px;
+}
+
+body:not([data-page="apps"]) .site-footer {
+  padding-bottom: 48px;
+}
+
+@media (max-width: 1120px) {
+  body:not([data-page="apps"]) .shelf-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  body:not([data-page="apps"]) .download-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 1024px) {
+  body:not([data-page="apps"]) .hero {
+    grid-template-columns: 1fr;
+  }
+
+  body:not([data-page="apps"]) .hero-visual {
+    justify-self: stretch;
+    width: 100%;
+  }
+
+  body:not([data-page="apps"]) .pillar-grid,
+  body:not([data-page="apps"]) .usecase-grid,
+  body:not([data-page="apps"]) .runtime-grid {
+    grid-template-columns: 1fr;
+  }
+
+  body:not([data-page="apps"]) .surface-grid {
+    grid-template-columns: 1fr;
+  }
+
+  body:not([data-page="apps"]) .surface-card,
+  body:not([data-page="apps"]) .surface-card:first-child,
+  body:not([data-page="apps"]) .surface-card:nth-child(5) {
+    grid-column: auto;
+  }
+}
+
+@media (max-width: 760px) {
+  body:not([data-page="apps"]) .page-shell {
+    gap: 58px;
+  }
+
+  body:not([data-page="apps"]) .hero::before,
+  body:not([data-page="apps"]) .hero::after {
+    display: none;
+  }
+
+  body:not([data-page="apps"]) .hero-actions,
+  body:not([data-page="apps"]) .downloads-actions {
+    display: grid;
+  }
+
+  body:not([data-page="apps"]) .cta {
+    width: 100%;
+  }
+
+  body:not([data-page="apps"]) .shelf-grid {
+    grid-template-columns: 1fr;
+  }
+}
