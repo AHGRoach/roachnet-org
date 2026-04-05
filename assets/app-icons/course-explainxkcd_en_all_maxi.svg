@@ -1,0 +1,24 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Explain XKCD icon">
+  <defs>
+    <linearGradient id="bg" x1="56" y1="56" x2="456" y2="456" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#180813"/>
+      <stop offset="1" stop-color="#6F1858"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(180 152) rotate(52) scale(282 282)">
+      <stop stop-color="#FF86E1" stop-opacity="0.28"/>
+      <stop offset="1" stop-color="#FF86E1" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect x="22" y="22" width="468" height="468" rx="106" fill="url(#bg)"/>
+  <rect x="22" y="22" width="468" height="468" rx="106" fill="url(#glow)"/>
+  <rect x="42" y="42" width="428" height="428" rx="90" fill="rgba(255,255,255,0.02)" stroke="rgba(255,255,255,0.08)" stroke-width="8"/>
+  
+        <path d="M174 184H338C354 184 366 196 366 212V250C366 266 354 278 338 278H270L234 314V278H174C158 278 146 266 146 250V212C146 196 158 184 174 184Z" fill="rgba(255,255,255,0.04)" stroke="#FFE2F7" stroke-width="10"/>
+        <path d="M194 228H316" stroke="#FF86E1" stroke-width="12" stroke-linecap="round"/>
+        <path d="M194 248H286" stroke="#FF86E1" stroke-width="12" stroke-linecap="round"/>
+      
+  <rect x="82" y="74" width="168" height="42" rx="21" fill="rgba(7,10,16,0.64)" stroke="rgba(255,255,255,0.10)" stroke-width="2"/>
+  <text x="100" y="101" fill="#FF86E1" font-family="Inter, SF Pro Display, Arial, sans-serif" font-size="18" font-weight="700" letter-spacing="0.18em">PLAY</text>
+  <rect x="322" y="368" width="108" height="62" rx="22" fill="rgba(7,10,16,0.72)" stroke="rgba(255,255,255,0.11)" stroke-width="2"/>
+  <text x="376" y="408" text-anchor="middle" fill="#FFF8FD" font-family="JetBrains Mono, SF Mono, monospace" font-size="28" font-weight="700" letter-spacing="0.12em">EX</text>
+</svg>

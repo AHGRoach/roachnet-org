@@ -1,0 +1,23 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Appropedia icon">
+  <defs>
+    <linearGradient id="bg" x1="56" y1="56" x2="456" y2="456" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#08150E"/>
+      <stop offset="1" stop-color="#164C2F"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(180 152) rotate(52) scale(282 282)">
+      <stop stop-color="#73FFA8" stop-opacity="0.28"/>
+      <stop offset="1" stop-color="#73FFA8" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect x="22" y="22" width="468" height="468" rx="106" fill="url(#bg)"/>
+  <rect x="22" y="22" width="468" height="468" rx="106" fill="url(#glow)"/>
+  <rect x="42" y="42" width="428" height="428" rx="90" fill="rgba(255,255,255,0.02)" stroke="rgba(255,255,255,0.08)" stroke-width="8"/>
+  
+        <path d="M168 224L256 154L344 224V348H280V286H232V348H168V224Z" fill="rgba(255,255,255,0.04)" stroke="#D9FFE8" stroke-width="10" stroke-linejoin="round"/>
+        <path d="M314 170C330 170 344 184 344 200C344 222 322 236 304 250C286 236 264 222 264 200C264 184 278 170 294 170C302 170 309 174 314 180C319 174 326 170 334 170Z" fill="#73FFA8"/>
+      
+  <rect x="82" y="74" width="168" height="42" rx="21" fill="rgba(7,10,16,0.64)" stroke="rgba(255,255,255,0.10)" stroke-width="2"/>
+  <text x="100" y="101" fill="#73FFA8" font-family="Inter, SF Pro Display, Arial, sans-serif" font-size="18" font-weight="700" letter-spacing="0.18em">HEARTH</text>
+  <rect x="322" y="368" width="108" height="62" rx="22" fill="rgba(7,10,16,0.72)" stroke="rgba(255,255,255,0.11)" stroke-width="2"/>
+  <text x="376" y="408" text-anchor="middle" fill="#F7FFFA" font-family="JetBrains Mono, SF Mono, monospace" font-size="28" font-weight="700" letter-spacing="0.12em">APPR</text>
+</svg>

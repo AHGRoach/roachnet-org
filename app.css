@@ -1254,6 +1254,23 @@ input:focus-visible {
   transform: translateY(-1px);
 }
 
+.store-generated-icon--asset {
+  padding: 0;
+  background: transparent;
+}
+
+.store-generated-icon--asset::before,
+.store-generated-icon--asset::after {
+  display: none;
+}
+
+.store-generated-icon__art {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
 .store-generated-icon__mesh,
 .store-generated-icon__glyph {
   position: absolute;

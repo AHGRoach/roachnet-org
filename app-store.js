@@ -74,6 +74,56 @@ const sectionDefinitions = [
     layout: 'grid',
   },
   {
+    key: 'Kids & Family',
+    navLabel: 'Kids',
+    eyebrow: 'Family shelf',
+    title: 'Youth-friendly shelves, reading packs, and shared-machine installs.',
+    description:
+      'Story collections, lighter encyclopedias, and family-oriented shelves that make sense on a machine other people touch too.',
+    icon: '✷',
+    layout: 'grid',
+  },
+  {
+    key: 'Open Courses & Lectures',
+    navLabel: 'Courses',
+    eyebrow: 'Course shelf',
+    title: 'Bigger study installs for people who actually use their desktop as a campus.',
+    description:
+      'Lecture libraries, open courses, and structured study packs that install like real apps instead of random downloads.',
+    icon: '▣',
+    layout: 'grid',
+  },
+  {
+    key: 'Math & Problem Solving',
+    navLabel: 'Math',
+    eyebrow: 'Problem shelf',
+    title: 'Proofs, worked examples, and problem-solving lanes with real depth.',
+    description:
+      'Math shelves for drills, intuition, advanced reference, and the kind of long-form thinking that deserves its own lane.',
+    icon: 'Σ',
+    layout: 'grid',
+  },
+  {
+    key: 'Law, History & Society',
+    navLabel: 'Society',
+    eyebrow: 'Civic shelf',
+    title: 'Law, history, philosophy, and public-life reference in one lane.',
+    description:
+      'Useful context for policy, institutions, philosophy, and civic life without turning the machine into a browser graveyard.',
+    icon: '⌂',
+    layout: 'grid',
+  },
+  {
+    key: 'Language & Writing',
+    navLabel: 'Words',
+    eyebrow: 'Language shelf',
+    title: 'Writing, language study, linguistics, and quote-heavy reference that stays close.',
+    description:
+      'Editing, reading, language learning, and language-design shelves that feel useful on a working machine.',
+    icon: '✎',
+    layout: 'grid',
+  },
+  {
     key: 'DIY & Repair',
     navLabel: 'DIY',
     eyebrow: 'Repair shelf',
@@ -104,6 +154,26 @@ const sectionDefinitions = [
     layout: 'grid',
   },
   {
+    key: 'Homestead & Sustainability',
+    navLabel: 'Homestead',
+    eyebrow: 'Self-reliance',
+    title: 'Energy, growing, repair, and practical build-it-yourself reference.',
+    description:
+      'Longer-lived shelves for self-reliance, field fixes, sustainability, and real-world making.',
+    icon: '⌂',
+    layout: 'grid',
+  },
+  {
+    key: 'Finance & Crypto',
+    navLabel: 'Finance',
+    eyebrow: 'Money shelf',
+    title: 'Investing, money, crypto, and finance-heavy reference that still feels practical.',
+    description:
+      'From basic money questions to cryptography and quant-minded reference, this lane keeps the numbers close.',
+    icon: '$',
+    layout: 'grid',
+  },
+  {
     key: 'Software Development',
     navLabel: 'Dev',
     eyebrow: 'Dev shelf',
@@ -121,6 +191,26 @@ const sectionDefinitions = [
     description:
       'Machine learning and data-science packs that help RoachNet feel like a local lab instead of a tab farm.',
     icon: '∿',
+    layout: 'grid',
+  },
+  {
+    key: 'Platforms & Systems',
+    navLabel: 'Systems',
+    eyebrow: 'Systems shelf',
+    title: 'OS docs, package-manager lore, and platform reference for the long machine session.',
+    description:
+      'Platform-specific shelves for package managers, Linux docs, SBCs, and systems work that always seems to matter at 1 AM.',
+    icon: '⌘',
+    layout: 'grid',
+  },
+  {
+    key: 'Security & Privacy',
+    navLabel: 'Security',
+    eyebrow: 'Defense shelf',
+    title: 'Privacy, defense, reverse-engineering, and security reference for the machine you actually trust.',
+    description:
+      'A tighter shelf for threat models, Tor, edge security, and the questions that tend to matter after midnight.',
+    icon: '⛨',
     layout: 'grid',
   },
   {
@@ -164,6 +254,26 @@ const sectionDefinitions = [
     layout: 'grid',
   },
   {
+    key: 'Travel, Mobility & Outdoors',
+    navLabel: 'Mobility',
+    eyebrow: 'Move around',
+    title: 'Travel problem-solving, route thinking, and moving-around reference.',
+    description:
+      'Outdoor, travel, bicycle, aviation, expat, and mobility shelves for life away from the desk.',
+    icon: '⇢',
+    layout: 'grid',
+  },
+  {
+    key: 'Games, Film & Pop Culture',
+    navLabel: 'Culture',
+    eyebrow: 'Culture shelf',
+    title: 'Film, anime, games, genre reference, and media-brain installs.',
+    description:
+      'A deeper pop-culture lane for fandom reference, worldbuilding, film trivia, and the weirdly useful side shelves.',
+    icon: '★',
+    layout: 'grid',
+  },
+  {
     key: 'Dictionaries & Primary Sources',
     navLabel: 'Library',
     eyebrow: 'Deep reference',
@@ -203,28 +313,29 @@ const todayRows = [
   {
     title: 'Quick installs',
     note: 'Good first adds once the shell is in place.',
-    ids: [
-      'base-atlas',
-      'course-zimgit-medicine_en',
-      'course-canadian_prepper_winterprepping_en',
-      'course-phet_en_all_2026-02',
-      'course-devdocs_en_typescript_2026-04',
-      'course-wikivoyage_en_europe_nopic_2026-03',
-      'course-foss.cooking_en_all',
+    sections: [
+      'Map Regions',
+      'Medicine',
+      'Open Courses & Lectures',
+      'Science & Simulations',
+      'Software Development',
+      'Agriculture & Food',
+      'Model Packs',
     ],
   },
   {
     title: 'Editors’ picks',
     note: 'A mix of field packs, learning shelves, and RoachClaw lanes worth adding next.',
-    ids: [
-      'map-pacific',
-      'course-ifixit_en_all',
-      'course-cloudflare.com_en_learning-center',
-      'course-medlineplus.gov_en_all',
-      'course-coreyms_en_python-tutorials',
-      'course-blender.stackexchange.com_en_all_2026-02',
-      'course-wiktionary_en_simple_all_nopic_2026-01',
-      'roachclaw-quickstart',
+    sections: [
+      'Math & Problem Solving',
+      'Law, History & Society',
+      'Security & Privacy',
+      'Music Production & Audio',
+      'Platforms & Systems',
+      'Games, Film & Pop Culture',
+      'Dictionaries & Primary Sources',
+      'Wikipedia',
+      'Model Packs',
     ],
   },
 ]
@@ -636,6 +747,11 @@ function deriveIconFamily(item) {
   ) {
     return 'science'
   }
+  if (haystack.includes('kids') || haystack.includes('family') || haystack.includes('story')) return 'kids'
+  if (haystack.includes('course') || haystack.includes('lecture')) return 'courses'
+  if (haystack.includes('math') || haystack.includes('problem solving')) return 'math'
+  if (haystack.includes('law') || haystack.includes('history') || haystack.includes('society')) return 'civic'
+  if (haystack.includes('language') || haystack.includes('writing') || haystack.includes('linguistics')) return 'language'
   if (haystack.includes('repair') || haystack.includes('diy')) return 'repair'
   if (
     haystack.includes('maker') ||
@@ -646,9 +762,13 @@ function deriveIconFamily(item) {
   ) {
     return 'maker'
   }
+  if (haystack.includes('homestead') || haystack.includes('sustainability')) return 'homestead'
+  if (haystack.includes('finance') || haystack.includes('crypto')) return 'finance'
   if (haystack.includes('agriculture') || haystack.includes('food')) return 'agriculture'
   if (haystack.includes('software') || haystack.includes('dev')) return 'development'
   if (haystack.includes('machine learning') || haystack.includes('data science')) return 'ml'
+  if (haystack.includes('platform') || haystack.includes('systems')) return 'systems'
+  if (haystack.includes('security') || haystack.includes('privacy') || haystack.includes('tor')) return 'security'
   if (haystack.includes('audio') || haystack.includes('music')) return 'audio'
   if (
     haystack.includes('design') ||
@@ -660,6 +780,7 @@ function deriveIconFamily(item) {
   }
   if (haystack.includes('infrastructure') || haystack.includes('it')) return 'infrastructure'
   if (haystack.includes('travel') || haystack.includes('voyage') || haystack.includes('guide')) return 'travel'
+  if (haystack.includes('culture') || haystack.includes('games') || haystack.includes('film')) return 'culture'
   if (
     haystack.includes('dictionary') ||
     haystack.includes('primary sources') ||
@@ -686,16 +807,32 @@ function deriveIconGlyph(item, family = deriveIconFamily(item)) {
       return 'READ'
     case 'science':
       return 'LAB'
+    case 'kids':
+      return 'KIDS'
+    case 'courses':
+      return 'COURSE'
+    case 'math':
+      return 'MATH'
+    case 'civic':
+      return 'CIVIC'
+    case 'language':
+      return 'WORDS'
     case 'repair':
       return 'FIX'
     case 'maker':
       return 'MKR'
     case 'agriculture':
       return 'ROOT'
+    case 'finance':
+      return 'FIN'
     case 'development':
       return 'DEV'
     case 'ml':
       return 'ML'
+    case 'systems':
+      return 'SYS'
+    case 'security':
+      return 'SEC'
     case 'audio':
       return 'AUDIO'
     case 'design':
@@ -704,6 +841,10 @@ function deriveIconGlyph(item, family = deriveIconFamily(item)) {
       return 'NET'
     case 'travel':
       return 'TRVL'
+    case 'culture':
+      return 'PLAY'
+    case 'homestead':
+      return 'HOME'
     case 'library':
       return 'LIB'
     case 'wikipedia':
@@ -716,6 +857,20 @@ function deriveIconGlyph(item, family = deriveIconFamily(item)) {
 }
 
 function renderStoreIcon(item, variant = 'card') {
+  if (item.iconAsset) {
+    return `
+      <div
+        class="store-generated-icon store-generated-icon--${variant} store-generated-icon--asset"
+        data-icon-family="${escapeHtml(deriveIconFamily(item))}"
+        data-accent="${item.accent || 'blue'}"
+        role="img"
+        aria-label="${escapeHtml(item.title)} icon"
+      >
+        <img class="store-generated-icon__art" src="${escapeHtml(item.iconAsset)}" alt="" loading="lazy" decoding="async" />
+      </div>
+    `
+  }
+
   const family = deriveIconFamily(item)
   const glyph = deriveIconGlyph(item, family)
   const band = item.iconBand || item.category || 'RoachNet'
@@ -862,6 +1017,26 @@ function byIds(ids) {
   return ids.map(findItemById).filter(Boolean)
 }
 
+function bySections(sectionKeys, limit = sectionKeys.length) {
+  const picks = []
+  const seen = new Set()
+
+  for (const section of sectionKeys) {
+    const candidate = getSectionItems(section).find((item) => {
+      if (seen.has(item.id)) return false
+      return item.id !== todayFeaturedId
+    })
+
+    if (!candidate) continue
+    seen.add(candidate.id)
+    picks.push(candidate)
+
+    if (picks.length >= limit) break
+  }
+
+  return picks
+}
+
 function renderSidebarNav() {
   if (!sidebarNav) return
 
@@ -962,7 +1137,7 @@ function renderShelfRow(title, note, items) {
 function renderTodayView() {
   const featured = findItemById(todayFeaturedId) || getEnrichedItems()[0]
   const quickRows = todayRows
-    .map((row) => renderShelfRow(row.title, row.note, byIds(row.ids)))
+    .map((row) => renderShelfRow(row.title, row.note, row.ids ? byIds(row.ids) : bySections(row.sections || [])))
     .join('')
 
   renderSectionHead('')

@@ -1,0 +1,25 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Gardening Q&amp;A icon">
+  <defs>
+    <linearGradient id="bg" x1="56" y1="56" x2="456" y2="456" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#07151A"/>
+      <stop offset="1" stop-color="#0F4957"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(180 152) rotate(52) scale(282 282)">
+      <stop stop-color="#7CF9F3" stop-opacity="0.28"/>
+      <stop offset="1" stop-color="#7CF9F3" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect x="22" y="22" width="468" height="468" rx="106" fill="url(#bg)"/>
+  <rect x="22" y="22" width="468" height="468" rx="106" fill="url(#glow)"/>
+  <rect x="42" y="42" width="428" height="428" rx="90" fill="rgba(255,255,255,0.02)" stroke="rgba(255,255,255,0.08)" stroke-width="8"/>
+  
+        <path d="M256 148C310 176 340 222 340 278C340 332 302 370 256 388C210 370 172 332 172 278C172 222 202 176 256 148Z" fill="rgba(255,255,255,0.04)" stroke="#D0FFFC" stroke-width="10"/>
+        <path d="M256 182V334" stroke="#7CF9F3" stroke-width="14" stroke-linecap="round"/>
+        <path d="M256 232C218 228 198 206 190 186" stroke="#7CF9F3" stroke-width="12" stroke-linecap="round"/>
+        <path d="M256 270C294 266 314 244 322 224" stroke="#7CF9F3" stroke-width="12" stroke-linecap="round"/>
+      
+  <rect x="82" y="74" width="168" height="42" rx="21" fill="rgba(7,10,16,0.64)" stroke="rgba(255,255,255,0.10)" stroke-width="2"/>
+  <text x="100" y="101" fill="#7CF9F3" font-family="Inter, SF Pro Display, Arial, sans-serif" font-size="18" font-weight="700" letter-spacing="0.18em">Stack</text>
+  <rect x="322" y="368" width="108" height="62" rx="22" fill="rgba(7,10,16,0.72)" stroke="rgba(255,255,255,0.11)" stroke-width="2"/>
+  <text x="376" y="408" text-anchor="middle" fill="#F5FFFF" font-family="JetBrains Mono, SF Mono, monospace" font-size="28" font-weight="700" letter-spacing="0.12em">GARD</text>
+</svg>

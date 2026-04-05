@@ -19,15 +19,26 @@ const categoryAccents = {
   survival: 'gold',
   education: 'blue',
   'science-simulations': 'cyan',
+  'kids-family': 'green',
+  'open-courses': 'violet',
+  'math-logic': 'violet',
+  'law-history-society': 'bronze',
+  'language-writing': 'blue',
   diy: 'bronze',
   'maker-electronics': 'gold',
   agriculture: 'green',
+  'finance-crypto': 'gold',
   computing: 'violet',
   'machine-learning': 'cyan',
+  'platforms-systems': 'bronze',
+  'security-privacy': 'cyan',
   'music-audio': 'magenta',
   'design-visual-media': 'violet',
   'it-infrastructure': 'bronze',
   'travel-field-guides': 'blue',
+  'travel-mobility-outdoors': 'cyan',
+  'games-pop-culture': 'magenta',
+  'homestead-sustainability': 'green',
   'dictionaries-primary-sources': 'violet',
 }
 
@@ -36,15 +47,26 @@ const categoryBands = {
   survival: 'FIELD',
   education: 'EDU',
   'science-simulations': 'SCI',
+  'kids-family': 'KIDS',
+  'open-courses': 'COURSE',
+  'math-logic': 'SIGMA',
+  'law-history-society': 'CIVIC',
+  'language-writing': 'WORDS',
   diy: 'FIX',
   'maker-electronics': 'LAB',
   agriculture: 'GROW',
+  'finance-crypto': 'FIN',
   computing: 'DEV',
   'machine-learning': 'ML',
+  'platforms-systems': 'SYS',
+  'security-privacy': 'SEC',
   'music-audio': 'AUDIO',
   'design-visual-media': 'VIS',
   'it-infrastructure': 'OPS',
   'travel-field-guides': 'TRVL',
+  'travel-mobility-outdoors': 'ROAM',
+  'games-pop-culture': 'PLAY',
+  'homestead-sustainability': 'HEARTH',
   'dictionaries-primary-sources': 'LIB',
 }
 
@@ -254,7 +276,29 @@ function iconBandForResource(categorySlug, resource) {
   if (url.includes('/videos/coreyms_')) return 'Corey'
   if (url.includes('/videos/studio.blender.org')) return 'Studio'
   if (url.includes('/videos/avanti-')) return 'Avanti'
+  if (url.includes('/zimit/anonymousplanet.org')) return 'Anon'
+  if (url.includes('/zimit/cheatography.com')) return 'Cheat'
+  if (url.includes('/zimit/citizensinformation.ie')) return 'Civic'
+  if (url.includes('/zimit/edu.gcfglobal.org')) return 'GCF'
+  if (url.includes('/zimit/ethanweed')) return 'Weed'
+  if (url.includes('/zimit/htdp.org')) return 'HtDP'
+  if (url.includes('/zimit/internet-encyclopedia-philosophy')) return 'IEP'
+  if (url.includes('/zimit/jeffe.cs.illinois.edu')) return 'Algo'
+  if (url.includes('/zimit/lost-stats.github.io')) return 'Stats'
+  if (url.includes('/zimit/apod.nasa.gov')) return 'APOD'
+  if (url.includes('/zimit/cd3wdproject.org')) return 'Field'
+  if (url.includes('/zimit/fretmap.app')) return 'Fret'
+  if (url.includes('/zimit/celticscores.com')) return 'Score'
+  if (url.includes('/other/ibanezwiki')) return 'Ibanez'
+  if (url.includes('/other/chopin.lib.uchicago.edu')) return 'Chopin'
+  if (url.includes('/zimit/based.cooking')) return 'Cook'
+  if (url.includes('/zimit/grimgrains')) return 'Grain'
+  if (url.includes('/zimit/devhints.io')) return 'Hints'
   if (url.includes('/zimit/docs.python.org')) return 'Python'
+  if (url.includes('/zimit/getbootstrap.com')) return 'Boot'
+  if (url.includes('/zimit/lua.org')) return 'Lua'
+  if (url.includes('/zimit/dart.dev')) return 'Dart'
+  if (url.includes('/zimit/incognitocat.me')) return 'Incog'
   if (url.includes('/zimit/learningstatisticswithr.com')) return 'LSR'
   if (url.includes('/devdocs/')) return 'Docs'
   if (url.includes('/zimit/openmusictheory.com')) return 'Theory'
@@ -265,8 +309,12 @@ function iconBandForResource(categorySlug, resource) {
   if (url.includes('/wiktionary/')) return 'Dict'
   if (url.includes('/wikisource/')) return 'Source'
   if (url.includes('/gutenberg/')) return 'Guten'
+  if (url.includes('/other/allthetropes')) return 'Tropes'
+  if (url.includes('/other/bulbagarden')) return 'Bulba'
+  if (url.includes('/other/citizendium')) return 'Civic'
   if (url.includes('/other/archlinux')) return 'Arch'
   if (url.includes('/other/alpinelinux')) return 'Alpine'
+  if (url.includes('/other/gentoo')) return 'Gentoo'
 
   return categoryBands[categorySlug] || 'Roach'
 }
@@ -371,15 +419,78 @@ function machineFitForSize(sizeMB) {
   return 'Large offline shelf best staged after the main runtime is settled'
 }
 
+function iconAssetForItem(id) {
+  return `./assets/app-icons/${id}.svg`
+}
+
+function iconFamilyForCategorySlug(categorySlug) {
+  return (
+    {
+      medicine: 'medicine',
+      survival: 'survival',
+      education: 'education',
+      'science-simulations': 'science',
+      'kids-family': 'kids',
+      'open-courses': 'courses',
+      'math-logic': 'math',
+      'law-history-society': 'civic',
+      'language-writing': 'language',
+      diy: 'repair',
+      'maker-electronics': 'maker',
+      agriculture: 'agriculture',
+      'finance-crypto': 'finance',
+      computing: 'development',
+      'machine-learning': 'ml',
+      'platforms-systems': 'systems',
+      'security-privacy': 'security',
+      'music-audio': 'audio',
+      'design-visual-media': 'design',
+      'it-infrastructure': 'infrastructure',
+      'travel-field-guides': 'travel',
+      'travel-mobility-outdoors': 'travel',
+      'games-pop-culture': 'culture',
+      'homestead-sustainability': 'homestead',
+      'dictionaries-primary-sources': 'library',
+    }[categorySlug] || 'general'
+  )
+}
+
 function sourceLabelForResource(resource) {
   const url = resource.url || ''
 
   if (url.includes('/freecodecamp/')) return 'freeCodeCamp via Kiwix'
   if (url.includes('/videos/coreyms_')) return 'Corey Schafer via Kiwix'
+  if (url.includes('/videos/biologycourses_')) return 'Biology Courses via Kiwix'
   if (url.includes('/videos/studio.blender.org')) return 'Blender Studio via Kiwix'
   if (url.includes('/videos/avanti-')) return 'Avanti via Kiwix'
+  if (url.includes('/zimit/anonymousplanet.org')) return 'Anonymous Planet via Kiwix'
+  if (url.includes('/zimit/cheatography.com')) return 'Cheatography via Kiwix'
+  if (url.includes('/zimit/citizensinformation.ie')) return 'Citizens Information via Kiwix'
+  if (url.includes('/zimit/edu.gcfglobal.org')) return 'GCFGlobal via Kiwix'
+  if (url.includes('/zimit/ethanweed')) return 'Ethan Weed via Kiwix'
+  if (url.includes('/zimit/htdp.org')) return 'How to Design Programs via Kiwix'
+  if (url.includes('/zimit/internet-encyclopedia-philosophy')) return 'Internet Encyclopedia of Philosophy via Kiwix'
+  if (url.includes('/zimit/jeffe.cs.illinois.edu')) return 'Jeff Erickson via Kiwix'
+  if (url.includes('/zimit/lost-stats.github.io')) return 'Lost Stats via Kiwix'
+  if (url.includes('/zimit/apod.nasa.gov')) return 'NASA APOD via Kiwix'
+  if (url.includes('/zimit/cd3wdproject.org')) return 'CD3WD via Kiwix'
+  if (url.includes('/zimit/fretmap.app')) return 'FretMap via Kiwix'
+  if (url.includes('/zimit/celticscores.com')) return 'Celtic Scores via Kiwix'
+  if (url.includes('/other/ibanezwiki')) return 'Ibanez Wiki via Kiwix'
+  if (url.includes('/other/chopin.lib.uchicago.edu')) return 'Chopin Early Editions via Kiwix'
+  if (url.includes('/zimit/based.cooking')) return 'Based Cooking via Kiwix'
+  if (url.includes('/zimit/grimgrains')) return 'Grim Grains via Kiwix'
+  if (url.includes('/zimit/devhints.io')) return 'Devhints via Kiwix'
   if (url.includes('/zimit/docs.python.org')) return 'Python Docs via Kiwix'
+  if (url.includes('/zimit/getbootstrap.com')) return 'Bootstrap via Kiwix'
+  if (url.includes('/zimit/lua.org')) return 'Lua.org via Kiwix'
+  if (url.includes('/zimit/dart.dev')) return 'Dart via Kiwix'
+  if (url.includes('/zimit/incognitocat.me')) return 'Incognito Cat via Kiwix'
+  if (url.includes('/zimit/gobyexample.com')) return 'Go by Example via Kiwix'
   if (url.includes('/zimit/learningstatisticswithr.com')) return 'Learning Statistics with R via Kiwix'
+  if (url.includes('/zimit/milneopentextbooks.org')) return 'Milne Open Textbooks via Kiwix'
+  if (url.includes('/zimit/planetmath.org')) return 'PlanetMath via Kiwix'
+  if (url.includes('/zimit/stacks.math.columbia.edu')) return 'Stacks Project via Kiwix'
   if (url.includes('/devdocs/')) return 'DevDocs via Kiwix'
   if (url.includes('/ted/')) return 'TED via Kiwix'
   if (url.includes('/zimit/openmusictheory.com')) return 'Open Music Theory via Kiwix'
@@ -388,12 +499,32 @@ function sourceLabelForResource(resource) {
   if (url.includes('/libretexts/')) return 'LibreTexts via Kiwix'
   if (url.includes('/stack_exchange/')) return 'Stack Exchange via Kiwix'
   if (url.includes('/phet/')) return 'PhET via Kiwix'
+  if (url.includes('/vikidia/')) return 'Vikidia via Kiwix'
+  if (url.includes('/wikiquote/')) return 'Wikiquote via Kiwix'
+  if (url.includes('/wikinews/')) return 'Wikinews via Kiwix'
   if (url.includes('/wikivoyage/')) return 'Wikivoyage via Kiwix'
   if (url.includes('/wiktionary/')) return 'Wiktionary via Kiwix'
   if (url.includes('/wikisource/')) return 'Wikisource via Kiwix'
   if (url.includes('/gutenberg/')) return 'Project Gutenberg via Kiwix'
+  if (url.includes('/other/africanstorybook.org')) return 'African Storybook via Kiwix'
+  if (url.includes('/other/allthetropes')) return 'All The Tropes via Kiwix'
+  if (url.includes('/other/bulbagarden')) return 'Bulbagarden via Kiwix'
+  if (url.includes('/other/citizendium')) return 'Citizendium via Kiwix'
+  if (url.includes('/other/khanacademy')) return 'Khan Academy via Kiwix'
+  if (url.includes('/other/crashcourse')) return 'Crash Course via Kiwix'
+  if (url.includes('/other/artofproblemsolving')) return 'Art of Problem Solving via Kiwix'
+  if (url.includes('/other/appropedia')) return 'Appropedia via Kiwix'
+  if (url.includes('/other/energypedia')) return 'Energypedia via Kiwix'
+  if (url.includes('/other/finiki')) return 'Finiki via Kiwix'
+  if (url.includes('/other/bogleheads')) return 'Bogleheads via Kiwix'
+  if (url.includes('/other/bitcoin_')) return 'Bitcoin Wiki via Kiwix'
+  if (url.includes('/other/edutechwiki')) return 'EdutechWiki via Kiwix'
+  if (url.includes('/other/explainxkcd')) return 'Explain XKCD via Kiwix'
+  if (url.includes('/other/folgerpedia.folger.edu')) return 'Folgerpedia via Kiwix'
+  if (url.includes('/other/hitchwiki')) return 'Hitchwiki via Kiwix'
   if (url.includes('/other/archlinux')) return 'Arch Linux docs via Kiwix'
   if (url.includes('/other/alpinelinux')) return 'Alpine Linux docs via Kiwix'
+  if (url.includes('/other/gentoo')) return 'Gentoo docs via Kiwix'
 
   return 'RoachNet knowledge mirror'
 }
@@ -404,15 +535,26 @@ function summaryForResource(categorySlug, resource, tierLabel) {
     survival: 'field shelf',
     education: 'study shelf',
     'science-simulations': 'science shelf',
+    'kids-family': 'family shelf',
+    'open-courses': 'course shelf',
+    'math-logic': 'math shelf',
+    'law-history-society': 'civic shelf',
+    'language-writing': 'language shelf',
     diy: 'repair shelf',
     'maker-electronics': 'maker shelf',
     agriculture: 'grow shelf',
+    'finance-crypto': 'finance shelf',
     computing: 'dev shelf',
     'machine-learning': 'ML shelf',
+    'platforms-systems': 'systems shelf',
+    'security-privacy': 'security shelf',
     'music-audio': 'audio shelf',
     'design-visual-media': 'design shelf',
     'it-infrastructure': 'ops shelf',
     'travel-field-guides': 'travel shelf',
+    'travel-mobility-outdoors': 'mobility shelf',
+    'games-pop-culture': 'culture shelf',
+    'homestead-sustainability': 'homestead shelf',
     'dictionaries-primary-sources': 'library shelf',
   }[categorySlug] || 'knowledge shelf'
 
@@ -456,6 +598,8 @@ function toCatalog() {
       },
       iconBand: 'RoachNet',
       iconMonogram: 'MAP',
+      iconFamily: 'maps',
+      iconAsset: iconAssetForItem('base-atlas'),
     }
 
     const mapItems = mapsData.collections.map((collection, index) => {
@@ -493,6 +637,8 @@ function toCatalog() {
         },
         iconBand: 'Maps',
         iconMonogram: shortMonogram(collection.name),
+        iconFamily: 'maps',
+        iconAsset: iconAssetForItem(`map-${collection.slug}`),
       }
     })
 
@@ -527,6 +673,8 @@ function toCatalog() {
             resource: resource.id,
           },
           iconBand: iconBandForResource(category.slug, resource),
+          iconFamily: iconFamilyForCategorySlug(category.slug),
+          iconAsset: iconAssetForItem(`course-${resource.id}`),
           __iconCandidates: iconMonogramCandidates(resource),
         }))
       })
@@ -568,6 +716,8 @@ function toCatalog() {
         },
         iconBand: 'WIKI',
         iconMonogram: shortMonogram(option.name),
+        iconFamily: 'wikipedia',
+        iconAsset: iconAssetForItem(`wiki-${option.id}`),
       }))
 
     const items = [
@@ -580,6 +730,8 @@ function toCatalog() {
         installLabel: modelPackInstallLabel(),
         detailLabel: 'Open RoachClaw',
         detailUrl: 'https://roachnet.org/#screens',
+        iconFamily: 'models',
+        iconAsset: iconAssetForItem(item.id),
       })),
     ]
 

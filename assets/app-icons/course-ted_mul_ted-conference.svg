@@ -1,0 +1,24 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="TED Conference icon">
+  <defs>
+    <linearGradient id="bg" x1="56" y1="56" x2="456" y2="456" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#120A1D"/>
+      <stop offset="1" stop-color="#3F2575"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(180 152) rotate(52) scale(282 282)">
+      <stop stop-color="#BC9CFF" stop-opacity="0.28"/>
+      <stop offset="1" stop-color="#BC9CFF" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect x="22" y="22" width="468" height="468" rx="106" fill="url(#bg)"/>
+  <rect x="22" y="22" width="468" height="468" rx="106" fill="url(#glow)"/>
+  <rect x="42" y="42" width="428" height="428" rx="90" fill="rgba(255,255,255,0.02)" stroke="rgba(255,255,255,0.08)" stroke-width="8"/>
+  
+        <path d="M148 188C148 170 162 156 180 156H252C274 156 292 170 300 188V336C292 320 274 308 252 308H180C162 308 148 322 148 340V188Z" fill="rgba(255,255,255,0.04)" stroke="#EEE5FF" stroke-width="10"/>
+        <path d="M364 188C364 170 350 156 332 156H260C238 156 220 170 212 188V336C220 320 238 308 260 308H332C350 308 364 322 364 340V188Z" fill="rgba(255,255,255,0.04)" stroke="#EEE5FF" stroke-width="10"/>
+        <path d="M256 164V332" stroke="#BC9CFF" stroke-width="12" stroke-linecap="round"/>
+      
+  <rect x="82" y="74" width="168" height="42" rx="21" fill="rgba(7,10,16,0.64)" stroke="rgba(255,255,255,0.10)" stroke-width="2"/>
+  <text x="100" y="101" fill="#C9A8FF" font-family="Inter, SF Pro Display, Arial, sans-serif" font-size="18" font-weight="700" letter-spacing="0.18em">TED</text>
+  <rect x="322" y="368" width="108" height="62" rx="22" fill="rgba(7,10,16,0.72)" stroke="rgba(255,255,255,0.11)" stroke-width="2"/>
+  <text x="376" y="408" text-anchor="middle" fill="#FAF7FF" font-family="JetBrains Mono, SF Mono, monospace" font-size="28" font-weight="700" letter-spacing="0.12em">TED</text>
+</svg>
