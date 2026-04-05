@@ -1,6 +1,6 @@
 const owner = 'AHGRoach'
 const repo = 'RoachNet'
-const releaseVersion = '1.0'
+const releaseVersion = '1.0.1'
 const latestReleaseApi = `https://api.github.com/repos/${owner}/${repo}/releases/latest`
 const latestReleasePage = `https://github.com/${owner}/${repo}/releases/latest`
 const latestDownloadBase = `https://github.com/${owner}/${repo}/releases/latest/download`
@@ -9,6 +9,11 @@ const hostedDownloads = {
     url: `${latestDownloadBase}/RoachNet-Setup-macOS.dmg`,
     name: 'RoachNet-Setup-macOS.dmg',
     version: releaseVersion,
+  },
+  win: {
+    url: `${latestDownloadBase}/RoachNet-Setup-windows-x64-beta.exe`,
+    name: 'RoachNet-Setup-windows-x64-beta.exe',
+    version: '0.0.1 beta',
   },
 }
 
@@ -46,7 +51,12 @@ const platformPresets = {
   },
   win: {
     label: 'Windows 11',
-    patterns: [/RoachNet-Setup-.*-win-.*\.exe$/i],
+    patterns: [
+      /^RoachNet-Setup-windows-x64-beta\.exe$/i,
+      /^RoachNet-Setup-.*windows.*\.exe$/i,
+      /^RoachNet-Setup-.*win.*\.exe$/i,
+      /^RoachNet-Setup-windows-x64-beta\.zip$/i,
+    ],
   },
   linux: {
     label: 'Linux',

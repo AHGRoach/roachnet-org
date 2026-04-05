@@ -1,6 +1,6 @@
 const owner = 'AHGRoach'
 const repo = 'RoachNet'
-const releaseVersion = '1.0'
+const releaseVersion = '1.0.1'
 const latestReleaseApi = `https://api.github.com/repos/${owner}/${repo}/releases/latest`
 const latestReleasePage = `https://github.com/${owner}/${repo}/releases/latest`
 const latestDownloadBase = `https://github.com/${owner}/${repo}/releases/latest/download`
@@ -9,6 +9,11 @@ const hostedDownloads = {
     url: `${latestDownloadBase}/RoachNet-Setup-macOS.dmg`,
     name: 'RoachNet-Setup-macOS.dmg',
     version: releaseVersion,
+  },
+  win: {
+    url: `${latestDownloadBase}/RoachNet-Setup-windows-x64-beta.exe`,
+    name: 'RoachNet-Setup-windows-x64-beta.exe',
+    version: '0.0.1 beta',
   },
 }
 
@@ -563,10 +568,11 @@ function detectPlatform() {
 function setDownloadButton() {
   if (!primaryDownloadButton) return
 
-  const label = detectPlatform() === 'mac' ? 'macOS' : detectPlatform() === 'win' ? 'Windows' : 'Linux'
-  const asset = hostedDownloads.mac
+  const platformKey = detectPlatform()
+  const asset = hostedDownloads[platformKey] || hostedDownloads.mac
+  const label = platformKey === 'mac' ? 'macOS' : platformKey === 'win' ? 'Windows 11' : 'Linux'
 
-  primaryDownloadButton.textContent = `Download RoachNet ${asset.version} for ${label === 'macOS' ? 'macOS' : 'macOS'}`
+  primaryDownloadButton.textContent = `Download RoachNet ${asset.version} for ${label}`
   primaryDownloadButton.onclick = () => {
     window.location.href = asset.url
   }
@@ -590,16 +596,26 @@ async function loadLatestRelease() {
     }
 
     state.latestRelease = await response.json()
-    const asset = state.latestRelease.assets?.find((candidate) => /RoachNet-Setup-macOS\.dmg/i.test(candidate.name))
-    const version = state.latestRelease.tag_name?.replace(/^v/i, '') || releaseVersion
+    const platformKey = detectPlatform()
+    const asset =
+      state.latestRelease.assets?.find((candidate) =>
+        platformKey === 'win'
+          ? /RoachNet-Setup-windows-x64-beta\.exe/i.test(candidate.name)
+          : /RoachNet-Setup-macOS\.dmg/i.test(candidate.name)
+      ) || null
+    const version = platformKey === 'win'
+      ? '0.0.1 beta'
+      : state.latestRelease.tag_name?.replace(/^v/i, '') || releaseVersion
+    const label = platformKey === 'win' ? 'Windows 11' : 'macOS'
 
-    primaryDownloadButton.textContent = `Download RoachNet ${version} for macOS`
+    primaryDownloadButton.textContent = `Download RoachNet ${version} for ${label}`
     primaryDownloadButton.onclick = () => {
-      window.location.href = asset?.browser_download_url || hostedDownloads.mac.url
+      window.location.href = asset?.browser_download_url || (hostedDownloads[platformKey] || hostedDownloads.mac).url
     }
 
     if (downloadMeta) {
-      downloadMeta.textContent = `Starts with RoachNet Setup v${version} · ${asset?.name || hostedDownloads.mac.name}`
+      const fallbackAsset = hostedDownloads[platformKey] || hostedDownloads.mac
+      downloadMeta.textContent = `Starts with RoachNet Setup v${version} · ${asset?.name || fallbackAsset.name}`
     }
   } catch (error) {
     primaryDownloadButton.onclick = () => {

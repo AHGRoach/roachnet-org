@@ -4,8 +4,8 @@ const apiGroups = [
     label: 'Setup API',
     scope: 'setup',
     basePath: '/api',
-    summary: 'Bootstraps clean installs before the full runtime exists.',
-    stack: 'Setup server -> run-roachnet-setup.mjs -> installer workflow helpers',
+    summary: 'Stages contained installs before the full runtime exists.',
+    stack: 'Setup server -> run-roachnet-setup.mjs -> staged install + bundled runtime helpers',
     callers: ['RoachNet Setup.app'],
     endpoints: [
       {
@@ -13,27 +13,27 @@ const apiGroups = [
         method: 'GET',
         path: '/state',
         title: 'Installer state',
-        summary: 'Returns machine state, dependency scan, saved config, and active setup task state.',
+        summary: 'Returns machine state, saved setup choices, Docker preference, and active task state.',
         handler: 'getInstallerState',
         request: [
           'Query: installPath, installedAppPath, sourceMode, sourceRepoUrl, sourceRef',
-          'Flags: autoInstallDependencies, installRoachClaw, autoLaunch, autoCheckUpdates, launchAtLogin, dryRun',
-          'Options: roachClawDefaultModel, releaseChannel, updateBaseUrl',
+          'Flags: installRoachClaw, useDockerContainerization, autoLaunch, autoCheckUpdates, launchAtLogin, dryRun',
+          'Options: roachClawDefaultModel, releaseChannel, updateBaseUrl, installPath, storagePath',
         ],
         response: [
           'system, config, installPath, nativeApp, installLooksReady',
           'containerRuntime, dependencies, activeTask, lastCompletedTask, sourceModes',
         ],
         implementation:
-          'Normalizes installer config, probes package manager and dependency state, checks the container runtime, and merges persisted installer settings before the UI paints.',
-        usedBy: ['Setup overview screen', 'Install-path editor', 'Dependency readiness cards'],
+          'Normalizes installer config, probes bundled-vs-host dependency state, checks the optional Docker lane, and merges persisted installer settings before the setup UI paints.',
+        usedBy: ['Setup overview screen', 'Install-path editor', 'Dependency readiness cards', 'Docker opt-in toggle'],
       },
       {
         id: 'setup-install',
         method: 'POST',
         path: '/install',
         title: 'Start install workflow',
-        summary: 'Starts the full install, build, and native-app handoff task.',
+        summary: 'Starts the staged contained install and native-app handoff task.',
         handler: 'handleInstallRequest',
         request: [
           'Body: installer config payload from the setup UI',
@@ -41,7 +41,7 @@ const apiGroups = [
         ],
         response: ['JSON: { ok: true } or { ok: true, task } in dryRun mode', '409 if a setup task is already running'],
         implementation:
-          'Validates that no other setup task is active, derives defaults, then launches the install workflow that checks dependencies, ensures Docker, fetches source, prepares env files, starts support services, builds admin, and installs the native app.',
+          'Validates that no other setup task is active, stages the install in a temp root, copies the bundled source tree, installs contained OpenClaw and Ollama into the RoachNet folder, installs the bundled native app from InstallerAssets, smoke-tests /api/health, then promotes the staged tree or removes it on failure.',
         usedBy: ['Primary install button in Setup.app'],
       },
       {
@@ -49,12 +49,12 @@ const apiGroups = [
         method: 'POST',
         path: '/container-runtime/start',
         title: 'Start container runtime',
-        summary: 'Boots or installs the contained container runtime lane for setup.',
+        summary: 'Boots the optional Docker-backed runtime lane for setup.',
         handler: 'handleContainerRuntimeStartRequest',
         request: ['No body required'],
         response: ['JSON: { ok: true, runtime }', '400 on runtime bootstrap failure'],
         implementation:
-          'Calls the runtime starter used by setup so Docker or the compatible container lane is available before service installs begin.',
+          'Calls the runtime starter used by setup when the user opts into Docker-backed support services instead of the default contained local lane.',
         usedBy: ['Setup dependency/runtime stage'],
       },
       {
@@ -67,8 +67,8 @@ const apiGroups = [
         request: ['Body: partial installer config payload'],
         response: ['JSON: { ok: true, config }'],
         implementation:
-          'Runs the same config normalization as install, then persists the result so the setup UI can resume cleanly.',
-        usedBy: ['Install-path chooser', 'RoachClaw toggles', 'setup preference screens'],
+          'Runs the same config normalization as install, then persists the result so setup can resume cleanly across install path, storage path, Docker, and RoachClaw choices.',
+        usedBy: ['Install-path chooser', 'Storage-path chooser', 'RoachClaw toggles', 'Docker toggle'],
       },
       {
         id: 'setup-launch',
@@ -103,8 +103,8 @@ const apiGroups = [
         handler: 'inline handler',
         request: ['No body required'],
         response: ['JSON: { status: "ok" }'],
-        implementation: 'Used as the fast liveness route for native runtime boot checks and container health probes.',
-        usedBy: ['ManagedAppRuntime', 'scripts/run-roachnet.mjs', 'container health checks'],
+        implementation: 'Used as the fast liveness route for the setup smoke test, native runtime boot checks, and container health probes.',
+        usedBy: ['ManagedAppRuntime', 'scripts/run-roachnet.mjs', 'run-roachnet-setup.mjs', 'container health checks'],
       },
       {
         id: 'easy-setup-curated-categories',
@@ -339,7 +339,8 @@ const apiGroups = [
         handler: 'index',
         request: ['No body required'],
         response: ['Full download job list'],
-        implementation: 'Reads current download job state from DownloadService.',
+        implementation:
+          'Reads current download job state from DownloadService and the shared queue registry so contained-mode model pulls and App Store content installs stay visible across requests.',
         usedBy: ['ManagedAppRuntime', 'download dashboard'],
       },
       {
@@ -373,7 +374,7 @@ const apiGroups = [
     label: 'Ollama',
     scope: 'runtime',
     basePath: '/api/ollama',
-    summary: 'Model catalog, local/cloud chat, and model lifecycle operations.',
+    summary: 'Contained model catalog, local/cloud chat, and model lifecycle operations.',
     stack: 'OllamaController -> OllamaService / RagService / ChatService',
     callers: ['RoachClaw', 'AI chat', 'model store', 'ManagedAppRuntime'],
     endpoints: [
@@ -417,8 +418,9 @@ const apiGroups = [
         handler: 'dispatchModelDownload',
         request: ['Body: { model }'],
         response: ['JSON: { success, message }'],
-        implementation: 'Validates the model name and dispatches the download through OllamaService.',
-        usedBy: ['Model store install actions'],
+        implementation:
+          'Validates the model name and dispatches the download through OllamaService. In contained queue-disabled mode the inline worker retries until the local Ollama lane is ready, so first-boot model pulls stay alive on clean installs.',
+        usedBy: ['Model store install actions', 'first-launch RoachClaw bootstrap'],
       },
       {
         id: 'ollama-models-delete',
@@ -441,8 +443,8 @@ const apiGroups = [
         handler: 'installedModels',
         request: ['No body required'],
         response: ['Installed model array'],
-        implementation: 'Reads the installed-model list and falls back to an empty array if the runtime is unavailable.',
-        usedBy: ['ManagedAppRuntime', 'RoachClaw status', 'model picker'],
+        implementation: 'Reads the installed-model list from the active Ollama lane and falls back to an empty array if the runtime is unavailable or still warming up.',
+        usedBy: ['ManagedAppRuntime', 'RoachClaw status', 'model picker', 'model store'],
       },
     ],
   },
@@ -523,8 +525,8 @@ const apiGroups = [
         handler: 'getStatus',
         request: ['No body required'],
         response: ['RoachClaw status object'],
-        implementation: 'Returns the resolved local/cloud lane status, configured model, and service reachability from RoachClawService.',
-        usedBy: ['RoachClaw status card', 'ManagedAppRuntime'],
+        implementation: 'Returns the resolved contained/local/cloud lane status, configured model, and service reachability from RoachClawService.',
+        usedBy: ['RoachClaw status card', 'ManagedAppRuntime', 'setup post-install checks'],
       },
       {
         id: 'roachclaw-apply',
