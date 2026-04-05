@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-04-04T22:07:54.145Z",
+  "updatedAt": "2026-04-05T07:00:15.182Z",
   "featuredId": "base-atlas",
   "items": [
     {
@@ -281,7 +281,7 @@
       "size": "67 MB",
       "status": "Great first install",
       "source": "RoachNet knowledge mirror",
-      "summary": "Medical Library installs as its own RoachNet course app, so you can pull exactly this shelf into the native Education lane without dragging in a whole provider bundle.",
+      "summary": "Medical Library installs as its own RoachNet app, so you can pull this care shelf into the native vault without dragging in a whole provider dump.",
       "accent": "green",
       "machineFit": "Fast add-on for any supported machine",
       "includes": [
@@ -309,7 +309,7 @@
       "size": "16 MB",
       "status": "Great first install",
       "source": "RoachNet knowledge mirror",
-      "summary": "NHS Medicines A to Z installs as its own RoachNet course app, so you can pull exactly this shelf into the native Education lane without dragging in a whole provider bundle.",
+      "summary": "NHS Medicines A to Z installs as its own RoachNet app, so you can pull this care shelf into the native vault without dragging in a whole provider dump.",
       "accent": "green",
       "machineFit": "Fast add-on for any supported machine",
       "includes": [
@@ -326,7 +326,7 @@
         "resource": "nhs.uk_en_medicines"
       },
       "iconBand": "MED",
-      "iconMonogram": "NMA"
+      "iconMonogram": "NMZ"
     },
     {
       "id": "course-fas-military-medicine_en",
@@ -337,7 +337,7 @@
       "size": "78 MB",
       "status": "Great first install",
       "source": "RoachNet knowledge mirror",
-      "summary": "Military Medicine installs as its own RoachNet course app, so you can pull exactly this shelf into the native Education lane without dragging in a whole provider bundle.",
+      "summary": "Military Medicine installs as its own RoachNet app, so you can pull this care shelf into the native vault without dragging in a whole provider dump.",
       "accent": "green",
       "machineFit": "Fast add-on for any supported machine",
       "includes": [
@@ -365,7 +365,7 @@
       "size": "170 MB",
       "status": "Great first install",
       "source": "RoachNet knowledge mirror",
-      "summary": "CDC Health Information installs as its own RoachNet course app, so you can pull exactly this shelf into the native Education lane without dragging in a whole provider bundle.",
+      "summary": "CDC Health Information installs as its own RoachNet app, so you can pull this care shelf into the native vault without dragging in a whole provider dump.",
       "accent": "green",
       "machineFit": "Easy install once the core workspace is already healthy",
       "includes": [
@@ -393,7 +393,7 @@
       "size": "1.8 GB",
       "status": "Recommended next install",
       "source": "RoachNet knowledge mirror",
-      "summary": "MedlinePlus installs as its own RoachNet course app, so you can pull exactly this shelf into the native Education lane without dragging in a whole provider bundle.",
+      "summary": "MedlinePlus installs as its own RoachNet app, so you can pull this care shelf into the native vault without dragging in a whole provider dump.",
       "accent": "cyan",
       "machineFit": "Best on installs with real storage headroom",
       "includes": [
@@ -421,7 +421,7 @@
       "size": "2.0 GB",
       "status": "Deep archive",
       "source": "RoachNet knowledge mirror",
-      "summary": "Wikipedia Medicine installs as its own RoachNet course app, so you can pull exactly this shelf into the native Education lane without dragging in a whole provider bundle.",
+      "summary": "Wikipedia Medicine installs as its own RoachNet app, so you can pull this care shelf into the native vault without dragging in a whole provider dump.",
       "accent": "gold",
       "machineFit": "Best on installs with real storage headroom",
       "includes": [
@@ -448,8 +448,8 @@
       "section": "Medicine",
       "size": "1.1 GB",
       "status": "Deep archive",
-      "source": "RoachNet knowledge mirror",
-      "summary": "LibreTexts Medicine installs as its own RoachNet course app, so you can pull exactly this shelf into the native Education lane without dragging in a whole provider bundle.",
+      "source": "LibreTexts via Kiwix",
+      "summary": "LibreTexts Medicine installs as its own RoachNet app, so you can pull this care shelf into the native vault without dragging in a whole provider dump.",
       "accent": "gold",
       "machineFit": "Best on installs with real storage headroom",
       "includes": [
@@ -465,7 +465,7 @@
         "category": "medicine",
         "resource": "libretexts.org_en_med"
       },
-      "iconBand": "MED",
+      "iconBand": "Libre",
       "iconMonogram": "LM"
     },
     {
@@ -477,7 +477,7 @@
       "size": "76 MB",
       "status": "Deep archive",
       "source": "RoachNet knowledge mirror",
-      "summary": "LibrePathology installs as its own RoachNet course app, so you can pull exactly this shelf into the native Education lane without dragging in a whole provider bundle.",
+      "summary": "LibrePathology installs as its own RoachNet app, so you can pull this care shelf into the native vault without dragging in a whole provider dump.",
       "accent": "gold",
       "machineFit": "Fast add-on for any supported machine",
       "includes": [
@@ -505,7 +505,7 @@
       "size": "1.3 GB",
       "status": "Great first install",
       "source": "RoachNet knowledge mirror",
-      "summary": "Canadian Prepper: Winter Prepping installs as its own RoachNet course app, so you can pull exactly this shelf into the native Education lane without dragging in a whole provider bundle.",
+      "summary": "Canadian Prepper: Winter Prepping installs as its own RoachNet app, so you can pull this field shelf into the native vault without dragging in a whole provider dump.",
       "accent": "gold",
       "machineFit": "Best on installs with real storage headroom",
       "includes": [
@@ -522,7 +522,7 @@
         "resource": "canadian_prepper_winterprepping_en"
       },
       "iconBand": "FIELD",
-      "iconMonogram": "CPW"
+      "iconMonogram": "CPWP"
     },
     {
       "id": "course-canadian_prepper_bugoutroll_en",
@@ -533,7 +533,7 @@
       "size": "975 MB",
       "status": "Great first install",
       "source": "RoachNet knowledge mirror",
-      "summary": "Canadian Prepper: Bug Out Roll installs as its own RoachNet course app, so you can pull exactly this shelf into the native Education lane without dragging in a whole provider bundle.",
+      "summary": "Canadian Prepper: Bug Out Roll installs as its own RoachNet app, so you can pull this field shelf into the native vault without dragging in a whole provider dump.",
       "accent": "gold",
       "machineFit": "Easy install once the core workspace is already healthy",
       "includes": [
@@ -550,7 +550,7 @@
         "resource": "canadian_prepper_bugoutroll_en"
       },
       "iconBand": "FIELD",
-      "iconMonogram": "CPB"
+      "iconMonogram": "CPBO"
     },
     {
       "id": "course-canadian_prepper_bugoutconcepts_en",
@@ -561,7 +561,7 @@
       "size": "2.8 GB",
       "status": "Recommended next install",
       "source": "RoachNet knowledge mirror",
-      "summary": "Canadian Prepper: Bug Out Concepts installs as its own RoachNet course app, so you can pull exactly this shelf into the native Education lane without dragging in a whole provider bundle.",
+      "summary": "Canadian Prepper: Bug Out Concepts installs as its own RoachNet app, so you can pull this field shelf into the native vault without dragging in a whole provider dump.",
       "accent": "gold",
       "machineFit": "Best on installs with real storage headroom",
       "includes": [
@@ -578,7 +578,7 @@
         "resource": "canadian_prepper_bugoutconcepts_en"
       },
       "iconBand": "FIELD",
-      "iconMonogram": "CPB"
+      "iconMonogram": "CANA"
     },
     {
       "id": "course-urban-prepper_en_all",
@@ -589,7 +589,7 @@
       "size": "2.2 GB",
       "status": "Recommended next install",
       "source": "RoachNet knowledge mirror",
-      "summary": "Urban Prepper installs as its own RoachNet course app, so you can pull exactly this shelf into the native Education lane without dragging in a whole provider bundle.",
+      "summary": "Urban Prepper installs as its own RoachNet app, so you can pull this field shelf into the native vault without dragging in a whole provider dump.",
       "accent": "gold",
       "machineFit": "Best on installs with real storage headroom",
       "includes": [
@@ -617,7 +617,7 @@
       "size": "2.1 GB",
       "status": "Deep archive",
       "source": "RoachNet knowledge mirror",
-      "summary": "Canadian Prepper: Prepping Food installs as its own RoachNet course app, so you can pull exactly this shelf into the native Education lane without dragging in a whole provider bundle.",
+      "summary": "Canadian Prepper: Prepping Food installs as its own RoachNet app, so you can pull this field shelf into the native vault without dragging in a whole provider dump.",
       "accent": "gold",
       "machineFit": "Best on installs with real storage headroom",
       "includes": [
@@ -634,7 +634,7 @@
         "resource": "canadian_prepper_preppingfood_en"
       },
       "iconBand": "FIELD",
-      "iconMonogram": "CPP"
+      "iconMonogram": "CPPF"
     },
     {
       "id": "course-gutenberg_en_lcc-u",
@@ -644,8 +644,8 @@
       "section": "Survival & Preparedness",
       "size": "1.2 GB",
       "status": "Deep archive",
-      "source": "RoachNet knowledge mirror",
-      "summary": "Project Gutenberg: Military Science installs as its own RoachNet course app, so you can pull exactly this shelf into the native Education lane without dragging in a whole provider bundle.",
+      "source": "Project Gutenberg via Kiwix",
+      "summary": "Project Gutenberg: Military Science installs as its own RoachNet app, so you can pull this field shelf into the native vault without dragging in a whole provider dump.",
       "accent": "gold",
       "machineFit": "Best on installs with real storage headroom",
       "includes": [
@@ -661,8 +661,8 @@
         "category": "survival",
         "resource": "gutenberg_en_lcc-u"
       },
-      "iconBand": "FIELD",
-      "iconMonogram": "PGM"
+      "iconBand": "Guten",
+      "iconMonogram": "PGMS"
     },
     {
       "id": "course-wikibooks_en_all_nopic",
@@ -673,7 +673,7 @@
       "size": "3.0 GB",
       "status": "Great first install",
       "source": "RoachNet knowledge mirror",
-      "summary": "Wikibooks installs as its own RoachNet course app, so you can pull exactly this shelf into the native Education lane without dragging in a whole provider bundle.",
+      "summary": "Wikibooks installs as its own RoachNet app, so you can pull this study shelf into the native vault without dragging in a whole provider dump.",
       "accent": "blue",
       "machineFit": "Best on installs with real storage headroom",
       "includes": [
@@ -689,7 +689,7 @@
         "category": "education",
         "resource": "wikibooks_en_all_nopic"
       },
-      "iconBand": "EDU",
+      "iconBand": "Wikib",
       "iconMonogram": "WIKI"
     },
     {
@@ -701,7 +701,7 @@
       "size": "5.5 GB",
       "status": "Recommended next install",
       "source": "TED via Kiwix",
-      "summary": "TED-Ed installs as its own RoachNet course app, so you can pull exactly this shelf into the native Education lane without dragging in a whole provider bundle.",
+      "summary": "TED-Ed installs as its own RoachNet app, so you can pull this study shelf into the native vault without dragging in a whole provider dump.",
       "accent": "blue",
       "machineFit": "Large offline shelf best staged after the main runtime is settled",
       "includes": [
@@ -717,7 +717,7 @@
         "category": "education",
         "resource": "ted_mul_ted-ed"
       },
-      "iconBand": "EDU",
+      "iconBand": "TED",
       "iconMonogram": "TE"
     },
     {
@@ -729,7 +729,7 @@
       "size": "2.3 GB",
       "status": "Recommended next install",
       "source": "RoachNet knowledge mirror",
-      "summary": "Wikiversity installs as its own RoachNet course app, so you can pull exactly this shelf into the native Education lane without dragging in a whole provider bundle.",
+      "summary": "Wikiversity installs as its own RoachNet app, so you can pull this study shelf into the native vault without dragging in a whole provider dump.",
       "accent": "blue",
       "machineFit": "Best on installs with real storage headroom",
       "includes": [
@@ -745,7 +745,7 @@
         "category": "education",
         "resource": "wikiversity_en_all_maxi"
       },
-      "iconBand": "EDU",
+      "iconBand": "Wikiv",
       "iconMonogram": "WIKI"
     },
     {
@@ -756,8 +756,8 @@
       "section": "Education & Reference",
       "size": "792 MB",
       "status": "Recommended next install",
-      "source": "RoachNet knowledge mirror",
-      "summary": "LibreTexts Mathematics installs as its own RoachNet course app, so you can pull exactly this shelf into the native Education lane without dragging in a whole provider bundle.",
+      "source": "LibreTexts via Kiwix",
+      "summary": "LibreTexts Mathematics installs as its own RoachNet app, so you can pull this study shelf into the native vault without dragging in a whole provider dump.",
       "accent": "blue",
       "machineFit": "Easy install once the core workspace is already healthy",
       "includes": [
@@ -773,8 +773,8 @@
         "category": "education",
         "resource": "libretexts.org_en_math"
       },
-      "iconBand": "EDU",
-      "iconMonogram": "LM"
+      "iconBand": "Libre",
+      "iconMonogram": "LIBR"
     },
     {
       "id": "course-libretexts.org_en_phys",
@@ -784,8 +784,8 @@
       "section": "Education & Reference",
       "size": "534 MB",
       "status": "Recommended next install",
-      "source": "RoachNet knowledge mirror",
-      "summary": "LibreTexts Physics installs as its own RoachNet course app, so you can pull exactly this shelf into the native Education lane without dragging in a whole provider bundle.",
+      "source": "LibreTexts via Kiwix",
+      "summary": "LibreTexts Physics installs as its own RoachNet app, so you can pull this study shelf into the native vault without dragging in a whole provider dump.",
       "accent": "blue",
       "machineFit": "Easy install once the core workspace is already healthy",
       "includes": [
@@ -801,7 +801,7 @@
         "category": "education",
         "resource": "libretexts.org_en_phys"
       },
-      "iconBand": "EDU",
+      "iconBand": "Libre",
       "iconMonogram": "LP"
     },
     {
@@ -812,8 +812,8 @@
       "section": "Education & Reference",
       "size": "2.1 GB",
       "status": "Recommended next install",
-      "source": "RoachNet knowledge mirror",
-      "summary": "LibreTexts Chemistry installs as its own RoachNet course app, so you can pull exactly this shelf into the native Education lane without dragging in a whole provider bundle.",
+      "source": "LibreTexts via Kiwix",
+      "summary": "LibreTexts Chemistry installs as its own RoachNet app, so you can pull this study shelf into the native vault without dragging in a whole provider dump.",
       "accent": "blue",
       "machineFit": "Best on installs with real storage headroom",
       "includes": [
@@ -829,7 +829,7 @@
         "category": "education",
         "resource": "libretexts.org_en_chem"
       },
-      "iconBand": "EDU",
+      "iconBand": "Libre",
       "iconMonogram": "LC"
     },
     {
@@ -840,8 +840,8 @@
       "section": "Education & Reference",
       "size": "2.2 GB",
       "status": "Recommended next install",
-      "source": "RoachNet knowledge mirror",
-      "summary": "LibreTexts Biology installs as its own RoachNet course app, so you can pull exactly this shelf into the native Education lane without dragging in a whole provider bundle.",
+      "source": "LibreTexts via Kiwix",
+      "summary": "LibreTexts Biology installs as its own RoachNet app, so you can pull this study shelf into the native vault without dragging in a whole provider dump.",
       "accent": "blue",
       "machineFit": "Best on installs with real storage headroom",
       "includes": [
@@ -857,8 +857,36 @@
         "category": "education",
         "resource": "libretexts.org_en_bio"
       },
-      "iconBand": "EDU",
+      "iconBand": "Libre",
       "iconMonogram": "LB"
+    },
+    {
+      "id": "course-libretexts.org_en_k12",
+      "title": "LibreTexts K-12",
+      "subtitle": "School-age math, science, and general study textbooks",
+      "category": "Standard",
+      "section": "Education & Reference",
+      "size": "353 MB",
+      "status": "Recommended next install",
+      "source": "LibreTexts via Kiwix",
+      "summary": "LibreTexts K-12 installs as its own RoachNet app, so you can pull this study shelf into the native vault without dragging in a whole provider dump.",
+      "accent": "blue",
+      "machineFit": "Easy install once the core workspace is already healthy",
+      "includes": [
+        "School-age math, science, and general study textbooks",
+        "Part of the standard education & reference shelf",
+        "Version 2026-01"
+      ],
+      "installLabel": "Install to RoachNet",
+      "detailLabel": "Open manifest",
+      "detailUrl": "./collections/kiwix-categories.json",
+      "installIntent": {
+        "action": "education-resource",
+        "category": "education",
+        "resource": "libretexts.org_en_k12"
+      },
+      "iconBand": "Libre",
+      "iconMonogram": "LK1"
     },
     {
       "id": "course-wikibooks_en_all_maxi",
@@ -869,7 +897,7 @@
       "size": "5.3 GB",
       "status": "Deep archive",
       "source": "RoachNet knowledge mirror",
-      "summary": "Wikibooks (With Images) installs as its own RoachNet course app, so you can pull exactly this shelf into the native Education lane without dragging in a whole provider bundle.",
+      "summary": "Wikibooks (With Images) installs as its own RoachNet app, so you can pull this study shelf into the native vault without dragging in a whole provider dump.",
       "accent": "violet",
       "machineFit": "Large offline shelf best staged after the main runtime is settled",
       "includes": [
@@ -885,8 +913,8 @@
         "category": "education",
         "resource": "wikibooks_en_all_maxi"
       },
-      "iconBand": "EDU",
-      "iconMonogram": "W(I"
+      "iconBand": "Wikib",
+      "iconMonogram": "WI"
     },
     {
       "id": "course-ted_mul_ted-conference",
@@ -897,7 +925,7 @@
       "size": "16 GB",
       "status": "Deep archive",
       "source": "TED via Kiwix",
-      "summary": "TED Conference installs as its own RoachNet course app, so you can pull exactly this shelf into the native Education lane without dragging in a whole provider bundle.",
+      "summary": "TED Conference installs as its own RoachNet app, so you can pull this study shelf into the native vault without dragging in a whole provider dump.",
       "accent": "violet",
       "machineFit": "Large offline shelf best staged after the main runtime is settled",
       "includes": [
@@ -913,8 +941,8 @@
         "category": "education",
         "resource": "ted_mul_ted-conference"
       },
-      "iconBand": "EDU",
-      "iconMonogram": "TC"
+      "iconBand": "TED",
+      "iconMonogram": "TED"
     },
     {
       "id": "course-libretexts.org_en_human",
@@ -924,8 +952,8 @@
       "section": "Education & Reference",
       "size": "3.6 GB",
       "status": "Deep archive",
-      "source": "RoachNet knowledge mirror",
-      "summary": "LibreTexts Humanities installs as its own RoachNet course app, so you can pull exactly this shelf into the native Education lane without dragging in a whole provider bundle.",
+      "source": "LibreTexts via Kiwix",
+      "summary": "LibreTexts Humanities installs as its own RoachNet app, so you can pull this study shelf into the native vault without dragging in a whole provider dump.",
       "accent": "violet",
       "machineFit": "Best on installs with real storage headroom",
       "includes": [
@@ -941,7 +969,7 @@
         "category": "education",
         "resource": "libretexts.org_en_human"
       },
-      "iconBand": "EDU",
+      "iconBand": "Libre",
       "iconMonogram": "LH"
     },
     {
@@ -952,8 +980,8 @@
       "section": "Education & Reference",
       "size": "1.1 GB",
       "status": "Deep archive",
-      "source": "RoachNet knowledge mirror",
-      "summary": "LibreTexts Geosciences installs as its own RoachNet course app, so you can pull exactly this shelf into the native Education lane without dragging in a whole provider bundle.",
+      "source": "LibreTexts via Kiwix",
+      "summary": "LibreTexts Geosciences installs as its own RoachNet app, so you can pull this study shelf into the native vault without dragging in a whole provider dump.",
       "accent": "violet",
       "machineFit": "Best on installs with real storage headroom",
       "includes": [
@@ -969,7 +997,7 @@
         "category": "education",
         "resource": "libretexts.org_en_geo"
       },
-      "iconBand": "EDU",
+      "iconBand": "Libre",
       "iconMonogram": "LG"
     },
     {
@@ -980,8 +1008,8 @@
       "section": "Education & Reference",
       "size": "678 MB",
       "status": "Deep archive",
-      "source": "RoachNet knowledge mirror",
-      "summary": "LibreTexts Engineering installs as its own RoachNet course app, so you can pull exactly this shelf into the native Education lane without dragging in a whole provider bundle.",
+      "source": "LibreTexts via Kiwix",
+      "summary": "LibreTexts Engineering installs as its own RoachNet app, so you can pull this study shelf into the native vault without dragging in a whole provider dump.",
       "accent": "violet",
       "machineFit": "Easy install once the core workspace is already healthy",
       "includes": [
@@ -997,7 +1025,7 @@
         "category": "education",
         "resource": "libretexts.org_en_eng"
       },
-      "iconBand": "EDU",
+      "iconBand": "Libre",
       "iconMonogram": "LE"
     },
     {
@@ -1008,8 +1036,8 @@
       "section": "Education & Reference",
       "size": "801 MB",
       "status": "Deep archive",
-      "source": "RoachNet knowledge mirror",
-      "summary": "LibreTexts Business installs as its own RoachNet course app, so you can pull exactly this shelf into the native Education lane without dragging in a whole provider bundle.",
+      "source": "LibreTexts via Kiwix",
+      "summary": "LibreTexts Business installs as its own RoachNet app, so you can pull this study shelf into the native vault without dragging in a whole provider dump.",
       "accent": "violet",
       "machineFit": "Easy install once the core workspace is already healthy",
       "includes": [
@@ -1025,8 +1053,288 @@
         "category": "education",
         "resource": "libretexts.org_en_biz"
       },
-      "iconBand": "EDU",
-      "iconMonogram": "LB"
+      "iconBand": "Libre",
+      "iconMonogram": "LIBB"
+    },
+    {
+      "id": "course-academia.stackexchange.com_en_all",
+      "title": "Academia Q&A",
+      "subtitle": "Research, publishing, grad-school, and academic-workflow discussions",
+      "category": "Comprehensive",
+      "section": "Education & Reference",
+      "size": "279 MB",
+      "status": "Deep archive",
+      "source": "Stack Exchange via Kiwix",
+      "summary": "Academia Q&A installs as its own RoachNet app, so you can pull this study shelf into the native vault without dragging in a whole provider dump.",
+      "accent": "violet",
+      "machineFit": "Easy install once the core workspace is already healthy",
+      "includes": [
+        "Research, publishing, grad-school, and academic-workflow discussions",
+        "Part of the comprehensive education & reference shelf",
+        "Version 2026-02"
+      ],
+      "installLabel": "Install to RoachNet",
+      "detailLabel": "Open manifest",
+      "detailUrl": "./collections/kiwix-categories.json",
+      "installIntent": {
+        "action": "education-resource",
+        "category": "education",
+        "resource": "academia.stackexchange.com_en_all"
+      },
+      "iconBand": "Stack",
+      "iconMonogram": "ACAD"
+    },
+    {
+      "id": "course-cseducators.stackexchange.com_en_all",
+      "title": "CS Educators Q&A",
+      "subtitle": "Teaching computer science, curriculum design, and classroom practice",
+      "category": "Comprehensive",
+      "section": "Education & Reference",
+      "size": "16 MB",
+      "status": "Deep archive",
+      "source": "Stack Exchange via Kiwix",
+      "summary": "CS Educators Q&A installs as its own RoachNet app, so you can pull this study shelf into the native vault without dragging in a whole provider dump.",
+      "accent": "violet",
+      "machineFit": "Fast add-on for any supported machine",
+      "includes": [
+        "Teaching computer science, curriculum design, and classroom practice",
+        "Part of the comprehensive education & reference shelf",
+        "Version 2026-02"
+      ],
+      "installLabel": "Install to RoachNet",
+      "detailLabel": "Open manifest",
+      "detailUrl": "./collections/kiwix-categories.json",
+      "installIntent": {
+        "action": "education-resource",
+        "category": "education",
+        "resource": "cseducators.stackexchange.com_en_all"
+      },
+      "iconBand": "Stack",
+      "iconMonogram": "CE"
+    },
+    {
+      "id": "course-libretexts.org_en_socialsci",
+      "title": "LibreTexts Social Sciences",
+      "subtitle": "Politics, sociology, psychology, and society-focused textbooks",
+      "category": "Comprehensive",
+      "section": "Education & Reference",
+      "size": "1.9 GB",
+      "status": "Deep archive",
+      "source": "LibreTexts via Kiwix",
+      "summary": "LibreTexts Social Sciences installs as its own RoachNet app, so you can pull this study shelf into the native vault without dragging in a whole provider dump.",
+      "accent": "violet",
+      "machineFit": "Best on installs with real storage headroom",
+      "includes": [
+        "Politics, sociology, psychology, and society-focused textbooks",
+        "Part of the comprehensive education & reference shelf",
+        "Version 2025-01"
+      ],
+      "installLabel": "Install to RoachNet",
+      "detailLabel": "Open manifest",
+      "detailUrl": "./collections/kiwix-categories.json",
+      "installIntent": {
+        "action": "education-resource",
+        "category": "education",
+        "resource": "libretexts.org_en_socialsci"
+      },
+      "iconBand": "Libre",
+      "iconMonogram": "LSS"
+    },
+    {
+      "id": "course-libretexts.org_en_workforce",
+      "title": "LibreTexts Workforce",
+      "subtitle": "Career, technical, and workforce-development course texts",
+      "category": "Comprehensive",
+      "section": "Education & Reference",
+      "size": "490 MB",
+      "status": "Deep archive",
+      "source": "LibreTexts via Kiwix",
+      "summary": "LibreTexts Workforce installs as its own RoachNet app, so you can pull this study shelf into the native vault without dragging in a whole provider dump.",
+      "accent": "violet",
+      "machineFit": "Easy install once the core workspace is already healthy",
+      "includes": [
+        "Career, technical, and workforce-development course texts",
+        "Part of the comprehensive education & reference shelf",
+        "Version 2026-01"
+      ],
+      "installLabel": "Install to RoachNet",
+      "detailLabel": "Open manifest",
+      "detailUrl": "./collections/kiwix-categories.json",
+      "installIntent": {
+        "action": "education-resource",
+        "category": "education",
+        "resource": "libretexts.org_en_workforce"
+      },
+      "iconBand": "Libre",
+      "iconMonogram": "LW"
+    },
+    {
+      "id": "course-phet_en_all",
+      "title": "PhET Interactive Simulations",
+      "subtitle": "Physics, chemistry, math, and engineering simulations you can actually play with offline",
+      "category": "Essential",
+      "section": "Science & Simulations",
+      "size": "102 MB",
+      "status": "Great first install",
+      "source": "PhET via Kiwix",
+      "summary": "PhET Interactive Simulations installs as its own RoachNet app, so you can pull this science shelf into the native vault without dragging in a whole provider dump.",
+      "accent": "cyan",
+      "machineFit": "Fast add-on for any supported machine",
+      "includes": [
+        "Physics, chemistry, math, and engineering simulations you can actually play with offline",
+        "Part of the essential science & simulations shelf",
+        "Version 2026-02"
+      ],
+      "installLabel": "Install to RoachNet",
+      "detailLabel": "Open manifest",
+      "detailUrl": "./collections/kiwix-categories.json",
+      "installIntent": {
+        "action": "education-resource",
+        "category": "science-simulations",
+        "resource": "phet_en_all"
+      },
+      "iconBand": "PhET",
+      "iconMonogram": "PHET"
+    },
+    {
+      "id": "course-astronomy.stackexchange.com_en_all",
+      "title": "Astronomy Q&A",
+      "subtitle": "Space, observation, orbital mechanics, and telescope questions from the field",
+      "category": "Essential",
+      "section": "Science & Simulations",
+      "size": "187 MB",
+      "status": "Great first install",
+      "source": "Stack Exchange via Kiwix",
+      "summary": "Astronomy Q&A installs as its own RoachNet app, so you can pull this science shelf into the native vault without dragging in a whole provider dump.",
+      "accent": "cyan",
+      "machineFit": "Easy install once the core workspace is already healthy",
+      "includes": [
+        "Space, observation, orbital mechanics, and telescope questions from the field",
+        "Part of the essential science & simulations shelf",
+        "Version 2026-02"
+      ],
+      "installLabel": "Install to RoachNet",
+      "detailLabel": "Open manifest",
+      "detailUrl": "./collections/kiwix-categories.json",
+      "installIntent": {
+        "action": "education-resource",
+        "category": "science-simulations",
+        "resource": "astronomy.stackexchange.com_en_all"
+      },
+      "iconBand": "Stack",
+      "iconMonogram": "ASTR"
+    },
+    {
+      "id": "course-physics.stackexchange.com_en_all",
+      "title": "Physics Q&A",
+      "subtitle": "Mechanics, electromagnetism, thermodynamics, and theory-heavy troubleshooting",
+      "category": "Standard",
+      "section": "Science & Simulations",
+      "size": "1.7 GB",
+      "status": "Recommended next install",
+      "source": "Stack Exchange via Kiwix",
+      "summary": "Physics Q&A installs as its own RoachNet app, so you can pull this science shelf into the native vault without dragging in a whole provider dump.",
+      "accent": "cyan",
+      "machineFit": "Best on installs with real storage headroom",
+      "includes": [
+        "Mechanics, electromagnetism, thermodynamics, and theory-heavy troubleshooting",
+        "Part of the standard science & simulations shelf",
+        "Version 2026-02"
+      ],
+      "installLabel": "Install to RoachNet",
+      "detailLabel": "Open manifest",
+      "detailUrl": "./collections/kiwix-categories.json",
+      "installIntent": {
+        "action": "education-resource",
+        "category": "science-simulations",
+        "resource": "physics.stackexchange.com_en_all"
+      },
+      "iconBand": "Stack",
+      "iconMonogram": "PHYS"
+    },
+    {
+      "id": "course-chemistry.stackexchange.com_en_all",
+      "title": "Chemistry Q&A",
+      "subtitle": "Reactions, lab practice, spectroscopy, and chemical reasoning discussion",
+      "category": "Standard",
+      "section": "Science & Simulations",
+      "size": "397 MB",
+      "status": "Recommended next install",
+      "source": "Stack Exchange via Kiwix",
+      "summary": "Chemistry Q&A installs as its own RoachNet app, so you can pull this science shelf into the native vault without dragging in a whole provider dump.",
+      "accent": "cyan",
+      "machineFit": "Easy install once the core workspace is already healthy",
+      "includes": [
+        "Reactions, lab practice, spectroscopy, and chemical reasoning discussion",
+        "Part of the standard science & simulations shelf",
+        "Version 2026-02"
+      ],
+      "installLabel": "Install to RoachNet",
+      "detailLabel": "Open manifest",
+      "detailUrl": "./collections/kiwix-categories.json",
+      "installIntent": {
+        "action": "education-resource",
+        "category": "science-simulations",
+        "resource": "chemistry.stackexchange.com_en_all"
+      },
+      "iconBand": "Stack",
+      "iconMonogram": "CHEM"
+    },
+    {
+      "id": "course-biology.stackexchange.com_en_all",
+      "title": "Biology Q&A",
+      "subtitle": "Cell biology, genetics, ecology, and organism-level questions",
+      "category": "Standard",
+      "section": "Science & Simulations",
+      "size": "403 MB",
+      "status": "Recommended next install",
+      "source": "Stack Exchange via Kiwix",
+      "summary": "Biology Q&A installs as its own RoachNet app, so you can pull this science shelf into the native vault without dragging in a whole provider dump.",
+      "accent": "cyan",
+      "machineFit": "Easy install once the core workspace is already healthy",
+      "includes": [
+        "Cell biology, genetics, ecology, and organism-level questions",
+        "Part of the standard science & simulations shelf",
+        "Version 2026-02"
+      ],
+      "installLabel": "Install to RoachNet",
+      "detailLabel": "Open manifest",
+      "detailUrl": "./collections/kiwix-categories.json",
+      "installIntent": {
+        "action": "education-resource",
+        "category": "science-simulations",
+        "resource": "biology.stackexchange.com_en_all"
+      },
+      "iconBand": "Stack",
+      "iconMonogram": "BIOL"
+    },
+    {
+      "id": "course-bioinformatics.stackexchange.com_en_all",
+      "title": "Bioinformatics Q&A",
+      "subtitle": "Sequencing, pipelines, biological data analysis, and computational biology discussion",
+      "category": "Comprehensive",
+      "section": "Science & Simulations",
+      "size": "55 MB",
+      "status": "Deep archive",
+      "source": "Stack Exchange via Kiwix",
+      "summary": "Bioinformatics Q&A installs as its own RoachNet app, so you can pull this science shelf into the native vault without dragging in a whole provider dump.",
+      "accent": "cyan",
+      "machineFit": "Fast add-on for any supported machine",
+      "includes": [
+        "Sequencing, pipelines, biological data analysis, and computational biology discussion",
+        "Part of the comprehensive science & simulations shelf",
+        "Version 2026-02"
+      ],
+      "installLabel": "Install to RoachNet",
+      "detailLabel": "Open manifest",
+      "detailUrl": "./collections/kiwix-categories.json",
+      "installIntent": {
+        "action": "education-resource",
+        "category": "science-simulations",
+        "resource": "bioinformatics.stackexchange.com_en_all"
+      },
+      "iconBand": "Stack",
+      "iconMonogram": "BIOI"
     },
     {
       "id": "course-woodworking.stackexchange.com_en_all",
@@ -1036,8 +1344,8 @@
       "section": "DIY & Repair",
       "size": "99 MB",
       "status": "Great first install",
-      "source": "RoachNet knowledge mirror",
-      "summary": "Woodworking Q&A installs as its own RoachNet course app, so you can pull exactly this shelf into the native Education lane without dragging in a whole provider bundle.",
+      "source": "Stack Exchange via Kiwix",
+      "summary": "Woodworking Q&A installs as its own RoachNet app, so you can pull this repair shelf into the native vault without dragging in a whole provider dump.",
       "accent": "bronze",
       "machineFit": "Fast add-on for any supported machine",
       "includes": [
@@ -1053,8 +1361,8 @@
         "category": "diy",
         "resource": "woodworking.stackexchange.com_en_all"
       },
-      "iconBand": "FIX",
-      "iconMonogram": "WQ"
+      "iconBand": "Stack",
+      "iconMonogram": "WOOD"
     },
     {
       "id": "course-mechanics.stackexchange.com_en_all",
@@ -1064,8 +1372,8 @@
       "section": "DIY & Repair",
       "size": "321 MB",
       "status": "Great first install",
-      "source": "RoachNet knowledge mirror",
-      "summary": "Motor Vehicle Maintenance Q&A installs as its own RoachNet course app, so you can pull exactly this shelf into the native Education lane without dragging in a whole provider bundle.",
+      "source": "Stack Exchange via Kiwix",
+      "summary": "Motor Vehicle Maintenance Q&A installs as its own RoachNet app, so you can pull this repair shelf into the native vault without dragging in a whole provider dump.",
       "accent": "bronze",
       "machineFit": "Easy install once the core workspace is already healthy",
       "includes": [
@@ -1081,7 +1389,7 @@
         "category": "diy",
         "resource": "mechanics.stackexchange.com_en_all"
       },
-      "iconBand": "FIX",
+      "iconBand": "Stack",
       "iconMonogram": "MVM"
     },
     {
@@ -1092,8 +1400,8 @@
       "section": "DIY & Repair",
       "size": "1.9 GB",
       "status": "Recommended next install",
-      "source": "RoachNet knowledge mirror",
-      "summary": "DIY & Home Improvement Q&A installs as its own RoachNet course app, so you can pull exactly this shelf into the native Education lane without dragging in a whole provider bundle.",
+      "source": "Stack Exchange via Kiwix",
+      "summary": "DIY & Home Improvement Q&A installs as its own RoachNet app, so you can pull this repair shelf into the native vault without dragging in a whole provider dump.",
       "accent": "bronze",
       "machineFit": "Best on installs with real storage headroom",
       "includes": [
@@ -1109,8 +1417,8 @@
         "category": "diy",
         "resource": "diy.stackexchange.com_en_all"
       },
-      "iconBand": "FIX",
-      "iconMonogram": "D&H"
+      "iconBand": "Stack",
+      "iconMonogram": "DHI"
     },
     {
       "id": "course-ifixit_en_all",
@@ -1121,7 +1429,7 @@
       "size": "3.3 GB",
       "status": "Deep archive",
       "source": "RoachNet knowledge mirror",
-      "summary": "iFixit Repair Guides installs as its own RoachNet course app, so you can pull exactly this shelf into the native Education lane without dragging in a whole provider bundle.",
+      "summary": "iFixit Repair Guides installs as its own RoachNet app, so you can pull this repair shelf into the native vault without dragging in a whole provider dump.",
       "accent": "bronze",
       "machineFit": "Best on installs with real storage headroom",
       "includes": [
@@ -1138,7 +1446,119 @@
         "resource": "ifixit_en_all"
       },
       "iconBand": "FIX",
-      "iconMonogram": "IRG"
+      "iconMonogram": "IR"
+    },
+    {
+      "id": "course-arduino.stackexchange.com_en_all",
+      "title": "Arduino Q&A",
+      "subtitle": "Microcontroller questions, hobby hardware builds, and embedded troubleshooting",
+      "category": "Essential",
+      "section": "Maker & Electronics",
+      "size": "247 MB",
+      "status": "Great first install",
+      "source": "Stack Exchange via Kiwix",
+      "summary": "Arduino Q&A installs as its own RoachNet app, so you can pull this maker shelf into the native vault without dragging in a whole provider dump.",
+      "accent": "gold",
+      "machineFit": "Easy install once the core workspace is already healthy",
+      "includes": [
+        "Microcontroller questions, hobby hardware builds, and embedded troubleshooting",
+        "Part of the essential maker & electronics shelf",
+        "Version 2026-02"
+      ],
+      "installLabel": "Install to RoachNet",
+      "detailLabel": "Open manifest",
+      "detailUrl": "./collections/kiwix-categories.json",
+      "installIntent": {
+        "action": "education-resource",
+        "category": "maker-electronics",
+        "resource": "arduino.stackexchange.com_en_all"
+      },
+      "iconBand": "Stack",
+      "iconMonogram": "ARDU"
+    },
+    {
+      "id": "course-avanti-semiconductor-electronics",
+      "title": "Semiconductor Electronics",
+      "subtitle": "A focused video shelf on semiconductor devices and electronics fundamentals",
+      "category": "Essential",
+      "section": "Maker & Electronics",
+      "size": "136 MB",
+      "status": "Great first install",
+      "source": "Avanti via Kiwix",
+      "summary": "Semiconductor Electronics installs as its own RoachNet app, so you can pull this maker shelf into the native vault without dragging in a whole provider dump.",
+      "accent": "gold",
+      "machineFit": "Easy install once the core workspace is already healthy",
+      "includes": [
+        "A focused video shelf on semiconductor devices and electronics fundamentals",
+        "Part of the essential maker & electronics shelf",
+        "Version 2025-09"
+      ],
+      "installLabel": "Install to RoachNet",
+      "detailLabel": "Open manifest",
+      "detailUrl": "./collections/kiwix-categories.json",
+      "installIntent": {
+        "action": "education-resource",
+        "category": "maker-electronics",
+        "resource": "avanti-semiconductor-electronics"
+      },
+      "iconBand": "Avanti",
+      "iconMonogram": "SE"
+    },
+    {
+      "id": "course-ted_mul_3d-printing",
+      "title": "TED: 3D Printing",
+      "subtitle": "Talks and demos on rapid prototyping, fabrication, and printed-object workflows",
+      "category": "Standard",
+      "section": "Maker & Electronics",
+      "size": "137 MB",
+      "status": "Recommended next install",
+      "source": "TED via Kiwix",
+      "summary": "TED: 3D Printing installs as its own RoachNet app, so you can pull this maker shelf into the native vault without dragging in a whole provider dump.",
+      "accent": "gold",
+      "machineFit": "Easy install once the core workspace is already healthy",
+      "includes": [
+        "Talks and demos on rapid prototyping, fabrication, and printed-object workflows",
+        "Part of the standard maker & electronics shelf",
+        "Version 2026-01"
+      ],
+      "installLabel": "Install to RoachNet",
+      "detailLabel": "Open manifest",
+      "detailUrl": "./collections/kiwix-categories.json",
+      "installIntent": {
+        "action": "education-resource",
+        "category": "maker-electronics",
+        "resource": "ted_mul_3d-printing"
+      },
+      "iconBand": "TED",
+      "iconMonogram": "T3P"
+    },
+    {
+      "id": "course-electronics.stackexchange.com_en_all",
+      "title": "Electronics Q&A",
+      "subtitle": "Circuit analysis, components, embedded gear, and real-world electronics troubleshooting",
+      "category": "Comprehensive",
+      "section": "Maker & Electronics",
+      "size": "3.9 GB",
+      "status": "Deep archive",
+      "source": "Stack Exchange via Kiwix",
+      "summary": "Electronics Q&A installs as its own RoachNet app, so you can pull this maker shelf into the native vault without dragging in a whole provider dump.",
+      "accent": "gold",
+      "machineFit": "Best on installs with real storage headroom",
+      "includes": [
+        "Circuit analysis, components, embedded gear, and real-world electronics troubleshooting",
+        "Part of the comprehensive maker & electronics shelf",
+        "Version 2026-02"
+      ],
+      "installLabel": "Install to RoachNet",
+      "detailLabel": "Open manifest",
+      "detailUrl": "./collections/kiwix-categories.json",
+      "installIntent": {
+        "action": "education-resource",
+        "category": "maker-electronics",
+        "resource": "electronics.stackexchange.com_en_all"
+      },
+      "iconBand": "Stack",
+      "iconMonogram": "ELEC"
     },
     {
       "id": "course-foss.cooking_en_all",
@@ -1149,7 +1569,7 @@
       "size": "24 MB",
       "status": "Great first install",
       "source": "RoachNet knowledge mirror",
-      "summary": "FOSS Cooking installs as its own RoachNet course app, so you can pull exactly this shelf into the native Education lane without dragging in a whole provider bundle.",
+      "summary": "FOSS Cooking installs as its own RoachNet app, so you can pull this grow shelf into the native vault without dragging in a whole provider dump.",
       "accent": "green",
       "machineFit": "Fast add-on for any supported machine",
       "includes": [
@@ -1177,7 +1597,7 @@
       "size": "16 MB",
       "status": "Great first install",
       "source": "RoachNet knowledge mirror",
-      "summary": "Based.Cooking installs as its own RoachNet course app, so you can pull exactly this shelf into the native Education lane without dragging in a whole provider bundle.",
+      "summary": "Based.Cooking installs as its own RoachNet app, so you can pull this grow shelf into the native vault without dragging in a whole provider dump.",
       "accent": "green",
       "machineFit": "Fast add-on for any supported machine",
       "includes": [
@@ -1194,7 +1614,7 @@
         "resource": "based.cooking_en_all"
       },
       "iconBand": "GROW",
-      "iconMonogram": "BASE"
+      "iconMonogram": "BC"
     },
     {
       "id": "course-gardening.stackexchange.com_en_all",
@@ -1204,8 +1624,8 @@
       "section": "Agriculture & Food",
       "size": "923 MB",
       "status": "Recommended next install",
-      "source": "RoachNet knowledge mirror",
-      "summary": "Gardening Q&A installs as its own RoachNet course app, so you can pull exactly this shelf into the native Education lane without dragging in a whole provider bundle.",
+      "source": "Stack Exchange via Kiwix",
+      "summary": "Gardening Q&A installs as its own RoachNet app, so you can pull this grow shelf into the native vault without dragging in a whole provider dump.",
       "accent": "cyan",
       "machineFit": "Easy install once the core workspace is already healthy",
       "includes": [
@@ -1221,8 +1641,8 @@
         "category": "agriculture",
         "resource": "gardening.stackexchange.com_en_all"
       },
-      "iconBand": "GROW",
-      "iconMonogram": "GQ"
+      "iconBand": "Stack",
+      "iconMonogram": "GARD"
     },
     {
       "id": "course-cooking.stackexchange.com_en_all",
@@ -1232,8 +1652,8 @@
       "section": "Agriculture & Food",
       "size": "236 MB",
       "status": "Recommended next install",
-      "source": "RoachNet knowledge mirror",
-      "summary": "Cooking Q&A installs as its own RoachNet course app, so you can pull exactly this shelf into the native Education lane without dragging in a whole provider bundle.",
+      "source": "Stack Exchange via Kiwix",
+      "summary": "Cooking Q&A installs as its own RoachNet app, so you can pull this grow shelf into the native vault without dragging in a whole provider dump.",
       "accent": "cyan",
       "machineFit": "Easy install once the core workspace is already healthy",
       "includes": [
@@ -1249,8 +1669,8 @@
         "category": "agriculture",
         "resource": "cooking.stackexchange.com_en_all"
       },
-      "iconBand": "GROW",
-      "iconMonogram": "CQ"
+      "iconBand": "Stack",
+      "iconMonogram": "COOK"
     },
     {
       "id": "course-zimgit-food-preparation_en",
@@ -1261,7 +1681,7 @@
       "size": "98 MB",
       "status": "Recommended next install",
       "source": "RoachNet knowledge mirror",
-      "summary": "Food for Preppers installs as its own RoachNet course app, so you can pull exactly this shelf into the native Education lane without dragging in a whole provider bundle.",
+      "summary": "Food for Preppers installs as its own RoachNet app, so you can pull this grow shelf into the native vault without dragging in a whole provider dump.",
       "accent": "cyan",
       "machineFit": "Fast add-on for any supported machine",
       "includes": [
@@ -1278,7 +1698,7 @@
         "resource": "zimgit-food-preparation_en"
       },
       "iconBand": "GROW",
-      "iconMonogram": "FFP"
+      "iconMonogram": "FP"
     },
     {
       "id": "course-lrnselfreliance_en_all",
@@ -1289,7 +1709,7 @@
       "size": "3.9 GB",
       "status": "Deep archive",
       "source": "RoachNet knowledge mirror",
-      "summary": "Learning Self-Reliance: Homesteading installs as its own RoachNet course app, so you can pull exactly this shelf into the native Education lane without dragging in a whole provider bundle.",
+      "summary": "Learning Self-Reliance: Homesteading installs as its own RoachNet app, so you can pull this grow shelf into the native vault without dragging in a whole provider dump.",
       "accent": "gold",
       "machineFit": "Best on installs with real storage headroom",
       "includes": [
@@ -1306,7 +1726,7 @@
         "resource": "lrnselfreliance_en_all"
       },
       "iconBand": "GROW",
-      "iconMonogram": "LSR"
+      "iconMonogram": "LSRH"
     },
     {
       "id": "course-gutenberg_en_lcc-s",
@@ -1316,8 +1736,8 @@
       "section": "Agriculture & Food",
       "size": "4.2 GB",
       "status": "Deep archive",
-      "source": "RoachNet knowledge mirror",
-      "summary": "Project Gutenberg: Agriculture installs as its own RoachNet course app, so you can pull exactly this shelf into the native Education lane without dragging in a whole provider bundle.",
+      "source": "Project Gutenberg via Kiwix",
+      "summary": "Project Gutenberg: Agriculture installs as its own RoachNet app, so you can pull this grow shelf into the native vault without dragging in a whole provider dump.",
       "accent": "gold",
       "machineFit": "Large offline shelf best staged after the main runtime is settled",
       "includes": [
@@ -1333,7 +1753,7 @@
         "category": "agriculture",
         "resource": "gutenberg_en_lcc-s"
       },
-      "iconBand": "GROW",
+      "iconBand": "Guten",
       "iconMonogram": "PGA"
     },
     {
@@ -1345,7 +1765,7 @@
       "size": "7 MB",
       "status": "Great first install",
       "source": "freeCodeCamp via Kiwix",
-      "summary": "freeCodeCamp: JavaScript Algorithms and Data Structures installs as its own RoachNet course app, so you can pull exactly this shelf into the native Education lane without dragging in a whole provider bundle.",
+      "summary": "freeCodeCamp: JavaScript Algorithms and Data Structures installs as its own RoachNet app, so you can pull this dev shelf into the native vault without dragging in a whole provider dump.",
       "accent": "violet",
       "machineFit": "Fast add-on for any supported machine",
       "includes": [
@@ -1361,8 +1781,8 @@
         "category": "computing",
         "resource": "freecodecamp_en_javascript-algorithms-and-data-structures"
       },
-      "iconBand": "DEV",
-      "iconMonogram": "FJA"
+      "iconBand": "FCC",
+      "iconMonogram": "FJAD"
     },
     {
       "id": "course-coreyms_en_python-tutorials",
@@ -1373,7 +1793,7 @@
       "size": "2.0 GB",
       "status": "Great first install",
       "source": "Corey Schafer via Kiwix",
-      "summary": "Corey Schafer: Python Tutorials installs as its own RoachNet course app, so you can pull exactly this shelf into the native Education lane without dragging in a whole provider bundle.",
+      "summary": "Corey Schafer: Python Tutorials installs as its own RoachNet app, so you can pull this dev shelf into the native vault without dragging in a whole provider dump.",
       "accent": "violet",
       "machineFit": "Best on installs with real storage headroom",
       "includes": [
@@ -1389,7 +1809,7 @@
         "category": "computing",
         "resource": "coreyms_en_python-tutorials"
       },
-      "iconBand": "DEV",
+      "iconBand": "Corey",
       "iconMonogram": "CSP"
     },
     {
@@ -1401,7 +1821,7 @@
       "size": "2.3 GB",
       "status": "Great first install",
       "source": "Python Docs via Kiwix",
-      "summary": "Python Docs installs as its own RoachNet course app, so you can pull exactly this shelf into the native Education lane without dragging in a whole provider bundle.",
+      "summary": "Python Docs installs as its own RoachNet app, so you can pull this dev shelf into the native vault without dragging in a whole provider dump.",
       "accent": "violet",
       "machineFit": "Best on installs with real storage headroom",
       "includes": [
@@ -1417,8 +1837,8 @@
         "category": "computing",
         "resource": "docs.python.org_en"
       },
-      "iconBand": "DEV",
-      "iconMonogram": "PD"
+      "iconBand": "Python",
+      "iconMonogram": "PYTH"
     },
     {
       "id": "course-devdocs_en_react",
@@ -1429,7 +1849,7 @@
       "size": "3 MB",
       "status": "Recommended next install",
       "source": "DevDocs via Kiwix",
-      "summary": "React Docs installs as its own RoachNet course app, so you can pull exactly this shelf into the native Education lane without dragging in a whole provider bundle.",
+      "summary": "React Docs installs as its own RoachNet app, so you can pull this dev shelf into the native vault without dragging in a whole provider dump.",
       "accent": "violet",
       "machineFit": "Fast add-on for any supported machine",
       "includes": [
@@ -1445,8 +1865,8 @@
         "category": "computing",
         "resource": "devdocs_en_react"
       },
-      "iconBand": "DEV",
-      "iconMonogram": "RD"
+      "iconBand": "Docs",
+      "iconMonogram": "REAC"
     },
     {
       "id": "course-coreyms_en_git-tutorials",
@@ -1457,7 +1877,7 @@
       "size": "57 MB",
       "status": "Recommended next install",
       "source": "Corey Schafer via Kiwix",
-      "summary": "Corey Schafer: Git Tutorials installs as its own RoachNet course app, so you can pull exactly this shelf into the native Education lane without dragging in a whole provider bundle.",
+      "summary": "Corey Schafer: Git Tutorials installs as its own RoachNet app, so you can pull this dev shelf into the native vault without dragging in a whole provider dump.",
       "accent": "violet",
       "machineFit": "Fast add-on for any supported machine",
       "includes": [
@@ -1473,7 +1893,7 @@
         "category": "computing",
         "resource": "coreyms_en_git-tutorials"
       },
-      "iconBand": "DEV",
+      "iconBand": "Corey",
       "iconMonogram": "CSG"
     },
     {
@@ -1485,7 +1905,7 @@
       "size": "2 MB",
       "status": "Recommended next install",
       "source": "DevDocs via Kiwix",
-      "summary": "Docker Docs installs as its own RoachNet course app, so you can pull exactly this shelf into the native Education lane without dragging in a whole provider bundle.",
+      "summary": "Docker Docs installs as its own RoachNet app, so you can pull this dev shelf into the native vault without dragging in a whole provider dump.",
       "accent": "violet",
       "machineFit": "Fast add-on for any supported machine",
       "includes": [
@@ -1501,8 +1921,176 @@
         "category": "computing",
         "resource": "devdocs_en_docker"
       },
-      "iconBand": "DEV",
-      "iconMonogram": "DD"
+      "iconBand": "Docs",
+      "iconMonogram": "DOCK"
+    },
+    {
+      "id": "course-freecodecamp_en_coding-interview-prep",
+      "title": "freeCodeCamp: Coding Interview Prep",
+      "subtitle": "Challenge-driven prep for whiteboard-style coding and algorithm questions",
+      "category": "Standard",
+      "section": "Software Development",
+      "size": "6 MB",
+      "status": "Recommended next install",
+      "source": "freeCodeCamp via Kiwix",
+      "summary": "freeCodeCamp: Coding Interview Prep installs as its own RoachNet app, so you can pull this dev shelf into the native vault without dragging in a whole provider dump.",
+      "accent": "violet",
+      "machineFit": "Fast add-on for any supported machine",
+      "includes": [
+        "Challenge-driven prep for whiteboard-style coding and algorithm questions",
+        "Part of the standard software development shelf",
+        "Version 2026-02"
+      ],
+      "installLabel": "Install to RoachNet",
+      "detailLabel": "Open manifest",
+      "detailUrl": "./collections/kiwix-categories.json",
+      "installIntent": {
+        "action": "education-resource",
+        "category": "computing",
+        "resource": "freecodecamp_en_coding-interview-prep"
+      },
+      "iconBand": "FCC",
+      "iconMonogram": "FCIP"
+    },
+    {
+      "id": "course-freecodecamp_en_project-euler",
+      "title": "freeCodeCamp: Project Euler",
+      "subtitle": "Math-heavy programming problems for sharpening problem-solving under constraints",
+      "category": "Standard",
+      "section": "Software Development",
+      "size": "7 MB",
+      "status": "Recommended next install",
+      "source": "freeCodeCamp via Kiwix",
+      "summary": "freeCodeCamp: Project Euler installs as its own RoachNet app, so you can pull this dev shelf into the native vault without dragging in a whole provider dump.",
+      "accent": "violet",
+      "machineFit": "Fast add-on for any supported machine",
+      "includes": [
+        "Math-heavy programming problems for sharpening problem-solving under constraints",
+        "Part of the standard software development shelf",
+        "Version 2026-02"
+      ],
+      "installLabel": "Install to RoachNet",
+      "detailLabel": "Open manifest",
+      "detailUrl": "./collections/kiwix-categories.json",
+      "installIntent": {
+        "action": "education-resource",
+        "category": "computing",
+        "resource": "freecodecamp_en_project-euler"
+      },
+      "iconBand": "FCC",
+      "iconMonogram": "FPE"
+    },
+    {
+      "id": "course-freecodecamp_en_rosetta-code",
+      "title": "freeCodeCamp: Rosetta Code",
+      "subtitle": "Cross-language programming tasks and pattern comparisons in one compact archive",
+      "category": "Standard",
+      "section": "Software Development",
+      "size": "7 MB",
+      "status": "Recommended next install",
+      "source": "freeCodeCamp via Kiwix",
+      "summary": "freeCodeCamp: Rosetta Code installs as its own RoachNet app, so you can pull this dev shelf into the native vault without dragging in a whole provider dump.",
+      "accent": "violet",
+      "machineFit": "Fast add-on for any supported machine",
+      "includes": [
+        "Cross-language programming tasks and pattern comparisons in one compact archive",
+        "Part of the standard software development shelf",
+        "Version 2026-02"
+      ],
+      "installLabel": "Install to RoachNet",
+      "detailLabel": "Open manifest",
+      "detailUrl": "./collections/kiwix-categories.json",
+      "installIntent": {
+        "action": "education-resource",
+        "category": "computing",
+        "resource": "freecodecamp_en_rosetta-code"
+      },
+      "iconBand": "FCC",
+      "iconMonogram": "FRC"
+    },
+    {
+      "id": "course-devdocs_en_typescript",
+      "title": "TypeScript Docs",
+      "subtitle": "Types, tooling, and API reference for modern JavaScript work",
+      "category": "Standard",
+      "section": "Software Development",
+      "size": "1 MB",
+      "status": "Recommended next install",
+      "source": "DevDocs via Kiwix",
+      "summary": "TypeScript Docs installs as its own RoachNet app, so you can pull this dev shelf into the native vault without dragging in a whole provider dump.",
+      "accent": "violet",
+      "machineFit": "Fast add-on for any supported machine",
+      "includes": [
+        "Types, tooling, and API reference for modern JavaScript work",
+        "Part of the standard software development shelf",
+        "Version 2026-04"
+      ],
+      "installLabel": "Install to RoachNet",
+      "detailLabel": "Open manifest",
+      "detailUrl": "./collections/kiwix-categories.json",
+      "installIntent": {
+        "action": "education-resource",
+        "category": "computing",
+        "resource": "devdocs_en_typescript"
+      },
+      "iconBand": "Docs",
+      "iconMonogram": "TYPE"
+    },
+    {
+      "id": "course-coreyms_en_javascript-tutorials",
+      "title": "Corey Schafer: JavaScript Tutorials",
+      "subtitle": "A practical JavaScript video lane for fundamentals and browser-side workflows",
+      "category": "Standard",
+      "section": "Software Development",
+      "size": "42 MB",
+      "status": "Recommended next install",
+      "source": "Corey Schafer via Kiwix",
+      "summary": "Corey Schafer: JavaScript Tutorials installs as its own RoachNet app, so you can pull this dev shelf into the native vault without dragging in a whole provider dump.",
+      "accent": "violet",
+      "machineFit": "Fast add-on for any supported machine",
+      "includes": [
+        "A practical JavaScript video lane for fundamentals and browser-side workflows",
+        "Part of the standard software development shelf",
+        "Version 2025-10"
+      ],
+      "installLabel": "Install to RoachNet",
+      "detailLabel": "Open manifest",
+      "detailUrl": "./collections/kiwix-categories.json",
+      "installIntent": {
+        "action": "education-resource",
+        "category": "computing",
+        "resource": "coreyms_en_javascript-tutorials"
+      },
+      "iconBand": "Corey",
+      "iconMonogram": "CSJ"
+    },
+    {
+      "id": "course-coreyms_en_sql-tutorials",
+      "title": "Corey Schafer: SQL Tutorials",
+      "subtitle": "Querying, joins, schema basics, and everyday database work in video form",
+      "category": "Standard",
+      "section": "Software Development",
+      "size": "22 MB",
+      "status": "Recommended next install",
+      "source": "Corey Schafer via Kiwix",
+      "summary": "Corey Schafer: SQL Tutorials installs as its own RoachNet app, so you can pull this dev shelf into the native vault without dragging in a whole provider dump.",
+      "accent": "violet",
+      "machineFit": "Fast add-on for any supported machine",
+      "includes": [
+        "Querying, joins, schema basics, and everyday database work in video form",
+        "Part of the standard software development shelf",
+        "Version 2026-04"
+      ],
+      "installLabel": "Install to RoachNet",
+      "detailLabel": "Open manifest",
+      "detailUrl": "./collections/kiwix-categories.json",
+      "installIntent": {
+        "action": "education-resource",
+        "category": "computing",
+        "resource": "coreyms_en_sql-tutorials"
+      },
+      "iconBand": "Corey",
+      "iconMonogram": "CSS"
     },
     {
       "id": "course-devdocs_en_go",
@@ -1513,7 +2101,7 @@
       "size": "2 MB",
       "status": "Deep archive",
       "source": "DevDocs via Kiwix",
-      "summary": "Go Docs installs as its own RoachNet course app, so you can pull exactly this shelf into the native Education lane without dragging in a whole provider bundle.",
+      "summary": "Go Docs installs as its own RoachNet app, so you can pull this dev shelf into the native vault without dragging in a whole provider dump.",
       "accent": "violet",
       "machineFit": "Fast add-on for any supported machine",
       "includes": [
@@ -1529,8 +2117,8 @@
         "category": "computing",
         "resource": "devdocs_en_go"
       },
-      "iconBand": "DEV",
-      "iconMonogram": "GD"
+      "iconBand": "Docs",
+      "iconMonogram": "GO"
     },
     {
       "id": "course-devdocs_en_rust",
@@ -1541,7 +2129,7 @@
       "size": "6 MB",
       "status": "Deep archive",
       "source": "DevDocs via Kiwix",
-      "summary": "Rust Docs installs as its own RoachNet course app, so you can pull exactly this shelf into the native Education lane without dragging in a whole provider bundle.",
+      "summary": "Rust Docs installs as its own RoachNet app, so you can pull this dev shelf into the native vault without dragging in a whole provider dump.",
       "accent": "violet",
       "machineFit": "Fast add-on for any supported machine",
       "includes": [
@@ -1557,8 +2145,8 @@
         "category": "computing",
         "resource": "devdocs_en_rust"
       },
-      "iconBand": "DEV",
-      "iconMonogram": "RD"
+      "iconBand": "Docs",
+      "iconMonogram": "RUST"
     },
     {
       "id": "course-devdocs_en_kubernetes",
@@ -1569,7 +2157,7 @@
       "size": "1 MB",
       "status": "Deep archive",
       "source": "DevDocs via Kiwix",
-      "summary": "Kubernetes Docs installs as its own RoachNet course app, so you can pull exactly this shelf into the native Education lane without dragging in a whole provider bundle.",
+      "summary": "Kubernetes Docs installs as its own RoachNet app, so you can pull this dev shelf into the native vault without dragging in a whole provider dump.",
       "accent": "violet",
       "machineFit": "Fast add-on for any supported machine",
       "includes": [
@@ -1585,8 +2173,288 @@
         "category": "computing",
         "resource": "devdocs_en_kubernetes"
       },
-      "iconBand": "DEV",
-      "iconMonogram": "KD"
+      "iconBand": "Docs",
+      "iconMonogram": "KUBE"
+    },
+    {
+      "id": "course-coreyms_en_django-tutorials",
+      "title": "Corey Schafer: Django Tutorials",
+      "subtitle": "Django apps, models, auth, and practical Python web workflows",
+      "category": "Comprehensive",
+      "section": "Software Development",
+      "size": "271 MB",
+      "status": "Deep archive",
+      "source": "Corey Schafer via Kiwix",
+      "summary": "Corey Schafer: Django Tutorials installs as its own RoachNet app, so you can pull this dev shelf into the native vault without dragging in a whole provider dump.",
+      "accent": "violet",
+      "machineFit": "Easy install once the core workspace is already healthy",
+      "includes": [
+        "Django apps, models, auth, and practical Python web workflows",
+        "Part of the comprehensive software development shelf",
+        "Version 2025-10"
+      ],
+      "installLabel": "Install to RoachNet",
+      "detailLabel": "Open manifest",
+      "detailUrl": "./collections/kiwix-categories.json",
+      "installIntent": {
+        "action": "education-resource",
+        "category": "computing",
+        "resource": "coreyms_en_django-tutorials"
+      },
+      "iconBand": "Corey",
+      "iconMonogram": "CSD"
+    },
+    {
+      "id": "course-coreyms_en_flask-tutorials",
+      "title": "Corey Schafer: Flask Tutorials",
+      "subtitle": "Flask routes, APIs, templating, and small-service patterns",
+      "category": "Comprehensive",
+      "section": "Software Development",
+      "size": "257 MB",
+      "status": "Deep archive",
+      "source": "Corey Schafer via Kiwix",
+      "summary": "Corey Schafer: Flask Tutorials installs as its own RoachNet app, so you can pull this dev shelf into the native vault without dragging in a whole provider dump.",
+      "accent": "violet",
+      "machineFit": "Easy install once the core workspace is already healthy",
+      "includes": [
+        "Flask routes, APIs, templating, and small-service patterns",
+        "Part of the comprehensive software development shelf",
+        "Version 2026-04"
+      ],
+      "installLabel": "Install to RoachNet",
+      "detailLabel": "Open manifest",
+      "detailUrl": "./collections/kiwix-categories.json",
+      "installIntent": {
+        "action": "education-resource",
+        "category": "computing",
+        "resource": "coreyms_en_flask-tutorials"
+      },
+      "iconBand": "Corey",
+      "iconMonogram": "CSF"
+    },
+    {
+      "id": "course-devdocs_en_nextjs",
+      "title": "Next.js Docs",
+      "subtitle": "App Router patterns, routing, rendering, and deployment reference",
+      "category": "Comprehensive",
+      "section": "Software Development",
+      "size": "1 MB",
+      "status": "Deep archive",
+      "source": "DevDocs via Kiwix",
+      "summary": "Next.js Docs installs as its own RoachNet app, so you can pull this dev shelf into the native vault without dragging in a whole provider dump.",
+      "accent": "violet",
+      "machineFit": "Fast add-on for any supported machine",
+      "includes": [
+        "App Router patterns, routing, rendering, and deployment reference",
+        "Part of the comprehensive software development shelf",
+        "Version 2026-04"
+      ],
+      "installLabel": "Install to RoachNet",
+      "detailLabel": "Open manifest",
+      "detailUrl": "./collections/kiwix-categories.json",
+      "installIntent": {
+        "action": "education-resource",
+        "category": "computing",
+        "resource": "devdocs_en_nextjs"
+      },
+      "iconBand": "Docs",
+      "iconMonogram": "NJ"
+    },
+    {
+      "id": "course-devdocs_en_vite",
+      "title": "Vite Docs",
+      "subtitle": "Build tooling and dev-server reference for fast modern frontends",
+      "category": "Comprehensive",
+      "section": "Software Development",
+      "size": "1 MB",
+      "status": "Deep archive",
+      "source": "DevDocs via Kiwix",
+      "summary": "Vite Docs installs as its own RoachNet app, so you can pull this dev shelf into the native vault without dragging in a whole provider dump.",
+      "accent": "violet",
+      "machineFit": "Fast add-on for any supported machine",
+      "includes": [
+        "Build tooling and dev-server reference for fast modern frontends",
+        "Part of the comprehensive software development shelf",
+        "Version 2026-04"
+      ],
+      "installLabel": "Install to RoachNet",
+      "detailLabel": "Open manifest",
+      "detailUrl": "./collections/kiwix-categories.json",
+      "installIntent": {
+        "action": "education-resource",
+        "category": "computing",
+        "resource": "devdocs_en_vite"
+      },
+      "iconBand": "Docs",
+      "iconMonogram": "VITE"
+    },
+    {
+      "id": "course-devdocs_en_tailwindcss",
+      "title": "Tailwind CSS Docs",
+      "subtitle": "Utility-first styling reference for fast UI work inside the vault",
+      "category": "Comprehensive",
+      "section": "Software Development",
+      "size": "1 MB",
+      "status": "Deep archive",
+      "source": "DevDocs via Kiwix",
+      "summary": "Tailwind CSS Docs installs as its own RoachNet app, so you can pull this dev shelf into the native vault without dragging in a whole provider dump.",
+      "accent": "violet",
+      "machineFit": "Fast add-on for any supported machine",
+      "includes": [
+        "Utility-first styling reference for fast UI work inside the vault",
+        "Part of the comprehensive software development shelf",
+        "Version 2026-02"
+      ],
+      "installLabel": "Install to RoachNet",
+      "detailLabel": "Open manifest",
+      "detailUrl": "./collections/kiwix-categories.json",
+      "installIntent": {
+        "action": "education-resource",
+        "category": "computing",
+        "resource": "devdocs_en_tailwindcss"
+      },
+      "iconBand": "Docs",
+      "iconMonogram": "TC"
+    },
+    {
+      "id": "course-devdocs_en_playwright",
+      "title": "Playwright Docs",
+      "subtitle": "Browser automation and end-to-end testing reference",
+      "category": "Comprehensive",
+      "section": "Software Development",
+      "size": "1 MB",
+      "status": "Deep archive",
+      "source": "DevDocs via Kiwix",
+      "summary": "Playwright Docs installs as its own RoachNet app, so you can pull this dev shelf into the native vault without dragging in a whole provider dump.",
+      "accent": "violet",
+      "machineFit": "Fast add-on for any supported machine",
+      "includes": [
+        "Browser automation and end-to-end testing reference",
+        "Part of the comprehensive software development shelf",
+        "Version 2026-04"
+      ],
+      "installLabel": "Install to RoachNet",
+      "detailLabel": "Open manifest",
+      "detailUrl": "./collections/kiwix-categories.json",
+      "installIntent": {
+        "action": "education-resource",
+        "category": "computing",
+        "resource": "devdocs_en_playwright"
+      },
+      "iconBand": "Docs",
+      "iconMonogram": "PLAY"
+    },
+    {
+      "id": "course-devdocs_en_electron",
+      "title": "Electron Docs",
+      "subtitle": "Desktop app patterns for Chromium and Node-powered builds",
+      "category": "Comprehensive",
+      "section": "Software Development",
+      "size": "2 MB",
+      "status": "Deep archive",
+      "source": "DevDocs via Kiwix",
+      "summary": "Electron Docs installs as its own RoachNet app, so you can pull this dev shelf into the native vault without dragging in a whole provider dump.",
+      "accent": "violet",
+      "machineFit": "Fast add-on for any supported machine",
+      "includes": [
+        "Desktop app patterns for Chromium and Node-powered builds",
+        "Part of the comprehensive software development shelf",
+        "Version 2026-04"
+      ],
+      "installLabel": "Install to RoachNet",
+      "detailLabel": "Open manifest",
+      "detailUrl": "./collections/kiwix-categories.json",
+      "installIntent": {
+        "action": "education-resource",
+        "category": "computing",
+        "resource": "devdocs_en_electron"
+      },
+      "iconBand": "Docs",
+      "iconMonogram": "ELEC"
+    },
+    {
+      "id": "course-devdocs_en_vue",
+      "title": "Vue Docs",
+      "subtitle": "Reactive UI reference for Vue components, routing, and state work",
+      "category": "Comprehensive",
+      "section": "Software Development",
+      "size": "1 MB",
+      "status": "Deep archive",
+      "source": "DevDocs via Kiwix",
+      "summary": "Vue Docs installs as its own RoachNet app, so you can pull this dev shelf into the native vault without dragging in a whole provider dump.",
+      "accent": "violet",
+      "machineFit": "Fast add-on for any supported machine",
+      "includes": [
+        "Reactive UI reference for Vue components, routing, and state work",
+        "Part of the comprehensive software development shelf",
+        "Version 2026-02"
+      ],
+      "installLabel": "Install to RoachNet",
+      "detailLabel": "Open manifest",
+      "detailUrl": "./collections/kiwix-categories.json",
+      "installIntent": {
+        "action": "education-resource",
+        "category": "computing",
+        "resource": "devdocs_en_vue"
+      },
+      "iconBand": "Docs",
+      "iconMonogram": "VUE"
+    },
+    {
+      "id": "course-devdocs_en_svelte",
+      "title": "Svelte Docs",
+      "subtitle": "Reactive component patterns and compiler-powered frontend reference",
+      "category": "Comprehensive",
+      "section": "Software Development",
+      "size": "1 MB",
+      "status": "Deep archive",
+      "source": "DevDocs via Kiwix",
+      "summary": "Svelte Docs installs as its own RoachNet app, so you can pull this dev shelf into the native vault without dragging in a whole provider dump.",
+      "accent": "violet",
+      "machineFit": "Fast add-on for any supported machine",
+      "includes": [
+        "Reactive component patterns and compiler-powered frontend reference",
+        "Part of the comprehensive software development shelf",
+        "Version 2026-01"
+      ],
+      "installLabel": "Install to RoachNet",
+      "detailLabel": "Open manifest",
+      "detailUrl": "./collections/kiwix-categories.json",
+      "installIntent": {
+        "action": "education-resource",
+        "category": "computing",
+        "resource": "devdocs_en_svelte"
+      },
+      "iconBand": "Docs",
+      "iconMonogram": "SVEL"
+    },
+    {
+      "id": "course-devdocs_en_astro",
+      "title": "Astro Docs",
+      "subtitle": "Content-site, islands, and hybrid rendering reference for modern web builds",
+      "category": "Comprehensive",
+      "section": "Software Development",
+      "size": "2 MB",
+      "status": "Deep archive",
+      "source": "DevDocs via Kiwix",
+      "summary": "Astro Docs installs as its own RoachNet app, so you can pull this dev shelf into the native vault without dragging in a whole provider dump.",
+      "accent": "violet",
+      "machineFit": "Fast add-on for any supported machine",
+      "includes": [
+        "Content-site, islands, and hybrid rendering reference for modern web builds",
+        "Part of the comprehensive software development shelf",
+        "Version 2026-04"
+      ],
+      "installLabel": "Install to RoachNet",
+      "detailLabel": "Open manifest",
+      "detailUrl": "./collections/kiwix-categories.json",
+      "installIntent": {
+        "action": "education-resource",
+        "category": "computing",
+        "resource": "devdocs_en_astro"
+      },
+      "iconBand": "Docs",
+      "iconMonogram": "ASTR"
     },
     {
       "id": "course-learningstatistics_en_all",
@@ -1597,7 +2465,7 @@
       "size": "32 MB",
       "status": "Great first install",
       "source": "RoachNet knowledge mirror",
-      "summary": "Learning Statistics installs as its own RoachNet course app, so you can pull exactly this shelf into the native Education lane without dragging in a whole provider bundle.",
+      "summary": "Learning Statistics installs as its own RoachNet app, so you can pull this ML shelf into the native vault without dragging in a whole provider dump.",
       "accent": "cyan",
       "machineFit": "Fast add-on for any supported machine",
       "includes": [
@@ -1625,7 +2493,7 @@
       "size": "5 MB",
       "status": "Great first install",
       "source": "DevDocs via Kiwix",
-      "summary": "NumPy Docs installs as its own RoachNet course app, so you can pull exactly this shelf into the native Education lane without dragging in a whole provider bundle.",
+      "summary": "NumPy Docs installs as its own RoachNet app, so you can pull this ML shelf into the native vault without dragging in a whole provider dump.",
       "accent": "cyan",
       "machineFit": "Fast add-on for any supported machine",
       "includes": [
@@ -1641,8 +2509,8 @@
         "category": "machine-learning",
         "resource": "devdocs_en_numpy"
       },
-      "iconBand": "ML",
-      "iconMonogram": "ND"
+      "iconBand": "Docs",
+      "iconMonogram": "NUMP"
     },
     {
       "id": "course-devdocs_en_pandas",
@@ -1653,7 +2521,7 @@
       "size": "5 MB",
       "status": "Great first install",
       "source": "DevDocs via Kiwix",
-      "summary": "Pandas Docs installs as its own RoachNet course app, so you can pull exactly this shelf into the native Education lane without dragging in a whole provider bundle.",
+      "summary": "Pandas Docs installs as its own RoachNet app, so you can pull this ML shelf into the native vault without dragging in a whole provider dump.",
       "accent": "cyan",
       "machineFit": "Fast add-on for any supported machine",
       "includes": [
@@ -1669,8 +2537,36 @@
         "category": "machine-learning",
         "resource": "devdocs_en_pandas"
       },
-      "iconBand": "ML",
-      "iconMonogram": "PD"
+      "iconBand": "Docs",
+      "iconMonogram": "PAND"
+    },
+    {
+      "id": "course-learningstatisticswithr.com_en_all",
+      "title": "Learning Statistics with R",
+      "subtitle": "Statistics through the lens of R, inference, and practical quantitative thinking",
+      "category": "Essential",
+      "section": "Machine Learning & Data Science",
+      "size": "15 MB",
+      "status": "Great first install",
+      "source": "Learning Statistics with R via Kiwix",
+      "summary": "Learning Statistics with R installs as its own RoachNet app, so you can pull this ML shelf into the native vault without dragging in a whole provider dump.",
+      "accent": "cyan",
+      "machineFit": "Fast add-on for any supported machine",
+      "includes": [
+        "Statistics through the lens of R, inference, and practical quantitative thinking",
+        "Part of the essential machine learning & data science shelf",
+        "Version 2026-02"
+      ],
+      "installLabel": "Install to RoachNet",
+      "detailLabel": "Open manifest",
+      "detailUrl": "./collections/kiwix-categories.json",
+      "installIntent": {
+        "action": "education-resource",
+        "category": "machine-learning",
+        "resource": "learningstatisticswithr.com_en_all"
+      },
+      "iconBand": "LSR",
+      "iconMonogram": "LSR"
     },
     {
       "id": "course-devdocs_en_scikit-learn",
@@ -1681,7 +2577,7 @@
       "size": "54 MB",
       "status": "Recommended next install",
       "source": "DevDocs via Kiwix",
-      "summary": "scikit-learn Docs installs as its own RoachNet course app, so you can pull exactly this shelf into the native Education lane without dragging in a whole provider bundle.",
+      "summary": "scikit-learn Docs installs as its own RoachNet app, so you can pull this ML shelf into the native vault without dragging in a whole provider dump.",
       "accent": "cyan",
       "machineFit": "Fast add-on for any supported machine",
       "includes": [
@@ -1697,8 +2593,8 @@
         "category": "machine-learning",
         "resource": "devdocs_en_scikit-learn"
       },
-      "iconBand": "ML",
-      "iconMonogram": "SLD"
+      "iconBand": "Docs",
+      "iconMonogram": "SL"
     },
     {
       "id": "course-devdocs_en_pytorch",
@@ -1709,7 +2605,7 @@
       "size": "3 MB",
       "status": "Recommended next install",
       "source": "DevDocs via Kiwix",
-      "summary": "PyTorch Docs installs as its own RoachNet course app, so you can pull exactly this shelf into the native Education lane without dragging in a whole provider bundle.",
+      "summary": "PyTorch Docs installs as its own RoachNet app, so you can pull this ML shelf into the native vault without dragging in a whole provider dump.",
       "accent": "cyan",
       "machineFit": "Fast add-on for any supported machine",
       "includes": [
@@ -1725,8 +2621,8 @@
         "category": "machine-learning",
         "resource": "devdocs_en_pytorch"
       },
-      "iconBand": "ML",
-      "iconMonogram": "PD"
+      "iconBand": "Docs",
+      "iconMonogram": "PYTO"
     },
     {
       "id": "course-devdocs_en_tensorflow",
@@ -1737,7 +2633,7 @@
       "size": "6 MB",
       "status": "Recommended next install",
       "source": "DevDocs via Kiwix",
-      "summary": "TensorFlow Docs installs as its own RoachNet course app, so you can pull exactly this shelf into the native Education lane without dragging in a whole provider bundle.",
+      "summary": "TensorFlow Docs installs as its own RoachNet app, so you can pull this ML shelf into the native vault without dragging in a whole provider dump.",
       "accent": "cyan",
       "machineFit": "Fast add-on for any supported machine",
       "includes": [
@@ -1753,8 +2649,120 @@
         "category": "machine-learning",
         "resource": "devdocs_en_tensorflow"
       },
-      "iconBand": "ML",
-      "iconMonogram": "TD"
+      "iconBand": "Docs",
+      "iconMonogram": "TENS"
+    },
+    {
+      "id": "course-libretexts.org_en_stats",
+      "title": "LibreTexts Statistics",
+      "subtitle": "Probability, inference, regression, and statistical methods textbooks",
+      "category": "Standard",
+      "section": "Machine Learning & Data Science",
+      "size": "206 MB",
+      "status": "Recommended next install",
+      "source": "LibreTexts via Kiwix",
+      "summary": "LibreTexts Statistics installs as its own RoachNet app, so you can pull this ML shelf into the native vault without dragging in a whole provider dump.",
+      "accent": "cyan",
+      "machineFit": "Easy install once the core workspace is already healthy",
+      "includes": [
+        "Probability, inference, regression, and statistical methods textbooks",
+        "Part of the standard machine learning & data science shelf",
+        "Version 2026-01"
+      ],
+      "installLabel": "Install to RoachNet",
+      "detailLabel": "Open manifest",
+      "detailUrl": "./collections/kiwix-categories.json",
+      "installIntent": {
+        "action": "education-resource",
+        "category": "machine-learning",
+        "resource": "libretexts.org_en_stats"
+      },
+      "iconBand": "Libre",
+      "iconMonogram": "LS"
+    },
+    {
+      "id": "course-coreyms_en_pandas-tutorials",
+      "title": "Corey Schafer: Pandas Tutorials",
+      "subtitle": "Dataframes, cleaning, reshaping, and analysis workflows in video form",
+      "category": "Standard",
+      "section": "Machine Learning & Data Science",
+      "size": "165 MB",
+      "status": "Recommended next install",
+      "source": "Corey Schafer via Kiwix",
+      "summary": "Corey Schafer: Pandas Tutorials installs as its own RoachNet app, so you can pull this ML shelf into the native vault without dragging in a whole provider dump.",
+      "accent": "cyan",
+      "machineFit": "Easy install once the core workspace is already healthy",
+      "includes": [
+        "Dataframes, cleaning, reshaping, and analysis workflows in video form",
+        "Part of the standard machine learning & data science shelf",
+        "Version 2026-03"
+      ],
+      "installLabel": "Install to RoachNet",
+      "detailLabel": "Open manifest",
+      "detailUrl": "./collections/kiwix-categories.json",
+      "installIntent": {
+        "action": "education-resource",
+        "category": "machine-learning",
+        "resource": "coreyms_en_pandas-tutorials"
+      },
+      "iconBand": "Corey",
+      "iconMonogram": "CORE"
+    },
+    {
+      "id": "course-coreyms_en_matplotlib-tutorials",
+      "title": "Corey Schafer: Matplotlib Tutorials",
+      "subtitle": "Plotting, chart composition, and data visualization in Python",
+      "category": "Standard",
+      "section": "Machine Learning & Data Science",
+      "size": "104 MB",
+      "status": "Recommended next install",
+      "source": "Corey Schafer via Kiwix",
+      "summary": "Corey Schafer: Matplotlib Tutorials installs as its own RoachNet app, so you can pull this ML shelf into the native vault without dragging in a whole provider dump.",
+      "accent": "cyan",
+      "machineFit": "Fast add-on for any supported machine",
+      "includes": [
+        "Plotting, chart composition, and data visualization in Python",
+        "Part of the standard machine learning & data science shelf",
+        "Version 2026-04"
+      ],
+      "installLabel": "Install to RoachNet",
+      "detailLabel": "Open manifest",
+      "detailUrl": "./collections/kiwix-categories.json",
+      "installIntent": {
+        "action": "education-resource",
+        "category": "machine-learning",
+        "resource": "coreyms_en_matplotlib-tutorials"
+      },
+      "iconBand": "Corey",
+      "iconMonogram": "CSM"
+    },
+    {
+      "id": "course-datascience.stackexchange.com_en_all",
+      "title": "Data Science Q&A",
+      "subtitle": "Applied data-science discussion on tooling, modeling, and analysis workflows",
+      "category": "Standard",
+      "section": "Machine Learning & Data Science",
+      "size": "261 MB",
+      "status": "Recommended next install",
+      "source": "Stack Exchange via Kiwix",
+      "summary": "Data Science Q&A installs as its own RoachNet app, so you can pull this ML shelf into the native vault without dragging in a whole provider dump.",
+      "accent": "cyan",
+      "machineFit": "Easy install once the core workspace is already healthy",
+      "includes": [
+        "Applied data-science discussion on tooling, modeling, and analysis workflows",
+        "Part of the standard machine learning & data science shelf",
+        "Version 2026-02"
+      ],
+      "installLabel": "Install to RoachNet",
+      "detailLabel": "Open manifest",
+      "detailUrl": "./collections/kiwix-categories.json",
+      "installIntent": {
+        "action": "education-resource",
+        "category": "machine-learning",
+        "resource": "datascience.stackexchange.com_en_all"
+      },
+      "iconBand": "Stack",
+      "iconMonogram": "DS"
     },
     {
       "id": "course-ted_mul_machine-learning",
@@ -1765,7 +2773,7 @@
       "size": "1.3 GB",
       "status": "Deep archive",
       "source": "TED via Kiwix",
-      "summary": "TED: Machine Learning installs as its own RoachNet course app, so you can pull exactly this shelf into the native Education lane without dragging in a whole provider bundle.",
+      "summary": "TED: Machine Learning installs as its own RoachNet app, so you can pull this ML shelf into the native vault without dragging in a whole provider dump.",
       "accent": "cyan",
       "machineFit": "Best on installs with real storage headroom",
       "includes": [
@@ -1781,8 +2789,92 @@
         "category": "machine-learning",
         "resource": "ted_mul_machine-learning"
       },
-      "iconBand": "ML",
+      "iconBand": "TED",
       "iconMonogram": "TML"
+    },
+    {
+      "id": "course-ai.stackexchange.com_en_all",
+      "title": "AI Q&A",
+      "subtitle": "General AI discussion, model workflows, and implementation questions",
+      "category": "Comprehensive",
+      "section": "Machine Learning & Data Science",
+      "size": "100 MB",
+      "status": "Deep archive",
+      "source": "Stack Exchange via Kiwix",
+      "summary": "AI Q&A installs as its own RoachNet app, so you can pull this ML shelf into the native vault without dragging in a whole provider dump.",
+      "accent": "cyan",
+      "machineFit": "Fast add-on for any supported machine",
+      "includes": [
+        "General AI discussion, model workflows, and implementation questions",
+        "Part of the comprehensive machine learning & data science shelf",
+        "Version 2026-02"
+      ],
+      "installLabel": "Install to RoachNet",
+      "detailLabel": "Open manifest",
+      "detailUrl": "./collections/kiwix-categories.json",
+      "installIntent": {
+        "action": "education-resource",
+        "category": "machine-learning",
+        "resource": "ai.stackexchange.com_en_all"
+      },
+      "iconBand": "Stack",
+      "iconMonogram": "AI"
+    },
+    {
+      "id": "course-genai.stackexchange.com_en_all",
+      "title": "GenAI Q&A",
+      "subtitle": "Practical large-language-model and generative-AI troubleshooting and patterns",
+      "category": "Comprehensive",
+      "section": "Machine Learning & Data Science",
+      "size": "10 MB",
+      "status": "Deep archive",
+      "source": "Stack Exchange via Kiwix",
+      "summary": "GenAI Q&A installs as its own RoachNet app, so you can pull this ML shelf into the native vault without dragging in a whole provider dump.",
+      "accent": "cyan",
+      "machineFit": "Fast add-on for any supported machine",
+      "includes": [
+        "Practical large-language-model and generative-AI troubleshooting and patterns",
+        "Part of the comprehensive machine learning & data science shelf",
+        "Version 2026-02"
+      ],
+      "installLabel": "Install to RoachNet",
+      "detailLabel": "Open manifest",
+      "detailUrl": "./collections/kiwix-categories.json",
+      "installIntent": {
+        "action": "education-resource",
+        "category": "machine-learning",
+        "resource": "genai.stackexchange.com_en_all"
+      },
+      "iconBand": "Stack",
+      "iconMonogram": "GENA"
+    },
+    {
+      "id": "course-devdocs_en_scikit-image",
+      "title": "scikit-image Docs",
+      "subtitle": "Image processing reference for computer vision and scientific imaging workflows",
+      "category": "Comprehensive",
+      "section": "Machine Learning & Data Science",
+      "size": "11 MB",
+      "status": "Deep archive",
+      "source": "DevDocs via Kiwix",
+      "summary": "scikit-image Docs installs as its own RoachNet app, so you can pull this ML shelf into the native vault without dragging in a whole provider dump.",
+      "accent": "cyan",
+      "machineFit": "Fast add-on for any supported machine",
+      "includes": [
+        "Image processing reference for computer vision and scientific imaging workflows",
+        "Part of the comprehensive machine learning & data science shelf",
+        "Version 2026-04"
+      ],
+      "installLabel": "Install to RoachNet",
+      "detailLabel": "Open manifest",
+      "detailUrl": "./collections/kiwix-categories.json",
+      "installIntent": {
+        "action": "education-resource",
+        "category": "machine-learning",
+        "resource": "devdocs_en_scikit-image"
+      },
+      "iconBand": "Docs",
+      "iconMonogram": "SI"
     },
     {
       "id": "course-openmusictheory.com_en_all",
@@ -1793,7 +2885,7 @@
       "size": "78 MB",
       "status": "Great first install",
       "source": "Open Music Theory via Kiwix",
-      "summary": "Open Music Theory installs as its own RoachNet course app, so you can pull exactly this shelf into the native Education lane without dragging in a whole provider bundle.",
+      "summary": "Open Music Theory installs as its own RoachNet app, so you can pull this audio shelf into the native vault without dragging in a whole provider dump.",
       "accent": "magenta",
       "machineFit": "Fast add-on for any supported machine",
       "includes": [
@@ -1809,7 +2901,7 @@
         "category": "music-audio",
         "resource": "openmusictheory.com_en_all"
       },
-      "iconBand": "AUDIO",
+      "iconBand": "Theory",
       "iconMonogram": "OMT"
     },
     {
@@ -1821,7 +2913,7 @@
       "size": "37 MB",
       "status": "Great first install",
       "source": "Dalitio via Kiwix",
-      "summary": "Dalitio Music Theory installs as its own RoachNet course app, so you can pull exactly this shelf into the native Education lane without dragging in a whole provider bundle.",
+      "summary": "Dalitio Music Theory installs as its own RoachNet app, so you can pull this audio shelf into the native vault without dragging in a whole provider dump.",
       "accent": "magenta",
       "machineFit": "Fast add-on for any supported machine",
       "includes": [
@@ -1837,7 +2929,7 @@
         "category": "music-audio",
         "resource": "music.dalitio.de_en_all"
       },
-      "iconBand": "AUDIO",
+      "iconBand": "Dalitio",
       "iconMonogram": "DMT"
     },
     {
@@ -1849,7 +2941,7 @@
       "size": "411 MB",
       "status": "Recommended next install",
       "source": "TED via Kiwix",
-      "summary": "TED: Sound installs as its own RoachNet course app, so you can pull exactly this shelf into the native Education lane without dragging in a whole provider bundle.",
+      "summary": "TED: Sound installs as its own RoachNet app, so you can pull this audio shelf into the native vault without dragging in a whole provider dump.",
       "accent": "magenta",
       "machineFit": "Easy install once the core workspace is already healthy",
       "includes": [
@@ -1865,8 +2957,64 @@
         "category": "music-audio",
         "resource": "ted_mul_sound"
       },
-      "iconBand": "AUDIO",
+      "iconBand": "TED",
       "iconMonogram": "TS"
+    },
+    {
+      "id": "course-sound.stackexchange.com_en_all",
+      "title": "Sound Q&A",
+      "subtitle": "Questions on acoustics, sound design, live audio, and playback systems",
+      "category": "Standard",
+      "section": "Music Production & Audio",
+      "size": "73 MB",
+      "status": "Recommended next install",
+      "source": "Stack Exchange via Kiwix",
+      "summary": "Sound Q&A installs as its own RoachNet app, so you can pull this audio shelf into the native vault without dragging in a whole provider dump.",
+      "accent": "magenta",
+      "machineFit": "Fast add-on for any supported machine",
+      "includes": [
+        "Questions on acoustics, sound design, live audio, and playback systems",
+        "Part of the standard music production & audio shelf",
+        "Version 2026-02"
+      ],
+      "installLabel": "Install to RoachNet",
+      "detailLabel": "Open manifest",
+      "detailUrl": "./collections/kiwix-categories.json",
+      "installIntent": {
+        "action": "education-resource",
+        "category": "music-audio",
+        "resource": "sound.stackexchange.com_en_all"
+      },
+      "iconBand": "Stack",
+      "iconMonogram": "SOUN"
+    },
+    {
+      "id": "course-music.stackexchange.com_en_all",
+      "title": "Music Q&A",
+      "subtitle": "Harmony, arranging, notation, performance, and composition discussions",
+      "category": "Standard",
+      "section": "Music Production & Audio",
+      "size": "323 MB",
+      "status": "Recommended next install",
+      "source": "Stack Exchange via Kiwix",
+      "summary": "Music Q&A installs as its own RoachNet app, so you can pull this audio shelf into the native vault without dragging in a whole provider dump.",
+      "accent": "magenta",
+      "machineFit": "Easy install once the core workspace is already healthy",
+      "includes": [
+        "Harmony, arranging, notation, performance, and composition discussions",
+        "Part of the standard music production & audio shelf",
+        "Version 2026-02"
+      ],
+      "installLabel": "Install to RoachNet",
+      "detailLabel": "Open manifest",
+      "detailUrl": "./collections/kiwix-categories.json",
+      "installIntent": {
+        "action": "education-resource",
+        "category": "music-audio",
+        "resource": "music.stackexchange.com_en_all"
+      },
+      "iconBand": "Stack",
+      "iconMonogram": "MUSI"
     },
     {
       "id": "course-ted_mul_music",
@@ -1877,7 +3025,7 @@
       "size": "3.8 GB",
       "status": "Deep archive",
       "source": "TED via Kiwix",
-      "summary": "TED: Music installs as its own RoachNet course app, so you can pull exactly this shelf into the native Education lane without dragging in a whole provider bundle.",
+      "summary": "TED: Music installs as its own RoachNet app, so you can pull this audio shelf into the native vault without dragging in a whole provider dump.",
       "accent": "magenta",
       "machineFit": "Best on installs with real storage headroom",
       "includes": [
@@ -1893,8 +3041,176 @@
         "category": "music-audio",
         "resource": "ted_mul_music"
       },
-      "iconBand": "AUDIO",
+      "iconBand": "TED",
       "iconMonogram": "TM"
+    },
+    {
+      "id": "course-dsp.stackexchange.com_en_all",
+      "title": "Signal Processing Q&A",
+      "subtitle": "Filters, transforms, DSP workflows, and practical math for audio and signals",
+      "category": "Comprehensive",
+      "section": "Music Production & Audio",
+      "size": "360 MB",
+      "status": "Deep archive",
+      "source": "Stack Exchange via Kiwix",
+      "summary": "Signal Processing Q&A installs as its own RoachNet app, so you can pull this audio shelf into the native vault without dragging in a whole provider dump.",
+      "accent": "magenta",
+      "machineFit": "Easy install once the core workspace is already healthy",
+      "includes": [
+        "Filters, transforms, DSP workflows, and practical math for audio and signals",
+        "Part of the comprehensive music production & audio shelf",
+        "Version 2026-02"
+      ],
+      "installLabel": "Install to RoachNet",
+      "detailLabel": "Open manifest",
+      "detailUrl": "./collections/kiwix-categories.json",
+      "installIntent": {
+        "action": "education-resource",
+        "category": "music-audio",
+        "resource": "dsp.stackexchange.com_en_all"
+      },
+      "iconBand": "Stack",
+      "iconMonogram": "SP"
+    },
+    {
+      "id": "course-graphicdesign.stackexchange.com_en_all",
+      "title": "Graphic Design Q&A",
+      "subtitle": "Typography, layout, branding, print prep, and design workflow discussion",
+      "category": "Essential",
+      "section": "Design & Visual Media",
+      "size": "884 MB",
+      "status": "Great first install",
+      "source": "Stack Exchange via Kiwix",
+      "summary": "Graphic Design Q&A installs as its own RoachNet app, so you can pull this design shelf into the native vault without dragging in a whole provider dump.",
+      "accent": "violet",
+      "machineFit": "Easy install once the core workspace is already healthy",
+      "includes": [
+        "Typography, layout, branding, print prep, and design workflow discussion",
+        "Part of the essential design & visual media shelf",
+        "Version 2026-02"
+      ],
+      "installLabel": "Install to RoachNet",
+      "detailLabel": "Open manifest",
+      "detailUrl": "./collections/kiwix-categories.json",
+      "installIntent": {
+        "action": "education-resource",
+        "category": "design-visual-media",
+        "resource": "graphicdesign.stackexchange.com_en_all"
+      },
+      "iconBand": "Stack",
+      "iconMonogram": "GD"
+    },
+    {
+      "id": "course-photo.stackexchange.com_en_all",
+      "title": "Photography Q&A",
+      "subtitle": "Capture, lighting, lenses, editing, and practical camera problem-solving",
+      "category": "Essential",
+      "section": "Design & Visual Media",
+      "size": "431 MB",
+      "status": "Great first install",
+      "source": "Stack Exchange via Kiwix",
+      "summary": "Photography Q&A installs as its own RoachNet app, so you can pull this design shelf into the native vault without dragging in a whole provider dump.",
+      "accent": "violet",
+      "machineFit": "Easy install once the core workspace is already healthy",
+      "includes": [
+        "Capture, lighting, lenses, editing, and practical camera problem-solving",
+        "Part of the essential design & visual media shelf",
+        "Version 2026-02"
+      ],
+      "installLabel": "Install to RoachNet",
+      "detailLabel": "Open manifest",
+      "detailUrl": "./collections/kiwix-categories.json",
+      "installIntent": {
+        "action": "education-resource",
+        "category": "design-visual-media",
+        "resource": "photo.stackexchange.com_en_all"
+      },
+      "iconBand": "Stack",
+      "iconMonogram": "PHOT"
+    },
+    {
+      "id": "course-blender.stackexchange.com_en_all",
+      "title": "Blender Q&A",
+      "subtitle": "Modeling, shading, animation, rendering, and Blender workflow fixes",
+      "category": "Standard",
+      "section": "Design & Visual Media",
+      "size": "2.6 GB",
+      "status": "Recommended next install",
+      "source": "Stack Exchange via Kiwix",
+      "summary": "Blender Q&A installs as its own RoachNet app, so you can pull this design shelf into the native vault without dragging in a whole provider dump.",
+      "accent": "violet",
+      "machineFit": "Best on installs with real storage headroom",
+      "includes": [
+        "Modeling, shading, animation, rendering, and Blender workflow fixes",
+        "Part of the standard design & visual media shelf",
+        "Version 2026-02"
+      ],
+      "installLabel": "Install to RoachNet",
+      "detailLabel": "Open manifest",
+      "detailUrl": "./collections/kiwix-categories.json",
+      "installIntent": {
+        "action": "education-resource",
+        "category": "design-visual-media",
+        "resource": "blender.stackexchange.com_en_all"
+      },
+      "iconBand": "Stack",
+      "iconMonogram": "BLEN"
+    },
+    {
+      "id": "course-studio.blender.org_en_open-movies",
+      "title": "Blender Studio Open Movies",
+      "subtitle": "Open-production films and behind-the-scenes assets from Blender Studio",
+      "category": "Comprehensive",
+      "section": "Design & Visual Media",
+      "size": "374 MB",
+      "status": "Deep archive",
+      "source": "Blender Studio via Kiwix",
+      "summary": "Blender Studio Open Movies installs as its own RoachNet app, so you can pull this design shelf into the native vault without dragging in a whole provider dump.",
+      "accent": "violet",
+      "machineFit": "Easy install once the core workspace is already healthy",
+      "includes": [
+        "Open-production films and behind-the-scenes assets from Blender Studio",
+        "Part of the comprehensive design & visual media shelf",
+        "Version 2026-03"
+      ],
+      "installLabel": "Install to RoachNet",
+      "detailLabel": "Open manifest",
+      "detailUrl": "./collections/kiwix-categories.json",
+      "installIntent": {
+        "action": "education-resource",
+        "category": "design-visual-media",
+        "resource": "studio.blender.org_en_open-movies"
+      },
+      "iconBand": "Studio",
+      "iconMonogram": "BSOM"
+    },
+    {
+      "id": "course-ted_mul_design",
+      "title": "TED: Design",
+      "subtitle": "A broad visual-thinking talk archive on design, objects, and creative direction",
+      "category": "Comprehensive",
+      "section": "Design & Visual Media",
+      "size": "5.9 GB",
+      "status": "Deep archive",
+      "source": "TED via Kiwix",
+      "summary": "TED: Design installs as its own RoachNet app, so you can pull this design shelf into the native vault without dragging in a whole provider dump.",
+      "accent": "violet",
+      "machineFit": "Large offline shelf best staged after the main runtime is settled",
+      "includes": [
+        "A broad visual-thinking talk archive on design, objects, and creative direction",
+        "Part of the comprehensive design & visual media shelf",
+        "Version 2026-01"
+      ],
+      "installLabel": "Install to RoachNet",
+      "detailLabel": "Open manifest",
+      "detailUrl": "./collections/kiwix-categories.json",
+      "installIntent": {
+        "action": "education-resource",
+        "category": "design-visual-media",
+        "resource": "ted_mul_design"
+      },
+      "iconBand": "TED",
+      "iconMonogram": "TD"
     },
     {
       "id": "course-archlinux_en_all_maxi",
@@ -1905,7 +3221,7 @@
       "size": "30 MB",
       "status": "Great first install",
       "source": "Arch Linux docs via Kiwix",
-      "summary": "Arch Linux Docs installs as its own RoachNet course app, so you can pull exactly this shelf into the native Education lane without dragging in a whole provider bundle.",
+      "summary": "Arch Linux Docs installs as its own RoachNet app, so you can pull this ops shelf into the native vault without dragging in a whole provider dump.",
       "accent": "bronze",
       "machineFit": "Fast add-on for any supported machine",
       "includes": [
@@ -1921,8 +3237,8 @@
         "category": "it-infrastructure",
         "resource": "archlinux_en_all_maxi"
       },
-      "iconBand": "OPS",
-      "iconMonogram": "ALD"
+      "iconBand": "Arch",
+      "iconMonogram": "AL"
     },
     {
       "id": "course-alpinelinux_en_all_maxi",
@@ -1933,7 +3249,7 @@
       "size": "3 MB",
       "status": "Great first install",
       "source": "Alpine Linux docs via Kiwix",
-      "summary": "Alpine Linux Docs installs as its own RoachNet course app, so you can pull exactly this shelf into the native Education lane without dragging in a whole provider bundle.",
+      "summary": "Alpine Linux Docs installs as its own RoachNet app, so you can pull this ops shelf into the native vault without dragging in a whole provider dump.",
       "accent": "bronze",
       "machineFit": "Fast add-on for any supported machine",
       "includes": [
@@ -1949,8 +3265,8 @@
         "category": "it-infrastructure",
         "resource": "alpinelinux_en_all_maxi"
       },
-      "iconBand": "OPS",
-      "iconMonogram": "ALD"
+      "iconBand": "Alpine",
+      "iconMonogram": "AL"
     },
     {
       "id": "course-devdocs_en_bash",
@@ -1961,7 +3277,7 @@
       "size": "1 MB",
       "status": "Great first install",
       "source": "DevDocs via Kiwix",
-      "summary": "Bash Docs installs as its own RoachNet course app, so you can pull exactly this shelf into the native Education lane without dragging in a whole provider bundle.",
+      "summary": "Bash Docs installs as its own RoachNet app, so you can pull this ops shelf into the native vault without dragging in a whole provider dump.",
       "accent": "bronze",
       "machineFit": "Fast add-on for any supported machine",
       "includes": [
@@ -1977,8 +3293,8 @@
         "category": "it-infrastructure",
         "resource": "devdocs_en_bash"
       },
-      "iconBand": "OPS",
-      "iconMonogram": "BD"
+      "iconBand": "Docs",
+      "iconMonogram": "BASH"
     },
     {
       "id": "course-cloudflare.com_en_learning-center",
@@ -1989,7 +3305,7 @@
       "size": "182 MB",
       "status": "Recommended next install",
       "source": "Cloudflare Learning Center via Kiwix",
-      "summary": "Cloudflare Learning Center installs as its own RoachNet course app, so you can pull exactly this shelf into the native Education lane without dragging in a whole provider bundle.",
+      "summary": "Cloudflare Learning Center installs as its own RoachNet app, so you can pull this ops shelf into the native vault without dragging in a whole provider dump.",
       "accent": "bronze",
       "machineFit": "Easy install once the core workspace is already healthy",
       "includes": [
@@ -2005,7 +3321,7 @@
         "category": "it-infrastructure",
         "resource": "cloudflare.com_en_learning-center"
       },
-      "iconBand": "OPS",
+      "iconBand": "Cloud",
       "iconMonogram": "CLC"
     },
     {
@@ -2017,7 +3333,7 @@
       "size": "1 MB",
       "status": "Recommended next install",
       "source": "DevDocs via Kiwix",
-      "summary": "Apache HTTP Server Docs installs as its own RoachNet course app, so you can pull exactly this shelf into the native Education lane without dragging in a whole provider bundle.",
+      "summary": "Apache HTTP Server Docs installs as its own RoachNet app, so you can pull this ops shelf into the native vault without dragging in a whole provider dump.",
       "accent": "bronze",
       "machineFit": "Fast add-on for any supported machine",
       "includes": [
@@ -2033,8 +3349,120 @@
         "category": "it-infrastructure",
         "resource": "devdocs_en_apache-http-server"
       },
-      "iconBand": "OPS",
+      "iconBand": "Docs",
       "iconMonogram": "AHS"
+    },
+    {
+      "id": "course-askubuntu.com_en_all",
+      "title": "Ask Ubuntu",
+      "subtitle": "Ubuntu setup, troubleshooting, packaging, and admin reference from years of Q&A",
+      "category": "Standard",
+      "section": "IT & Infrastructure",
+      "size": "2.6 GB",
+      "status": "Recommended next install",
+      "source": "Stack Exchange via Kiwix",
+      "summary": "Ask Ubuntu installs as its own RoachNet app, so you can pull this ops shelf into the native vault without dragging in a whole provider dump.",
+      "accent": "bronze",
+      "machineFit": "Best on installs with real storage headroom",
+      "includes": [
+        "Ubuntu setup, troubleshooting, packaging, and admin reference from years of Q&A",
+        "Part of the standard it & infrastructure shelf",
+        "Version 2025-12"
+      ],
+      "installLabel": "Install to RoachNet",
+      "detailLabel": "Open manifest",
+      "detailUrl": "./collections/kiwix-categories.json",
+      "installIntent": {
+        "action": "education-resource",
+        "category": "it-infrastructure",
+        "resource": "askubuntu.com_en_all"
+      },
+      "iconBand": "Stack",
+      "iconMonogram": "AU"
+    },
+    {
+      "id": "course-devdocs_en_nginx",
+      "title": "Nginx Docs",
+      "subtitle": "HTTP server, reverse proxy, and production web-serving reference",
+      "category": "Standard",
+      "section": "IT & Infrastructure",
+      "size": "1 MB",
+      "status": "Recommended next install",
+      "source": "DevDocs via Kiwix",
+      "summary": "Nginx Docs installs as its own RoachNet app, so you can pull this ops shelf into the native vault without dragging in a whole provider dump.",
+      "accent": "bronze",
+      "machineFit": "Fast add-on for any supported machine",
+      "includes": [
+        "HTTP server, reverse proxy, and production web-serving reference",
+        "Part of the standard it & infrastructure shelf",
+        "Version 2026-04"
+      ],
+      "installLabel": "Install to RoachNet",
+      "detailLabel": "Open manifest",
+      "detailUrl": "./collections/kiwix-categories.json",
+      "installIntent": {
+        "action": "education-resource",
+        "category": "it-infrastructure",
+        "resource": "devdocs_en_nginx"
+      },
+      "iconBand": "Docs",
+      "iconMonogram": "NGIN"
+    },
+    {
+      "id": "course-devdocs_en_postgresql",
+      "title": "PostgreSQL Docs",
+      "subtitle": "Database administration and query reference for serious local services",
+      "category": "Standard",
+      "section": "IT & Infrastructure",
+      "size": "3 MB",
+      "status": "Recommended next install",
+      "source": "DevDocs via Kiwix",
+      "summary": "PostgreSQL Docs installs as its own RoachNet app, so you can pull this ops shelf into the native vault without dragging in a whole provider dump.",
+      "accent": "bronze",
+      "machineFit": "Fast add-on for any supported machine",
+      "includes": [
+        "Database administration and query reference for serious local services",
+        "Part of the standard it & infrastructure shelf",
+        "Version 2026-02"
+      ],
+      "installLabel": "Install to RoachNet",
+      "detailLabel": "Open manifest",
+      "detailUrl": "./collections/kiwix-categories.json",
+      "installIntent": {
+        "action": "education-resource",
+        "category": "it-infrastructure",
+        "resource": "devdocs_en_postgresql"
+      },
+      "iconBand": "Docs",
+      "iconMonogram": "POST"
+    },
+    {
+      "id": "course-devdocs_en_redis",
+      "title": "Redis Docs",
+      "subtitle": "Caching, data structures, and operational reference for fast local services",
+      "category": "Standard",
+      "section": "IT & Infrastructure",
+      "size": "1 MB",
+      "status": "Recommended next install",
+      "source": "DevDocs via Kiwix",
+      "summary": "Redis Docs installs as its own RoachNet app, so you can pull this ops shelf into the native vault without dragging in a whole provider dump.",
+      "accent": "bronze",
+      "machineFit": "Fast add-on for any supported machine",
+      "includes": [
+        "Caching, data structures, and operational reference for fast local services",
+        "Part of the standard it & infrastructure shelf",
+        "Version 2026-04"
+      ],
+      "installLabel": "Install to RoachNet",
+      "detailLabel": "Open manifest",
+      "detailUrl": "./collections/kiwix-categories.json",
+      "installIntent": {
+        "action": "education-resource",
+        "category": "it-infrastructure",
+        "resource": "devdocs_en_redis"
+      },
+      "iconBand": "Docs",
+      "iconMonogram": "REDI"
     },
     {
       "id": "course-ted_mul_cyber-security",
@@ -2045,7 +3473,7 @@
       "size": "193 MB",
       "status": "Deep archive",
       "source": "TED via Kiwix",
-      "summary": "TED: Cyber Security installs as its own RoachNet course app, so you can pull exactly this shelf into the native Education lane without dragging in a whole provider bundle.",
+      "summary": "TED: Cyber Security installs as its own RoachNet app, so you can pull this ops shelf into the native vault without dragging in a whole provider dump.",
       "accent": "bronze",
       "machineFit": "Easy install once the core workspace is already healthy",
       "includes": [
@@ -2061,8 +3489,540 @@
         "category": "it-infrastructure",
         "resource": "ted_mul_cyber-security"
       },
-      "iconBand": "OPS",
+      "iconBand": "TED",
       "iconMonogram": "TCS"
+    },
+    {
+      "id": "course-serverfault.com_en_all",
+      "title": "Server Fault Q&A",
+      "subtitle": "Production server, hosting, and systems administration discussions",
+      "category": "Comprehensive",
+      "section": "IT & Infrastructure",
+      "size": "1.5 GB",
+      "status": "Deep archive",
+      "source": "Stack Exchange via Kiwix",
+      "summary": "Server Fault Q&A installs as its own RoachNet app, so you can pull this ops shelf into the native vault without dragging in a whole provider dump.",
+      "accent": "bronze",
+      "machineFit": "Best on installs with real storage headroom",
+      "includes": [
+        "Production server, hosting, and systems administration discussions",
+        "Part of the comprehensive it & infrastructure shelf",
+        "Version 2026-02"
+      ],
+      "installLabel": "Install to RoachNet",
+      "detailLabel": "Open manifest",
+      "detailUrl": "./collections/kiwix-categories.json",
+      "installIntent": {
+        "action": "education-resource",
+        "category": "it-infrastructure",
+        "resource": "serverfault.com_en_all"
+      },
+      "iconBand": "Stack",
+      "iconMonogram": "SF"
+    },
+    {
+      "id": "course-superuser.com_en_all",
+      "title": "Superuser Q&A",
+      "subtitle": "Desktop ops, utilities, and troubleshooting across long-lived machines",
+      "category": "Comprehensive",
+      "section": "IT & Infrastructure",
+      "size": "3.7 GB",
+      "status": "Deep archive",
+      "source": "Stack Exchange via Kiwix",
+      "summary": "Superuser Q&A installs as its own RoachNet app, so you can pull this ops shelf into the native vault without dragging in a whole provider dump.",
+      "accent": "bronze",
+      "machineFit": "Best on installs with real storage headroom",
+      "includes": [
+        "Desktop ops, utilities, and troubleshooting across long-lived machines",
+        "Part of the comprehensive it & infrastructure shelf",
+        "Version 2026-02"
+      ],
+      "installLabel": "Install to RoachNet",
+      "detailLabel": "Open manifest",
+      "detailUrl": "./collections/kiwix-categories.json",
+      "installIntent": {
+        "action": "education-resource",
+        "category": "it-infrastructure",
+        "resource": "superuser.com_en_all"
+      },
+      "iconBand": "Stack",
+      "iconMonogram": "SUPE"
+    },
+    {
+      "id": "course-unix.stackexchange.com_en_all",
+      "title": "Unix & Linux Q&A",
+      "subtitle": "Shell, processes, filesystems, and day-to-day Unix operator knowledge",
+      "category": "Comprehensive",
+      "section": "IT & Infrastructure",
+      "size": "1.2 GB",
+      "status": "Deep archive",
+      "source": "Stack Exchange via Kiwix",
+      "summary": "Unix & Linux Q&A installs as its own RoachNet app, so you can pull this ops shelf into the native vault without dragging in a whole provider dump.",
+      "accent": "bronze",
+      "machineFit": "Best on installs with real storage headroom",
+      "includes": [
+        "Shell, processes, filesystems, and day-to-day Unix operator knowledge",
+        "Part of the comprehensive it & infrastructure shelf",
+        "Version 2026-02"
+      ],
+      "installLabel": "Install to RoachNet",
+      "detailLabel": "Open manifest",
+      "detailUrl": "./collections/kiwix-categories.json",
+      "installIntent": {
+        "action": "education-resource",
+        "category": "it-infrastructure",
+        "resource": "unix.stackexchange.com_en_all"
+      },
+      "iconBand": "Stack",
+      "iconMonogram": "UL"
+    },
+    {
+      "id": "course-security.stackexchange.com_en_all",
+      "title": "Security Q&A",
+      "subtitle": "Practical security, privacy, defense, and threat-model discussions",
+      "category": "Comprehensive",
+      "section": "IT & Infrastructure",
+      "size": "420 MB",
+      "status": "Deep archive",
+      "source": "Stack Exchange via Kiwix",
+      "summary": "Security Q&A installs as its own RoachNet app, so you can pull this ops shelf into the native vault without dragging in a whole provider dump.",
+      "accent": "bronze",
+      "machineFit": "Easy install once the core workspace is already healthy",
+      "includes": [
+        "Practical security, privacy, defense, and threat-model discussions",
+        "Part of the comprehensive it & infrastructure shelf",
+        "Version 2026-02"
+      ],
+      "installLabel": "Install to RoachNet",
+      "detailLabel": "Open manifest",
+      "detailUrl": "./collections/kiwix-categories.json",
+      "installIntent": {
+        "action": "education-resource",
+        "category": "it-infrastructure",
+        "resource": "security.stackexchange.com_en_all"
+      },
+      "iconBand": "Stack",
+      "iconMonogram": "SECU"
+    },
+    {
+      "id": "course-networkengineering.stackexchange.com_en_all",
+      "title": "Network Engineering Q&A",
+      "subtitle": "Routing, switching, access design, and network troubleshooting reference",
+      "category": "Comprehensive",
+      "section": "IT & Infrastructure",
+      "size": "124 MB",
+      "status": "Deep archive",
+      "source": "Stack Exchange via Kiwix",
+      "summary": "Network Engineering Q&A installs as its own RoachNet app, so you can pull this ops shelf into the native vault without dragging in a whole provider dump.",
+      "accent": "bronze",
+      "machineFit": "Fast add-on for any supported machine",
+      "includes": [
+        "Routing, switching, access design, and network troubleshooting reference",
+        "Part of the comprehensive it & infrastructure shelf",
+        "Version 2026-02"
+      ],
+      "installLabel": "Install to RoachNet",
+      "detailLabel": "Open manifest",
+      "detailUrl": "./collections/kiwix-categories.json",
+      "installIntent": {
+        "action": "education-resource",
+        "category": "it-infrastructure",
+        "resource": "networkengineering.stackexchange.com_en_all"
+      },
+      "iconBand": "Stack",
+      "iconMonogram": "NE"
+    },
+    {
+      "id": "course-devdocs_en_ansible",
+      "title": "Ansible Docs",
+      "subtitle": "Automation and configuration-management reference for repeatable machine setup",
+      "category": "Comprehensive",
+      "section": "IT & Infrastructure",
+      "size": "30 MB",
+      "status": "Deep archive",
+      "source": "DevDocs via Kiwix",
+      "summary": "Ansible Docs installs as its own RoachNet app, so you can pull this ops shelf into the native vault without dragging in a whole provider dump.",
+      "accent": "bronze",
+      "machineFit": "Fast add-on for any supported machine",
+      "includes": [
+        "Automation and configuration-management reference for repeatable machine setup",
+        "Part of the comprehensive it & infrastructure shelf",
+        "Version 2026-04"
+      ],
+      "installLabel": "Install to RoachNet",
+      "detailLabel": "Open manifest",
+      "detailUrl": "./collections/kiwix-categories.json",
+      "installIntent": {
+        "action": "education-resource",
+        "category": "it-infrastructure",
+        "resource": "devdocs_en_ansible"
+      },
+      "iconBand": "Docs",
+      "iconMonogram": "ANSI"
+    },
+    {
+      "id": "course-apple.stackexchange.com_en_all",
+      "title": "Apple Q&A",
+      "subtitle": "macOS, iOS, and Apple hardware troubleshooting from years of practical questions",
+      "category": "Comprehensive",
+      "section": "IT & Infrastructure",
+      "size": "1.1 GB",
+      "status": "Deep archive",
+      "source": "Stack Exchange via Kiwix",
+      "summary": "Apple Q&A installs as its own RoachNet app, so you can pull this ops shelf into the native vault without dragging in a whole provider dump.",
+      "accent": "bronze",
+      "machineFit": "Best on installs with real storage headroom",
+      "includes": [
+        "macOS, iOS, and Apple hardware troubleshooting from years of practical questions",
+        "Part of the comprehensive it & infrastructure shelf",
+        "Version 2026-02"
+      ],
+      "installLabel": "Install to RoachNet",
+      "detailLabel": "Open manifest",
+      "detailUrl": "./collections/kiwix-categories.json",
+      "installIntent": {
+        "action": "education-resource",
+        "category": "it-infrastructure",
+        "resource": "apple.stackexchange.com_en_all"
+      },
+      "iconBand": "Stack",
+      "iconMonogram": "APPL"
+    },
+    {
+      "id": "course-wikivoyage_en_europe_nopic",
+      "title": "Wikivoyage: Europe",
+      "subtitle": "An offline Europe travel guide with city notes, transit guidance, and route context",
+      "category": "Essential",
+      "section": "Travel & Field Guides",
+      "size": "67 MB",
+      "status": "Great first install",
+      "source": "Wikivoyage via Kiwix",
+      "summary": "Wikivoyage: Europe installs as its own RoachNet app, so you can pull this travel shelf into the native vault without dragging in a whole provider dump.",
+      "accent": "blue",
+      "machineFit": "Fast add-on for any supported machine",
+      "includes": [
+        "An offline Europe travel guide with city notes, transit guidance, and route context",
+        "Part of the essential travel & field guides shelf",
+        "Version 2026-03"
+      ],
+      "installLabel": "Install to RoachNet",
+      "detailLabel": "Open manifest",
+      "detailUrl": "./collections/kiwix-categories.json",
+      "installIntent": {
+        "action": "education-resource",
+        "category": "travel-field-guides",
+        "resource": "wikivoyage_en_europe_nopic"
+      },
+      "iconBand": "Voyage",
+      "iconMonogram": "WE"
+    },
+    {
+      "id": "course-wikivoyage_en_all_nopic",
+      "title": "Wikivoyage: World Guide",
+      "subtitle": "Country, city, and route articles for a lightweight global travel reference",
+      "category": "Standard",
+      "section": "Travel & Field Guides",
+      "size": "221 MB",
+      "status": "Recommended next install",
+      "source": "Wikivoyage via Kiwix",
+      "summary": "Wikivoyage: World Guide installs as its own RoachNet app, so you can pull this travel shelf into the native vault without dragging in a whole provider dump.",
+      "accent": "blue",
+      "machineFit": "Easy install once the core workspace is already healthy",
+      "includes": [
+        "Country, city, and route articles for a lightweight global travel reference",
+        "Part of the standard travel & field guides shelf",
+        "Version 2026-03"
+      ],
+      "installLabel": "Install to RoachNet",
+      "detailLabel": "Open manifest",
+      "detailUrl": "./collections/kiwix-categories.json",
+      "installIntent": {
+        "action": "education-resource",
+        "category": "travel-field-guides",
+        "resource": "wikivoyage_en_all_nopic"
+      },
+      "iconBand": "Voyage",
+      "iconMonogram": "WW"
+    },
+    {
+      "id": "course-wikivoyage_en_all_maxi",
+      "title": "Wikivoyage: World Guide (With Images)",
+      "subtitle": "The broader travel guide with photos and richer article context left intact",
+      "category": "Comprehensive",
+      "section": "Travel & Field Guides",
+      "size": "1.0 GB",
+      "status": "Deep archive",
+      "source": "Wikivoyage via Kiwix",
+      "summary": "Wikivoyage: World Guide (With Images) installs as its own RoachNet app, so you can pull this travel shelf into the native vault without dragging in a whole provider dump.",
+      "accent": "violet",
+      "machineFit": "Easy install once the core workspace is already healthy",
+      "includes": [
+        "The broader travel guide with photos and richer article context left intact",
+        "Part of the comprehensive travel & field guides shelf",
+        "Version 2026-03"
+      ],
+      "installLabel": "Install to RoachNet",
+      "detailLabel": "Open manifest",
+      "detailUrl": "./collections/kiwix-categories.json",
+      "installIntent": {
+        "action": "education-resource",
+        "category": "travel-field-guides",
+        "resource": "wikivoyage_en_all_maxi"
+      },
+      "iconBand": "Voyage",
+      "iconMonogram": "WWI"
+    },
+    {
+      "id": "course-wiktionary_en_simple_all_nopic",
+      "title": "Simple English Wiktionary",
+      "subtitle": "A lighter offline dictionary and word-reference shelf for fast lookup",
+      "category": "Essential",
+      "section": "Dictionaries & Primary Sources",
+      "size": "25 MB",
+      "status": "Great first install",
+      "source": "Wiktionary via Kiwix",
+      "summary": "Simple English Wiktionary installs as its own RoachNet app, so you can pull this library shelf into the native vault without dragging in a whole provider dump.",
+      "accent": "violet",
+      "machineFit": "Fast add-on for any supported machine",
+      "includes": [
+        "A lighter offline dictionary and word-reference shelf for fast lookup",
+        "Part of the essential dictionaries & primary sources shelf",
+        "Version 2026-01"
+      ],
+      "installLabel": "Install to RoachNet",
+      "detailLabel": "Open manifest",
+      "detailUrl": "./collections/kiwix-categories.json",
+      "installIntent": {
+        "action": "education-resource",
+        "category": "dictionaries-primary-sources",
+        "resource": "wiktionary_en_simple_all_nopic"
+      },
+      "iconBand": "Dict",
+      "iconMonogram": "SEW"
+    },
+    {
+      "id": "course-wiktionary_en_all_nopic",
+      "title": "English Wiktionary",
+      "subtitle": "A deep dictionary shelf with usage, etymology, and cross-language word notes",
+      "category": "Standard",
+      "section": "Dictionaries & Primary Sources",
+      "size": "8.2 GB",
+      "status": "Recommended next install",
+      "source": "Wiktionary via Kiwix",
+      "summary": "English Wiktionary installs as its own RoachNet app, so you can pull this library shelf into the native vault without dragging in a whole provider dump.",
+      "accent": "violet",
+      "machineFit": "Large offline shelf best staged after the main runtime is settled",
+      "includes": [
+        "A deep dictionary shelf with usage, etymology, and cross-language word notes",
+        "Part of the standard dictionaries & primary sources shelf",
+        "Version 2026-02"
+      ],
+      "installLabel": "Install to RoachNet",
+      "detailLabel": "Open manifest",
+      "detailUrl": "./collections/kiwix-categories.json",
+      "installIntent": {
+        "action": "education-resource",
+        "category": "dictionaries-primary-sources",
+        "resource": "wiktionary_en_all_nopic"
+      },
+      "iconBand": "Dict",
+      "iconMonogram": "EW"
+    },
+    {
+      "id": "course-wikisource_en_all_nopic",
+      "title": "English Wikisource",
+      "subtitle": "Primary texts, public-domain books, speeches, and historical documents",
+      "category": "Standard",
+      "section": "Dictionaries & Primary Sources",
+      "size": "11 GB",
+      "status": "Recommended next install",
+      "source": "Wikisource via Kiwix",
+      "summary": "English Wikisource installs as its own RoachNet app, so you can pull this library shelf into the native vault without dragging in a whole provider dump.",
+      "accent": "violet",
+      "machineFit": "Large offline shelf best staged after the main runtime is settled",
+      "includes": [
+        "Primary texts, public-domain books, speeches, and historical documents",
+        "Part of the standard dictionaries & primary sources shelf",
+        "Version 2026-02"
+      ],
+      "installLabel": "Install to RoachNet",
+      "detailLabel": "Open manifest",
+      "detailUrl": "./collections/kiwix-categories.json",
+      "installIntent": {
+        "action": "education-resource",
+        "category": "dictionaries-primary-sources",
+        "resource": "wikisource_en_all_nopic"
+      },
+      "iconBand": "Source",
+      "iconMonogram": "EW"
+    },
+    {
+      "id": "course-gutenberg_en_lcc-q",
+      "title": "Project Gutenberg: Science (LCC Q)",
+      "subtitle": "Public-domain science texts, manuals, and old technical writing grouped under LCC Q",
+      "category": "Comprehensive",
+      "section": "Dictionaries & Primary Sources",
+      "size": "17 GB",
+      "status": "Deep archive",
+      "source": "Project Gutenberg via Kiwix",
+      "summary": "Project Gutenberg: Science (LCC Q) installs as its own RoachNet app, so you can pull this library shelf into the native vault without dragging in a whole provider dump.",
+      "accent": "violet",
+      "machineFit": "Large offline shelf best staged after the main runtime is settled",
+      "includes": [
+        "Public-domain science texts, manuals, and old technical writing grouped under LCC Q",
+        "Part of the comprehensive dictionaries & primary sources shelf",
+        "Version 2026-03"
+      ],
+      "installLabel": "Install to RoachNet",
+      "detailLabel": "Open manifest",
+      "detailUrl": "./collections/kiwix-categories.json",
+      "installIntent": {
+        "action": "education-resource",
+        "category": "dictionaries-primary-sources",
+        "resource": "gutenberg_en_lcc-q"
+      },
+      "iconBand": "Guten",
+      "iconMonogram": "PGSL"
+    },
+    {
+      "id": "course-gutenberg_en_lcc-t",
+      "title": "Project Gutenberg: Technology (LCC T)",
+      "subtitle": "Public-domain engineering and technology texts grouped under LCC T",
+      "category": "Comprehensive",
+      "section": "Dictionaries & Primary Sources",
+      "size": "12 GB",
+      "status": "Deep archive",
+      "source": "Project Gutenberg via Kiwix",
+      "summary": "Project Gutenberg: Technology (LCC T) installs as its own RoachNet app, so you can pull this library shelf into the native vault without dragging in a whole provider dump.",
+      "accent": "violet",
+      "machineFit": "Large offline shelf best staged after the main runtime is settled",
+      "includes": [
+        "Public-domain engineering and technology texts grouped under LCC T",
+        "Part of the comprehensive dictionaries & primary sources shelf",
+        "Version 2026-03"
+      ],
+      "installLabel": "Install to RoachNet",
+      "detailLabel": "Open manifest",
+      "detailUrl": "./collections/kiwix-categories.json",
+      "installIntent": {
+        "action": "education-resource",
+        "category": "dictionaries-primary-sources",
+        "resource": "gutenberg_en_lcc-t"
+      },
+      "iconBand": "Guten",
+      "iconMonogram": "PGTL"
+    },
+    {
+      "id": "course-gutenberg_en_lcc-d",
+      "title": "Project Gutenberg: History (LCC D)",
+      "subtitle": "Large historical archive of public-domain history material under LCC D",
+      "category": "Comprehensive",
+      "section": "Dictionaries & Primary Sources",
+      "size": "37 GB",
+      "status": "Deep archive",
+      "source": "Project Gutenberg via Kiwix",
+      "summary": "Project Gutenberg: History (LCC D) installs as its own RoachNet app, so you can pull this library shelf into the native vault without dragging in a whole provider dump.",
+      "accent": "violet",
+      "machineFit": "Large offline shelf best staged after the main runtime is settled",
+      "includes": [
+        "Large historical archive of public-domain history material under LCC D",
+        "Part of the comprehensive dictionaries & primary sources shelf",
+        "Version 2025-12"
+      ],
+      "installLabel": "Install to RoachNet",
+      "detailLabel": "Open manifest",
+      "detailUrl": "./collections/kiwix-categories.json",
+      "installIntent": {
+        "action": "education-resource",
+        "category": "dictionaries-primary-sources",
+        "resource": "gutenberg_en_lcc-d"
+      },
+      "iconBand": "Guten",
+      "iconMonogram": "PGHL"
+    },
+    {
+      "id": "course-gutenberg_en_lcc-n",
+      "title": "Project Gutenberg: Fine Arts (LCC N)",
+      "subtitle": "Public-domain visual arts, design, and fine-arts writing under LCC N",
+      "category": "Comprehensive",
+      "section": "Dictionaries & Primary Sources",
+      "size": "21 GB",
+      "status": "Deep archive",
+      "source": "Project Gutenberg via Kiwix",
+      "summary": "Project Gutenberg: Fine Arts (LCC N) installs as its own RoachNet app, so you can pull this library shelf into the native vault without dragging in a whole provider dump.",
+      "accent": "violet",
+      "machineFit": "Large offline shelf best staged after the main runtime is settled",
+      "includes": [
+        "Public-domain visual arts, design, and fine-arts writing under LCC N",
+        "Part of the comprehensive dictionaries & primary sources shelf",
+        "Version 2026-03"
+      ],
+      "installLabel": "Install to RoachNet",
+      "detailLabel": "Open manifest",
+      "detailUrl": "./collections/kiwix-categories.json",
+      "installIntent": {
+        "action": "education-resource",
+        "category": "dictionaries-primary-sources",
+        "resource": "gutenberg_en_lcc-n"
+      },
+      "iconBand": "Guten",
+      "iconMonogram": "PGFA"
+    },
+    {
+      "id": "course-gutenberg_en_lcc-p",
+      "title": "Project Gutenberg: Language Studies (LCC P)",
+      "subtitle": "Compact language and philology material grouped under LCC P",
+      "category": "Comprehensive",
+      "section": "Dictionaries & Primary Sources",
+      "size": "37 MB",
+      "status": "Deep archive",
+      "source": "Project Gutenberg via Kiwix",
+      "summary": "Project Gutenberg: Language Studies (LCC P) installs as its own RoachNet app, so you can pull this library shelf into the native vault without dragging in a whole provider dump.",
+      "accent": "violet",
+      "machineFit": "Fast add-on for any supported machine",
+      "includes": [
+        "Compact language and philology material grouped under LCC P",
+        "Part of the comprehensive dictionaries & primary sources shelf",
+        "Version 2026-03"
+      ],
+      "installLabel": "Install to RoachNet",
+      "detailLabel": "Open manifest",
+      "detailUrl": "./collections/kiwix-categories.json",
+      "installIntent": {
+        "action": "education-resource",
+        "category": "dictionaries-primary-sources",
+        "resource": "gutenberg_en_lcc-p"
+      },
+      "iconBand": "Guten",
+      "iconMonogram": "PGLS"
+    },
+    {
+      "id": "course-gutenberg_en_all",
+      "title": "Project Gutenberg: Full English Mirror",
+      "subtitle": "The giant public-domain English shelf for machines that want the whole thing locally",
+      "category": "Comprehensive",
+      "section": "Dictionaries & Primary Sources",
+      "size": "206 GB",
+      "status": "Deep archive",
+      "source": "Project Gutenberg via Kiwix",
+      "summary": "Project Gutenberg: Full English Mirror installs as its own RoachNet app, so you can pull this library shelf into the native vault without dragging in a whole provider dump.",
+      "accent": "violet",
+      "machineFit": "Large offline shelf best staged after the main runtime is settled",
+      "includes": [
+        "The giant public-domain English shelf for machines that want the whole thing locally",
+        "Part of the comprehensive dictionaries & primary sources shelf",
+        "Version 2025-11"
+      ],
+      "installLabel": "Install to RoachNet",
+      "detailLabel": "Open manifest",
+      "detailUrl": "./collections/kiwix-categories.json",
+      "installIntent": {
+        "action": "education-resource",
+        "category": "dictionaries-primary-sources",
+        "resource": "gutenberg_en_all"
+      },
+      "iconBand": "Guten",
+      "iconMonogram": "PGFE"
     },
     {
       "id": "wiki-top-mini",
@@ -2143,7 +4103,7 @@
         "option": "all-mini"
       },
       "iconBand": "WIKI",
-      "iconMonogram": "CW("
+      "iconMonogram": "CWC"
     },
     {
       "id": "wiki-all-nopic",
@@ -2170,7 +4130,7 @@
         "option": "all-nopic"
       },
       "iconBand": "WIKI",
-      "iconMonogram": "CW("
+      "iconMonogram": "CWN"
     },
     {
       "id": "wiki-all-maxi",
@@ -2197,7 +4157,7 @@
         "option": "all-maxi"
       },
       "iconBand": "WIKI",
-      "iconMonogram": "CW("
+      "iconMonogram": "CWF"
     },
     {
       "id": "roachclaw-quickstart",

@@ -1379,9 +1379,17 @@ input:focus-visible {
   transform: rotate(0deg);
 }
 
+.store-generated-icon[data-icon-family="science"] .store-generated-icon__mesh {
+  clip-path: polygon(26% 6%, 74% 6%, 100% 50%, 74% 94%, 26% 94%, 0 50%);
+}
+
 .store-generated-icon[data-icon-family="repair"] .store-generated-icon__mesh,
 .store-generated-icon[data-icon-family="infrastructure"] .store-generated-icon__mesh {
   clip-path: polygon(12% 0, 100% 0, 88% 100%, 0 100%);
+}
+
+.store-generated-icon[data-icon-family="maker"] .store-generated-icon__mesh {
+  clip-path: polygon(18% 0, 82% 0, 100% 28%, 100% 72%, 82% 100%, 18% 100%, 0 72%, 0 28%);
 }
 
 .store-generated-icon[data-icon-family="agriculture"] .store-generated-icon__mesh {
@@ -1396,6 +1404,19 @@ input:focus-visible {
 
 .store-generated-icon[data-icon-family="audio"] .store-generated-icon__mesh {
   clip-path: inset(0 round 18px 18px 34px 34px);
+}
+
+.store-generated-icon[data-icon-family="design"] .store-generated-icon__mesh {
+  clip-path: polygon(0 14%, 86% 0, 100% 86%, 14% 100%);
+}
+
+.store-generated-icon[data-icon-family="travel"] .store-generated-icon__mesh {
+  clip-path: polygon(0 18%, 74% 18%, 74% 0, 100% 50%, 74% 100%, 74% 82%, 0 82%);
+}
+
+.store-generated-icon[data-icon-family="library"] .store-generated-icon__mesh {
+  clip-path: polygon(12% 0, 88% 0, 100% 20%, 100% 100%, 0 100%, 0 20%);
+  transform: rotate(0deg);
 }
 
 .store-generated-icon[data-icon-family="wikipedia"] .store-generated-icon__mesh {

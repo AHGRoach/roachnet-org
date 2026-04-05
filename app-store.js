@@ -64,6 +64,16 @@ const sectionDefinitions = [
     layout: 'grid',
   },
   {
+    key: 'Science & Simulations',
+    navLabel: 'Science',
+    eyebrow: 'Lab shelf',
+    title: 'Simulations, scientific Q&A, and hard-reference shelves for the curious machine.',
+    description:
+      'Physics, astronomy, chemistry, biology, and interactive science installs that feel like a compact lab bench inside RoachNet.',
+    icon: '⌬',
+    layout: 'grid',
+  },
+  {
     key: 'DIY & Repair',
     navLabel: 'DIY',
     eyebrow: 'Repair shelf',
@@ -71,6 +81,16 @@ const sectionDefinitions = [
     description:
       'DIY and repair installs keep workshop answers, teardown notes, and field fixes one click away inside the vault.',
     icon: '↺',
+    layout: 'grid',
+  },
+  {
+    key: 'Maker & Electronics',
+    navLabel: 'Maker',
+    eyebrow: 'Bench shelf',
+    title: 'Boards, components, fabrication, and electronics learning with real mileage.',
+    description:
+      'Hardware-minded installs for people who solder, print, breadboard, repair, or just like understanding how the box actually works.',
+    icon: '⌁',
     layout: 'grid',
   },
   {
@@ -114,6 +134,16 @@ const sectionDefinitions = [
     layout: 'grid',
   },
   {
+    key: 'Design & Visual Media',
+    navLabel: 'Design',
+    eyebrow: 'Visual craft',
+    title: '3D, graphics, photography, and visual-thinking shelves that feel useful on a workstation.',
+    description:
+      'Design and media installs for visual reference, Blender work, production art, and the questions you only remember when you are already in the middle of the thing.',
+    icon: '◩',
+    layout: 'grid',
+  },
+  {
     key: 'IT & Infrastructure',
     navLabel: 'Infra',
     eyebrow: 'Infra shelf',
@@ -121,6 +151,26 @@ const sectionDefinitions = [
     description:
       'Docs and guides for operators, builders, and anyone who still expects their machine to keep moving when hosted tooling slows down.',
     icon: '⌇',
+    layout: 'grid',
+  },
+  {
+    key: 'Travel & Field Guides',
+    navLabel: 'Travel',
+    eyebrow: 'Route shelf',
+    title: 'City guides, region notes, and practical travel reference sized like real installs.',
+    description:
+      'Travel packs that stay readable offline and slot into the same vault as the maps, instead of disappearing behind a dead connection.',
+    icon: '↗',
+    layout: 'grid',
+  },
+  {
+    key: 'Dictionaries & Primary Sources',
+    navLabel: 'Library',
+    eyebrow: 'Deep reference',
+    title: 'Dictionaries, source texts, and oversized public-domain shelves for the machine that keeps everything close.',
+    description:
+      'Wordbooks, source libraries, and enormous public-domain archives when you want the vault to feel more like a study room than a download folder.',
+    icon: '⌘K',
     layout: 'grid',
   },
   {
@@ -157,10 +207,10 @@ const todayRows = [
       'base-atlas',
       'course-zimgit-medicine_en',
       'course-canadian_prepper_winterprepping_en',
+      'course-phet_en_all_2026-02',
+      'course-devdocs_en_typescript_2026-04',
+      'course-wikivoyage_en_europe_nopic_2026-03',
       'course-foss.cooking_en_all',
-      'course-wikibooks_en_all_nopic',
-      'course-openmusictheory.com_en_all',
-      'wiki-top-mini',
     ],
   },
   {
@@ -172,8 +222,9 @@ const todayRows = [
       'course-cloudflare.com_en_learning-center',
       'course-medlineplus.gov_en_all',
       'course-coreyms_en_python-tutorials',
+      'course-blender.stackexchange.com_en_all_2026-02',
+      'course-wiktionary_en_simple_all_nopic_2026-01',
       'roachclaw-quickstart',
-      'wiki-all-mini',
     ],
   },
 ]
@@ -566,18 +617,58 @@ function deriveIconMonogram(item) {
 }
 
 function deriveIconFamily(item) {
+  if (item.iconFamily) return item.iconFamily
+
   const haystack = normalizeValue([item.section, item.category, item.title].join(' '))
 
   if (haystack.includes('map')) return 'maps'
   if (haystack.includes('medicine')) return 'medicine'
   if (haystack.includes('survival') || haystack.includes('preparedness')) return 'survival'
   if (haystack.includes('education') || haystack.includes('reference')) return 'education'
+  if (
+    haystack.includes('science') ||
+    haystack.includes('simulation') ||
+    haystack.includes('astronomy') ||
+    haystack.includes('physics') ||
+    haystack.includes('chemistry') ||
+    haystack.includes('biology') ||
+    haystack.includes('bioinformatics')
+  ) {
+    return 'science'
+  }
   if (haystack.includes('repair') || haystack.includes('diy')) return 'repair'
+  if (
+    haystack.includes('maker') ||
+    haystack.includes('electronics') ||
+    haystack.includes('arduino') ||
+    haystack.includes('semiconductor') ||
+    haystack.includes('3d printing')
+  ) {
+    return 'maker'
+  }
   if (haystack.includes('agriculture') || haystack.includes('food')) return 'agriculture'
   if (haystack.includes('software') || haystack.includes('dev')) return 'development'
   if (haystack.includes('machine learning') || haystack.includes('data science')) return 'ml'
   if (haystack.includes('audio') || haystack.includes('music')) return 'audio'
+  if (
+    haystack.includes('design') ||
+    haystack.includes('blender') ||
+    haystack.includes('graphic') ||
+    haystack.includes('photo')
+  ) {
+    return 'design'
+  }
   if (haystack.includes('infrastructure') || haystack.includes('it')) return 'infrastructure'
+  if (haystack.includes('travel') || haystack.includes('voyage') || haystack.includes('guide')) return 'travel'
+  if (
+    haystack.includes('dictionary') ||
+    haystack.includes('primary sources') ||
+    haystack.includes('wiktionary') ||
+    haystack.includes('wikisource') ||
+    haystack.includes('gutenberg')
+  ) {
+    return 'library'
+  }
   if (haystack.includes('wikipedia')) return 'wikipedia'
   if (haystack.includes('model')) return 'models'
   return 'general'
@@ -593,8 +684,12 @@ function deriveIconGlyph(item, family = deriveIconFamily(item)) {
       return 'FIELD'
     case 'education':
       return 'READ'
+    case 'science':
+      return 'LAB'
     case 'repair':
       return 'FIX'
+    case 'maker':
+      return 'MKR'
     case 'agriculture':
       return 'ROOT'
     case 'development':
@@ -603,8 +698,14 @@ function deriveIconGlyph(item, family = deriveIconFamily(item)) {
       return 'ML'
     case 'audio':
       return 'AUDIO'
+    case 'design':
+      return 'VIS'
     case 'infrastructure':
       return 'NET'
+    case 'travel':
+      return 'TRVL'
+    case 'library':
+      return 'LIB'
     case 'wikipedia':
       return 'WIKI'
     case 'models':

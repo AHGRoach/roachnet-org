@@ -18,24 +18,34 @@ const categoryAccents = {
   medicine: 'green',
   survival: 'gold',
   education: 'blue',
+  'science-simulations': 'cyan',
   diy: 'bronze',
+  'maker-electronics': 'gold',
   agriculture: 'green',
   computing: 'violet',
   'machine-learning': 'cyan',
   'music-audio': 'magenta',
+  'design-visual-media': 'violet',
   'it-infrastructure': 'bronze',
+  'travel-field-guides': 'blue',
+  'dictionaries-primary-sources': 'violet',
 }
 
 const categoryBands = {
   medicine: 'MED',
   survival: 'FIELD',
   education: 'EDU',
+  'science-simulations': 'SCI',
   diy: 'FIX',
+  'maker-electronics': 'LAB',
   agriculture: 'GROW',
   computing: 'DEV',
   'machine-learning': 'ML',
   'music-audio': 'AUDIO',
+  'design-visual-media': 'VIS',
   'it-infrastructure': 'OPS',
+  'travel-field-guides': 'TRVL',
+  'dictionaries-primary-sources': 'LIB',
 }
 
 const courseStatusMap = {
@@ -178,7 +188,7 @@ function titleCaseWords(value) {
 
 function shortMonogram(value, maxLength = 3) {
   const segments = String(value)
-    .split(/[\s_-]+/)
+    .split(/[^a-z0-9]+/gi)
     .filter(Boolean)
 
   if (segments.length >= 2) {
@@ -191,6 +201,134 @@ function shortMonogram(value, maxLength = 3) {
 
   const compact = segments.join('').replace(/[^a-z0-9]/gi, '').toUpperCase()
   return compact.slice(0, maxLength) || 'RN'
+}
+
+const iconNoiseTokens = new Set([
+  'A',
+  'AN',
+  'AND',
+  'THE',
+  'OF',
+  'FOR',
+  'TO',
+  'IN',
+  'ON',
+  'WITH',
+  'ALL',
+  'VIA',
+  'Q',
+  'QA',
+  'DOC',
+  'DOCS',
+  'GUIDE',
+  'GUIDES',
+  'TUTORIAL',
+  'TUTORIALS',
+  'CONFERENCE',
+  'INTERACTIVE',
+  'SIMULATIONS',
+])
+
+function iconTokens(value) {
+  return (String(value || '').toUpperCase().match(/[A-Z0-9]+/g) || []).filter(
+    (token) => token && !iconNoiseTokens.has(token)
+  )
+}
+
+function cleanIconCode(value, maxLength = 4) {
+  return String(value || '')
+    .replace(/[^A-Z0-9]/g, '')
+    .slice(0, maxLength)
+}
+
+function iconBandForResource(categorySlug, resource) {
+  const title = String(resource.title || '').toLowerCase()
+  const url = String(resource.url || '')
+
+  if (title.startsWith('wikibooks')) return 'Wikib'
+  if (title.startsWith('wikiversity')) return 'Wikiv'
+  if (title.startsWith('libretexts')) return 'Libre'
+  if (title.startsWith('ted')) return 'TED'
+  if (title.includes('q&a') || url.includes('/stack_exchange/')) return 'Stack'
+  if (url.includes('/freecodecamp/')) return 'FCC'
+  if (url.includes('/videos/coreyms_')) return 'Corey'
+  if (url.includes('/videos/studio.blender.org')) return 'Studio'
+  if (url.includes('/videos/avanti-')) return 'Avanti'
+  if (url.includes('/zimit/docs.python.org')) return 'Python'
+  if (url.includes('/zimit/learningstatisticswithr.com')) return 'LSR'
+  if (url.includes('/devdocs/')) return 'Docs'
+  if (url.includes('/zimit/openmusictheory.com')) return 'Theory'
+  if (url.includes('/zimit/music.dalitio.de')) return 'Dalitio'
+  if (url.includes('/zimit/cloudflare.com')) return 'Cloud'
+  if (url.includes('/phet/')) return 'PhET'
+  if (url.includes('/wikivoyage/')) return 'Voyage'
+  if (url.includes('/wiktionary/')) return 'Dict'
+  if (url.includes('/wikisource/')) return 'Source'
+  if (url.includes('/gutenberg/')) return 'Guten'
+  if (url.includes('/other/archlinux')) return 'Arch'
+  if (url.includes('/other/alpinelinux')) return 'Alpine'
+
+  return categoryBands[categorySlug] || 'Roach'
+}
+
+function iconMonogramCandidates(resource) {
+  const titleTokens = iconTokens(resource.title)
+  const idTokens = iconTokens(resource.id)
+  const candidates = []
+
+  const push = (value) => {
+    const code = cleanIconCode(value)
+    if (code.length >= 2 && !candidates.includes(code)) {
+      candidates.push(code)
+    }
+  }
+
+  if (titleTokens.length >= 2) push(titleTokens.map((token) => token[0]).join('').slice(0, 4))
+  if (titleTokens[0]) push(titleTokens[0].slice(0, 4))
+  if (titleTokens[0] && titleTokens[1]) push(`${titleTokens[0].slice(0, 3)}${titleTokens[1][0]}`)
+  if (titleTokens[0] && titleTokens[1]) push(`${titleTokens[0].slice(0, 2)}${titleTokens[1].slice(0, 2)}`)
+  if (titleTokens[0] && titleTokens.length >= 2) {
+    push(`${titleTokens[0].slice(0, 2)}${titleTokens[titleTokens.length - 1].slice(0, 2)}`)
+  }
+  if (titleTokens[0] && titleTokens[0].length > 4) {
+    push(`${titleTokens[0].slice(0, 3)}${titleTokens[0].slice(-1)}`)
+  }
+
+  if (idTokens.length >= 2) push(idTokens.map((token) => token[0]).join('').slice(0, 4))
+  if (idTokens[0]) push(idTokens[0].slice(0, 4))
+  if (idTokens[0] && idTokens[1]) push(`${idTokens[0].slice(0, 2)}${idTokens[1].slice(0, 2)}`)
+
+  push(shortMonogram(resource.title, 4))
+
+  return candidates.length ? candidates : ['RN']
+}
+
+function ensureUniqueIconMonograms(items) {
+  const used = new Set()
+
+  items.forEach((item) => {
+    const band = item.iconBand || 'Roach'
+    const candidates = Array.isArray(item.__iconCandidates) ? item.__iconCandidates : []
+    let chosen = candidates.find((candidate) => !used.has(`${band}::${candidate}`))
+
+    if (!chosen) {
+      const seed = cleanIconCode(candidates[0] || 'RN')
+      let suffix = 2
+      while (!chosen) {
+        const candidate = cleanIconCode(`${seed.slice(0, Math.max(1, 4 - String(suffix).length))}${suffix}`)
+        if (!used.has(`${band}::${candidate}`)) {
+          chosen = candidate
+        }
+        suffix += 1
+      }
+    }
+
+    item.iconMonogram = chosen
+    used.add(`${band}::${chosen}`)
+    delete item.__iconCandidates
+  })
+
+  return items
 }
 
 function resourceHighlights(resources, limit = 3) {
@@ -238,16 +376,47 @@ function sourceLabelForResource(resource) {
 
   if (url.includes('/freecodecamp/')) return 'freeCodeCamp via Kiwix'
   if (url.includes('/videos/coreyms_')) return 'Corey Schafer via Kiwix'
+  if (url.includes('/videos/studio.blender.org')) return 'Blender Studio via Kiwix'
+  if (url.includes('/videos/avanti-')) return 'Avanti via Kiwix'
   if (url.includes('/zimit/docs.python.org')) return 'Python Docs via Kiwix'
+  if (url.includes('/zimit/learningstatisticswithr.com')) return 'Learning Statistics with R via Kiwix'
   if (url.includes('/devdocs/')) return 'DevDocs via Kiwix'
   if (url.includes('/ted/')) return 'TED via Kiwix'
   if (url.includes('/zimit/openmusictheory.com')) return 'Open Music Theory via Kiwix'
   if (url.includes('/zimit/music.dalitio.de')) return 'Dalitio via Kiwix'
   if (url.includes('/zimit/cloudflare.com')) return 'Cloudflare Learning Center via Kiwix'
+  if (url.includes('/libretexts/')) return 'LibreTexts via Kiwix'
+  if (url.includes('/stack_exchange/')) return 'Stack Exchange via Kiwix'
+  if (url.includes('/phet/')) return 'PhET via Kiwix'
+  if (url.includes('/wikivoyage/')) return 'Wikivoyage via Kiwix'
+  if (url.includes('/wiktionary/')) return 'Wiktionary via Kiwix'
+  if (url.includes('/wikisource/')) return 'Wikisource via Kiwix'
+  if (url.includes('/gutenberg/')) return 'Project Gutenberg via Kiwix'
   if (url.includes('/other/archlinux')) return 'Arch Linux docs via Kiwix'
   if (url.includes('/other/alpinelinux')) return 'Alpine Linux docs via Kiwix'
 
   return 'RoachNet knowledge mirror'
+}
+
+function summaryForResource(categorySlug, resource, tierLabel) {
+  const bandName = {
+    medicine: 'care shelf',
+    survival: 'field shelf',
+    education: 'study shelf',
+    'science-simulations': 'science shelf',
+    diy: 'repair shelf',
+    'maker-electronics': 'maker shelf',
+    agriculture: 'grow shelf',
+    computing: 'dev shelf',
+    'machine-learning': 'ML shelf',
+    'music-audio': 'audio shelf',
+    'design-visual-media': 'design shelf',
+    'it-infrastructure': 'ops shelf',
+    'travel-field-guides': 'travel shelf',
+    'dictionaries-primary-sources': 'library shelf',
+  }[categorySlug] || 'knowledge shelf'
+
+  return `${resource.title} installs as its own RoachNet app, so you can pull this ${bandName} into the native vault without dragging in a whole provider dump.`
 }
 
 function modelPackInstallLabel() {
@@ -341,7 +510,7 @@ function toCatalog() {
           size: formatSizeFromMB(resource.size_mb),
           status: courseStatusMap[level] || 'Ready',
           source: sourceLabelForResource(resource),
-          summary: `${resource.title} installs as its own RoachNet course app, so you can pull exactly this shelf into the native Education lane without dragging in a whole provider bundle.`,
+          summary: summaryForResource(category.slug, resource, tierLabel),
           accent: iconAccentForTier(category.slug, tier.slug),
           machineFit: machineFitForSize(resource.size_mb),
           includes: [
@@ -357,11 +526,13 @@ function toCatalog() {
             category: category.slug,
             resource: resource.id,
           },
-          iconBand: categoryBands[category.slug] || shortMonogram(category.name, 4),
-          iconMonogram: shortMonogram(resource.title, 4),
+          iconBand: iconBandForResource(category.slug, resource),
+          __iconCandidates: iconMonogramCandidates(resource),
         }))
       })
     )
+
+    ensureUniqueIconMonograms(educationItems)
 
     const wikipediaItems = wikipediaData.options
       .filter((option) => option.id !== 'none')
