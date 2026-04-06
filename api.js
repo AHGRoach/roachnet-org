@@ -5,7 +5,7 @@ const apiGroups = [
     scope: 'setup',
     basePath: '/api',
     summary: 'Stages contained installs before the full runtime exists.',
-    stack: 'Setup server -> run-roachnet-setup.mjs -> staged install + bundled runtime helpers',
+    stack: 'Setup server -> run-roachnet-setup.mjs -> staged install + portable embedded Node runtime + bundled runtime helpers',
     callers: ['RoachNet Setup.app'],
     endpoints: [
       {
@@ -25,7 +25,7 @@ const apiGroups = [
           'containerRuntime, dependencies, activeTask, lastCompletedTask, sourceModes',
         ],
         implementation:
-          'Normalizes installer config, probes bundled-vs-host dependency state, checks the optional Docker lane, and merges persisted installer settings before the setup UI paints.',
+          'Normalizes installer config, probes bundled-vs-host dependency state, checks the optional Docker lane, and merges persisted installer settings before the setup UI paints. The setup app now boots this state route through a self-contained embedded Node runtime so the first screen does not depend on Homebrew-provided dylibs being present on the host Mac.',
         usedBy: ['Setup overview screen', 'Install-path editor', 'Dependency readiness cards', 'Docker opt-in toggle'],
       },
       {
@@ -41,7 +41,7 @@ const apiGroups = [
         ],
         response: ['JSON: { ok: true } or { ok: true, task } in dryRun mode', '409 if a setup task is already running'],
         implementation:
-          'Validates that no other setup task is active, stages the install in a temp root, copies the bundled source tree, installs contained OpenClaw and Ollama into the RoachNet folder, installs the bundled native app from InstallerAssets, smoke-tests /api/health, then promotes the staged tree or removes it on failure.',
+          'Validates that no other setup task is active, stages the install in a temp root, copies the bundled source tree, installs contained OpenClaw and Ollama into the RoachNet folder, installs the bundled native app from InstallerAssets, smoke-tests /api/health, then promotes the staged tree or removes it on failure. The embedded setup runtime is packaged from the official portable Node build instead of a Homebrew-linked host binary, so the installer can boot on a clean Apple Silicon Mac without reaching into /opt/homebrew.',
         usedBy: ['Primary install button in Setup.app'],
       },
       {
