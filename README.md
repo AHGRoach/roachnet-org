@@ -1,21 +1,27 @@
 # roachnet.org
 
-Public website source for `roachnet.org` and `apps.roachnet.org`.
+Public site and Apps catalog for RoachNet.
 
-## Structure
+This repo ships the landing page, the iOS page, the API docs, and the separate Apps surface at `apps.roachnet.org`.
+
+## What Lives Here
 
 - `index.html`
-  Main landing page for RoachNet
+  Main RoachNet landing page
+- `ios/index.html`
+  RoachNet iOS page
+- `api/`
+  Public API docs shell
 - `app-store.html`
-  Web storefront and native install handoff surface
+  Apps storefront UI
 - `app-store-catalog.json`
-  Generated catalog consumed by the Apps UI
+  Generated install catalog consumed by the Apps UI
 - `collections/`
-  Source manifests for maps, education packs, and Wikipedia bundles
+  Source manifests for maps, education packs, Wikipedia bundles, and course shelves
 - `assets/`
-  Logos, screenshots, and branded storefront icons
+  Logos, screenshots, app icons, and branded storefront art
 - `scripts/build-app-store-catalog.mjs`
-  Rebuilds `app-store-catalog.json` from the collection manifests
+  Rebuilds the Apps catalog from the collection manifests
 - `scripts/build-apps-site.mjs`
   Builds the standalone Apps-site publish directory into `website-apps-dist/`
 

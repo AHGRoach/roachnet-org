@@ -6,7 +6,7 @@
     <title>RoachNet iOS</title>
     <meta
       name="description"
-      content="RoachNet iOS keeps RoachClaw, RoachTail, vault reads, and RoachNet Apps installs close on iPhone and iPad."
+      content="RoachNet iOS keeps RoachClaw, the vault, runtime control, and Apps installs on the carry lane."
     />
     <meta name="theme-color" content="#0b1016" />
     <link rel="canonical" href="https://roachnet.org/iOS/" />
@@ -18,7 +18,7 @@
     <meta property="og:title" content="RoachNet iOS" />
     <meta
       property="og:description"
-      content="Carry RoachClaw, RoachTail, vault reads, runtime controls, and install handoff on your phone."
+      content="Carry RoachClaw, vault reads, runtime control, and Apps installs on your phone."
     />
     <meta property="og:url" content="https://roachnet.org/iOS/" />
     <meta property="og:image" content="https://roachnet.org/assets/screens/roachnet-ios-chat-v011.jpg" />
@@ -26,7 +26,7 @@
     <meta name="twitter:title" content="RoachNet iOS" />
     <meta
       name="twitter:description"
-      content="The phone lane for RoachClaw, RoachTail, vault reads, runtime control, and Apps installs."
+      content="The phone lane for RoachClaw, vault reads, runtime control, and Apps installs."
     />
     <meta name="twitter:image" content="https://roachnet.org/assets/screens/roachnet-ios-chat-v011.jpg" />
     <link rel="stylesheet" href="../app.css" />
@@ -59,9 +59,9 @@
       <section class="hero hero--ios">
         <div class="hero-copy">
           <p class="eyebrow">RoachNet iOS</p>
-          <h1>RoachClaw, vault, and installs on your phone.</h1>
+          <h1>RoachClaw in your pocket.</h1>
           <p class="hero-body">
-            Keep the AI lane close. Continue chats, read RoachBrain, check runtime state, flip RoachTail, and send Apps installs back to your Mac.
+            Pick up chats, read the shelf, queue installs, and watch the desktop lane without opening the Mac.
           </p>
 
           <div class="hero-actions">
@@ -70,8 +70,8 @@
             <a class="cta cta--ghost" href="https://github.com/AHGRoach/RoachNet-iOS" target="_blank" rel="noreferrer">View on GitHub</a>
           </div>
 
-          <p class="hero-footnote">Built for iPhone and iPad. Unsigned IPA for SideStore and AltStore, with a cached phone lane when the desktop is out of reach.</p>
-          <p class="download-meta">Current release: v0.1.1</p>
+          <p class="hero-footnote">Unsigned IPA for SideStore and AltStore. Cached RoachBrain replies stay available when the desktop or internet is gone.</p>
+          <p class="download-meta">Current release: v0.1.1 · built for iPhone and iPad</p>
         </div>
 
         <div class="hero-visual ios-hero-visual" aria-hidden="true">
@@ -90,12 +90,12 @@
       <section class="content-section" id="screens">
         <div class="section-head">
           <p class="eyebrow">Screens</p>
-          <h2>The iPhone lane.</h2>
-          <p>Four surfaces, plus a real fallback lane.</p>
+          <h2>Four views. One carry lane.</h2>
+          <p>Chat first. Runtime and installs close behind it.</p>
         </div>
 
-        <div class="ios-shot-wall">
-          <article class="ios-shot-card">
+        <div class="ios-shot-wall ios-shot-wall--editorial">
+          <article class="ios-shot-card ios-shot-card--feature">
             <div class="app-screen-shot app-screen-shot--dark">
               <img src="../assets/screens/roachnet-ios-chat-v011.jpg" alt="RoachNet iOS RoachClaw chat view" />
             </div>
@@ -106,7 +106,7 @@
             </div>
           </article>
 
-          <article class="ios-shot-card">
+          <article class="ios-shot-card ios-shot-card--compact">
             <div class="app-screen-shot app-screen-shot--dark">
               <img src="../assets/screens/roachnet-ios-apps-v011.jpg" alt="RoachNet iOS Apps view" />
             </div>
@@ -117,7 +117,18 @@
             </div>
           </article>
 
-          <article class="ios-shot-card">
+          <article class="ios-shot-card ios-shot-card--compact">
+            <div class="app-screen-shot app-screen-shot--dark">
+              <img src="../assets/screens/roachnet-ios-runtime-v011.jpg" alt="RoachNet iOS Runtime view" />
+            </div>
+            <div class="ios-shot-card__copy">
+              <span class="feature-card__eyebrow">Runtime</span>
+              <h3>Check the desktop lane fast.</h3>
+              <p>Models, services, downloads, and the RoachTail toggle stay visible on the phone.</p>
+            </div>
+          </article>
+
+          <article class="ios-shot-card ios-shot-card--wide">
             <div class="app-screen-shot app-screen-shot--dark">
               <img src="../assets/screens/roachnet-ios-vault-v011.jpg" alt="RoachNet iOS Vault view" />
             </div>
@@ -127,24 +138,13 @@
               <p>RoachBrain, indexed files, and archive summaries stay close on the phone even when the bridge drops.</p>
             </div>
           </article>
-
-          <article class="ios-shot-card">
-            <div class="app-screen-shot app-screen-shot--dark">
-              <img src="../assets/screens/roachnet-ios-runtime-v011.jpg" alt="RoachNet iOS Runtime view" />
-            </div>
-            <div class="ios-shot-card__copy">
-              <span class="feature-card__eyebrow">Runtime</span>
-              <h3>Check the desktop lane fast.</h3>
-              <p>Models, services, and downloads stay visible, and RoachTail can be armed or disarmed from the phone.</p>
-            </div>
-          </article>
         </div>
       </section>
 
       <section class="content-section" id="features">
         <div class="section-head">
           <p class="eyebrow">What’s new in 0.1.1</p>
-          <h2>Better carry. Tighter bridge.</h2>
+          <h2>Faster paint. Better bridge.</h2>
         </div>
 
         <div class="card-grid card-grid--three" role="list">
@@ -154,23 +154,18 @@
           </article>
 
           <article class="support-card" role="listitem">
-            <span class="feature-card__eyebrow">Preview mode</span>
-            <h3>The phone app opens into a usable phone lane before you pair the Mac.</h3>
+            <span class="feature-card__eyebrow">RoachTail</span>
+            <h3>Each phone gets its own peer token and a private bridge lane back to the desktop.</h3>
+          </article>
+
+          <article class="support-card" role="listitem">
+            <span class="feature-card__eyebrow">Offline RoachBrain</span>
+            <h3>Cached runtime, vault, and Apps state still answer when the Mac or internet disappears.</h3>
           </article>
 
           <article class="support-card" role="listitem">
             <span class="feature-card__eyebrow">Apps utility</span>
-            <h3>Saved apps, recents, and queued sends make the mobile Apps lane useful when you are away from the desktop.</h3>
-          </article>
-
-          <article class="support-card" role="listitem">
-            <span class="feature-card__eyebrow">RoachTail</span>
-            <h3>RoachTail now tracks peer state, keeps the device lane private, and gives the phone its own bridge token.</h3>
-          </article>
-
-          <article class="support-card" role="listitem">
-            <span class="feature-card__eyebrow">Offline lane</span>
-            <h3>RoachBrain keeps answering from cached runtime, vault, and Apps state even when the Mac and internet are both gone.</h3>
+            <h3>Saved apps, recents, and queued sends make the mobile Apps lane useful away from the desktop.</h3>
           </article>
         </div>
       </section>
@@ -179,6 +174,7 @@
         <div class="section-head">
           <p class="eyebrow">Install</p>
           <h2>Install with SideStore.</h2>
+          <p>Use the unsigned IPA and share it straight into SideStore.</p>
         </div>
 
         <div class="card-grid card-grid--three" role="list">
@@ -199,16 +195,31 @@
         </div>
 
         <div class="section-actions">
-          <a class="cta cta--primary" href="https://github.com/AHGRoach/RoachNet-iOS/releases/latest/download/RoachNetiOS-v0.1.1-unsigned.ipa">Download IPA</a>
-          <a class="cta cta--ghost" href="https://github.com/AHGRoach/RoachNet-iOS/blob/main/docs/sidestore.md" target="_blank" rel="noreferrer">Install notes</a>
+          <a
+            class="cta cta--primary"
+            data-sidestore-cta
+            href="https://github.com/AHGRoach/RoachNet-iOS/releases/latest/download/RoachNetiOS-v0.1.1-unsigned.ipa"
+          >
+            Install with SideStore
+          </a>
+          <a
+            class="cta cta--ghost"
+            data-ipa-download
+            href="https://github.com/AHGRoach/RoachNet-iOS/releases/latest/download/RoachNetiOS-v0.1.1-unsigned.ipa"
+          >
+            Download IPA
+          </a>
+          <a class="cta cta--ghost" href="https://docs.sidestore.io/" target="_blank" rel="noreferrer">First time with SideStore?</a>
         </div>
+        <p class="ios-install-note" data-sidestore-note>Download the IPA, then share it to SideStore to install.</p>
+        <p class="ios-install-note ios-install-note--desktop" data-sidestore-desktop hidden>Open this page on your iPhone or iPad, or AirDrop the IPA first.</p>
       </section>
 
       <section class="content-section" id="pairing">
         <div class="section-head">
           <p class="eyebrow">Pairing</p>
           <h2>Point the phone at your Mac.</h2>
-          <p>The desktop runtime still owns the models, vault, installs, and the RoachTail host lane. The phone stays the carry surface.</p>
+          <p>The desktop still owns the models, vault, installs, and the RoachTail host lane. The phone stays the carry surface.</p>
         </div>
 
         <div class="card-grid card-grid--three" role="list">
@@ -249,5 +260,32 @@
         <a href="https://github.com/AHGRoach/RoachNet-iOS" target="_blank" rel="noreferrer">GitHub</a>
       </nav>
     </footer>
+    <script>
+      (() => {
+        const isIOS =
+          /iPad|iPhone|iPod/.test(navigator.userAgent) ||
+          (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1)
+
+        const installCTA = document.querySelector('[data-sidestore-cta]')
+        const downloadCTA = document.querySelector('[data-ipa-download]')
+        const note = document.querySelector('[data-sidestore-note]')
+        const desktopHint = document.querySelector('[data-sidestore-desktop]')
+
+        if (!installCTA || !downloadCTA || !note) {
+          return
+        }
+
+        if (isIOS) {
+          installCTA.textContent = 'Install with SideStore'
+          note.textContent = 'Download the IPA, then share it to SideStore to install.'
+          if (desktopHint) desktopHint.hidden = true
+          return
+        }
+
+        installCTA.textContent = 'Download IPA (for SideStore)'
+        note.textContent = 'Use this IPA with SideStore or AltStore on your iPhone or iPad.'
+        if (desktopHint) desktopHint.hidden = false
+      })()
+    </script>
   </body>
 </html>

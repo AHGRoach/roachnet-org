@@ -4968,6 +4968,15 @@ body[data-page="ios"] .ios-shot-wall {
   gap: 18px;
 }
 
+body[data-page="ios"] .ios-shot-wall--editorial {
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
+  grid-template-areas:
+    "feature apps"
+    "feature runtime"
+    "vault vault";
+  align-items: stretch;
+}
+
 body[data-page="ios"] .ios-shot-card {
   display: grid;
   gap: 14px;
@@ -4997,6 +5006,29 @@ body[data-page="ios"] .ios-shot-card__copy {
   gap: 8px;
 }
 
+body[data-page="ios"] .ios-shot-card--feature {
+  grid-area: feature;
+  align-content: start;
+}
+
+body[data-page="ios"] .ios-shot-card--compact:first-of-type {
+  grid-area: apps;
+}
+
+body[data-page="ios"] .ios-shot-card--compact:nth-of-type(3) {
+  grid-area: runtime;
+}
+
+body[data-page="ios"] .ios-shot-card--wide {
+  grid-area: vault;
+  grid-template-columns: minmax(260px, 0.92fr) minmax(0, 1fr);
+  align-items: center;
+}
+
+body[data-page="ios"] .ios-shot-card--wide .app-screen-shot {
+  max-width: 320px;
+}
+
 body[data-page="ios"] .ios-shot-card h3,
 body[data-page="ios"] .support-card h3 {
   font-size: clamp(1.08rem, 2vw, 1.34rem);
@@ -5007,6 +5039,18 @@ body[data-page="ios"] .section-actions {
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
+}
+
+body[data-page="ios"] .ios-install-note {
+  margin: 16px 0 0;
+  max-width: 60ch;
+  color: rgba(216, 222, 230, 0.72);
+  font-size: 0.95rem;
+  line-height: 1.45;
+}
+
+body[data-page="ios"] .ios-install-note--desktop {
+  color: rgba(216, 222, 230, 0.54);
 }
 
 @media (max-width: 1120px) {
@@ -5025,6 +5069,18 @@ body[data-page="ios"] .section-actions {
   body[data-page="ios"] .ios-hero-visual {
     justify-self: stretch;
     width: 100%;
+  }
+
+  body[data-page="ios"] .ios-shot-wall--editorial {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "feature feature"
+      "apps runtime"
+      "vault vault";
+  }
+
+  body[data-page="ios"] .ios-shot-card--wide {
+    grid-template-columns: 1fr;
   }
 }
 
@@ -5056,6 +5112,14 @@ body[data-page="ios"] .section-actions {
 
   body[data-page="ios"] .ios-shot-wall {
     grid-template-columns: 1fr;
+  }
+
+  body[data-page="ios"] .ios-shot-wall--editorial {
+    grid-template-areas:
+      "feature"
+      "apps"
+      "runtime"
+      "vault";
   }
 }
 
