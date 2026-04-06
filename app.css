@@ -4900,6 +4900,38 @@ body:not([data-page="apps"]) .download-hero-card small {
   font-weight: 600;
 }
 
+body:not([data-page="apps"]) .download-side-card code,
+body:not([data-page="apps"]) .homebrew-inline code {
+  font-family: var(--rn-font-mono);
+  font-size: 0.82rem;
+  letter-spacing: 0.01em;
+}
+
+body:not([data-page="apps"]) .homebrew-inline {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin-top: 4px;
+}
+
+body:not([data-page="apps"]) .homebrew-inline__command {
+  color: rgba(216, 222, 230, 0.7);
+}
+
+body:not([data-page="apps"]) .homebrew-note {
+  margin: 2px 0 0;
+  max-width: 62ch;
+  color: rgba(216, 222, 230, 0.66);
+  font-size: 0.92rem;
+  line-height: 1.55;
+}
+
+body:not([data-page="apps"]) .cta--compact {
+  padding-inline: 16px;
+  min-height: 42px;
+}
+
 body:not([data-page="apps"]) .downloads-actions {
   margin-top: 6px;
 }
@@ -5140,6 +5172,10 @@ body[data-page="ios"] .ios-install-note--desktop {
 
   body:not([data-page="apps"]) .cta {
     width: 100%;
+  }
+
+  body:not([data-page="apps"]) .homebrew-inline {
+    align-items: flex-start;
   }
 
   body:not([data-page="apps"]) .shelf-grid {

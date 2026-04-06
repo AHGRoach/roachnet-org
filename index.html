@@ -67,12 +67,20 @@
 
           <div class="hero-actions">
             <button class="cta cta--primary" id="primary-download" type="button">Download RoachNet 1.0.3 for macOS</button>
+            <button class="cta cta--ghost" data-homebrew-install type="button">Install with Homebrew</button>
             <a class="cta cta--ghost" href="https://apps.roachnet.org">Browse RoachNet Apps</a>
             <a class="cta cta--ghost" href="https://github.com/AHGRoach/RoachNet" target="_blank" rel="noreferrer">View on GitHub</a>
           </div>
 
           <p class="hero-footnote">Built for Apple Silicon, Windows 11, and Linux desktops.</p>
           <p class="download-meta" id="download-meta">Starts with RoachNet Setup v1.0.3 · RoachNet-Setup-macOS.dmg</p>
+          <div class="homebrew-inline">
+            <button class="cta cta--ghost cta--compact" data-homebrew-copy type="button">Copy brew command</button>
+            <span class="homebrew-inline__command"><code>brew tap AHGRoach/roachnet &amp;&amp; brew install --cask roachnet</code></span>
+          </div>
+          <p class="homebrew-note" id="homebrew-note">
+            Mac only. Browsers cannot launch Terminal directly, so this downloads a small helper that opens Terminal and runs the Homebrew install for you.
+          </p>
 
           <div class="hero-status" aria-label="RoachNet status row">
             <span data-hero-time>--:-- --</span>
@@ -292,6 +300,12 @@
           </button>
 
           <div class="download-side-grid">
+            <button class="download-side-card" data-homebrew-install type="button">
+              <span class="download-card__label">Homebrew · Apple Silicon</span>
+              <strong>Skip the setup app and install RoachNet straight into <code>~/RoachNet/app</code>.</strong>
+              <small>brew install --cask roachnet</small>
+            </button>
+
             <button class="download-side-card" data-platform="win" type="button">
               <span class="download-card__label">Windows 11 · x64</span>
               <strong>Native Windows beta setup for the RoachNet shell and installer flow.</strong>
@@ -314,6 +328,7 @@
 
         <div class="downloads-actions">
           <button class="cta cta--primary" id="downloads-primary" type="button">Download RoachNet 1.0.3 for macOS</button>
+          <button class="cta cta--ghost" data-homebrew-install type="button">Install with Homebrew</button>
           <a class="cta cta--ghost" href="https://roachnet.org/iOS/">RoachNet iOS</a>
           <a class="cta cta--ghost" href="https://github.com/AHGRoach/RoachNet" target="_blank" rel="noreferrer">View on GitHub</a>
         </div>

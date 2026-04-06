@@ -21,6 +21,9 @@ const primaryDownloadButton = document.querySelector('#primary-download')
 const downloadsPrimaryButton = document.querySelector('#downloads-primary')
 const downloadMeta = document.querySelector('#download-meta')
 const platformButtons = [...document.querySelectorAll('[data-platform]')]
+const homebrewInstallButtons = [...document.querySelectorAll('[data-homebrew-install]')]
+const homebrewCopyButtons = [...document.querySelectorAll('[data-homebrew-copy]')]
+const homebrewNote = document.querySelector('#homebrew-note')
 const commandLaunchButton = document.querySelector('#command-launch')
 const commandPalette = document.querySelector('#command-palette')
 const commandScrim = document.querySelector('#command-scrim')
@@ -75,6 +78,9 @@ let featuredRotationTimer = null
 let featuredRotationItems = []
 let featuredRotationIndex = 0
 let storeRevealObserver = null
+
+const homebrewCommand = 'brew tap AHGRoach/roachnet && brew install --cask roachnet'
+const homebrewHelperUrl = '/downloads/RoachNet-Homebrew.command.zip'
 
 const storeSectionMeta = {
   'Map Regions': {
@@ -415,6 +421,31 @@ function setPrimaryButton(platformKey) {
   })
   if (downloadMeta) {
     downloadMeta.textContent = `No direct ${label} installer is posted yet. Opening the latest release instead.`
+  }
+}
+
+function setHomebrewNote(text) {
+  if (!homebrewNote) {
+    return
+  }
+
+  homebrewNote.textContent = text
+}
+
+function triggerHomebrewInstall() {
+  window.location.href = homebrewHelperUrl
+  setHomebrewNote(
+    'Helper downloaded. Open the zip in Finder, then open RoachNet-Homebrew.command to launch Terminal and run the Homebrew install.'
+  )
+}
+
+async function copyHomebrewCommand() {
+  try {
+    await navigator.clipboard.writeText(homebrewCommand)
+    setHomebrewNote('Copied: brew tap AHGRoach/roachnet && brew install --cask roachnet')
+  } catch (error) {
+    console.error(error)
+    setHomebrewNote('Clipboard access was blocked. Open the helper download instead.')
   }
 }
 
@@ -1340,6 +1371,16 @@ platformButtons.forEach((button) => {
     }
 
     window.open(latestReleasePage, '_blank', 'noopener,noreferrer')
+  })
+})
+
+homebrewInstallButtons.forEach((button) => {
+  button.addEventListener('click', triggerHomebrewInstall)
+})
+
+homebrewCopyButtons.forEach((button) => {
+  button.addEventListener('click', () => {
+    void copyHomebrewCommand()
   })
 })
 
