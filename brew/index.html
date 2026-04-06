@@ -70,9 +70,9 @@
           </div>
 
           <p class="hero-footnote">Apple Silicon only. Fresh Homebrew installs are supported. The helper can install Homebrew first, then run the cask.</p>
-          <p class="download-meta">Current cask target: RoachNet 1.0.4 · <code>brew tap AHGRoach/roachnet &amp;&amp; brew install --cask roachnet</code></p>
+          <p class="download-meta">Current cask target: RoachNet 1.0.5 · <code>brew tap AHGRoach/roachnet &amp;&amp; brew install --cask roachnet</code></p>
           <p class="homebrew-note" id="homebrew-note">
-            The direct lane writes the RoachNet config automatically, disables the companion bridge on first boot, and skips the launch intro so the shell can come up cleanly on a fresh Mac.
+            The direct lane writes the RoachNet config automatically, marks the first launch as a contained Homebrew bootstrap, disables the companion bridge on first boot, and skips the launch intro so the shell can come up cleanly on a fresh Mac.
           </p>
         </div>
 
@@ -153,7 +153,7 @@
           <article class="runtime-card" role="listitem">
             <span class="feature-card__eyebrow">Config writes</span>
             <h3><code>~/Library/Application Support/roachnet</code></h3>
-            <p>The cask writes the contained install config plus the legacy resume file so the shell knows its paths before first launch.</p>
+            <p>The cask writes the contained install config plus the legacy resume file so the shell knows its paths before first launch, including the Homebrew install profile and pending bootstrap state.</p>
           </article>
         </div>
       </section>
@@ -177,7 +177,12 @@
 
           <article class="support-card" role="listitem">
             <span class="feature-card__eyebrow">Safer first boot</span>
-            <h3>The Homebrew lane disables the companion bridge on first launch and skips the intro sheet so the shell can get to a clean runtime state first.</h3>
+            <h3>The Homebrew lane disables the companion bridge on first launch, keeps handshake state in the RoachNet folder, and does one contained self-heal pass if the first runtime handoff comes up dirty.</h3>
+          </article>
+
+          <article class="support-card" role="listitem">
+            <span class="feature-card__eyebrow">Contained logs</span>
+            <h3>Launcher logs, server logs, and runtime PID state now live under <code>~/RoachNet/storage/logs</code> so the Homebrew lane stays readable and self-contained.</h3>
           </article>
 
           <article class="support-card" role="listitem">

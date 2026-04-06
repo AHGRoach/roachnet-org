@@ -122,12 +122,16 @@ const apiGroups = [
         request: ['No HTTP body. Static documentation for the Homebrew bootstrap payload.'],
         response: [
           'useDockerContainerization: false',
+          'installProfile: "homebrew-cask"',
+          'bootstrapPending: true',
+          'bootstrapFailureCount: 0',
           'companionEnabled: false',
           'pendingLaunchIntro: false',
           'pendingRoachClawSetup: true',
+          'lastRuntimeHealthAt: null',
         ],
         implementation:
-          'The direct cask lane comes up with the companion bridge off and the launch-intro sheet skipped so a fresh Mac can reach a stable runtime before pairing or extra bridge services are enabled.',
+          'The direct cask lane comes up with an explicit Homebrew install profile, marks the first launch as pending bootstrap, keeps the companion bridge off, and skips the launch-intro sheet so a fresh Mac can reach a stable runtime before pairing or extra bridge services are enabled.',
         usedBy: ['RoachNet.app first boot after Homebrew install', 'Homebrew troubleshooting docs'],
       },
       {
@@ -140,11 +144,15 @@ const apiGroups = [
         request: ['No HTTP body. Static documentation for the contained runtime layout.'],
         response: [
           'Compiled runtime cache: ~/RoachNet/storage/state/runtime-cache/<fingerprint>',
+          'Handshake file: ~/RoachNet/storage/state/runtime-cache/roachnet-runtime-handshake.json',
+          'Launcher log: ~/RoachNet/storage/logs/roachnet-launcher-debug.log',
+          'Server log: ~/RoachNet/storage/logs/roachnet-server.log',
+          'Runtime process state: ~/RoachNet/storage/logs/roachnet-runtime-processes.json',
           'Health route after boot: /api/health',
           'Runtime API surface: same as the standard native app once the shell is live',
         ],
         implementation:
-          'The Homebrew lane now stages the compiled runtime inside the contained RoachNet storage root instead of /tmp. On macOS, native Node addons and dylibs in that cache are stripped of inherited xattrs and re-signed ad hoc before launch so clean Apple Silicon installs do not depend on host Homebrew dylibs or transient staging paths.',
+          'The Homebrew lane now stages the compiled runtime inside the contained RoachNet storage root instead of /tmp. On macOS, native Node addons and dylibs in that cache are stripped of inherited xattrs and re-signed ad hoc before launch so clean Apple Silicon installs do not depend on host Homebrew dylibs or transient staging paths. If a first-boot Homebrew launch comes up dirty, the native bridge clears the contained runtime cache and process state once, retries, and only then records a bootstrap failure.',
         usedBy: ['RoachNet.app runtime boot after Homebrew install', 'roachnet.org/api Homebrew section'],
       },
     ],
