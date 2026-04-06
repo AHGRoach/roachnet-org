@@ -184,8 +184,8 @@ const apiGroups = [
     label: 'Companion',
     scope: 'runtime',
     basePath: '/api/companion',
-    summary: 'Token-gated bridge used by the iPhone and iPad companion app.',
-    stack: 'roachnet-companion-server.mjs -> CompanionController -> ChatService / OllamaService / runtime relays',
+    summary: 'Desktop companion token plus per-device RoachTail peer tokens for the iPhone and iPad carry lane.',
+    stack: 'roachnet-companion-server.mjs -> peer-aware token gate -> CompanionController -> ChatService / OllamaService / runtime relays -> RoachTail state in contained storage',
     callers: ['RoachNet iOS companion', 'future iPad surfaces'],
     endpoints: [
       {
@@ -196,12 +196,12 @@ const apiGroups = [
         summary: 'Returns the first mobile payload: runtime, vault, catalog URL, and recent sessions.',
         handler: 'CompanionController.bootstrap',
         request: [
-          'Bearer token or X-RoachNet-Companion-Token header required at the sidecar layer',
+          'Primary companion token or paired RoachTail peer token at the sidecar layer',
           'No body required',
         ],
         response: ['appName, machineName, appsCatalogUrl, runtime, vault, sessions'],
         implementation:
-          'The public sidecar listens on the companion port, verifies the token, and proxies into the desktop runtime. The controller then fans out to runtimePayload, vaultPayload, and ChatService.getAllSessions() so the phone app can paint in one round-trip.',
+          'The public sidecar listens on the companion port, verifies either the long-lived desktop token or a hashed per-peer RoachTail token, and proxies into the desktop runtime. The controller then fans out to runtimePayload, vaultPayload, and ChatService.getAllSessions() so the phone app can paint in one round-trip.',
         usedBy: ['RoachNet iOS first launch', 'manual refresh after saving connection settings'],
       },
       {
@@ -212,10 +212,55 @@ const apiGroups = [
         summary: 'Returns desktop runtime, RoachClaw, service, and download state for the phone.',
         handler: 'CompanionController.runtime',
         request: ['Token-gated request, no body required'],
-        response: ['systemInfo, providers, roachClaw, services, downloads, installedModels, issues'],
+        response: ['systemInfo, providers, roachClaw, roachTail, services, downloads, installedModels, issues'],
         implementation:
-          'CompanionController.runtimePayload relays into the existing system, AI-provider, RoachClaw, downloads, and model endpoints, then coalesces failures into an issues array so the mobile UI can stay live even when one lane is still warming up.',
-        usedBy: ['Runtime tab', 'post-service-action refreshes', 'bootstrap payload'],
+          'CompanionController.runtimePayload relays into the existing system, AI-provider, RoachClaw, downloads, installed-model, and RoachTail state lanes, then coalesces failures into an issues array so the mobile UI can stay live even when one lane is still warming up. Paired peer tokens only get this full payload while RoachTail is armed.',
+        usedBy: ['Runtime tab', 'RoachTail status panel', 'post-service-action refreshes', 'bootstrap payload'],
+      },
+      {
+        id: 'companion-roachtail',
+        method: 'GET',
+        path: '/roachtail',
+        title: 'RoachTail status',
+        summary: 'Returns the private-device overlay state used by the companion app.',
+        handler: 'CompanionController.roachtail',
+        request: ['Token-gated request, no body required'],
+        response: ['enabled, networkName, deviceName, deviceId, status, relayHost, advertisedUrl, joinCode?, joinCodeIssuedAt?, joinCodeExpiresAt?, notes, peers'],
+        implementation:
+          'Reads a RoachTail state snapshot from the contained RoachNet storage lane when one exists, then falls back to the current companion env/config so the iPhone and iPad surfaces can still show bridge readiness before a full mesh config has been written. Peer-token requests still get this route while RoachTail is off so the phone can re-arm the lane, but the one-time join code is redacted from paired peers.',
+        usedBy: ['Runtime tab status cards', 'RoachTail toggle state', 'Connection debugging'],
+      },
+      {
+        id: 'companion-roachtail-pair',
+        method: 'POST',
+        path: '/roachtail/pair',
+        title: 'Pair one device with RoachTail',
+        summary: 'Validates a one-time join code, creates or updates the peer record, and mints a per-device bridge token.',
+        handler: 'CompanionController.pairRoachTail',
+        request: [
+          'Body: { joinCode, peerId?, peerName?, platform?, endpoint?, appVersion?, allowsExitNode?, tags? }',
+          'The sidecar leaves this route open specifically so a new device can pair before it has a token.',
+        ],
+        response: ['success, message, token, peerId, bridgeUrl, state'],
+        implementation:
+          'The controller checks that RoachTail is enabled, validates the one-time join code against the contained state record and its short expiry window, mints a private peer token, stores only its SHA-256 hash, and returns the plaintext token once so the phone can save it into local connection settings.',
+        usedBy: ['RoachNet iOS connection sheet', 'first-time phone pairing flow'],
+      },
+      {
+        id: 'companion-roachtail-affect',
+        method: 'POST',
+        path: '/roachtail/affect',
+        title: 'Mutate RoachTail state',
+        summary: 'Turns the overlay on or off, refreshes join codes, and clears or edits peers.',
+        handler: 'CompanionController.affectRoachTail',
+        request: [
+          'Body: { action, relayHost?, peerId?, peerName?, platform?, endpoint?, allowsExitNode?, tags? }',
+          'Supported actions: enable, disable, refresh-join-code, clear-peers, set-relay-host, register-peer, remove-peer',
+        ],
+        response: ['success, message, state'],
+        implementation:
+          'Writes RoachTail state back into the contained storage lane instead of keeping it in transient process memory, so the desktop shell, setup app, and mobile runtime all read the same source of truth. Peer tokens can toggle enable/disable and self-link or self-unlink, while refresh-code, relay-host, and full-peer edits stay restricted to the desktop companion token.',
+        usedBy: ['RoachNet iOS runtime toggle', 'RoachNet macOS runtime panel', 'future relay-host editing'],
       },
       {
         id: 'companion-vault',
@@ -280,7 +325,7 @@ const apiGroups = [
         response: ['session, userMessage, assistantMessage', '500 with a readable AI/runtime error when Ollama is unreachable'],
         implementation:
           'If a persisted session exists, the message flows through ChatService and OllamaService. If the desktop chat DB is unavailable, the controller falls back to a stateless ephemeral send path that uses the provided mobile history and still talks to the real AI runtime.',
-        usedBy: ['Chat composer in RoachNet iOS'],
+        usedBy: ['Chat composer in RoachNet iOS', 'RoachBrain carryover after pairing'],
       },
       {
         id: 'companion-install',
@@ -292,8 +337,8 @@ const apiGroups = [
         request: ['Body: install intent payload from the Apps catalog, including action/slug/category/model/url metadata'],
         response: ['JSON: { ok, action, result }'],
         implementation:
-          'Normalizes the incoming intent, maps it onto the existing runtime install actions, and dispatches it into the same content/model install lanes the website already uses.',
-        usedBy: ['Apps tab install buttons in RoachNet iOS'],
+          'Normalizes the incoming intent, maps it onto the existing runtime install actions, and dispatches it into the same content/model install lanes the website already uses. The iOS app keeps a local pending-install queue when this bridge is unavailable, then flushes the queue back through this route on reconnect.',
+        usedBy: ['Apps tab install buttons in RoachNet iOS', 'Reconnect flush for queued mobile installs'],
       },
       {
         id: 'companion-services-affect',
