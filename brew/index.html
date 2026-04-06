@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RoachNet Brew</title>
+    <meta
+      name="description"
+      content="Install RoachNet straight from Homebrew on Apple Silicon and keep the app, runtime, and local tools grouped under ~/RoachNet."
+    />
+    <meta name="theme-color" content="#0b1016" />
+    <link rel="canonical" href="https://roachnet.org/brew/" />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="RoachNet Brew" />
+    <meta
+      property="og:description"
+      content="Direct Apple Silicon Homebrew lane for RoachNet with the contained runtime staged under ~/RoachNet."
+    />
+    <meta property="og:url" content="https://roachnet.org/brew/" />
+    <meta property="og:image" content="https://roachnet.org/assets/screens/roachnet-native-home.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="RoachNet Brew" />
+    <meta
+      name="twitter:description"
+      content="Direct Homebrew lane for RoachNet. App in ~/RoachNet/app. Runtime and storage stay contained."
+    />
+    <meta name="twitter:image" content="https://roachnet.org/assets/screens/roachnet-native-home.jpg" />
+    <link rel="stylesheet" href="../app.css" />
+  </head>
+  <body data-page="brew">
+    <div class="bg-glow bg-glow--blue" aria-hidden="true"></div>
+    <div class="bg-glow bg-glow--green" aria-hidden="true"></div>
+
+    <header class="site-header">
+      <a class="brand-lockup" href="https://roachnet.org/" aria-label="RoachNet home">
+        <img class="brand-mark" src="../assets/roachnet-logo.png" alt="RoachNet logo" />
+        <div class="brand-copy">
+          <span class="brand-kicker">Direct Apple Silicon lane</span>
+          <strong>RoachNet Brew</strong>
+        </div>
+      </a>
+
+      <nav class="site-nav" aria-label="Primary">
+        <a href="https://roachnet.org/">Home</a>
+        <a href="#install">Install</a>
+        <a href="#layout">Layout</a>
+        <a href="#runtime">Runtime</a>
+        <a href="https://roachnet.org/api/">API</a>
+        <a href="https://github.com/AHGRoach/homebrew-roachnet" target="_blank" rel="noreferrer">Tap Repo</a>
+      </nav>
+    </header>
+
+    <main id="top" class="page-shell">
+      <section class="hero hero--brew">
+        <div class="hero-copy">
+          <p class="eyebrow">RoachNet Brew</p>
+          <h1>Install the native app straight from Homebrew.</h1>
+          <p class="hero-body">
+            Skip the setup app. Drop the shell into <code>~/RoachNet/app</code>. Keep the runtime, vault, and local tools under the RoachNet folder.
+          </p>
+
+          <div class="hero-actions">
+            <button class="cta cta--primary" data-homebrew-install type="button">Install with Homebrew</button>
+            <button class="cta cta--ghost" data-homebrew-copy type="button">Copy brew command</button>
+            <a class="cta cta--ghost" href="https://github.com/AHGRoach/homebrew-roachnet" target="_blank" rel="noreferrer">View tap repo</a>
+          </div>
+
+          <p class="hero-footnote">Apple Silicon only. Fresh Homebrew installs are supported. The helper can install Homebrew first, then run the cask.</p>
+          <p class="download-meta">Current cask target: RoachNet 1.0.4 · <code>brew install --cask roachnet</code></p>
+          <p class="homebrew-note" id="homebrew-note">
+            The direct lane writes the RoachNet config automatically, disables the companion bridge on first boot, and skips the launch intro so the shell can come up cleanly on a fresh Mac.
+          </p>
+        </div>
+
+        <div class="hero-visual" aria-hidden="true">
+          <div class="screen-frame screen-frame--hero">
+            <img
+              class="screen-frame__image"
+              src="../assets/screens/roachnet-native-home.jpg"
+              alt="RoachNet native home command grid"
+            />
+          </div>
+          <div class="screen-chip-row">
+            <span class="screen-chip">brew install --cask roachnet</span>
+            <span class="screen-chip">~/RoachNet/app</span>
+            <span class="screen-chip">Contained runtime</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="content-section" id="install">
+        <div class="section-head">
+          <p class="eyebrow">Install</p>
+          <h2>The short path.</h2>
+        </div>
+
+        <div class="card-grid card-grid--three" role="list">
+          <article class="support-card" role="listitem">
+            <span class="feature-card__eyebrow">1</span>
+            <h3>Tap the RoachNet cask.</h3>
+            <p><code>brew tap AHGRoach/roachnet</code></p>
+          </article>
+
+          <article class="support-card" role="listitem">
+            <span class="feature-card__eyebrow">2</span>
+            <h3>Install the native app.</h3>
+            <p><code>brew install --cask roachnet</code></p>
+          </article>
+
+          <article class="support-card" role="listitem">
+            <span class="feature-card__eyebrow">3</span>
+            <h3>Open the contained app.</h3>
+            <p><code>open ~/RoachNet/app/RoachNet.app</code></p>
+          </article>
+        </div>
+
+        <div class="section-actions">
+          <button class="cta cta--primary" data-homebrew-install type="button">Install with Homebrew</button>
+          <a class="cta cta--ghost" href="https://github.com/AHGRoach/RoachNet/releases/latest/download/RoachNet-Setup-macOS.dmg">Use Setup.app instead</a>
+        </div>
+      </section>
+
+      <section class="content-section" id="layout">
+        <div class="section-head">
+          <p class="eyebrow">What it installs</p>
+          <h2>The contained layout.</h2>
+        </div>
+
+        <div class="runtime-grid" role="list">
+          <article class="runtime-card" role="listitem">
+            <span class="feature-card__eyebrow">App bundle</span>
+            <h3><code>~/RoachNet/app/RoachNet.app</code></h3>
+            <p>The Homebrew lane copies the native app directly out of the packaged DMG and clears macOS quarantine metadata on the installed bundle.</p>
+          </article>
+
+          <article class="runtime-card" role="listitem">
+            <span class="feature-card__eyebrow">Storage root</span>
+            <h3><code>~/RoachNet/storage</code></h3>
+            <p>Vault files, downloads, models, logs, and runtime state stay under the RoachNet folder instead of spilling into host-level service roots.</p>
+          </article>
+
+          <article class="runtime-card" role="listitem">
+            <span class="feature-card__eyebrow">Local tools</span>
+            <h3><code>~/RoachNet/bin</code></h3>
+            <p>Any RoachNet-managed helper binaries and local tool shims stay alongside the app instead of being sprayed across global paths.</p>
+          </article>
+
+          <article class="runtime-card" role="listitem">
+            <span class="feature-card__eyebrow">Config writes</span>
+            <h3><code>~/Library/Application Support/roachnet</code></h3>
+            <p>The cask writes the contained install config plus the legacy resume file so the shell knows its paths before first launch.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="content-section" id="runtime">
+        <div class="section-head">
+          <p class="eyebrow">Homebrew runtime</p>
+          <h2>What differs from Setup.app.</h2>
+        </div>
+
+        <div class="card-grid card-grid--support" role="list">
+          <article class="support-card" role="listitem">
+            <span class="feature-card__eyebrow">Portable Node</span>
+            <h3>The packaged runtime ships its own portable Node lane and rejects Homebrew-linked dylib chains before the DMG is built.</h3>
+          </article>
+
+          <article class="support-card" role="listitem">
+            <span class="feature-card__eyebrow">Contained cache</span>
+            <h3>The compiled runtime now stages in <code>~/RoachNet/storage/state/runtime-cache</code>, not <code>/tmp</code>, and native addons are re-signed there on macOS.</h3>
+          </article>
+
+          <article class="support-card" role="listitem">
+            <span class="feature-card__eyebrow">Safer first boot</span>
+            <h3>The Homebrew lane disables the companion bridge on first launch and skips the intro sheet so the shell can get to a clean runtime state first.</h3>
+          </article>
+
+          <article class="support-card" role="listitem">
+            <span class="feature-card__eyebrow">Same API surface</span>
+            <h3>Once the app is live, the Homebrew install serves the same runtime routes as the standard native install. The differences are bootstrap, layout, and first-boot defaults.</h3>
+          </article>
+        </div>
+
+        <div class="section-actions">
+          <a class="cta cta--ghost" href="https://roachnet.org/api/">Read the API docs</a>
+          <a class="cta cta--ghost" href="https://github.com/AHGRoach/homebrew-roachnet" target="_blank" rel="noreferrer">Tap source</a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="site-footer__copy">
+        <strong>RoachNet Brew</strong>
+        <span>Direct cask lane for Apple Silicon installs that keep the app and runtime grouped under the RoachNet folder.</span>
+      </div>
+      <nav class="site-footer__nav" aria-label="Footer">
+        <a href="https://roachnet.org/">Home</a>
+        <a href="#install">Install</a>
+        <a href="#layout">Layout</a>
+        <a href="#runtime">Runtime</a>
+        <a href="https://roachnet.org/api/">API</a>
+        <a href="https://github.com/AHGRoach/homebrew-roachnet" target="_blank" rel="noreferrer">Tap Repo</a>
+      </nav>
+    </footer>
+
+    <script src="../app.js" type="module"></script>
+  </body>
+</html>
