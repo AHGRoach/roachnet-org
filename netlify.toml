@@ -12,14 +12,14 @@ to = "/app-store.html"
 status = 200
 
 [[redirects]]
-from = "/ios"
-to = "/iOS/"
-status = 301
+from = "/iOS"
+to = "/ios/"
+status = 200
 
 [[redirects]]
-from = "/ios/*"
-to = "/iOS/:splat"
-status = 301
+from = "/iOS/*"
+to = "/ios/:splat"
+status = 200
 
 [[headers]]
 for = "/*"
