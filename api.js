@@ -92,7 +92,7 @@ const apiGroups = [
     basePath: '/brew',
     summary: 'Direct cask lane for Apple Silicon Macs that bypasses Setup.app but lands on the same runtime API after boot.',
     stack: 'homebrew-roachnet cask -> postflight config writer -> ~/RoachNet/app/RoachNet.app -> run-roachnet.mjs contained runtime bootstrap',
-    callers: ['brew install --cask roachnet', 'RoachNet-Homebrew.command', 'RoachNet.app first launch after cask install'],
+    callers: ['brew tap AHGRoach/roachnet && brew install --cask roachnet', 'RoachNet-Homebrew.command', 'RoachNet.app first launch after cask install'],
     endpoints: [
       {
         id: 'brew-install-contract',
