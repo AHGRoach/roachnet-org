@@ -31,6 +31,18 @@ from = "/brew/*"
 to = "/brew/:splat"
 status = 200
 
+[[redirects]]
+from = "/account"
+to = "https://accounts.roachnet.org/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/account/*"
+to = "https://accounts.roachnet.org/:splat"
+status = 301
+force = true
+
 [[headers]]
 for = "/*"
 

@@ -9,12 +9,12 @@
       content="Sign in to the RoachNet website lane for future RoachClaw web chat, synced settings, and device-aware account features."
     />
     <meta name="theme-color" content="#0a1016" />
-    <link rel="canonical" href="https://roachnet.org/account/" />
+    <link rel="canonical" href="https://accounts.roachnet.org/" />
     <link rel="icon" href="/favicon.ico" sizes="any" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-    <link rel="stylesheet" href="../app.css" />
+    <link rel="stylesheet" href="/app.css" />
   </head>
   <body data-page="account">
     <div class="bg-glow bg-glow--blue" aria-hidden="true"></div>
@@ -23,7 +23,7 @@
     <div class="docs-shell docs-shell--account">
       <aside class="docs-sidebar">
         <a class="api-docs-brand" href="https://roachnet.org/" aria-label="Back to RoachNet">
-          <img class="api-docs-brand__mark" src="../assets/roachnet-logo.png" alt="RoachNet logo" />
+          <img class="api-docs-brand__mark" src="/assets/roachnet-logo.png" alt="RoachNet logo" />
           <div class="api-docs-brand__copy">
             <span>RoachNet Account</span>
             <strong>Sign in for the web lane and future device sync.</strong>
@@ -32,8 +32,8 @@
 
         <section class="docs-sidebar__intro">
           <span class="api-docs-kicker">Account</span>
-          <h1>Keep the website lane tied to your own RoachNet session.</h1>
-          <p>Accounts are for the web lane: RoachClaw chat on the site, synced preferences, and future cross-device install history.</p>
+          <h1>Keep the website lane tied to your own devices.</h1>
+          <p>Accounts are for the hosted side of RoachNet: web chat, remembered settings, install history, and the metadata that ties your RoachTail and RoachSync lanes together without exposing local file paths.</p>
         </section>
 
         <div class="docs-sidebar__stack">
@@ -42,15 +42,21 @@
             <h2>One sign-in across the website lane.</h2>
             <ul class="docs-bullet-list">
               <li>Future RoachClaw web chat access</li>
-              <li>Device-aware settings and RoachTail metadata</li>
-              <li>RoachSync-ready account state for later sync surfaces</li>
+              <li>Remembered settings and install history</li>
+              <li>RoachTail and RoachSync device metadata tied to one account lane</li>
             </ul>
           </article>
 
           <article class="docs-sidebar__card">
             <span class="api-docs-kicker">Privacy</span>
             <h2>Desktop data stays out of the public page.</h2>
-            <p>This lane is for account state, not for dumping local paths or machine-private filesystem details into the site.</p>
+            <p>This lane is for account state, not for dumping local paths, runtime secrets, or machine-private filesystem details into the site.</p>
+          </article>
+
+          <article class="docs-sidebar__card">
+            <span class="api-docs-kicker">Order</span>
+            <h2>Local first. Account second.</h2>
+            <p>Pair the desktop and phone through RoachTail first. Then sign into the website lane when you want the hosted side to remember devices, settings, and future chat history.</p>
           </article>
         </div>
 
@@ -64,8 +70,8 @@
       <main class="docs-main docs-main--account">
         <header class="docs-hero">
           <span class="api-docs-kicker">Account</span>
-          <h2>Sign in when you want the web lane to remember you.</h2>
-          <p>Use the account lane for RoachClaw on the web, remembered settings, and the future hosted side of RoachSync and device history.</p>
+          <h2>Sign in when you want the web lane tied to your session.</h2>
+          <p>Keep the desktop runtime local. Use the account lane for the hosted side: RoachClaw on the web, remembered settings, install history, and device-aware sync metadata.</p>
         </header>
 
         <section class="account-surface">
@@ -102,11 +108,56 @@
               <p class="account-form__feedback" id="account-feedback" aria-live="polite"></p>
             </form>
           </article>
+
+          <article class="account-status-card">
+            <span class="api-docs-kicker">Synced state</span>
+            <h3 id="account-snapshot-title">Sign in to load account state.</h3>
+            <p id="account-snapshot-body">Device links, saved apps, and settings metadata will show up here once the account lane is live for this session.</p>
+
+            <div class="account-metrics">
+              <div class="account-metric">
+                <strong id="account-device-count">—</strong>
+                <span>Linked lanes</span>
+              </div>
+
+              <div class="account-metric">
+                <strong id="account-app-count">—</strong>
+                <span>Saved apps</span>
+              </div>
+
+              <div class="account-metric">
+                <strong id="account-settings-state">—</strong>
+                <span>Settings</span>
+              </div>
+            </div>
+
+            <div class="account-actions-inline">
+              <a class="cta cta--ghost" href="https://roachnet.org/roachclaw/">RoachClaw web lane</a>
+              <a class="cta cta--ghost" href="https://roachnet.org/iOS/">RoachNetiOS</a>
+            </div>
+          </article>
+        </section>
+
+        <section class="card-grid card-grid--three">
+          <article class="support-card" role="listitem">
+            <span class="feature-card__eyebrow">Desktop</span>
+            <h3>The app, vault, models, and runtime stay grouped on your own machine.</h3>
+          </article>
+
+          <article class="support-card" role="listitem">
+            <span class="feature-card__eyebrow">iPhone &amp; iPad</span>
+            <h3>RoachNetiOS carries chat, installs, RoachTail, and RoachSync status without needing a fake hosted runtime.</h3>
+          </article>
+
+          <article class="support-card" role="listitem">
+            <span class="feature-card__eyebrow">Website lane</span>
+            <h3>The account layer is for remembered identity, future web chat, and synced metadata, not for leaking local machine details.</h3>
+          </article>
         </section>
       </main>
     </div>
 
-    <script src="../site-config.js"></script>
-    <script src="../account.js" type="module"></script>
+    <script src="/site-config.js"></script>
+    <script src="/account.js" type="module"></script>
   </body>
 </html>

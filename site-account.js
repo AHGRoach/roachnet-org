@@ -1,11 +1,11 @@
 const defaultSiteConfig = {
-  releaseVersion: '1.0.6',
+  releaseVersion: '1.0.1',
   auth: {
     enabled: false,
     provider: 'supabase',
     supabaseUrl: '',
     supabaseAnonKey: '',
-    redirectUrl: 'https://roachnet.org/account/',
+    redirectUrl: 'https://accounts.roachnet.org/',
   },
   webChat: {
     enabled: false,
@@ -52,7 +52,8 @@ export async function getSiteAuthState() {
       enabled: false,
       client: null,
       session: null,
-      reason: 'Site accounts are staged, but the auth provider is not armed on this deploy yet.',
+      reason:
+        'Site accounts are staged, but the auth provider is not armed on this deploy yet. RoachTail, RoachSync, and the local runtime still stay on your own devices until the web lane is turned on.',
       config,
     }
     return cachedAuthState
@@ -95,4 +96,8 @@ export async function refreshSiteSession() {
     session: data.session,
   }
   return cachedAuthState.session
+}
+
+export function clearCachedAuthState() {
+  cachedAuthState = null
 }

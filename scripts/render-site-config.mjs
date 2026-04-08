@@ -5,8 +5,9 @@ import { fileURLToPath } from 'node:url'
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
 const repoRoot = path.resolve(__dirname, '..')
+const outputPath = process.env.ROACHNET_SITE_CONFIG_OUTPUT || path.join(repoRoot, 'site-config.js')
 
-const releaseVersion = process.env.ROACHNET_RELEASE_VERSION || '1.0.6'
+const releaseVersion = process.env.ROACHNET_RELEASE_VERSION || '1.0.1'
 const authEnabled =
   process.env.ROACHNET_AUTH_ENABLED === '1' &&
   Boolean(process.env.ROACHNET_SUPABASE_URL) &&
@@ -20,7 +21,7 @@ const config = {
     provider: 'supabase',
     supabaseUrl: process.env.ROACHNET_SUPABASE_URL || '',
     supabaseAnonKey: process.env.ROACHNET_SUPABASE_ANON_KEY || '',
-    redirectUrl: process.env.ROACHNET_AUTH_REDIRECT_URL || 'https://roachnet.org/account/',
+    redirectUrl: process.env.ROACHNET_AUTH_REDIRECT_URL || 'https://accounts.roachnet.org/',
   },
   webChat: {
     enabled: webChatEnabled,
@@ -30,4 +31,4 @@ const config = {
 }
 
 const output = `window.__ROACHNET_SITE_CONFIG__ = ${JSON.stringify(config, null, 2)}\n`
-await writeFile(path.join(repoRoot, 'site-config.js'), output, 'utf8')
+await writeFile(outputPath, output, 'utf8')

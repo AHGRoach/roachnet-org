@@ -1,8 +1,8 @@
 # roachnet.org
 
-Public site and Apps catalog for RoachNet.
+Public site, account lane, and Apps catalog for RoachNet.
 
-This repo ships the landing page, the iOS page, the API docs, and the separate Apps surface at `apps.roachnet.org`.
+This repo ships the landing page, the iOS page, the API docs, the separate account surface at `accounts.roachnet.org`, and the separate Apps surface at `apps.roachnet.org`.
 
 ## What Lives Here
 
@@ -12,6 +12,8 @@ This repo ships the landing page, the iOS page, the API docs, and the separate A
   RoachNet iOS page
 - `api/`
   Public API docs shell
+- `account/`
+  Account lane shell for `accounts.roachnet.org`
 - `app-store.html`
   Apps storefront UI
 - `app-store-catalog.json`
@@ -22,6 +24,8 @@ This repo ships the landing page, the iOS page, the API docs, and the separate A
   Logos, screenshots, app icons, and branded storefront art
 - `scripts/build-app-store-catalog.mjs`
   Rebuilds the Apps catalog from the collection manifests
+- `scripts/build-accounts-site.mjs`
+  Builds the standalone Accounts-site publish directory into `website-accounts-dist/`
 - `scripts/build-apps-site.mjs`
   Builds the standalone Apps-site publish directory into `website-apps-dist/`
 
@@ -29,5 +33,6 @@ This repo ships the landing page, the iOS page, the API docs, and the separate A
 
 ```bash
 npm run build:catalog
+npm run build:accounts
 npm run build:apps
 ```

@@ -22,7 +22,7 @@ const modes = {
     badge: 'Needs auth',
     badgeState: 'pending',
     primaryLabel: 'Open account page',
-    primaryHref: 'https://roachnet.org/account/',
+    primaryHref: 'https://accounts.roachnet.org/',
     messages: [
       'Accounts give the site a stable identity layer.',
       'That is the clean place for web chat history and synced preferences.',
