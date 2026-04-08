@@ -558,7 +558,53 @@ function summaryForResource(categorySlug, resource, tierLabel) {
     'dictionaries-primary-sources': 'library shelf',
   }[categorySlug] || 'knowledge shelf'
 
-  return `${resource.title} installs as its own RoachNet app, so you can pull this ${bandName} into the native vault without dragging in a whole provider dump.`
+  const sourceUrl = String(resource.url || '').toLowerCase()
+  const title = String(resource.title || '').toLowerCase()
+  const description = String(resource.description || '').trim().replace(/\.$/, '')
+
+  let lead = ''
+
+  if (sourceUrl.includes('/devdocs/')) {
+    lead = 'Offline language and framework docs that fit right into the long Dev Studio session.'
+  } else if (sourceUrl.includes('/stack_exchange/')) {
+    lead = 'Crowd-tested answers, rabbit holes, and practical fixes packed into one named shelf.'
+  } else if (sourceUrl.includes('/phet/')) {
+    lead = 'Interactive sims for testing ideas instead of just reading about them.'
+  } else if (sourceUrl.includes('/ted/')) {
+    lead = 'Talk libraries and lecture bundles sized like a real shelf instead of a random video binge.'
+  } else if (sourceUrl.includes('/libretexts/')) {
+    lead = 'Course-style textbooks laid out like real classes, not a folder full of stray PDFs.'
+  } else if (sourceUrl.includes('/gutenberg/')) {
+    lead = 'Public-domain books and long-form reading that belong on the machine, not lost in tabs.'
+  } else if (sourceUrl.includes('/wikivoyage/')) {
+    lead = 'City notes, route context, and practical travel reference in one install.'
+  } else if (sourceUrl.includes('/wiktionary/')) {
+    lead = 'Fast dictionary lookup and language cross-reference in a compact shelf.'
+  } else if (sourceUrl.includes('/wikisource/')) {
+    lead = 'Primary sources, older texts, and quote-heavy reading packed into one lane.'
+  } else if (sourceUrl.includes('/wikiquote/')) {
+    lead = 'A tighter quote shelf for writers, sample hunters, and midnight reference dives.'
+  } else if (sourceUrl.includes('/other/khanacademy')) {
+    lead = 'Lessons, worked examples, and practice-first study material in one named course app.'
+  } else if (sourceUrl.includes('/other/crashcourse')) {
+    lead = 'Fast-moving video courses and explainers for the topics you end up chasing at 2 AM.'
+  } else if (sourceUrl.includes('/freecodecamp/')) {
+    lead = 'Dev courses and hands-on explainers that feel at home next to the editor.'
+  } else if (title.includes('wikibooks')) {
+    lead = 'Open textbooks across math, science, computing, and more in one clean shelf.'
+  } else if (title.includes('wikiversity')) {
+    lead = 'Community-built courses and guided study paths when you want more than isolated articles.'
+  } else if (title.includes('medlineplus')) {
+    lead = 'Condition, symptom, and medicine reference that stays readable when you need answers fast.'
+  } else if (title.includes('wikipedia medicine')) {
+    lead = 'Medical articles, diagrams, and condition reference in one heavier but useful lane.'
+  } else if (description) {
+    lead = `${description}.`
+  } else {
+    lead = `A named ${bandName} install that keeps the useful material close.`
+  }
+
+  return `${lead} ${resource.title} lands as its own ${bandName} app inside RoachNet instead of falling into Downloads.`
 }
 
 function modelPackInstallLabel() {
@@ -694,7 +740,7 @@ function toCatalog() {
         status: wikipediaStatusMap[option.id] || 'Ready',
         source: 'Kiwix mirror',
         summary:
-          'Pick the Wikipedia footprint that makes sense for this machine, then let RoachNet queue the selection directly into the Education lane.',
+          'Pick the Wikipedia footprint that matches this machine, then let RoachNet stage it as one named reference lane instead of a giant mystery download.',
         accent: option.id.includes('maxi') ? 'magenta' : option.id.includes('all') ? 'violet' : 'blue',
         machineFit:
           option.id === 'top-mini'

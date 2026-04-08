@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-04-05T12:27:44.076Z",
+  "updatedAt": "2026-04-08T06:41:40.558Z",
   "featuredId": "base-atlas",
   "items": [
     {
@@ -301,7 +301,7 @@
       "size": "67 MB",
       "status": "Great first install",
       "source": "RoachNet knowledge mirror",
-      "summary": "Medical Library installs as its own RoachNet app, so you can pull this care shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Field and emergency medicine books and guides. Medical Library lands as its own care shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "green",
       "machineFit": "Fast add-on for any supported machine",
       "includes": [
@@ -331,7 +331,7 @@
       "size": "16 MB",
       "status": "Great first install",
       "source": "RoachNet knowledge mirror",
-      "summary": "NHS Medicines A to Z installs as its own RoachNet app, so you can pull this care shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "How medicines work, dosages, side effects, and interactions. NHS Medicines A to Z lands as its own care shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "green",
       "machineFit": "Fast add-on for any supported machine",
       "includes": [
@@ -361,7 +361,7 @@
       "size": "78 MB",
       "status": "Great first install",
       "source": "RoachNet knowledge mirror",
-      "summary": "Military Medicine installs as its own RoachNet app, so you can pull this care shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Tactical and field medicine manuals. Military Medicine lands as its own care shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "green",
       "machineFit": "Fast add-on for any supported machine",
       "includes": [
@@ -391,7 +391,7 @@
       "size": "170 MB",
       "status": "Great first install",
       "source": "RoachNet knowledge mirror",
-      "summary": "CDC Health Information installs as its own RoachNet app, so you can pull this care shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Disease prevention, travel health, and outbreak information. CDC Health Information lands as its own care shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "green",
       "machineFit": "Easy install once the core workspace is already healthy",
       "includes": [
@@ -421,7 +421,7 @@
       "size": "1.8 GB",
       "status": "Recommended next install",
       "source": "RoachNet knowledge mirror",
-      "summary": "MedlinePlus installs as its own RoachNet app, so you can pull this care shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Condition, symptom, and medicine reference that stays readable when you need answers fast. MedlinePlus lands as its own care shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "cyan",
       "machineFit": "Best on installs with real storage headroom",
       "includes": [
@@ -451,7 +451,7 @@
       "size": "2.0 GB",
       "status": "Deep archive",
       "source": "RoachNet knowledge mirror",
-      "summary": "Wikipedia Medicine installs as its own RoachNet app, so you can pull this care shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Medical articles, diagrams, and condition reference in one heavier but useful lane. Wikipedia Medicine lands as its own care shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "gold",
       "machineFit": "Best on installs with real storage headroom",
       "includes": [
@@ -481,7 +481,7 @@
       "size": "1.1 GB",
       "status": "Deep archive",
       "source": "LibreTexts via Kiwix",
-      "summary": "LibreTexts Medicine installs as its own RoachNet app, so you can pull this care shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Course-style textbooks laid out like real classes, not a folder full of stray PDFs. LibreTexts Medicine lands as its own care shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "gold",
       "machineFit": "Best on installs with real storage headroom",
       "includes": [
@@ -511,7 +511,7 @@
       "size": "76 MB",
       "status": "Deep archive",
       "source": "RoachNet knowledge mirror",
-      "summary": "LibrePathology installs as its own RoachNet app, so you can pull this care shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Pathology reference for disease identification. LibrePathology lands as its own care shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "gold",
       "machineFit": "Fast add-on for any supported machine",
       "includes": [
@@ -541,7 +541,7 @@
       "size": "1.3 GB",
       "status": "Great first install",
       "source": "RoachNet knowledge mirror",
-      "summary": "Canadian Prepper: Winter Prepping installs as its own RoachNet app, so you can pull this field shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Video guides for winter survival and cold weather emergencies. Canadian Prepper: Winter Prepping lands as its own field shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "gold",
       "machineFit": "Best on installs with real storage headroom",
       "includes": [
@@ -571,7 +571,7 @@
       "size": "975 MB",
       "status": "Great first install",
       "source": "RoachNet knowledge mirror",
-      "summary": "Canadian Prepper: Bug Out Roll installs as its own RoachNet app, so you can pull this field shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Essential gear selection for your bug-out bag. Canadian Prepper: Bug Out Roll lands as its own field shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "gold",
       "machineFit": "Easy install once the core workspace is already healthy",
       "includes": [
@@ -601,7 +601,7 @@
       "size": "2.8 GB",
       "status": "Recommended next install",
       "source": "RoachNet knowledge mirror",
-      "summary": "Canadian Prepper: Bug Out Concepts installs as its own RoachNet app, so you can pull this field shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Strategies and planning for emergency evacuation. Canadian Prepper: Bug Out Concepts lands as its own field shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "gold",
       "machineFit": "Best on installs with real storage headroom",
       "includes": [
@@ -631,7 +631,7 @@
       "size": "2.2 GB",
       "status": "Recommended next install",
       "source": "RoachNet knowledge mirror",
-      "summary": "Urban Prepper installs as its own RoachNet app, so you can pull this field shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Comprehensive urban emergency preparedness video series. Urban Prepper lands as its own field shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "gold",
       "machineFit": "Best on installs with real storage headroom",
       "includes": [
@@ -661,7 +661,7 @@
       "size": "2.1 GB",
       "status": "Deep archive",
       "source": "RoachNet knowledge mirror",
-      "summary": "Canadian Prepper: Prepping Food installs as its own RoachNet app, so you can pull this field shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Long-term food storage and survival meal preparation. Canadian Prepper: Prepping Food lands as its own field shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "gold",
       "machineFit": "Best on installs with real storage headroom",
       "includes": [
@@ -691,7 +691,7 @@
       "size": "1.2 GB",
       "status": "Deep archive",
       "source": "Project Gutenberg via Kiwix",
-      "summary": "Project Gutenberg: Military Science installs as its own RoachNet app, so you can pull this field shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Public-domain books and long-form reading that belong on the machine, not lost in tabs. Project Gutenberg: Military Science lands as its own field shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "gold",
       "machineFit": "Best on installs with real storage headroom",
       "includes": [
@@ -721,7 +721,7 @@
       "size": "3.0 GB",
       "status": "Great first install",
       "source": "RoachNet knowledge mirror",
-      "summary": "Wikibooks installs as its own RoachNet app, so you can pull this study shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Open textbooks across math, science, computing, and more in one clean shelf. Wikibooks lands as its own study shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "blue",
       "machineFit": "Best on installs with real storage headroom",
       "includes": [
@@ -751,7 +751,7 @@
       "size": "5.5 GB",
       "status": "Recommended next install",
       "source": "TED via Kiwix",
-      "summary": "TED-Ed installs as its own RoachNet app, so you can pull this study shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Talk libraries and lecture bundles sized like a real shelf instead of a random video binge. TED-Ed lands as its own study shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "blue",
       "machineFit": "Large offline shelf best staged after the main runtime is settled",
       "includes": [
@@ -781,7 +781,7 @@
       "size": "2.3 GB",
       "status": "Recommended next install",
       "source": "RoachNet knowledge mirror",
-      "summary": "Wikiversity installs as its own RoachNet app, so you can pull this study shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Community-built courses and guided study paths when you want more than isolated articles. Wikiversity lands as its own study shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "blue",
       "machineFit": "Best on installs with real storage headroom",
       "includes": [
@@ -811,7 +811,7 @@
       "size": "792 MB",
       "status": "Recommended next install",
       "source": "LibreTexts via Kiwix",
-      "summary": "LibreTexts Mathematics installs as its own RoachNet app, so you can pull this study shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Course-style textbooks laid out like real classes, not a folder full of stray PDFs. LibreTexts Mathematics lands as its own study shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "blue",
       "machineFit": "Easy install once the core workspace is already healthy",
       "includes": [
@@ -841,7 +841,7 @@
       "size": "534 MB",
       "status": "Recommended next install",
       "source": "LibreTexts via Kiwix",
-      "summary": "LibreTexts Physics installs as its own RoachNet app, so you can pull this study shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Course-style textbooks laid out like real classes, not a folder full of stray PDFs. LibreTexts Physics lands as its own study shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "blue",
       "machineFit": "Easy install once the core workspace is already healthy",
       "includes": [
@@ -871,7 +871,7 @@
       "size": "2.1 GB",
       "status": "Recommended next install",
       "source": "LibreTexts via Kiwix",
-      "summary": "LibreTexts Chemistry installs as its own RoachNet app, so you can pull this study shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Course-style textbooks laid out like real classes, not a folder full of stray PDFs. LibreTexts Chemistry lands as its own study shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "blue",
       "machineFit": "Best on installs with real storage headroom",
       "includes": [
@@ -901,7 +901,7 @@
       "size": "2.2 GB",
       "status": "Recommended next install",
       "source": "LibreTexts via Kiwix",
-      "summary": "LibreTexts Biology installs as its own RoachNet app, so you can pull this study shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Course-style textbooks laid out like real classes, not a folder full of stray PDFs. LibreTexts Biology lands as its own study shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "blue",
       "machineFit": "Best on installs with real storage headroom",
       "includes": [
@@ -931,7 +931,7 @@
       "size": "353 MB",
       "status": "Recommended next install",
       "source": "LibreTexts via Kiwix",
-      "summary": "LibreTexts K-12 installs as its own RoachNet app, so you can pull this study shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Course-style textbooks laid out like real classes, not a folder full of stray PDFs. LibreTexts K-12 lands as its own study shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "blue",
       "machineFit": "Easy install once the core workspace is already healthy",
       "includes": [
@@ -961,7 +961,7 @@
       "size": "5.3 GB",
       "status": "Deep archive",
       "source": "RoachNet knowledge mirror",
-      "summary": "Wikibooks (With Images) installs as its own RoachNet app, so you can pull this study shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Open textbooks across math, science, computing, and more in one clean shelf. Wikibooks (With Images) lands as its own study shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "violet",
       "machineFit": "Large offline shelf best staged after the main runtime is settled",
       "includes": [
@@ -991,7 +991,7 @@
       "size": "16 GB",
       "status": "Deep archive",
       "source": "TED via Kiwix",
-      "summary": "TED Conference installs as its own RoachNet app, so you can pull this study shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Talk libraries and lecture bundles sized like a real shelf instead of a random video binge. TED Conference lands as its own study shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "violet",
       "machineFit": "Large offline shelf best staged after the main runtime is settled",
       "includes": [
@@ -1021,7 +1021,7 @@
       "size": "3.6 GB",
       "status": "Deep archive",
       "source": "LibreTexts via Kiwix",
-      "summary": "LibreTexts Humanities installs as its own RoachNet app, so you can pull this study shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Course-style textbooks laid out like real classes, not a folder full of stray PDFs. LibreTexts Humanities lands as its own study shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "violet",
       "machineFit": "Best on installs with real storage headroom",
       "includes": [
@@ -1051,7 +1051,7 @@
       "size": "1.1 GB",
       "status": "Deep archive",
       "source": "LibreTexts via Kiwix",
-      "summary": "LibreTexts Geosciences installs as its own RoachNet app, so you can pull this study shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Course-style textbooks laid out like real classes, not a folder full of stray PDFs. LibreTexts Geosciences lands as its own study shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "violet",
       "machineFit": "Best on installs with real storage headroom",
       "includes": [
@@ -1081,7 +1081,7 @@
       "size": "678 MB",
       "status": "Deep archive",
       "source": "LibreTexts via Kiwix",
-      "summary": "LibreTexts Engineering installs as its own RoachNet app, so you can pull this study shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Course-style textbooks laid out like real classes, not a folder full of stray PDFs. LibreTexts Engineering lands as its own study shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "violet",
       "machineFit": "Easy install once the core workspace is already healthy",
       "includes": [
@@ -1111,7 +1111,7 @@
       "size": "801 MB",
       "status": "Deep archive",
       "source": "LibreTexts via Kiwix",
-      "summary": "LibreTexts Business installs as its own RoachNet app, so you can pull this study shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Course-style textbooks laid out like real classes, not a folder full of stray PDFs. LibreTexts Business lands as its own study shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "violet",
       "machineFit": "Easy install once the core workspace is already healthy",
       "includes": [
@@ -1141,7 +1141,7 @@
       "size": "279 MB",
       "status": "Deep archive",
       "source": "Stack Exchange via Kiwix",
-      "summary": "Academia Q&A installs as its own RoachNet app, so you can pull this study shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Crowd-tested answers, rabbit holes, and practical fixes packed into one named shelf. Academia Q&A lands as its own study shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "violet",
       "machineFit": "Easy install once the core workspace is already healthy",
       "includes": [
@@ -1171,7 +1171,7 @@
       "size": "16 MB",
       "status": "Deep archive",
       "source": "Stack Exchange via Kiwix",
-      "summary": "CS Educators Q&A installs as its own RoachNet app, so you can pull this study shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Crowd-tested answers, rabbit holes, and practical fixes packed into one named shelf. CS Educators Q&A lands as its own study shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "violet",
       "machineFit": "Fast add-on for any supported machine",
       "includes": [
@@ -1201,7 +1201,7 @@
       "size": "1.9 GB",
       "status": "Deep archive",
       "source": "LibreTexts via Kiwix",
-      "summary": "LibreTexts Social Sciences installs as its own RoachNet app, so you can pull this study shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Course-style textbooks laid out like real classes, not a folder full of stray PDFs. LibreTexts Social Sciences lands as its own study shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "violet",
       "machineFit": "Best on installs with real storage headroom",
       "includes": [
@@ -1231,7 +1231,7 @@
       "size": "490 MB",
       "status": "Deep archive",
       "source": "LibreTexts via Kiwix",
-      "summary": "LibreTexts Workforce installs as its own RoachNet app, so you can pull this study shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Course-style textbooks laid out like real classes, not a folder full of stray PDFs. LibreTexts Workforce lands as its own study shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "violet",
       "machineFit": "Easy install once the core workspace is already healthy",
       "includes": [
@@ -1261,7 +1261,7 @@
       "size": "102 MB",
       "status": "Great first install",
       "source": "PhET via Kiwix",
-      "summary": "PhET Interactive Simulations installs as its own RoachNet app, so you can pull this science shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Interactive sims for testing ideas instead of just reading about them. PhET Interactive Simulations lands as its own science shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "cyan",
       "machineFit": "Fast add-on for any supported machine",
       "includes": [
@@ -1291,7 +1291,7 @@
       "size": "187 MB",
       "status": "Great first install",
       "source": "Stack Exchange via Kiwix",
-      "summary": "Astronomy Q&A installs as its own RoachNet app, so you can pull this science shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Crowd-tested answers, rabbit holes, and practical fixes packed into one named shelf. Astronomy Q&A lands as its own science shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "cyan",
       "machineFit": "Easy install once the core workspace is already healthy",
       "includes": [
@@ -1321,7 +1321,7 @@
       "size": "1.7 GB",
       "status": "Recommended next install",
       "source": "Stack Exchange via Kiwix",
-      "summary": "Physics Q&A installs as its own RoachNet app, so you can pull this science shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Crowd-tested answers, rabbit holes, and practical fixes packed into one named shelf. Physics Q&A lands as its own science shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "cyan",
       "machineFit": "Best on installs with real storage headroom",
       "includes": [
@@ -1351,7 +1351,7 @@
       "size": "397 MB",
       "status": "Recommended next install",
       "source": "Stack Exchange via Kiwix",
-      "summary": "Chemistry Q&A installs as its own RoachNet app, so you can pull this science shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Crowd-tested answers, rabbit holes, and practical fixes packed into one named shelf. Chemistry Q&A lands as its own science shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "cyan",
       "machineFit": "Easy install once the core workspace is already healthy",
       "includes": [
@@ -1381,7 +1381,7 @@
       "size": "403 MB",
       "status": "Recommended next install",
       "source": "Stack Exchange via Kiwix",
-      "summary": "Biology Q&A installs as its own RoachNet app, so you can pull this science shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Crowd-tested answers, rabbit holes, and practical fixes packed into one named shelf. Biology Q&A lands as its own science shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "cyan",
       "machineFit": "Easy install once the core workspace is already healthy",
       "includes": [
@@ -1411,7 +1411,7 @@
       "size": "190 MB",
       "status": "Recommended next install",
       "source": "Biology Courses via Kiwix",
-      "summary": "Biology Courses installs as its own RoachNet app, so you can pull this science shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "A video-heavy biology shelf covering core concepts and classroom-style explanations. Biology Courses lands as its own science shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "cyan",
       "machineFit": "Easy install once the core workspace is already healthy",
       "includes": [
@@ -1441,7 +1441,7 @@
       "size": "106 MB",
       "status": "Recommended next install",
       "source": "Avanti via Kiwix",
-      "summary": "Avanti: Modern Physics installs as its own RoachNet app, so you can pull this science shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Video lessons on modern physics topics, concepts, and worked explanations. Avanti: Modern Physics lands as its own science shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "cyan",
       "machineFit": "Fast add-on for any supported machine",
       "includes": [
@@ -1471,7 +1471,7 @@
       "size": "55 MB",
       "status": "Deep archive",
       "source": "Stack Exchange via Kiwix",
-      "summary": "Bioinformatics Q&A installs as its own RoachNet app, so you can pull this science shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Crowd-tested answers, rabbit holes, and practical fixes packed into one named shelf. Bioinformatics Q&A lands as its own science shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "cyan",
       "machineFit": "Fast add-on for any supported machine",
       "includes": [
@@ -1501,7 +1501,7 @@
       "size": "380 MB",
       "status": "Deep archive",
       "source": "Stack Exchange via Kiwix",
-      "summary": "Space Exploration Q&A installs as its own RoachNet app, so you can pull this science shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Crowd-tested answers, rabbit holes, and practical fixes packed into one named shelf. Space Exploration Q&A lands as its own science shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "cyan",
       "machineFit": "Easy install once the core workspace is already healthy",
       "includes": [
@@ -1531,7 +1531,7 @@
       "size": "9 MB",
       "status": "Deep archive",
       "source": "Stack Exchange via Kiwix",
-      "summary": "Bioacoustics Q&A installs as its own RoachNet app, so you can pull this science shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Crowd-tested answers, rabbit holes, and practical fixes packed into one named shelf. Bioacoustics Q&A lands as its own science shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "cyan",
       "machineFit": "Fast add-on for any supported machine",
       "includes": [
@@ -1561,7 +1561,7 @@
       "size": "58 MB",
       "status": "Deep archive",
       "source": "Stack Exchange via Kiwix",
-      "summary": "Medical Sciences Q&A installs as its own RoachNet app, so you can pull this science shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Crowd-tested answers, rabbit holes, and practical fixes packed into one named shelf. Medical Sciences Q&A lands as its own science shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "cyan",
       "machineFit": "Fast add-on for any supported machine",
       "includes": [
@@ -1591,7 +1591,7 @@
       "size": "126 MB",
       "status": "Deep archive",
       "source": "Stack Exchange via Kiwix",
-      "summary": "Earth Science Q&A installs as its own RoachNet app, so you can pull this science shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Crowd-tested answers, rabbit holes, and practical fixes packed into one named shelf. Earth Science Q&A lands as its own science shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "cyan",
       "machineFit": "Fast add-on for any supported machine",
       "includes": [
@@ -1621,7 +1621,7 @@
       "size": "242 MB",
       "status": "Deep archive",
       "source": "Stack Exchange via Kiwix",
-      "summary": "Engineering Q&A installs as its own RoachNet app, so you can pull this science shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Crowd-tested answers, rabbit holes, and practical fixes packed into one named shelf. Engineering Q&A lands as its own science shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "cyan",
       "machineFit": "Easy install once the core workspace is already healthy",
       "includes": [
@@ -1651,7 +1651,7 @@
       "size": "213 MB",
       "status": "Deep archive",
       "source": "Avanti via Kiwix",
-      "summary": "Avanti: Concepts of Chemistry installs as its own RoachNet app, so you can pull this science shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "A chemistry video shelf with concept-first explanations and classroom pacing. Avanti: Concepts of Chemistry lands as its own science shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "cyan",
       "machineFit": "Easy install once the core workspace is already healthy",
       "includes": [
@@ -1681,7 +1681,7 @@
       "size": "113 MB",
       "status": "Deep archive",
       "source": "Avanti via Kiwix",
-      "summary": "Avanti: Electrochemistry installs as its own RoachNet app, so you can pull this science shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "A focused electrochemistry video shelf for reactions, cells, and applied chemistry concepts. Avanti: Electrochemistry lands as its own science shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "cyan",
       "machineFit": "Fast add-on for any supported machine",
       "includes": [
@@ -1711,7 +1711,7 @@
       "size": "115 MB",
       "status": "Deep archive",
       "source": "Avanti via Kiwix",
-      "summary": "Avanti: Surface Chemistry installs as its own RoachNet app, so you can pull this science shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Video lessons on adsorption, colloids, and surface-chemistry fundamentals. Avanti: Surface Chemistry lands as its own science shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "cyan",
       "machineFit": "Fast add-on for any supported machine",
       "includes": [
@@ -1741,7 +1741,7 @@
       "size": "76 MB",
       "status": "Deep archive",
       "source": "Avanti via Kiwix",
-      "summary": "Avanti: Wave Optics installs as its own RoachNet app, so you can pull this science shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "A compact course app for interference, diffraction, and optics-heavy study. Avanti: Wave Optics lands as its own science shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "cyan",
       "machineFit": "Fast add-on for any supported machine",
       "includes": [
@@ -1771,7 +1771,7 @@
       "size": "125 MB",
       "status": "Deep archive",
       "source": "Avanti via Kiwix",
-      "summary": "Avanti: Work, Power, and Energy installs as its own RoachNet app, so you can pull this science shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "A practical mechanics shelf for core energy concepts and worked motion examples. Avanti: Work, Power, and Energy lands as its own science shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "cyan",
       "machineFit": "Fast add-on for any supported machine",
       "includes": [
@@ -1801,7 +1801,7 @@
       "size": "8.5 GB",
       "status": "Deep archive",
       "source": "NASA APOD via Kiwix",
-      "summary": "Astronomy Picture of the Day installs as its own RoachNet app, so you can pull this science shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "NASA’s long-running image-and-explainer archive for missions, sky events, observatories, and space history. Astronomy Picture of the Day lands as its own science shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "cyan",
       "machineFit": "Large offline shelf best staged after the main runtime is settled",
       "includes": [
@@ -1831,7 +1831,7 @@
       "size": "8 MB",
       "status": "Great first install",
       "source": "Vikidia via Kiwix",
-      "summary": "Vikidia English installs as its own RoachNet app, so you can pull this family shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "A kid-friendly general encyclopedia sized for fast installs and easy offline browsing. Vikidia English lands as its own family shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "green",
       "machineFit": "Fast add-on for any supported machine",
       "includes": [
@@ -1861,7 +1861,7 @@
       "size": "8.1 GB",
       "status": "Recommended next install",
       "source": "African Storybook via Kiwix",
-      "summary": "African Storybook installs as its own RoachNet app, so you can pull this family shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "A large multilingual shelf of illustrated stories and reading material for younger learners. African Storybook lands as its own family shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "cyan",
       "machineFit": "Large offline shelf best staged after the main runtime is settled",
       "includes": [
@@ -1891,7 +1891,7 @@
       "size": "57 MB",
       "status": "Recommended next install",
       "source": "Stack Exchange via Kiwix",
-      "summary": "Parenting Q&A installs as its own RoachNet app, so you can pull this family shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Crowd-tested answers, rabbit holes, and practical fixes packed into one named shelf. Parenting Q&A lands as its own family shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "cyan",
       "machineFit": "Fast add-on for any supported machine",
       "includes": [
@@ -1921,7 +1921,7 @@
       "size": "11 GB",
       "status": "Deep archive",
       "source": "RoachNet knowledge mirror",
-      "summary": "Book Dash installs as its own RoachNet app, so you can pull this family shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "A large open children’s-book shelf for shared devices, reading corners, and family setups. Book Dash lands as its own family shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "gold",
       "machineFit": "Large offline shelf best staged after the main runtime is settled",
       "includes": [
@@ -1951,7 +1951,7 @@
       "size": "196 MB",
       "status": "Great first install",
       "source": "Art of Problem Solving via Kiwix",
-      "summary": "Art of Problem Solving installs as its own RoachNet app, so you can pull this course shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Problem-solving, contest math, and rigorous worked explanations in one compact shelf. Art of Problem Solving lands as its own course shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "violet",
       "machineFit": "Easy install once the core workspace is already healthy",
       "includes": [
@@ -1981,7 +1981,7 @@
       "size": "57 MB",
       "status": "Great first install",
       "source": "EdutechWiki via Kiwix",
-      "summary": "EdutechWiki installs as its own RoachNet app, so you can pull this course shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Learning design, pedagogy, and educational-technology reference. EdutechWiki lands as its own course shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "violet",
       "machineFit": "Fast add-on for any supported machine",
       "includes": [
@@ -2011,7 +2011,7 @@
       "size": "703 MB",
       "status": "Great first install",
       "source": "Milne Open Textbooks via Kiwix",
-      "summary": "Milne Open Textbooks installs as its own RoachNet app, so you can pull this course shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Open college textbooks spanning math, sciences, and general course material. Milne Open Textbooks lands as its own course shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "violet",
       "machineFit": "Easy install once the core workspace is already healthy",
       "includes": [
@@ -2041,7 +2041,7 @@
       "size": "38 MB",
       "status": "Great first install",
       "source": "PlanetMath via Kiwix",
-      "summary": "PlanetMath installs as its own RoachNet app, so you can pull this course shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Math reference and concept explanations for proofs, notation, and definitions. PlanetMath lands as its own course shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "violet",
       "machineFit": "Fast add-on for any supported machine",
       "includes": [
@@ -2071,7 +2071,7 @@
       "size": "21 GB",
       "status": "Recommended next install",
       "source": "Crash Course via Kiwix",
-      "summary": "Crash Course installs as its own RoachNet app, so you can pull this course shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Fast-moving video courses and explainers for the topics you end up chasing at 2 AM. Crash Course lands as its own course shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "violet",
       "machineFit": "Large offline shelf best staged after the main runtime is settled",
       "includes": [
@@ -2101,7 +2101,7 @@
       "size": "147 MB",
       "status": "Recommended next install",
       "source": "Stacks Project via Kiwix",
-      "summary": "Stacks Project installs as its own RoachNet app, so you can pull this course shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "A deep algebraic-geometry and proof-heavy math shelf for serious study. Stacks Project lands as its own course shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "violet",
       "machineFit": "Easy install once the core workspace is already healthy",
       "includes": [
@@ -2131,7 +2131,7 @@
       "size": "515 MB",
       "status": "Recommended next install",
       "source": "GCFGlobal via Kiwix",
-      "summary": "GCFGlobal installs as its own RoachNet app, so you can pull this course shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Digital skills, office basics, career prep, and approachable technology lessons. GCFGlobal lands as its own course shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "violet",
       "machineFit": "Easy install once the core workspace is already healthy",
       "includes": [
@@ -2161,7 +2161,7 @@
       "size": "2 MB",
       "status": "Recommended next install",
       "source": "How to Design Programs via Kiwix",
-      "summary": "How to Design Programs installs as its own RoachNet app, so you can pull this course shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "A structured programming-course shelf centered on design recipes and fundamentals. How to Design Programs lands as its own course shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "violet",
       "machineFit": "Fast add-on for any supported machine",
       "includes": [
@@ -2191,7 +2191,7 @@
       "size": "168 GB",
       "status": "Deep archive",
       "source": "Khan Academy via Kiwix",
-      "summary": "Khan Academy installs as its own RoachNet app, so you can pull this course shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Lessons, worked examples, and practice-first study material in one named course app. Khan Academy lands as its own course shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "violet",
       "machineFit": "Large offline shelf best staged after the main runtime is settled",
       "includes": [
@@ -2221,7 +2221,7 @@
       "size": "8 MB",
       "status": "Deep archive",
       "source": "Ethan Weed via Kiwix",
-      "summary": "Ethan Weed installs as its own RoachNet app, so you can pull this course shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Compact psychology and research-method lessons for study sessions that want a tighter scope. Ethan Weed lands as its own course shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "violet",
       "machineFit": "Fast add-on for any supported machine",
       "includes": [
@@ -2251,7 +2251,7 @@
       "size": "176 MB",
       "status": "Great first install",
       "source": "Avanti via Kiwix",
-      "summary": "Avanti: Fundamentals of Mathematics installs as its own RoachNet app, so you can pull this math shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Video lessons covering core math concepts in a classroom-style format. Avanti: Fundamentals of Mathematics lands as its own math shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "violet",
       "machineFit": "Easy install once the core workspace is already healthy",
       "includes": [
@@ -2281,7 +2281,7 @@
       "size": "75 MB",
       "status": "Great first install",
       "source": "Avanti via Kiwix",
-      "summary": "Avanti: 3D Geometry installs as its own RoachNet app, so you can pull this math shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "A compact geometry course app for spatial intuition, diagrams, and shape-heavy reasoning. Avanti: 3D Geometry lands as its own math shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "violet",
       "machineFit": "Fast add-on for any supported machine",
       "includes": [
@@ -2311,7 +2311,7 @@
       "size": "6.9 GB",
       "status": "Recommended next install",
       "source": "Stack Exchange via Kiwix",
-      "summary": "Mathematics Q&A installs as its own RoachNet app, so you can pull this math shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Crowd-tested answers, rabbit holes, and practical fixes packed into one named shelf. Mathematics Q&A lands as its own math shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "violet",
       "machineFit": "Large offline shelf best staged after the main runtime is settled",
       "includes": [
@@ -2341,7 +2341,7 @@
       "size": "55 MB",
       "status": "Recommended next install",
       "source": "Stack Exchange via Kiwix",
-      "summary": "Math Educators Q&A installs as its own RoachNet app, so you can pull this math shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Crowd-tested answers, rabbit holes, and practical fixes packed into one named shelf. Math Educators Q&A lands as its own math shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "violet",
       "machineFit": "Fast add-on for any supported machine",
       "includes": [
@@ -2371,7 +2371,7 @@
       "size": "162 MB",
       "status": "Recommended next install",
       "source": "Avanti via Kiwix",
-      "summary": "Avanti: Binomial Theorem installs as its own RoachNet app, so you can pull this math shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "A focused video course app for combinatorics and expansion patterns. Avanti: Binomial Theorem lands as its own math shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "violet",
       "machineFit": "Easy install once the core workspace is already healthy",
       "includes": [
@@ -2401,7 +2401,7 @@
       "size": "232 MB",
       "status": "Recommended next install",
       "source": "Avanti via Kiwix",
-      "summary": "Avanti: Complex Numbers installs as its own RoachNet app, so you can pull this math shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "A tighter course lane on imaginary numbers, forms, and operations. Avanti: Complex Numbers lands as its own math shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "violet",
       "machineFit": "Easy install once the core workspace is already healthy",
       "includes": [
@@ -2431,7 +2431,7 @@
       "size": "95 MB",
       "status": "Recommended next install",
       "source": "Avanti via Kiwix",
-      "summary": "Avanti: Probability installs as its own RoachNet app, so you can pull this math shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "A focused probability course app with compact worked explanations and examples. Avanti: Probability lands as its own math shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "violet",
       "machineFit": "Fast add-on for any supported machine",
       "includes": [
@@ -2461,7 +2461,7 @@
       "size": "138 MB",
       "status": "Recommended next install",
       "source": "Avanti via Kiwix",
-      "summary": "Avanti: Trigonometry installs as its own RoachNet app, so you can pull this math shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "A direct trigonometry shelf for identities, triangles, and analytic problem-solving. Avanti: Trigonometry lands as its own math shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "violet",
       "machineFit": "Easy install once the core workspace is already healthy",
       "includes": [
@@ -2491,7 +2491,7 @@
       "size": "808 MB",
       "status": "Deep archive",
       "source": "Stack Exchange via Kiwix",
-      "summary": "MathOverflow installs as its own RoachNet app, so you can pull this math shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Crowd-tested answers, rabbit holes, and practical fixes packed into one named shelf. MathOverflow lands as its own math shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "violet",
       "machineFit": "Easy install once the core workspace is already healthy",
       "includes": [
@@ -2521,7 +2521,7 @@
       "size": "100 MB",
       "status": "Deep archive",
       "source": "Avanti via Kiwix",
-      "summary": "Avanti: Differential Equations installs as its own RoachNet app, so you can pull this math shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "A focused video lane for differential equations and worked solution patterns. Avanti: Differential Equations lands as its own math shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "violet",
       "machineFit": "Fast add-on for any supported machine",
       "includes": [
@@ -2551,7 +2551,7 @@
       "size": "64 MB",
       "status": "Deep archive",
       "source": "Avanti via Kiwix",
-      "summary": "Avanti: Statistics installs as its own RoachNet app, so you can pull this math shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "A concise statistics course app for probability, distributions, and reasoning. Avanti: Statistics lands as its own math shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "violet",
       "machineFit": "Fast add-on for any supported machine",
       "includes": [
@@ -2581,7 +2581,7 @@
       "size": "493 MB",
       "status": "Deep archive",
       "source": "Jeff Erickson via Kiwix",
-      "summary": "Algorithms by Jeff Erickson installs as its own RoachNet app, so you can pull this math shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "A rigorous algorithms shelf that fits naturally beside the deeper math lane. Algorithms by Jeff Erickson lands as its own math shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "violet",
       "machineFit": "Easy install once the core workspace is already healthy",
       "includes": [
@@ -2611,7 +2611,7 @@
       "size": "76 MB",
       "status": "Deep archive",
       "source": "Avanti via Kiwix",
-      "summary": "Avanti: Mathematical Reasoning installs as its own RoachNet app, so you can pull this math shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "A tighter reasoning shelf for proofs, logic flow, and clean problem structure. Avanti: Mathematical Reasoning lands as its own math shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "violet",
       "machineFit": "Fast add-on for any supported machine",
       "includes": [
@@ -2641,7 +2641,7 @@
       "size": "236 MB",
       "status": "Deep archive",
       "source": "Avanti via Kiwix",
-      "summary": "Avanti: Vectors and Calculus installs as its own RoachNet app, so you can pull this math shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "A denser vector-and-calculus shelf for motion, analysis, and worked derivations. Avanti: Vectors and Calculus lands as its own math shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "violet",
       "machineFit": "Easy install once the core workspace is already healthy",
       "includes": [
@@ -2671,7 +2671,7 @@
       "size": "176 MB",
       "status": "Great first install",
       "source": "Stack Exchange via Kiwix",
-      "summary": "Law Q&A installs as its own RoachNet app, so you can pull this civic shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Crowd-tested answers, rabbit holes, and practical fixes packed into one named shelf. Law Q&A lands as its own civic shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "bronze",
       "machineFit": "Easy install once the core workspace is already healthy",
       "includes": [
@@ -2701,7 +2701,7 @@
       "size": "199 MB",
       "status": "Great first install",
       "source": "Stack Exchange via Kiwix",
-      "summary": "Politics Q&A installs as its own RoachNet app, so you can pull this civic shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Crowd-tested answers, rabbit holes, and practical fixes packed into one named shelf. Politics Q&A lands as its own civic shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "bronze",
       "machineFit": "Easy install once the core workspace is already healthy",
       "includes": [
@@ -2731,7 +2731,7 @@
       "size": "304 MB",
       "status": "Great first install",
       "source": "Stack Exchange via Kiwix",
-      "summary": "History Q&A installs as its own RoachNet app, so you can pull this civic shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Crowd-tested answers, rabbit holes, and practical fixes packed into one named shelf. History Q&A lands as its own civic shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "bronze",
       "machineFit": "Easy install once the core workspace is already healthy",
       "includes": [
@@ -2761,7 +2761,7 @@
       "size": "198 MB",
       "status": "Recommended next install",
       "source": "Stack Exchange via Kiwix",
-      "summary": "Philosophy Q&A installs as its own RoachNet app, so you can pull this civic shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Crowd-tested answers, rabbit holes, and practical fixes packed into one named shelf. Philosophy Q&A lands as its own civic shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "bronze",
       "machineFit": "Easy install once the core workspace is already healthy",
       "includes": [
@@ -2791,7 +2791,7 @@
       "size": "109 MB",
       "status": "Recommended next install",
       "source": "Stack Exchange via Kiwix",
-      "summary": "Economics Q&A installs as its own RoachNet app, so you can pull this civic shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Crowd-tested answers, rabbit holes, and practical fixes packed into one named shelf. Economics Q&A lands as its own civic shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "bronze",
       "machineFit": "Fast add-on for any supported machine",
       "includes": [
@@ -2821,7 +2821,7 @@
       "size": "234 MB",
       "status": "Recommended next install",
       "source": "Stack Exchange via Kiwix",
-      "summary": "Workplace Q&A installs as its own RoachNet app, so you can pull this civic shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Crowd-tested answers, rabbit holes, and practical fixes packed into one named shelf. Workplace Q&A lands as its own civic shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "bronze",
       "machineFit": "Easy install once the core workspace is already healthy",
       "includes": [
@@ -2851,7 +2851,7 @@
       "size": "65 MB",
       "status": "Deep archive",
       "source": "Wikinews via Kiwix",
-      "summary": "Wikinews English installs as its own RoachNet app, so you can pull this civic shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "A compact current-events archive for headlines, topics, and event context. Wikinews English lands as its own civic shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "bronze",
       "machineFit": "Fast add-on for any supported machine",
       "includes": [
@@ -2881,7 +2881,7 @@
       "size": "123 MB",
       "status": "Deep archive",
       "source": "Internet Encyclopedia of Philosophy via Kiwix",
-      "summary": "Internet Encyclopedia of Philosophy installs as its own RoachNet app, so you can pull this civic shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "A serious philosophy shelf with primary concepts, movements, and deep article-style reference. Internet Encyclopedia of Philosophy lands as its own civic shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "bronze",
       "machineFit": "Fast add-on for any supported machine",
       "includes": [
@@ -2911,7 +2911,7 @@
       "size": "128 MB",
       "status": "Deep archive",
       "source": "Citizens Information via Kiwix",
-      "summary": "Citizens Information installs as its own RoachNet app, so you can pull this civic shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Public-service, rights, benefits, and civic-process reference written for everyday use. Citizens Information lands as its own civic shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "bronze",
       "machineFit": "Fast add-on for any supported machine",
       "includes": [
@@ -2941,7 +2941,7 @@
       "size": "209 MB",
       "status": "Deep archive",
       "source": "Citizendium via Kiwix",
-      "summary": "Citizendium installs as its own RoachNet app, so you can pull this civic shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "A compact general-reference shelf with a more old-web encyclopedic feel. Citizendium lands as its own civic shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "bronze",
       "machineFit": "Easy install once the core workspace is already healthy",
       "includes": [
@@ -2971,7 +2971,7 @@
       "size": "730 MB",
       "status": "Great first install",
       "source": "Stack Exchange via Kiwix",
-      "summary": "English Language Q&A installs as its own RoachNet app, so you can pull this language shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Crowd-tested answers, rabbit holes, and practical fixes packed into one named shelf. English Language Q&A lands as its own language shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "blue",
       "machineFit": "Easy install once the core workspace is already healthy",
       "includes": [
@@ -3001,7 +3001,7 @@
       "size": "450 MB",
       "status": "Great first install",
       "source": "Stack Exchange via Kiwix",
-      "summary": "English Learners Q&A installs as its own RoachNet app, so you can pull this language shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Crowd-tested answers, rabbit holes, and practical fixes packed into one named shelf. English Learners Q&A lands as its own language shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "blue",
       "machineFit": "Easy install once the core workspace is already healthy",
       "includes": [
@@ -3031,7 +3031,7 @@
       "size": "82 MB",
       "status": "Recommended next install",
       "source": "Stack Exchange via Kiwix",
-      "summary": "Linguistics Q&A installs as its own RoachNet app, so you can pull this language shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Crowd-tested answers, rabbit holes, and practical fixes packed into one named shelf. Linguistics Q&A lands as its own language shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "blue",
       "machineFit": "Fast add-on for any supported machine",
       "includes": [
@@ -3061,7 +3061,7 @@
       "size": "68 MB",
       "status": "Recommended next install",
       "source": "Stack Exchange via Kiwix",
-      "summary": "Literature Q&A installs as its own RoachNet app, so you can pull this language shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Crowd-tested answers, rabbit holes, and practical fixes packed into one named shelf. Literature Q&A lands as its own language shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "blue",
       "machineFit": "Fast add-on for any supported machine",
       "includes": [
@@ -3091,7 +3091,7 @@
       "size": "96 MB",
       "status": "Recommended next install",
       "source": "Stack Exchange via Kiwix",
-      "summary": "Writing Q&A installs as its own RoachNet app, so you can pull this language shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Crowd-tested answers, rabbit holes, and practical fixes packed into one named shelf. Writing Q&A lands as its own language shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "blue",
       "machineFit": "Fast add-on for any supported machine",
       "includes": [
@@ -3121,7 +3121,7 @@
       "size": "303 MB",
       "status": "Deep archive",
       "source": "Wikiquote via Kiwix",
-      "summary": "English Wikiquote installs as its own RoachNet app, so you can pull this language shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "A tighter quote shelf for writers, sample hunters, and midnight reference dives. English Wikiquote lands as its own language shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "violet",
       "machineFit": "Easy install once the core workspace is already healthy",
       "includes": [
@@ -3151,7 +3151,7 @@
       "size": "3.9 GB",
       "status": "Deep archive",
       "source": "Folgerpedia via Kiwix",
-      "summary": "Folgerpedia installs as its own RoachNet app, so you can pull this language shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "A deep Shakespeare and early-modern literature shelf from the Folger collection. Folgerpedia lands as its own language shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "violet",
       "machineFit": "Best on installs with real storage headroom",
       "includes": [
@@ -3181,7 +3181,7 @@
       "size": "11 MB",
       "status": "Deep archive",
       "source": "Stack Exchange via Kiwix",
-      "summary": "Language Learning Q&A installs as its own RoachNet app, so you can pull this language shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Crowd-tested answers, rabbit holes, and practical fixes packed into one named shelf. Language Learning Q&A lands as its own language shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "violet",
       "machineFit": "Fast add-on for any supported machine",
       "includes": [
@@ -3211,7 +3211,7 @@
       "size": "7 MB",
       "status": "Deep archive",
       "source": "Stack Exchange via Kiwix",
-      "summary": "Conlang Q&A installs as its own RoachNet app, so you can pull this language shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Crowd-tested answers, rabbit holes, and practical fixes packed into one named shelf. Conlang Q&A lands as its own language shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "violet",
       "machineFit": "Fast add-on for any supported machine",
       "includes": [
@@ -3241,7 +3241,7 @@
       "size": "10 MB",
       "status": "Deep archive",
       "source": "Stack Exchange via Kiwix",
-      "summary": "Language Design Q&A installs as its own RoachNet app, so you can pull this language shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Crowd-tested answers, rabbit holes, and practical fixes packed into one named shelf. Language Design Q&A lands as its own language shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "violet",
       "machineFit": "Fast add-on for any supported machine",
       "includes": [
@@ -3271,7 +3271,7 @@
       "size": "99 MB",
       "status": "Great first install",
       "source": "Stack Exchange via Kiwix",
-      "summary": "Woodworking Q&A installs as its own RoachNet app, so you can pull this repair shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Crowd-tested answers, rabbit holes, and practical fixes packed into one named shelf. Woodworking Q&A lands as its own repair shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "bronze",
       "machineFit": "Fast add-on for any supported machine",
       "includes": [
@@ -3301,7 +3301,7 @@
       "size": "321 MB",
       "status": "Great first install",
       "source": "Stack Exchange via Kiwix",
-      "summary": "Motor Vehicle Maintenance Q&A installs as its own RoachNet app, so you can pull this repair shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Crowd-tested answers, rabbit holes, and practical fixes packed into one named shelf. Motor Vehicle Maintenance Q&A lands as its own repair shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "bronze",
       "machineFit": "Easy install once the core workspace is already healthy",
       "includes": [
@@ -3331,7 +3331,7 @@
       "size": "1.9 GB",
       "status": "Recommended next install",
       "source": "Stack Exchange via Kiwix",
-      "summary": "DIY & Home Improvement Q&A installs as its own RoachNet app, so you can pull this repair shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Crowd-tested answers, rabbit holes, and practical fixes packed into one named shelf. DIY & Home Improvement Q&A lands as its own repair shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "bronze",
       "machineFit": "Best on installs with real storage headroom",
       "includes": [
@@ -3361,7 +3361,7 @@
       "size": "3.3 GB",
       "status": "Deep archive",
       "source": "RoachNet knowledge mirror",
-      "summary": "iFixit Repair Guides installs as its own RoachNet app, so you can pull this repair shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Step-by-step repair guides for electronics, appliances, and vehicles. iFixit Repair Guides lands as its own repair shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "bronze",
       "machineFit": "Best on installs with real storage headroom",
       "includes": [
@@ -3391,7 +3391,7 @@
       "size": "54 MB",
       "status": "Deep archive",
       "source": "Stack Exchange via Kiwix",
-      "summary": "Crafts Q&A installs as its own RoachNet app, so you can pull this repair shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Crowd-tested answers, rabbit holes, and practical fixes packed into one named shelf. Crafts Q&A lands as its own repair shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "bronze",
       "machineFit": "Fast add-on for any supported machine",
       "includes": [
@@ -3421,7 +3421,7 @@
       "size": "247 MB",
       "status": "Great first install",
       "source": "Stack Exchange via Kiwix",
-      "summary": "Arduino Q&A installs as its own RoachNet app, so you can pull this maker shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Crowd-tested answers, rabbit holes, and practical fixes packed into one named shelf. Arduino Q&A lands as its own maker shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "gold",
       "machineFit": "Easy install once the core workspace is already healthy",
       "includes": [
@@ -3451,7 +3451,7 @@
       "size": "136 MB",
       "status": "Great first install",
       "source": "Avanti via Kiwix",
-      "summary": "Semiconductor Electronics installs as its own RoachNet app, so you can pull this maker shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "A focused video shelf on semiconductor devices and electronics fundamentals. Semiconductor Electronics lands as its own maker shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "gold",
       "machineFit": "Easy install once the core workspace is already healthy",
       "includes": [
@@ -3481,7 +3481,7 @@
       "size": "137 MB",
       "status": "Recommended next install",
       "source": "TED via Kiwix",
-      "summary": "TED: 3D Printing installs as its own RoachNet app, so you can pull this maker shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Talk libraries and lecture bundles sized like a real shelf instead of a random video binge. TED: 3D Printing lands as its own maker shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "gold",
       "machineFit": "Easy install once the core workspace is already healthy",
       "includes": [
@@ -3511,7 +3511,7 @@
       "size": "233 MB",
       "status": "Recommended next install",
       "source": "Stack Exchange via Kiwix",
-      "summary": "Robotics Q&A installs as its own RoachNet app, so you can pull this maker shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Crowd-tested answers, rabbit holes, and practical fixes packed into one named shelf. Robotics Q&A lands as its own maker shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "gold",
       "machineFit": "Easy install once the core workspace is already healthy",
       "includes": [
@@ -3541,7 +3541,7 @@
       "size": "19 MB",
       "status": "Recommended next install",
       "source": "Stack Exchange via Kiwix",
-      "summary": "IoT Q&A installs as its own RoachNet app, so you can pull this maker shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Crowd-tested answers, rabbit holes, and practical fixes packed into one named shelf. IoT Q&A lands as its own maker shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "gold",
       "machineFit": "Fast add-on for any supported machine",
       "includes": [
@@ -3571,7 +3571,7 @@
       "size": "115 MB",
       "status": "Recommended next install",
       "source": "Stack Exchange via Kiwix",
-      "summary": "3D Printing Q&A installs as its own RoachNet app, so you can pull this maker shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Crowd-tested answers, rabbit holes, and practical fixes packed into one named shelf. 3D Printing Q&A lands as its own maker shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "gold",
       "machineFit": "Fast add-on for any supported machine",
       "includes": [
@@ -3601,7 +3601,7 @@
       "size": "3.9 GB",
       "status": "Deep archive",
       "source": "Stack Exchange via Kiwix",
-      "summary": "Electronics Q&A installs as its own RoachNet app, so you can pull this maker shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Crowd-tested answers, rabbit holes, and practical fixes packed into one named shelf. Electronics Q&A lands as its own maker shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "gold",
       "machineFit": "Best on installs with real storage headroom",
       "includes": [
@@ -3631,7 +3631,7 @@
       "size": "72 MB",
       "status": "Deep archive",
       "source": "Stack Exchange via Kiwix",
-      "summary": "Ham Radio Q&A installs as its own RoachNet app, so you can pull this maker shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Crowd-tested answers, rabbit holes, and practical fixes packed into one named shelf. Ham Radio Q&A lands as its own maker shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "gold",
       "machineFit": "Fast add-on for any supported machine",
       "includes": [
@@ -3661,7 +3661,7 @@
       "size": "24 MB",
       "status": "Great first install",
       "source": "RoachNet knowledge mirror",
-      "summary": "FOSS Cooking installs as its own RoachNet app, so you can pull this grow shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Quick and easy cooking guides and recipes. FOSS Cooking lands as its own grow shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "green",
       "machineFit": "Fast add-on for any supported machine",
       "includes": [
@@ -3691,7 +3691,7 @@
       "size": "16 MB",
       "status": "Great first install",
       "source": "Based Cooking via Kiwix",
-      "summary": "Based.Cooking installs as its own RoachNet app, so you can pull this grow shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Simple, practical recipes from the community. Based.Cooking lands as its own grow shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "green",
       "machineFit": "Fast add-on for any supported machine",
       "includes": [
@@ -3721,7 +3721,7 @@
       "size": "923 MB",
       "status": "Recommended next install",
       "source": "Stack Exchange via Kiwix",
-      "summary": "Gardening Q&A installs as its own RoachNet app, so you can pull this grow shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Crowd-tested answers, rabbit holes, and practical fixes packed into one named shelf. Gardening Q&A lands as its own grow shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "cyan",
       "machineFit": "Easy install once the core workspace is already healthy",
       "includes": [
@@ -3751,7 +3751,7 @@
       "size": "226 MB",
       "status": "Recommended next install",
       "source": "Stack Exchange via Kiwix",
-      "summary": "Cooking Q&A installs as its own RoachNet app, so you can pull this grow shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Crowd-tested answers, rabbit holes, and practical fixes packed into one named shelf. Cooking Q&A lands as its own grow shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "cyan",
       "machineFit": "Easy install once the core workspace is already healthy",
       "includes": [
@@ -3781,7 +3781,7 @@
       "size": "98 MB",
       "status": "Recommended next install",
       "source": "RoachNet knowledge mirror",
-      "summary": "Food for Preppers installs as its own RoachNet app, so you can pull this grow shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Recipes and techniques for food preservation and long-term storage. Food for Preppers lands as its own grow shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "cyan",
       "machineFit": "Fast add-on for any supported machine",
       "includes": [
@@ -3811,7 +3811,7 @@
       "size": "24 MB",
       "status": "Recommended next install",
       "source": "Grim Grains via Kiwix",
-      "summary": "Grim Grains installs as its own RoachNet app, so you can pull this grow shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Fermentation, grain work, bread-adjacent technique, and practical food process notes. Grim Grains lands as its own grow shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "cyan",
       "machineFit": "Fast add-on for any supported machine",
       "includes": [
@@ -3841,7 +3841,7 @@
       "size": "3.9 GB",
       "status": "Deep archive",
       "source": "RoachNet knowledge mirror",
-      "summary": "Learning Self-Reliance: Homesteading installs as its own RoachNet app, so you can pull this grow shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Beekeeping, animal husbandry, and sustainable living practices. Learning Self-Reliance: Homesteading lands as its own grow shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "gold",
       "machineFit": "Best on installs with real storage headroom",
       "includes": [
@@ -3871,7 +3871,7 @@
       "size": "4.2 GB",
       "status": "Deep archive",
       "source": "Project Gutenberg via Kiwix",
-      "summary": "Project Gutenberg: Agriculture installs as its own RoachNet app, so you can pull this grow shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Public-domain books and long-form reading that belong on the machine, not lost in tabs. Project Gutenberg: Agriculture lands as its own grow shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "gold",
       "machineFit": "Large offline shelf best staged after the main runtime is settled",
       "includes": [
@@ -3901,7 +3901,7 @@
       "size": "9 MB",
       "status": "Deep archive",
       "source": "Stack Exchange via Kiwix",
-      "summary": "Vegetarianism Q&A installs as its own RoachNet app, so you can pull this grow shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Crowd-tested answers, rabbit holes, and practical fixes packed into one named shelf. Vegetarianism Q&A lands as its own grow shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "gold",
       "machineFit": "Fast add-on for any supported machine",
       "includes": [
@@ -3931,7 +3931,7 @@
       "size": "17 MB",
       "status": "Deep archive",
       "source": "Stack Exchange via Kiwix",
-      "summary": "Coffee Q&A installs as its own RoachNet app, so you can pull this grow shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Crowd-tested answers, rabbit holes, and practical fixes packed into one named shelf. Coffee Q&A lands as its own grow shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "gold",
       "machineFit": "Fast add-on for any supported machine",
       "includes": [
@@ -3961,7 +3961,7 @@
       "size": "13 MB",
       "status": "Deep archive",
       "source": "Stack Exchange via Kiwix",
-      "summary": "Alcohol Q&A installs as its own RoachNet app, so you can pull this grow shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Crowd-tested answers, rabbit holes, and practical fixes packed into one named shelf. Alcohol Q&A lands as its own grow shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "gold",
       "machineFit": "Fast add-on for any supported machine",
       "includes": [
@@ -3991,7 +3991,7 @@
       "size": "555 MB",
       "status": "Great first install",
       "source": "Appropedia via Kiwix",
-      "summary": "Appropedia installs as its own RoachNet app, so you can pull this homestead shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Practical sustainability, appropriate technology, repair, and self-reliance reference. Appropedia lands as its own homestead shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "green",
       "machineFit": "Easy install once the core workspace is already healthy",
       "includes": [
@@ -4021,7 +4021,7 @@
       "size": "762 MB",
       "status": "Recommended next install",
       "source": "Energypedia via Kiwix",
-      "summary": "Energypedia installs as its own RoachNet app, so you can pull this homestead shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Energy systems, electrification, infrastructure, and field-heavy sustainability reference. Energypedia lands as its own homestead shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "cyan",
       "machineFit": "Easy install once the core workspace is already healthy",
       "includes": [
@@ -4051,7 +4051,7 @@
       "size": "554 MB",
       "status": "Deep archive",
       "source": "CD3WD via Kiwix",
-      "summary": "CD3WD Project installs as its own RoachNet app, so you can pull this homestead shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Appropriate-technology, farming, engineering, and field-manual reference for build-it-yourself setups. CD3WD Project lands as its own homestead shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "gold",
       "machineFit": "Easy install once the core workspace is already healthy",
       "includes": [
@@ -4081,7 +4081,7 @@
       "size": "4 MB",
       "status": "Great first install",
       "source": "Finiki via Kiwix",
-      "summary": "Finiki installs as its own RoachNet app, so you can pull this finance shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "A compact investing and personal-finance wiki for long-range planning. Finiki lands as its own finance shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "gold",
       "machineFit": "Fast add-on for any supported machine",
       "includes": [
@@ -4111,7 +4111,7 @@
       "size": "10 MB",
       "status": "Great first install",
       "source": "Bogleheads via Kiwix",
-      "summary": "Bogleheads installs as its own RoachNet app, so you can pull this finance shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Index-fund, retirement, and long-horizon investing reference in one tight shelf. Bogleheads lands as its own finance shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "gold",
       "machineFit": "Fast add-on for any supported machine",
       "includes": [
@@ -4141,7 +4141,7 @@
       "size": "242 MB",
       "status": "Recommended next install",
       "source": "Stack Exchange via Kiwix",
-      "summary": "Money Q&A installs as its own RoachNet app, so you can pull this finance shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Crowd-tested answers, rabbit holes, and practical fixes packed into one named shelf. Money Q&A lands as its own finance shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "gold",
       "machineFit": "Easy install once the core workspace is already healthy",
       "includes": [
@@ -4171,7 +4171,7 @@
       "size": "17 MB",
       "status": "Deep archive",
       "source": "Bitcoin Wiki via Kiwix",
-      "summary": "Bitcoin Wiki installs as its own RoachNet app, so you can pull this finance shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "A compact cryptocurrency and protocol shelf with wallet, mining, and ecosystem reference. Bitcoin Wiki lands as its own finance shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "gold",
       "machineFit": "Fast add-on for any supported machine",
       "includes": [
@@ -4201,7 +4201,7 @@
       "size": "149 MB",
       "status": "Deep archive",
       "source": "Stack Exchange via Kiwix",
-      "summary": "Bitcoin Q&A installs as its own RoachNet app, so you can pull this finance shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Crowd-tested answers, rabbit holes, and practical fixes packed into one named shelf. Bitcoin Q&A lands as its own finance shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "gold",
       "machineFit": "Easy install once the core workspace is already healthy",
       "includes": [
@@ -4231,7 +4231,7 @@
       "size": "176 MB",
       "status": "Deep archive",
       "source": "Stack Exchange via Kiwix",
-      "summary": "Cryptography Q&A installs as its own RoachNet app, so you can pull this finance shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Crowd-tested answers, rabbit holes, and practical fixes packed into one named shelf. Cryptography Q&A lands as its own finance shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "gold",
       "machineFit": "Easy install once the core workspace is already healthy",
       "includes": [
@@ -4261,7 +4261,7 @@
       "size": "153 MB",
       "status": "Deep archive",
       "source": "Stack Exchange via Kiwix",
-      "summary": "Quantitative Finance Q&A installs as its own RoachNet app, so you can pull this finance shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Crowd-tested answers, rabbit holes, and practical fixes packed into one named shelf. Quantitative Finance Q&A lands as its own finance shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "gold",
       "machineFit": "Easy install once the core workspace is already healthy",
       "includes": [
@@ -4291,7 +4291,7 @@
       "size": "7 MB",
       "status": "Great first install",
       "source": "freeCodeCamp via Kiwix",
-      "summary": "freeCodeCamp: JavaScript Algorithms and Data Structures installs as its own RoachNet app, so you can pull this dev shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Dev courses and hands-on explainers that feel at home next to the editor. freeCodeCamp: JavaScript Algorithms and Data Structures lands as its own dev shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "violet",
       "machineFit": "Fast add-on for any supported machine",
       "includes": [
@@ -4321,7 +4321,7 @@
       "size": "2.0 GB",
       "status": "Great first install",
       "source": "Corey Schafer via Kiwix",
-      "summary": "Corey Schafer: Python Tutorials installs as its own RoachNet app, so you can pull this dev shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "A practical Python video course covering scripting, automation, and everyday development workflows. Corey Schafer: Python Tutorials lands as its own dev shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "violet",
       "machineFit": "Best on installs with real storage headroom",
       "includes": [
@@ -4351,7 +4351,7 @@
       "size": "2.3 GB",
       "status": "Great first install",
       "source": "Python Docs via Kiwix",
-      "summary": "Python Docs installs as its own RoachNet app, so you can pull this dev shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "The official Python documentation mirrored for offline reference inside RoachNet. Python Docs lands as its own dev shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "violet",
       "machineFit": "Best on installs with real storage headroom",
       "includes": [
@@ -4381,7 +4381,7 @@
       "size": "3 MB",
       "status": "Recommended next install",
       "source": "DevDocs via Kiwix",
-      "summary": "React Docs installs as its own RoachNet app, so you can pull this dev shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Offline language and framework docs that fit right into the long Dev Studio session. React Docs lands as its own dev shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "violet",
       "machineFit": "Fast add-on for any supported machine",
       "includes": [
@@ -4411,7 +4411,7 @@
       "size": "57 MB",
       "status": "Recommended next install",
       "source": "Corey Schafer via Kiwix",
-      "summary": "Corey Schafer: Git Tutorials installs as its own RoachNet app, so you can pull this dev shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Version control fundamentals, branching, remotes, and practical Git workflow. Corey Schafer: Git Tutorials lands as its own dev shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "violet",
       "machineFit": "Fast add-on for any supported machine",
       "includes": [
@@ -4441,7 +4441,7 @@
       "size": "6 MB",
       "status": "Recommended next install",
       "source": "freeCodeCamp via Kiwix",
-      "summary": "freeCodeCamp: Coding Interview Prep installs as its own RoachNet app, so you can pull this dev shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Dev courses and hands-on explainers that feel at home next to the editor. freeCodeCamp: Coding Interview Prep lands as its own dev shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "violet",
       "machineFit": "Fast add-on for any supported machine",
       "includes": [
@@ -4471,7 +4471,7 @@
       "size": "7 MB",
       "status": "Recommended next install",
       "source": "freeCodeCamp via Kiwix",
-      "summary": "freeCodeCamp: Project Euler installs as its own RoachNet app, so you can pull this dev shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Dev courses and hands-on explainers that feel at home next to the editor. freeCodeCamp: Project Euler lands as its own dev shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "violet",
       "machineFit": "Fast add-on for any supported machine",
       "includes": [
@@ -4501,7 +4501,7 @@
       "size": "7 MB",
       "status": "Recommended next install",
       "source": "freeCodeCamp via Kiwix",
-      "summary": "freeCodeCamp: Rosetta Code installs as its own RoachNet app, so you can pull this dev shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Dev courses and hands-on explainers that feel at home next to the editor. freeCodeCamp: Rosetta Code lands as its own dev shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "violet",
       "machineFit": "Fast add-on for any supported machine",
       "includes": [
@@ -4531,7 +4531,7 @@
       "size": "1 MB",
       "status": "Recommended next install",
       "source": "DevDocs via Kiwix",
-      "summary": "TypeScript Docs installs as its own RoachNet app, so you can pull this dev shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Offline language and framework docs that fit right into the long Dev Studio session. TypeScript Docs lands as its own dev shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "violet",
       "machineFit": "Fast add-on for any supported machine",
       "includes": [
@@ -4561,7 +4561,7 @@
       "size": "42 MB",
       "status": "Recommended next install",
       "source": "Corey Schafer via Kiwix",
-      "summary": "Corey Schafer: JavaScript Tutorials installs as its own RoachNet app, so you can pull this dev shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "A practical JavaScript video lane for fundamentals and browser-side workflows. Corey Schafer: JavaScript Tutorials lands as its own dev shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "violet",
       "machineFit": "Fast add-on for any supported machine",
       "includes": [
@@ -4591,7 +4591,7 @@
       "size": "22 MB",
       "status": "Recommended next install",
       "source": "Corey Schafer via Kiwix",
-      "summary": "Corey Schafer: SQL Tutorials installs as its own RoachNet app, so you can pull this dev shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Querying, joins, schema basics, and everyday database work in video form. Corey Schafer: SQL Tutorials lands as its own dev shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "violet",
       "machineFit": "Fast add-on for any supported machine",
       "includes": [
@@ -4621,7 +4621,7 @@
       "size": "1 MB",
       "status": "Recommended next install",
       "source": "Go by Example via Kiwix",
-      "summary": "Go by Example installs as its own RoachNet app, so you can pull this dev shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "A compact hands-on Go shelf with runnable examples and short explanations. Go by Example lands as its own dev shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "violet",
       "machineFit": "Fast add-on for any supported machine",
       "includes": [
@@ -4651,7 +4651,7 @@
       "size": "2 MB",
       "status": "Recommended next install",
       "source": "DevDocs via Kiwix",
-      "summary": "Git Docs installs as its own RoachNet app, so you can pull this dev shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Offline language and framework docs that fit right into the long Dev Studio session. Git Docs lands as its own dev shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "violet",
       "machineFit": "Fast add-on for any supported machine",
       "includes": [
@@ -4681,7 +4681,7 @@
       "size": "4 MB",
       "status": "Recommended next install",
       "source": "Devhints via Kiwix",
-      "summary": "Devhints installs as its own RoachNet app, so you can pull this dev shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Dense cheatsheets for frameworks, CLIs, languages, and everyday dev muscle-memory work. Devhints lands as its own dev shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "violet",
       "machineFit": "Fast add-on for any supported machine",
       "includes": [
@@ -4711,7 +4711,7 @@
       "size": "159 MB",
       "status": "Recommended next install",
       "source": "Bootstrap via Kiwix",
-      "summary": "Bootstrap Docs installs as its own RoachNet app, so you can pull this dev shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Components, layout patterns, and utility-heavy frontend reference from the Bootstrap docs lane. Bootstrap Docs lands as its own dev shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "violet",
       "machineFit": "Easy install once the core workspace is already healthy",
       "includes": [
@@ -4741,7 +4741,7 @@
       "size": "45 MB",
       "status": "Recommended next install",
       "source": "Dart via Kiwix",
-      "summary": "Dart Docs installs as its own RoachNet app, so you can pull this dev shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "The main Dart language shelf for syntax, tooling, packages, and language behavior. Dart Docs lands as its own dev shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "violet",
       "machineFit": "Fast add-on for any supported machine",
       "includes": [
@@ -4771,7 +4771,7 @@
       "size": "2 MB",
       "status": "Deep archive",
       "source": "DevDocs via Kiwix",
-      "summary": "Go Docs installs as its own RoachNet app, so you can pull this dev shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Offline language and framework docs that fit right into the long Dev Studio session. Go Docs lands as its own dev shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "violet",
       "machineFit": "Fast add-on for any supported machine",
       "includes": [
@@ -4801,7 +4801,7 @@
       "size": "6 MB",
       "status": "Deep archive",
       "source": "DevDocs via Kiwix",
-      "summary": "Rust Docs installs as its own RoachNet app, so you can pull this dev shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Offline language and framework docs that fit right into the long Dev Studio session. Rust Docs lands as its own dev shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "violet",
       "machineFit": "Fast add-on for any supported machine",
       "includes": [
@@ -4831,7 +4831,7 @@
       "size": "271 MB",
       "status": "Deep archive",
       "source": "Corey Schafer via Kiwix",
-      "summary": "Corey Schafer: Django Tutorials installs as its own RoachNet app, so you can pull this dev shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Django apps, models, auth, and practical Python web workflows. Corey Schafer: Django Tutorials lands as its own dev shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "violet",
       "machineFit": "Easy install once the core workspace is already healthy",
       "includes": [
@@ -4861,7 +4861,7 @@
       "size": "257 MB",
       "status": "Deep archive",
       "source": "Corey Schafer via Kiwix",
-      "summary": "Corey Schafer: Flask Tutorials installs as its own RoachNet app, so you can pull this dev shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Flask routes, APIs, templating, and small-service patterns. Corey Schafer: Flask Tutorials lands as its own dev shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "violet",
       "machineFit": "Easy install once the core workspace is already healthy",
       "includes": [
@@ -4891,7 +4891,7 @@
       "size": "1 MB",
       "status": "Deep archive",
       "source": "DevDocs via Kiwix",
-      "summary": "Next.js Docs installs as its own RoachNet app, so you can pull this dev shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Offline language and framework docs that fit right into the long Dev Studio session. Next.js Docs lands as its own dev shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "violet",
       "machineFit": "Fast add-on for any supported machine",
       "includes": [
@@ -4921,7 +4921,7 @@
       "size": "1 MB",
       "status": "Deep archive",
       "source": "DevDocs via Kiwix",
-      "summary": "Vite Docs installs as its own RoachNet app, so you can pull this dev shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Offline language and framework docs that fit right into the long Dev Studio session. Vite Docs lands as its own dev shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "violet",
       "machineFit": "Fast add-on for any supported machine",
       "includes": [
@@ -4951,7 +4951,7 @@
       "size": "1 MB",
       "status": "Deep archive",
       "source": "DevDocs via Kiwix",
-      "summary": "Tailwind CSS Docs installs as its own RoachNet app, so you can pull this dev shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Offline language and framework docs that fit right into the long Dev Studio session. Tailwind CSS Docs lands as its own dev shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "violet",
       "machineFit": "Fast add-on for any supported machine",
       "includes": [
@@ -4981,7 +4981,7 @@
       "size": "1 MB",
       "status": "Deep archive",
       "source": "DevDocs via Kiwix",
-      "summary": "Playwright Docs installs as its own RoachNet app, so you can pull this dev shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Offline language and framework docs that fit right into the long Dev Studio session. Playwright Docs lands as its own dev shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "violet",
       "machineFit": "Fast add-on for any supported machine",
       "includes": [
@@ -5011,7 +5011,7 @@
       "size": "2 MB",
       "status": "Deep archive",
       "source": "DevDocs via Kiwix",
-      "summary": "Electron Docs installs as its own RoachNet app, so you can pull this dev shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Offline language and framework docs that fit right into the long Dev Studio session. Electron Docs lands as its own dev shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "violet",
       "machineFit": "Fast add-on for any supported machine",
       "includes": [
@@ -5041,7 +5041,7 @@
       "size": "1 MB",
       "status": "Deep archive",
       "source": "DevDocs via Kiwix",
-      "summary": "Vue Docs installs as its own RoachNet app, so you can pull this dev shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Offline language and framework docs that fit right into the long Dev Studio session. Vue Docs lands as its own dev shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "violet",
       "machineFit": "Fast add-on for any supported machine",
       "includes": [
@@ -5071,7 +5071,7 @@
       "size": "1 MB",
       "status": "Deep archive",
       "source": "DevDocs via Kiwix",
-      "summary": "Svelte Docs installs as its own RoachNet app, so you can pull this dev shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Offline language and framework docs that fit right into the long Dev Studio session. Svelte Docs lands as its own dev shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "violet",
       "machineFit": "Fast add-on for any supported machine",
       "includes": [
@@ -5101,7 +5101,7 @@
       "size": "2 MB",
       "status": "Deep archive",
       "source": "DevDocs via Kiwix",
-      "summary": "Astro Docs installs as its own RoachNet app, so you can pull this dev shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Offline language and framework docs that fit right into the long Dev Studio session. Astro Docs lands as its own dev shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "violet",
       "machineFit": "Fast add-on for any supported machine",
       "includes": [
@@ -5131,7 +5131,7 @@
       "size": "457 MB",
       "status": "Deep archive",
       "source": "Stack Exchange via Kiwix",
-      "summary": "Software Engineering Q&A installs as its own RoachNet app, so you can pull this dev shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Crowd-tested answers, rabbit holes, and practical fixes packed into one named shelf. Software Engineering Q&A lands as its own dev shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "violet",
       "machineFit": "Easy install once the core workspace is already healthy",
       "includes": [
@@ -5161,7 +5161,7 @@
       "size": "29 MB",
       "status": "Deep archive",
       "source": "Stack Exchange via Kiwix",
-      "summary": "Open Source Q&A installs as its own RoachNet app, so you can pull this dev shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Crowd-tested answers, rabbit holes, and practical fixes packed into one named shelf. Open Source Q&A lands as its own dev shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "violet",
       "machineFit": "Fast add-on for any supported machine",
       "includes": [
@@ -5191,7 +5191,7 @@
       "size": "1 MB",
       "status": "Deep archive",
       "source": "DevDocs via Kiwix",
-      "summary": "Node.js Docs installs as its own RoachNet app, so you can pull this dev shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Offline language and framework docs that fit right into the long Dev Studio session. Node.js Docs lands as its own dev shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "violet",
       "machineFit": "Fast add-on for any supported machine",
       "includes": [
@@ -5221,7 +5221,7 @@
       "size": "11 GB",
       "status": "Deep archive",
       "source": "Cheatography via Kiwix",
-      "summary": "Cheatography installs as its own RoachNet app, so you can pull this dev shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "A giant cheat-sheet shelf for coding, ops, design, and day-to-day terminal work. Cheatography lands as its own dev shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "violet",
       "machineFit": "Large offline shelf best staged after the main runtime is settled",
       "includes": [
@@ -5251,7 +5251,7 @@
       "size": "525 MB",
       "status": "Deep archive",
       "source": "Stack Exchange via Kiwix",
-      "summary": "Code Review Q&A installs as its own RoachNet app, so you can pull this dev shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Crowd-tested answers, rabbit holes, and practical fixes packed into one named shelf. Code Review Q&A lands as its own dev shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "violet",
       "machineFit": "Easy install once the core workspace is already healthy",
       "includes": [
@@ -5281,7 +5281,7 @@
       "size": "264 MB",
       "status": "Deep archive",
       "source": "Stack Exchange via Kiwix",
-      "summary": "Computer Science Q&A installs as its own RoachNet app, so you can pull this dev shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Crowd-tested answers, rabbit holes, and practical fixes packed into one named shelf. Computer Science Q&A lands as its own dev shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "violet",
       "machineFit": "Easy install once the core workspace is already healthy",
       "includes": [
@@ -5311,7 +5311,7 @@
       "size": "71 MB",
       "status": "Deep archive",
       "source": "Stack Exchange via Kiwix",
-      "summary": "CS Theory Q&A installs as its own RoachNet app, so you can pull this dev shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Crowd-tested answers, rabbit holes, and practical fixes packed into one named shelf. CS Theory Q&A lands as its own dev shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "violet",
       "machineFit": "Fast add-on for any supported machine",
       "includes": [
@@ -5341,7 +5341,7 @@
       "size": "2 MB",
       "status": "Deep archive",
       "source": "DevDocs via Kiwix",
-      "summary": "FastAPI Docs installs as its own RoachNet app, so you can pull this dev shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Offline language and framework docs that fit right into the long Dev Studio session. FastAPI Docs lands as its own dev shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "violet",
       "machineFit": "Fast add-on for any supported machine",
       "includes": [
@@ -5371,7 +5371,7 @@
       "size": "1 MB",
       "status": "Deep archive",
       "source": "DevDocs via Kiwix",
-      "summary": "Express Docs installs as its own RoachNet app, so you can pull this dev shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Offline language and framework docs that fit right into the long Dev Studio session. Express Docs lands as its own dev shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "violet",
       "machineFit": "Fast add-on for any supported machine",
       "includes": [
@@ -5401,7 +5401,7 @@
       "size": "1 MB",
       "status": "Deep archive",
       "source": "DevDocs via Kiwix",
-      "summary": "Django REST Framework Docs installs as its own RoachNet app, so you can pull this dev shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Offline language and framework docs that fit right into the long Dev Studio session. Django REST Framework Docs lands as its own dev shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "violet",
       "machineFit": "Fast add-on for any supported machine",
       "includes": [
@@ -5431,7 +5431,7 @@
       "size": "1 MB",
       "status": "Deep archive",
       "source": "DevDocs via Kiwix",
-      "summary": "C Docs installs as its own RoachNet app, so you can pull this dev shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Offline language and framework docs that fit right into the long Dev Studio session. C Docs lands as its own dev shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "violet",
       "machineFit": "Fast add-on for any supported machine",
       "includes": [
@@ -5461,7 +5461,7 @@
       "size": "7 MB",
       "status": "Deep archive",
       "source": "DevDocs via Kiwix",
-      "summary": "C++ Docs installs as its own RoachNet app, so you can pull this dev shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Offline language and framework docs that fit right into the long Dev Studio session. C++ Docs lands as its own dev shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "violet",
       "machineFit": "Fast add-on for any supported machine",
       "includes": [
@@ -5491,7 +5491,7 @@
       "size": "3 MB",
       "status": "Deep archive",
       "source": "DevDocs via Kiwix",
-      "summary": "CMake Docs installs as its own RoachNet app, so you can pull this dev shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Offline language and framework docs that fit right into the long Dev Studio session. CMake Docs lands as its own dev shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "violet",
       "machineFit": "Fast add-on for any supported machine",
       "includes": [
@@ -5521,7 +5521,7 @@
       "size": "2 MB",
       "status": "Deep archive",
       "source": "DevDocs via Kiwix",
-      "summary": "DuckDB Docs installs as its own RoachNet app, so you can pull this dev shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Offline language and framework docs that fit right into the long Dev Studio session. DuckDB Docs lands as its own dev shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "violet",
       "machineFit": "Fast add-on for any supported machine",
       "includes": [
@@ -5551,7 +5551,7 @@
       "size": "145 MB",
       "status": "Deep archive",
       "source": "Stack Exchange via Kiwix",
-      "summary": "Emacs Q&A installs as its own RoachNet app, so you can pull this dev shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Crowd-tested answers, rabbit holes, and practical fixes packed into one named shelf. Emacs Q&A lands as its own dev shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "violet",
       "machineFit": "Easy install once the core workspace is already healthy",
       "includes": [
@@ -5581,7 +5581,7 @@
       "size": "371 MB",
       "status": "Deep archive",
       "source": "Lua.org via Kiwix",
-      "summary": "Lua.org installs as its own RoachNet app, so you can pull this dev shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "The main Lua language site packaged as an install-ready shelf for scripting and embedded work. Lua.org lands as its own dev shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "violet",
       "machineFit": "Easy install once the core workspace is already healthy",
       "includes": [
@@ -5611,7 +5611,7 @@
       "size": "5 MB",
       "status": "Deep archive",
       "source": "DevDocs via Kiwix",
-      "summary": "CSS Docs installs as its own RoachNet app, so you can pull this dev shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Offline language and framework docs that fit right into the long Dev Studio session. CSS Docs lands as its own dev shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "violet",
       "machineFit": "Fast add-on for any supported machine",
       "includes": [
@@ -5641,7 +5641,7 @@
       "size": "10 MB",
       "status": "Deep archive",
       "source": "DevDocs via Kiwix",
-      "summary": "Dart API Docs installs as its own RoachNet app, so you can pull this dev shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Offline language and framework docs that fit right into the long Dev Studio session. Dart API Docs lands as its own dev shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "violet",
       "machineFit": "Fast add-on for any supported machine",
       "includes": [
@@ -5671,7 +5671,7 @@
       "size": "3 MB",
       "status": "Deep archive",
       "source": "DevDocs via Kiwix",
-      "summary": "Deno Docs installs as its own RoachNet app, so you can pull this dev shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Offline language and framework docs that fit right into the long Dev Studio session. Deno Docs lands as its own dev shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "violet",
       "machineFit": "Fast add-on for any supported machine",
       "includes": [
@@ -5701,7 +5701,7 @@
       "size": "1 MB",
       "status": "Deep archive",
       "source": "DevDocs via Kiwix",
-      "summary": "Bazel Docs installs as its own RoachNet app, so you can pull this dev shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Offline language and framework docs that fit right into the long Dev Studio session. Bazel Docs lands as its own dev shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "violet",
       "machineFit": "Fast add-on for any supported machine",
       "includes": [
@@ -5731,7 +5731,7 @@
       "size": "32 MB",
       "status": "Great first install",
       "source": "RoachNet knowledge mirror",
-      "summary": "Learning Statistics installs as its own RoachNet app, so you can pull this ML shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "A concise statistics course covering probability, inference, and the math you need before model work. Learning Statistics lands as its own ML shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "cyan",
       "machineFit": "Fast add-on for any supported machine",
       "includes": [
@@ -5761,7 +5761,7 @@
       "size": "5 MB",
       "status": "Great first install",
       "source": "DevDocs via Kiwix",
-      "summary": "NumPy Docs installs as its own RoachNet app, so you can pull this ML shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Offline language and framework docs that fit right into the long Dev Studio session. NumPy Docs lands as its own ML shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "cyan",
       "machineFit": "Fast add-on for any supported machine",
       "includes": [
@@ -5791,7 +5791,7 @@
       "size": "5 MB",
       "status": "Great first install",
       "source": "DevDocs via Kiwix",
-      "summary": "Pandas Docs installs as its own RoachNet app, so you can pull this ML shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Offline language and framework docs that fit right into the long Dev Studio session. Pandas Docs lands as its own ML shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "cyan",
       "machineFit": "Fast add-on for any supported machine",
       "includes": [
@@ -5821,7 +5821,7 @@
       "size": "15 MB",
       "status": "Great first install",
       "source": "Learning Statistics with R via Kiwix",
-      "summary": "Learning Statistics with R installs as its own RoachNet app, so you can pull this ML shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Statistics through the lens of R, inference, and practical quantitative thinking. Learning Statistics with R lands as its own ML shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "cyan",
       "machineFit": "Fast add-on for any supported machine",
       "includes": [
@@ -5851,7 +5851,7 @@
       "size": "54 MB",
       "status": "Recommended next install",
       "source": "DevDocs via Kiwix",
-      "summary": "scikit-learn Docs installs as its own RoachNet app, so you can pull this ML shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Offline language and framework docs that fit right into the long Dev Studio session. scikit-learn Docs lands as its own ML shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "cyan",
       "machineFit": "Fast add-on for any supported machine",
       "includes": [
@@ -5881,7 +5881,7 @@
       "size": "3 MB",
       "status": "Recommended next install",
       "source": "DevDocs via Kiwix",
-      "summary": "PyTorch Docs installs as its own RoachNet app, so you can pull this ML shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Offline language and framework docs that fit right into the long Dev Studio session. PyTorch Docs lands as its own ML shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "cyan",
       "machineFit": "Fast add-on for any supported machine",
       "includes": [
@@ -5911,7 +5911,7 @@
       "size": "6 MB",
       "status": "Recommended next install",
       "source": "DevDocs via Kiwix",
-      "summary": "TensorFlow Docs installs as its own RoachNet app, so you can pull this ML shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Offline language and framework docs that fit right into the long Dev Studio session. TensorFlow Docs lands as its own ML shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "cyan",
       "machineFit": "Fast add-on for any supported machine",
       "includes": [
@@ -5941,7 +5941,7 @@
       "size": "206 MB",
       "status": "Recommended next install",
       "source": "LibreTexts via Kiwix",
-      "summary": "LibreTexts Statistics installs as its own RoachNet app, so you can pull this ML shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Course-style textbooks laid out like real classes, not a folder full of stray PDFs. LibreTexts Statistics lands as its own ML shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "cyan",
       "machineFit": "Easy install once the core workspace is already healthy",
       "includes": [
@@ -5971,7 +5971,7 @@
       "size": "165 MB",
       "status": "Recommended next install",
       "source": "Corey Schafer via Kiwix",
-      "summary": "Corey Schafer: Pandas Tutorials installs as its own RoachNet app, so you can pull this ML shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Dataframes, cleaning, reshaping, and analysis workflows in video form. Corey Schafer: Pandas Tutorials lands as its own ML shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "cyan",
       "machineFit": "Easy install once the core workspace is already healthy",
       "includes": [
@@ -6001,7 +6001,7 @@
       "size": "104 MB",
       "status": "Recommended next install",
       "source": "Corey Schafer via Kiwix",
-      "summary": "Corey Schafer: Matplotlib Tutorials installs as its own RoachNet app, so you can pull this ML shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Plotting, chart composition, and data visualization in Python. Corey Schafer: Matplotlib Tutorials lands as its own ML shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "cyan",
       "machineFit": "Fast add-on for any supported machine",
       "includes": [
@@ -6031,7 +6031,7 @@
       "size": "261 MB",
       "status": "Recommended next install",
       "source": "Stack Exchange via Kiwix",
-      "summary": "Data Science Q&A installs as its own RoachNet app, so you can pull this ML shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Crowd-tested answers, rabbit holes, and practical fixes packed into one named shelf. Data Science Q&A lands as its own ML shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "cyan",
       "machineFit": "Easy install once the core workspace is already healthy",
       "includes": [
@@ -6061,7 +6061,7 @@
       "size": "1.3 GB",
       "status": "Deep archive",
       "source": "TED via Kiwix",
-      "summary": "TED: Machine Learning installs as its own RoachNet app, so you can pull this ML shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Talk libraries and lecture bundles sized like a real shelf instead of a random video binge. TED: Machine Learning lands as its own ML shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "cyan",
       "machineFit": "Best on installs with real storage headroom",
       "includes": [
@@ -6091,7 +6091,7 @@
       "size": "100 MB",
       "status": "Deep archive",
       "source": "Stack Exchange via Kiwix",
-      "summary": "AI Q&A installs as its own RoachNet app, so you can pull this ML shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Crowd-tested answers, rabbit holes, and practical fixes packed into one named shelf. AI Q&A lands as its own ML shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "cyan",
       "machineFit": "Fast add-on for any supported machine",
       "includes": [
@@ -6121,7 +6121,7 @@
       "size": "10 MB",
       "status": "Deep archive",
       "source": "Stack Exchange via Kiwix",
-      "summary": "GenAI Q&A installs as its own RoachNet app, so you can pull this ML shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Crowd-tested answers, rabbit holes, and practical fixes packed into one named shelf. GenAI Q&A lands as its own ML shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "cyan",
       "machineFit": "Fast add-on for any supported machine",
       "includes": [
@@ -6151,7 +6151,7 @@
       "size": "11 MB",
       "status": "Deep archive",
       "source": "DevDocs via Kiwix",
-      "summary": "scikit-image Docs installs as its own RoachNet app, so you can pull this ML shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Offline language and framework docs that fit right into the long Dev Studio session. scikit-image Docs lands as its own ML shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "cyan",
       "machineFit": "Fast add-on for any supported machine",
       "includes": [
@@ -6181,7 +6181,7 @@
       "size": "14 MB",
       "status": "Deep archive",
       "source": "Lost Stats via Kiwix",
-      "summary": "Lost Stats installs as its own RoachNet app, so you can pull this ML shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Applied statistics, causal-inference, and data-work notes that bridge theory and practice. Lost Stats lands as its own ML shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "cyan",
       "machineFit": "Fast add-on for any supported machine",
       "includes": [
@@ -6211,7 +6211,7 @@
       "size": "36 MB",
       "status": "Great first install",
       "source": "Stack Exchange via Kiwix",
-      "summary": "Homebrew Q&A installs as its own RoachNet app, so you can pull this systems shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Crowd-tested answers, rabbit holes, and practical fixes packed into one named shelf. Homebrew Q&A lands as its own systems shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "bronze",
       "machineFit": "Fast add-on for any supported machine",
       "includes": [
@@ -6241,7 +6241,7 @@
       "size": "30 MB",
       "status": "Great first install",
       "source": "Arch Linux docs via Kiwix",
-      "summary": "Arch Linux Docs installs as its own RoachNet app, so you can pull this systems shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "The Arch wiki as a compact systems shelf for Linux setup, recovery, and long-tail fixes. Arch Linux Docs lands as its own systems shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "bronze",
       "machineFit": "Fast add-on for any supported machine",
       "includes": [
@@ -6271,7 +6271,7 @@
       "size": "3 MB",
       "status": "Great first install",
       "source": "Alpine Linux docs via Kiwix",
-      "summary": "Alpine Linux Docs installs as its own RoachNet app, so you can pull this systems shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Small-footprint Linux docs for containers, tiny systems, and package work. Alpine Linux Docs lands as its own systems shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "bronze",
       "machineFit": "Fast add-on for any supported machine",
       "includes": [
@@ -6301,7 +6301,7 @@
       "size": "285 MB",
       "status": "Recommended next install",
       "source": "Stack Exchange via Kiwix",
-      "summary": "Raspberry Pi Q&A installs as its own RoachNet app, so you can pull this systems shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Crowd-tested answers, rabbit holes, and practical fixes packed into one named shelf. Raspberry Pi Q&A lands as its own systems shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "bronze",
       "machineFit": "Easy install once the core workspace is already healthy",
       "includes": [
@@ -6331,7 +6331,7 @@
       "size": "54 MB",
       "status": "Recommended next install",
       "source": "Stack Exchange via Kiwix",
-      "summary": "elementary OS Q&A installs as its own RoachNet app, so you can pull this systems shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Crowd-tested answers, rabbit holes, and practical fixes packed into one named shelf. elementary OS Q&A lands as its own systems shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "bronze",
       "machineFit": "Fast add-on for any supported machine",
       "includes": [
@@ -6361,7 +6361,7 @@
       "size": "69 MB",
       "status": "Deep archive",
       "source": "Gentoo docs via Kiwix",
-      "summary": "Gentoo Docs installs as its own RoachNet app, so you can pull this systems shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Source-based Linux reference for systems tinkerers and people who like knowing every layer. Gentoo Docs lands as its own systems shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "bronze",
       "machineFit": "Fast add-on for any supported machine",
       "includes": [
@@ -6391,7 +6391,7 @@
       "size": "420 MB",
       "status": "Great first install",
       "source": "Stack Exchange via Kiwix",
-      "summary": "Security Q&A installs as its own RoachNet app, so you can pull this security shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Crowd-tested answers, rabbit holes, and practical fixes packed into one named shelf. Security Q&A lands as its own security shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "cyan",
       "machineFit": "Easy install once the core workspace is already healthy",
       "includes": [
@@ -6421,7 +6421,7 @@
       "size": "30 MB",
       "status": "Great first install",
       "source": "Stack Exchange via Kiwix",
-      "summary": "Tor Q&A installs as its own RoachNet app, so you can pull this security shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Crowd-tested answers, rabbit holes, and practical fixes packed into one named shelf. Tor Q&A lands as its own security shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "cyan",
       "machineFit": "Fast add-on for any supported machine",
       "includes": [
@@ -6451,7 +6451,7 @@
       "size": "109 MB",
       "status": "Recommended next install",
       "source": "Stack Exchange via Kiwix",
-      "summary": "Reverse Engineering Q&A installs as its own RoachNet app, so you can pull this security shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Crowd-tested answers, rabbit holes, and practical fixes packed into one named shelf. Reverse Engineering Q&A lands as its own security shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "cyan",
       "machineFit": "Fast add-on for any supported machine",
       "includes": [
@@ -6481,7 +6481,7 @@
       "size": "49 MB",
       "status": "Recommended next install",
       "source": "Stack Exchange via Kiwix",
-      "summary": "History of Science & Math Q&A installs as its own RoachNet app, so you can pull this security shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Crowd-tested answers, rabbit holes, and practical fixes packed into one named shelf. History of Science & Math Q&A lands as its own security shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "cyan",
       "machineFit": "Fast add-on for any supported machine",
       "includes": [
@@ -6511,7 +6511,7 @@
       "size": "9 MB",
       "status": "Recommended next install",
       "source": "Incognito Cat via Kiwix",
-      "summary": "Incognito Cat installs as its own RoachNet app, so you can pull this security shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "A compact privacy-and-anonymity shelf for hardened browsing, opsec basics, and safer defaults. Incognito Cat lands as its own security shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "cyan",
       "machineFit": "Fast add-on for any supported machine",
       "includes": [
@@ -6541,7 +6541,7 @@
       "size": "182 MB",
       "status": "Deep archive",
       "source": "Cloudflare Learning Center via Kiwix",
-      "summary": "Cloudflare Learning Center installs as its own RoachNet app, so you can pull this security shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "A broad edge, DNS, WAF, and web-security reference shelf from the Cloudflare docs lane. Cloudflare Learning Center lands as its own security shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "cyan",
       "machineFit": "Easy install once the core workspace is already healthy",
       "includes": [
@@ -6571,7 +6571,7 @@
       "size": "78 MB",
       "status": "Great first install",
       "source": "Open Music Theory via Kiwix",
-      "summary": "Open Music Theory installs as its own RoachNet app, so you can pull this audio shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "A well-structured open music-theory course covering harmony, rhythm, notation, and ear-training fundamentals. Open Music Theory lands as its own audio shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "magenta",
       "machineFit": "Fast add-on for any supported machine",
       "includes": [
@@ -6601,7 +6601,7 @@
       "size": "37 MB",
       "status": "Great first install",
       "source": "Dalitio via Kiwix",
-      "summary": "Dalitio Music Theory installs as its own RoachNet app, so you can pull this audio shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Compact lessons on chord construction, scales, intervals, and the theory you keep revisiting while producing. Dalitio Music Theory lands as its own audio shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "magenta",
       "machineFit": "Fast add-on for any supported machine",
       "includes": [
@@ -6631,7 +6631,7 @@
       "size": "411 MB",
       "status": "Recommended next install",
       "source": "TED via Kiwix",
-      "summary": "TED: Sound installs as its own RoachNet app, so you can pull this audio shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Talk libraries and lecture bundles sized like a real shelf instead of a random video binge. TED: Sound lands as its own audio shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "magenta",
       "machineFit": "Easy install once the core workspace is already healthy",
       "includes": [
@@ -6661,7 +6661,7 @@
       "size": "73 MB",
       "status": "Recommended next install",
       "source": "Stack Exchange via Kiwix",
-      "summary": "Sound Q&A installs as its own RoachNet app, so you can pull this audio shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Crowd-tested answers, rabbit holes, and practical fixes packed into one named shelf. Sound Q&A lands as its own audio shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "magenta",
       "machineFit": "Fast add-on for any supported machine",
       "includes": [
@@ -6691,7 +6691,7 @@
       "size": "323 MB",
       "status": "Recommended next install",
       "source": "Stack Exchange via Kiwix",
-      "summary": "Music Q&A installs as its own RoachNet app, so you can pull this audio shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Crowd-tested answers, rabbit holes, and practical fixes packed into one named shelf. Music Q&A lands as its own audio shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "magenta",
       "machineFit": "Easy install once the core workspace is already healthy",
       "includes": [
@@ -6721,7 +6721,7 @@
       "size": "3.8 GB",
       "status": "Deep archive",
       "source": "TED via Kiwix",
-      "summary": "TED: Music installs as its own RoachNet app, so you can pull this audio shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Talk libraries and lecture bundles sized like a real shelf instead of a random video binge. TED: Music lands as its own audio shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "magenta",
       "machineFit": "Best on installs with real storage headroom",
       "includes": [
@@ -6751,7 +6751,7 @@
       "size": "360 MB",
       "status": "Deep archive",
       "source": "Stack Exchange via Kiwix",
-      "summary": "Signal Processing Q&A installs as its own RoachNet app, so you can pull this audio shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Crowd-tested answers, rabbit holes, and practical fixes packed into one named shelf. Signal Processing Q&A lands as its own audio shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "magenta",
       "machineFit": "Easy install once the core workspace is already healthy",
       "includes": [
@@ -6781,7 +6781,7 @@
       "size": "50 MB",
       "status": "Deep archive",
       "source": "FretMap via Kiwix",
-      "summary": "FretMap installs as its own RoachNet app, so you can pull this audio shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Chord and fretboard reference for guitar-minded writing, arranging, and study. FretMap lands as its own audio shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "magenta",
       "machineFit": "Fast add-on for any supported machine",
       "includes": [
@@ -6811,7 +6811,7 @@
       "size": "5.3 GB",
       "status": "Deep archive",
       "source": "Celtic Scores via Kiwix",
-      "summary": "Celtic Scores installs as its own RoachNet app, so you can pull this audio shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "A deep notation shelf full of tune transcriptions and score reference. Celtic Scores lands as its own audio shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "magenta",
       "machineFit": "Large offline shelf best staged after the main runtime is settled",
       "includes": [
@@ -6841,7 +6841,7 @@
       "size": "154 MB",
       "status": "Deep archive",
       "source": "Ibanez Wiki via Kiwix",
-      "summary": "Ibanez Wiki installs as its own RoachNet app, so you can pull this audio shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Guitar model history, hardware details, and instrument-reference depth for gear-minded sessions. Ibanez Wiki lands as its own audio shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "magenta",
       "machineFit": "Easy install once the core workspace is already healthy",
       "includes": [
@@ -6871,7 +6871,7 @@
       "size": "8.2 GB",
       "status": "Deep archive",
       "source": "Chopin Early Editions via Kiwix",
-      "summary": "Chopin Early Editions installs as its own RoachNet app, so you can pull this audio shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "A deep score and edition shelf for piano study, notation work, and classical reference. Chopin Early Editions lands as its own audio shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "magenta",
       "machineFit": "Large offline shelf best staged after the main runtime is settled",
       "includes": [
@@ -6901,7 +6901,7 @@
       "size": "884 MB",
       "status": "Great first install",
       "source": "Stack Exchange via Kiwix",
-      "summary": "Graphic Design Q&A installs as its own RoachNet app, so you can pull this design shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Crowd-tested answers, rabbit holes, and practical fixes packed into one named shelf. Graphic Design Q&A lands as its own design shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "violet",
       "machineFit": "Easy install once the core workspace is already healthy",
       "includes": [
@@ -6931,7 +6931,7 @@
       "size": "431 MB",
       "status": "Great first install",
       "source": "Stack Exchange via Kiwix",
-      "summary": "Photography Q&A installs as its own RoachNet app, so you can pull this design shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Crowd-tested answers, rabbit holes, and practical fixes packed into one named shelf. Photography Q&A lands as its own design shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "violet",
       "machineFit": "Easy install once the core workspace is already healthy",
       "includes": [
@@ -6961,7 +6961,7 @@
       "size": "2.6 GB",
       "status": "Recommended next install",
       "source": "Stack Exchange via Kiwix",
-      "summary": "Blender Q&A installs as its own RoachNet app, so you can pull this design shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Crowd-tested answers, rabbit holes, and practical fixes packed into one named shelf. Blender Q&A lands as its own design shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "violet",
       "machineFit": "Best on installs with real storage headroom",
       "includes": [
@@ -6991,7 +6991,7 @@
       "size": "51 MB",
       "status": "Recommended next install",
       "source": "Stack Exchange via Kiwix",
-      "summary": "Computer Graphics Q&A installs as its own RoachNet app, so you can pull this design shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Crowd-tested answers, rabbit holes, and practical fixes packed into one named shelf. Computer Graphics Q&A lands as its own design shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "violet",
       "machineFit": "Fast add-on for any supported machine",
       "includes": [
@@ -7021,7 +7021,7 @@
       "size": "374 MB",
       "status": "Deep archive",
       "source": "Blender Studio via Kiwix",
-      "summary": "Blender Studio Open Movies installs as its own RoachNet app, so you can pull this design shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Open-production films and behind-the-scenes assets from Blender Studio. Blender Studio Open Movies lands as its own design shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "violet",
       "machineFit": "Easy install once the core workspace is already healthy",
       "includes": [
@@ -7051,7 +7051,7 @@
       "size": "5.9 GB",
       "status": "Deep archive",
       "source": "TED via Kiwix",
-      "summary": "TED: Design installs as its own RoachNet app, so you can pull this design shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Talk libraries and lecture bundles sized like a real shelf instead of a random video binge. TED: Design lands as its own design shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "violet",
       "machineFit": "Large offline shelf best staged after the main runtime is settled",
       "includes": [
@@ -7081,7 +7081,7 @@
       "size": "73 MB",
       "status": "Deep archive",
       "source": "Stack Exchange via Kiwix",
-      "summary": "Video Production Q&A installs as its own RoachNet app, so you can pull this design shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Crowd-tested answers, rabbit holes, and practical fixes packed into one named shelf. Video Production Q&A lands as its own design shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "violet",
       "machineFit": "Fast add-on for any supported machine",
       "includes": [
@@ -7111,7 +7111,7 @@
       "size": "1 MB",
       "status": "Great first install",
       "source": "DevDocs via Kiwix",
-      "summary": "Bash Docs installs as its own RoachNet app, so you can pull this ops shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Offline language and framework docs that fit right into the long Dev Studio session. Bash Docs lands as its own ops shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "bronze",
       "machineFit": "Fast add-on for any supported machine",
       "includes": [
@@ -7141,7 +7141,7 @@
       "size": "2.6 GB",
       "status": "Recommended next install",
       "source": "Stack Exchange via Kiwix",
-      "summary": "Ask Ubuntu installs as its own RoachNet app, so you can pull this ops shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Crowd-tested answers, rabbit holes, and practical fixes packed into one named shelf. Ask Ubuntu lands as its own ops shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "bronze",
       "machineFit": "Best on installs with real storage headroom",
       "includes": [
@@ -7171,7 +7171,7 @@
       "size": "1 MB",
       "status": "Recommended next install",
       "source": "DevDocs via Kiwix",
-      "summary": "Nginx Docs installs as its own RoachNet app, so you can pull this ops shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Offline language and framework docs that fit right into the long Dev Studio session. Nginx Docs lands as its own ops shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "bronze",
       "machineFit": "Fast add-on for any supported machine",
       "includes": [
@@ -7201,7 +7201,7 @@
       "size": "3 MB",
       "status": "Recommended next install",
       "source": "DevDocs via Kiwix",
-      "summary": "PostgreSQL Docs installs as its own RoachNet app, so you can pull this ops shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Offline language and framework docs that fit right into the long Dev Studio session. PostgreSQL Docs lands as its own ops shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "bronze",
       "machineFit": "Fast add-on for any supported machine",
       "includes": [
@@ -7231,7 +7231,7 @@
       "size": "1 MB",
       "status": "Recommended next install",
       "source": "DevDocs via Kiwix",
-      "summary": "Redis Docs installs as its own RoachNet app, so you can pull this ops shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Offline language and framework docs that fit right into the long Dev Studio session. Redis Docs lands as its own ops shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "bronze",
       "machineFit": "Fast add-on for any supported machine",
       "includes": [
@@ -7261,7 +7261,7 @@
       "size": "392 MB",
       "status": "Recommended next install",
       "source": "Stack Exchange via Kiwix",
-      "summary": "Android Q&A installs as its own RoachNet app, so you can pull this ops shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Crowd-tested answers, rabbit holes, and practical fixes packed into one named shelf. Android Q&A lands as its own ops shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "bronze",
       "machineFit": "Easy install once the core workspace is already healthy",
       "includes": [
@@ -7291,7 +7291,7 @@
       "size": "669 MB",
       "status": "Recommended next install",
       "source": "Stack Exchange via Kiwix",
-      "summary": "DBA Q&A installs as its own RoachNet app, so you can pull this ops shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Crowd-tested answers, rabbit holes, and practical fixes packed into one named shelf. DBA Q&A lands as its own ops shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "bronze",
       "machineFit": "Easy install once the core workspace is already healthy",
       "includes": [
@@ -7321,7 +7321,7 @@
       "size": "2 MB",
       "status": "Recommended next install",
       "source": "DevDocs via Kiwix",
-      "summary": "Docker Docs installs as its own RoachNet app, so you can pull this ops shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Offline language and framework docs that fit right into the long Dev Studio session. Docker Docs lands as its own ops shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "bronze",
       "machineFit": "Fast add-on for any supported machine",
       "includes": [
@@ -7351,7 +7351,7 @@
       "size": "1 MB",
       "status": "Recommended next install",
       "source": "DevDocs via Kiwix",
-      "summary": "Kubernetes Docs installs as its own RoachNet app, so you can pull this ops shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Offline language and framework docs that fit right into the long Dev Studio session. Kubernetes Docs lands as its own ops shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "bronze",
       "machineFit": "Fast add-on for any supported machine",
       "includes": [
@@ -7381,7 +7381,7 @@
       "size": "193 MB",
       "status": "Deep archive",
       "source": "TED via Kiwix",
-      "summary": "TED: Cyber Security installs as its own RoachNet app, so you can pull this ops shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Talk libraries and lecture bundles sized like a real shelf instead of a random video binge. TED: Cyber Security lands as its own ops shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "bronze",
       "machineFit": "Easy install once the core workspace is already healthy",
       "includes": [
@@ -7411,7 +7411,7 @@
       "size": "1.5 GB",
       "status": "Deep archive",
       "source": "Stack Exchange via Kiwix",
-      "summary": "Server Fault Q&A installs as its own RoachNet app, so you can pull this ops shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Crowd-tested answers, rabbit holes, and practical fixes packed into one named shelf. Server Fault Q&A lands as its own ops shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "bronze",
       "machineFit": "Best on installs with real storage headroom",
       "includes": [
@@ -7441,7 +7441,7 @@
       "size": "3.7 GB",
       "status": "Deep archive",
       "source": "Stack Exchange via Kiwix",
-      "summary": "Superuser Q&A installs as its own RoachNet app, so you can pull this ops shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Crowd-tested answers, rabbit holes, and practical fixes packed into one named shelf. Superuser Q&A lands as its own ops shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "bronze",
       "machineFit": "Best on installs with real storage headroom",
       "includes": [
@@ -7471,7 +7471,7 @@
       "size": "1.2 GB",
       "status": "Deep archive",
       "source": "Stack Exchange via Kiwix",
-      "summary": "Unix & Linux Q&A installs as its own RoachNet app, so you can pull this ops shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Crowd-tested answers, rabbit holes, and practical fixes packed into one named shelf. Unix & Linux Q&A lands as its own ops shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "bronze",
       "machineFit": "Best on installs with real storage headroom",
       "includes": [
@@ -7501,7 +7501,7 @@
       "size": "124 MB",
       "status": "Deep archive",
       "source": "Stack Exchange via Kiwix",
-      "summary": "Network Engineering Q&A installs as its own RoachNet app, so you can pull this ops shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Crowd-tested answers, rabbit holes, and practical fixes packed into one named shelf. Network Engineering Q&A lands as its own ops shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "bronze",
       "machineFit": "Fast add-on for any supported machine",
       "includes": [
@@ -7531,7 +7531,7 @@
       "size": "30 MB",
       "status": "Deep archive",
       "source": "DevDocs via Kiwix",
-      "summary": "Ansible Docs installs as its own RoachNet app, so you can pull this ops shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Offline language and framework docs that fit right into the long Dev Studio session. Ansible Docs lands as its own ops shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "bronze",
       "machineFit": "Fast add-on for any supported machine",
       "includes": [
@@ -7561,7 +7561,7 @@
       "size": "1.1 GB",
       "status": "Deep archive",
       "source": "Stack Exchange via Kiwix",
-      "summary": "Apple Q&A installs as its own RoachNet app, so you can pull this ops shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Crowd-tested answers, rabbit holes, and practical fixes packed into one named shelf. Apple Q&A lands as its own ops shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "bronze",
       "machineFit": "Best on installs with real storage headroom",
       "includes": [
@@ -7591,7 +7591,7 @@
       "size": "33 MB",
       "status": "Deep archive",
       "source": "Stack Exchange via Kiwix",
-      "summary": "DevOps Q&A installs as its own RoachNet app, so you can pull this ops shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Crowd-tested answers, rabbit holes, and practical fixes packed into one named shelf. DevOps Q&A lands as its own ops shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "bronze",
       "machineFit": "Fast add-on for any supported machine",
       "includes": [
@@ -7621,7 +7621,7 @@
       "size": "3 MB",
       "status": "Deep archive",
       "source": "DevDocs via Kiwix",
-      "summary": "Terraform Docs installs as its own RoachNet app, so you can pull this ops shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Offline language and framework docs that fit right into the long Dev Studio session. Terraform Docs lands as its own ops shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "bronze",
       "machineFit": "Fast add-on for any supported machine",
       "includes": [
@@ -7651,7 +7651,7 @@
       "size": "1 MB",
       "status": "Deep archive",
       "source": "DevDocs via Kiwix",
-      "summary": "Apache HTTP Server Docs installs as its own RoachNet app, so you can pull this ops shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Offline language and framework docs that fit right into the long Dev Studio session. Apache HTTP Server Docs lands as its own ops shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "bronze",
       "machineFit": "Fast add-on for any supported machine",
       "includes": [
@@ -7681,7 +7681,7 @@
       "size": "67 MB",
       "status": "Great first install",
       "source": "Wikivoyage via Kiwix",
-      "summary": "Wikivoyage: Europe installs as its own RoachNet app, so you can pull this travel shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "City notes, route context, and practical travel reference in one install. Wikivoyage: Europe lands as its own travel shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "blue",
       "machineFit": "Fast add-on for any supported machine",
       "includes": [
@@ -7711,7 +7711,7 @@
       "size": "221 MB",
       "status": "Recommended next install",
       "source": "Wikivoyage via Kiwix",
-      "summary": "Wikivoyage: World Guide installs as its own RoachNet app, so you can pull this travel shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "City notes, route context, and practical travel reference in one install. Wikivoyage: World Guide lands as its own travel shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "blue",
       "machineFit": "Easy install once the core workspace is already healthy",
       "includes": [
@@ -7741,7 +7741,7 @@
       "size": "1.0 GB",
       "status": "Deep archive",
       "source": "Wikivoyage via Kiwix",
-      "summary": "Wikivoyage: World Guide (With Images) installs as its own RoachNet app, so you can pull this travel shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "City notes, route context, and practical travel reference in one install. Wikivoyage: World Guide (With Images) lands as its own travel shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "violet",
       "machineFit": "Easy install once the core workspace is already healthy",
       "includes": [
@@ -7771,7 +7771,7 @@
       "size": "439 MB",
       "status": "Great first install",
       "source": "Stack Exchange via Kiwix",
-      "summary": "Travel Q&A installs as its own RoachNet app, so you can pull this mobility shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Crowd-tested answers, rabbit holes, and practical fixes packed into one named shelf. Travel Q&A lands as its own mobility shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "cyan",
       "machineFit": "Easy install once the core workspace is already healthy",
       "includes": [
@@ -7801,7 +7801,7 @@
       "size": "40 MB",
       "status": "Great first install",
       "source": "Stack Exchange via Kiwix",
-      "summary": "Expatriates Q&A installs as its own RoachNet app, so you can pull this mobility shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Crowd-tested answers, rabbit holes, and practical fixes packed into one named shelf. Expatriates Q&A lands as its own mobility shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "cyan",
       "machineFit": "Fast add-on for any supported machine",
       "includes": [
@@ -7831,7 +7831,7 @@
       "size": "16 MB",
       "status": "Great first install",
       "source": "Hitchwiki via Kiwix",
-      "summary": "Hitchwiki installs as its own RoachNet app, so you can pull this mobility shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Route notes, local advice, and practical traveler knowledge from the road. Hitchwiki lands as its own mobility shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "cyan",
       "machineFit": "Fast add-on for any supported machine",
       "includes": [
@@ -7861,7 +7861,7 @@
       "size": "136 MB",
       "status": "Recommended next install",
       "source": "Stack Exchange via Kiwix",
-      "summary": "Outdoors Q&A installs as its own RoachNet app, so you can pull this mobility shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Crowd-tested answers, rabbit holes, and practical fixes packed into one named shelf. Outdoors Q&A lands as its own mobility shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "cyan",
       "machineFit": "Easy install once the core workspace is already healthy",
       "includes": [
@@ -7891,7 +7891,7 @@
       "size": "482 MB",
       "status": "Recommended next install",
       "source": "Stack Exchange via Kiwix",
-      "summary": "Aviation Q&A installs as its own RoachNet app, so you can pull this mobility shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Crowd-tested answers, rabbit holes, and practical fixes packed into one named shelf. Aviation Q&A lands as its own mobility shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "cyan",
       "machineFit": "Easy install once the core workspace is already healthy",
       "includes": [
@@ -7921,7 +7921,7 @@
       "size": "467 MB",
       "status": "Recommended next install",
       "source": "Stack Exchange via Kiwix",
-      "summary": "Bicycles Q&A installs as its own RoachNet app, so you can pull this mobility shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Crowd-tested answers, rabbit holes, and practical fixes packed into one named shelf. Bicycles Q&A lands as its own mobility shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "cyan",
       "machineFit": "Easy install once the core workspace is already healthy",
       "includes": [
@@ -7951,7 +7951,7 @@
       "size": "27 MB",
       "status": "Deep archive",
       "source": "Anonymous Planet via Kiwix",
-      "summary": "Anonymous Planet installs as its own RoachNet app, so you can pull this mobility shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Travel and operational-security guidance for moving carefully through the world. Anonymous Planet lands as its own mobility shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "cyan",
       "machineFit": "Fast add-on for any supported machine",
       "includes": [
@@ -7981,7 +7981,7 @@
       "size": "12 MB",
       "status": "Deep archive",
       "source": "Stack Exchange via Kiwix",
-      "summary": "Drones Q&A installs as its own RoachNet app, so you can pull this mobility shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Crowd-tested answers, rabbit holes, and practical fixes packed into one named shelf. Drones Q&A lands as its own mobility shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "cyan",
       "machineFit": "Fast add-on for any supported machine",
       "includes": [
@@ -8011,7 +8011,7 @@
       "size": "271 MB",
       "status": "Great first install",
       "source": "Stack Exchange via Kiwix",
-      "summary": "Movies Q&A installs as its own RoachNet app, so you can pull this culture shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Crowd-tested answers, rabbit holes, and practical fixes packed into one named shelf. Movies Q&A lands as its own culture shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "magenta",
       "machineFit": "Easy install once the core workspace is already healthy",
       "includes": [
@@ -8041,7 +8041,7 @@
       "size": "228 MB",
       "status": "Great first install",
       "source": "Stack Exchange via Kiwix",
-      "summary": "Anime & Manga Q&A installs as its own RoachNet app, so you can pull this culture shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Crowd-tested answers, rabbit holes, and practical fixes packed into one named shelf. Anime & Manga Q&A lands as its own culture shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "magenta",
       "machineFit": "Easy install once the core workspace is already healthy",
       "includes": [
@@ -8071,7 +8071,7 @@
       "size": "771 MB",
       "status": "Recommended next install",
       "source": "Stack Exchange via Kiwix",
-      "summary": "Gaming Q&A installs as its own RoachNet app, so you can pull this culture shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Crowd-tested answers, rabbit holes, and practical fixes packed into one named shelf. Gaming Q&A lands as its own culture shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "magenta",
       "machineFit": "Easy install once the core workspace is already healthy",
       "includes": [
@@ -8101,7 +8101,7 @@
       "size": "102 MB",
       "status": "Recommended next install",
       "source": "Stack Exchange via Kiwix",
-      "summary": "Board Games Q&A installs as its own RoachNet app, so you can pull this culture shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Crowd-tested answers, rabbit holes, and practical fixes packed into one named shelf. Board Games Q&A lands as its own culture shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "magenta",
       "machineFit": "Fast add-on for any supported machine",
       "includes": [
@@ -8131,7 +8131,7 @@
       "size": "508 MB",
       "status": "Recommended next install",
       "source": "Stack Exchange via Kiwix",
-      "summary": "Game Development Q&A installs as its own RoachNet app, so you can pull this culture shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Crowd-tested answers, rabbit holes, and practical fixes packed into one named shelf. Game Development Q&A lands as its own culture shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "magenta",
       "machineFit": "Easy install once the core workspace is already healthy",
       "includes": [
@@ -8161,7 +8161,7 @@
       "size": "77 MB",
       "status": "Recommended next install",
       "source": "Stack Exchange via Kiwix",
-      "summary": "Chess Q&A installs as its own RoachNet app, so you can pull this culture shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Crowd-tested answers, rabbit holes, and practical fixes packed into one named shelf. Chess Q&A lands as its own culture shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "magenta",
       "machineFit": "Fast add-on for any supported machine",
       "includes": [
@@ -8191,7 +8191,7 @@
       "size": "1.4 GB",
       "status": "Deep archive",
       "source": "All The Tropes via Kiwix",
-      "summary": "All The Tropes installs as its own RoachNet app, so you can pull this culture shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Story devices, genre vocabulary, and media-pattern reference for writing and culture-brain tangents. All The Tropes lands as its own culture shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "magenta",
       "machineFit": "Best on installs with real storage headroom",
       "includes": [
@@ -8221,7 +8221,7 @@
       "size": "2.8 GB",
       "status": "Deep archive",
       "source": "Bulbagarden via Kiwix",
-      "summary": "Bulbagarden installs as its own RoachNet app, so you can pull this culture shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "A big fandom/wiki shelf for Pokemon lore, mechanics, and franchise reference. Bulbagarden lands as its own culture shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "magenta",
       "machineFit": "Best on installs with real storage headroom",
       "includes": [
@@ -8251,7 +8251,7 @@
       "size": "1.2 GB",
       "status": "Deep archive",
       "source": "Stack Exchange via Kiwix",
-      "summary": "Sci-Fi & Fantasy Q&A installs as its own RoachNet app, so you can pull this culture shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Crowd-tested answers, rabbit holes, and practical fixes packed into one named shelf. Sci-Fi & Fantasy Q&A lands as its own culture shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "magenta",
       "machineFit": "Best on installs with real storage headroom",
       "includes": [
@@ -8281,7 +8281,7 @@
       "size": "797 MB",
       "status": "Deep archive",
       "source": "Stack Exchange via Kiwix",
-      "summary": "Worldbuilding Q&A installs as its own RoachNet app, so you can pull this culture shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Crowd-tested answers, rabbit holes, and practical fixes packed into one named shelf. Worldbuilding Q&A lands as its own culture shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "magenta",
       "machineFit": "Easy install once the core workspace is already healthy",
       "includes": [
@@ -8311,7 +8311,7 @@
       "size": "151 MB",
       "status": "Deep archive",
       "source": "Explain XKCD via Kiwix",
-      "summary": "Explain XKCD installs as its own RoachNet app, so you can pull this culture shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "A compact culture-and-science side shelf for decoding XKCD comics and references. Explain XKCD lands as its own culture shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "magenta",
       "machineFit": "Easy install once the core workspace is already healthy",
       "includes": [
@@ -8341,7 +8341,7 @@
       "size": "25 MB",
       "status": "Great first install",
       "source": "Wiktionary via Kiwix",
-      "summary": "Simple English Wiktionary installs as its own RoachNet app, so you can pull this library shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Fast dictionary lookup and language cross-reference in a compact shelf. Simple English Wiktionary lands as its own library shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "violet",
       "machineFit": "Fast add-on for any supported machine",
       "includes": [
@@ -8371,7 +8371,7 @@
       "size": "8.2 GB",
       "status": "Recommended next install",
       "source": "Wiktionary via Kiwix",
-      "summary": "English Wiktionary installs as its own RoachNet app, so you can pull this library shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Fast dictionary lookup and language cross-reference in a compact shelf. English Wiktionary lands as its own library shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "violet",
       "machineFit": "Large offline shelf best staged after the main runtime is settled",
       "includes": [
@@ -8401,7 +8401,7 @@
       "size": "11 GB",
       "status": "Recommended next install",
       "source": "Wikisource via Kiwix",
-      "summary": "English Wikisource installs as its own RoachNet app, so you can pull this library shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Primary sources, older texts, and quote-heavy reading packed into one lane. English Wikisource lands as its own library shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "violet",
       "machineFit": "Large offline shelf best staged after the main runtime is settled",
       "includes": [
@@ -8431,7 +8431,7 @@
       "size": "14 MB",
       "status": "Recommended next install",
       "source": "Stack Exchange via Kiwix",
-      "summary": "Ebooks Q&A installs as its own RoachNet app, so you can pull this library shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Crowd-tested answers, rabbit holes, and practical fixes packed into one named shelf. Ebooks Q&A lands as its own library shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "violet",
       "machineFit": "Fast add-on for any supported machine",
       "includes": [
@@ -8461,7 +8461,7 @@
       "size": "17 GB",
       "status": "Deep archive",
       "source": "Project Gutenberg via Kiwix",
-      "summary": "Project Gutenberg: Science (LCC Q) installs as its own RoachNet app, so you can pull this library shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Public-domain books and long-form reading that belong on the machine, not lost in tabs. Project Gutenberg: Science (LCC Q) lands as its own library shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "violet",
       "machineFit": "Large offline shelf best staged after the main runtime is settled",
       "includes": [
@@ -8491,7 +8491,7 @@
       "size": "12 GB",
       "status": "Deep archive",
       "source": "Project Gutenberg via Kiwix",
-      "summary": "Project Gutenberg: Technology (LCC T) installs as its own RoachNet app, so you can pull this library shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Public-domain books and long-form reading that belong on the machine, not lost in tabs. Project Gutenberg: Technology (LCC T) lands as its own library shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "violet",
       "machineFit": "Large offline shelf best staged after the main runtime is settled",
       "includes": [
@@ -8521,7 +8521,7 @@
       "size": "37 GB",
       "status": "Deep archive",
       "source": "Project Gutenberg via Kiwix",
-      "summary": "Project Gutenberg: History (LCC D) installs as its own RoachNet app, so you can pull this library shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Public-domain books and long-form reading that belong on the machine, not lost in tabs. Project Gutenberg: History (LCC D) lands as its own library shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "violet",
       "machineFit": "Large offline shelf best staged after the main runtime is settled",
       "includes": [
@@ -8551,7 +8551,7 @@
       "size": "21 GB",
       "status": "Deep archive",
       "source": "Project Gutenberg via Kiwix",
-      "summary": "Project Gutenberg: Fine Arts (LCC N) installs as its own RoachNet app, so you can pull this library shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Public-domain books and long-form reading that belong on the machine, not lost in tabs. Project Gutenberg: Fine Arts (LCC N) lands as its own library shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "violet",
       "machineFit": "Large offline shelf best staged after the main runtime is settled",
       "includes": [
@@ -8581,7 +8581,7 @@
       "size": "37 MB",
       "status": "Deep archive",
       "source": "Project Gutenberg via Kiwix",
-      "summary": "Project Gutenberg: Language Studies (LCC P) installs as its own RoachNet app, so you can pull this library shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Public-domain books and long-form reading that belong on the machine, not lost in tabs. Project Gutenberg: Language Studies (LCC P) lands as its own library shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "violet",
       "machineFit": "Fast add-on for any supported machine",
       "includes": [
@@ -8611,7 +8611,7 @@
       "size": "206 GB",
       "status": "Deep archive",
       "source": "Project Gutenberg via Kiwix",
-      "summary": "Project Gutenberg: Full English Mirror installs as its own RoachNet app, so you can pull this library shelf into the native vault without dragging in a whole provider dump.",
+      "summary": "Public-domain books and long-form reading that belong on the machine, not lost in tabs. Project Gutenberg: Full English Mirror lands as its own library shelf app inside RoachNet instead of falling into Downloads.",
       "accent": "violet",
       "machineFit": "Large offline shelf best staged after the main runtime is settled",
       "includes": [
@@ -8641,7 +8641,7 @@
       "size": "313 MB",
       "status": "Best first install",
       "source": "Kiwix mirror",
-      "summary": "Pick the Wikipedia footprint that makes sense for this machine, then let RoachNet queue the selection directly into the Education lane.",
+      "summary": "Pick the Wikipedia footprint that matches this machine, then let RoachNet stage it as one named reference lane instead of a giant mystery download.",
       "accent": "blue",
       "machineFit": "Fastest encyclopedia option for first boot",
       "includes": [
@@ -8670,7 +8670,7 @@
       "size": "2.1 GB",
       "status": "Popular",
       "source": "Kiwix mirror",
-      "summary": "Pick the Wikipedia footprint that makes sense for this machine, then let RoachNet queue the selection directly into the Education lane.",
+      "summary": "Pick the Wikipedia footprint that matches this machine, then let RoachNet stage it as one named reference lane instead of a giant mystery download.",
       "accent": "blue",
       "machineFit": "Good balance of size and reach for daily offline lookup work",
       "includes": [
@@ -8699,7 +8699,7 @@
       "size": "11 GB",
       "status": "Compact full library",
       "source": "Kiwix mirror",
-      "summary": "Pick the Wikipedia footprint that makes sense for this machine, then let RoachNet queue the selection directly into the Education lane.",
+      "summary": "Pick the Wikipedia footprint that matches this machine, then let RoachNet stage it as one named reference lane instead of a giant mystery download.",
       "accent": "violet",
       "machineFit": "Best for long-lived offline installs with real storage headroom",
       "includes": [
@@ -8728,7 +8728,7 @@
       "size": "48 GB",
       "status": "Deep archive",
       "source": "Kiwix mirror",
-      "summary": "Pick the Wikipedia footprint that makes sense for this machine, then let RoachNet queue the selection directly into the Education lane.",
+      "summary": "Pick the Wikipedia footprint that matches this machine, then let RoachNet stage it as one named reference lane instead of a giant mystery download.",
       "accent": "violet",
       "machineFit": "Best for long-lived offline installs with real storage headroom",
       "includes": [
@@ -8757,7 +8757,7 @@
       "size": "115 GB",
       "status": "Largest install",
       "source": "Kiwix mirror",
-      "summary": "Pick the Wikipedia footprint that makes sense for this machine, then let RoachNet queue the selection directly into the Education lane.",
+      "summary": "Pick the Wikipedia footprint that matches this machine, then let RoachNet stage it as one named reference lane instead of a giant mystery download.",
       "accent": "magenta",
       "machineFit": "Best for long-lived offline installs with real storage headroom",
       "includes": [

@@ -1,6 +1,6 @@
 const owner = 'AHGRoach'
 const repo = 'RoachNet'
-const releaseVersion = '1.0.5'
+const releaseVersion = '1.0.0'
 const latestReleaseApi = `https://api.github.com/repos/${owner}/${repo}/releases/latest`
 const latestReleasePage = `https://github.com/${owner}/${repo}/releases/latest`
 const latestDownloadBase = `https://github.com/${owner}/${repo}/releases/latest/download`
@@ -79,7 +79,8 @@ let featuredRotationItems = []
 let featuredRotationIndex = 0
 let storeRevealObserver = null
 
-const homebrewCommand = 'brew tap AHGRoach/roachnet && brew install --cask roachnet'
+const homebrewCommand =
+  'brew update && brew tap --force AHGRoach/roachnet && brew install --cask --no-quarantine roachnet'
 const homebrewHelperUrl = '/downloads/RoachNet-Homebrew.command.zip'
 
 const storeSectionMeta = {
@@ -435,14 +436,14 @@ function setHomebrewNote(text) {
 function triggerHomebrewInstall() {
   window.location.href = homebrewHelperUrl
   setHomebrewNote(
-    'Helper downloaded. Open the zip in Finder, then open RoachNet-Homebrew.command to launch Terminal and run the Homebrew install.'
+    'Helper downloaded. Open the zip in Finder, then open RoachNet-Homebrew.command to launch Terminal, refresh the tap, and run the Homebrew install.'
   )
 }
 
 async function copyHomebrewCommand() {
   try {
     await navigator.clipboard.writeText(homebrewCommand)
-    setHomebrewNote('Copied: brew tap AHGRoach/roachnet && brew install --cask roachnet')
+    setHomebrewNote('Copied the refresh-first Homebrew command for the current RoachNet cask lane.')
   } catch (error) {
     console.error(error)
     setHomebrewNote('Clipboard access was blocked. Open the helper download instead.')

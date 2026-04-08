@@ -69,8 +69,8 @@
             <a class="cta cta--ghost" href="https://github.com/AHGRoach/homebrew-roachnet" target="_blank" rel="noreferrer">View tap repo</a>
           </div>
 
-          <p class="hero-footnote">Apple Silicon only. Fresh Homebrew installs are supported. The helper can install Homebrew first, then run the cask.</p>
-          <p class="download-meta">Current cask target: RoachNet 1.0.5 · <code>brew tap AHGRoach/roachnet &amp;&amp; brew install --cask roachnet</code></p>
+          <p class="hero-footnote">Apple Silicon only. Fresh Homebrew installs are supported. The helper can install Homebrew first, refresh the tap, then run the cask cleanly.</p>
+          <p class="download-meta">Current cask target: RoachNet 1.0.0 · <code>brew update &amp;&amp; brew tap --force AHGRoach/roachnet &amp;&amp; brew install --cask --no-quarantine roachnet</code></p>
           <p class="homebrew-note" id="homebrew-note">
             The direct lane writes the RoachNet config automatically, marks the first launch as a contained Homebrew bootstrap, disables the companion bridge on first boot, and skips the launch intro so the shell can come up cleanly on a fresh Mac.
           </p>
@@ -85,8 +85,8 @@
             />
           </div>
           <div class="screen-chip-row">
-            <span class="screen-chip">brew tap AHGRoach/roachnet</span>
-            <span class="screen-chip">brew install --cask roachnet</span>
+            <span class="screen-chip">brew update</span>
+            <span class="screen-chip">brew install --cask --no-quarantine roachnet</span>
             <span class="screen-chip">~/RoachNet/app</span>
             <span class="screen-chip">Contained runtime</span>
           </div>
@@ -102,14 +102,14 @@
         <div class="card-grid card-grid--three" role="list">
           <article class="support-card" role="listitem">
             <span class="feature-card__eyebrow">1</span>
-            <h3>Tap the RoachNet cask.</h3>
-            <p><code>brew tap AHGRoach/roachnet</code></p>
+            <h3>Refresh the tap.</h3>
+            <p><code>brew update &amp;&amp; brew tap --force AHGRoach/roachnet</code></p>
           </article>
 
           <article class="support-card" role="listitem">
             <span class="feature-card__eyebrow">2</span>
             <h3>Install the native app.</h3>
-            <p><code>brew install --cask roachnet</code></p>
+            <p><code>brew install --cask --no-quarantine roachnet</code></p>
           </article>
 
           <article class="support-card" role="listitem">

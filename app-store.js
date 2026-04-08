@@ -1,6 +1,6 @@
 const owner = 'AHGRoach'
 const repo = 'RoachNet'
-const releaseVersion = '1.0.5'
+const releaseVersion = '1.0.0'
 const latestReleaseApi = `https://api.github.com/repos/${owner}/${repo}/releases/latest`
 const latestReleasePage = `https://github.com/${owner}/${repo}/releases/latest`
 const latestDownloadBase = `https://github.com/${owner}/${repo}/releases/latest/download`
@@ -541,6 +541,35 @@ const state = {
   catalog: null,
   activeSection: resolveInitialSection(),
   query: '',
+}
+
+function enhanceShelfScrollers() {
+  storeStage?.querySelectorAll('.apps-row__scroller').forEach((scroller) => {
+    if (scroller.dataset.scrollEnhanced === 'true') {
+      return
+    }
+
+    scroller.dataset.scrollEnhanced = 'true'
+    scroller.addEventListener(
+      'wheel',
+      (event) => {
+        if (scroller.scrollWidth <= scroller.clientWidth + 8) {
+          return
+        }
+
+        if (Math.abs(event.deltaY) <= Math.abs(event.deltaX)) {
+          return
+        }
+
+        event.preventDefault()
+        scroller.scrollBy({
+          left: event.deltaY,
+          behavior: 'auto',
+        })
+      },
+      { passive: false }
+    )
+  })
 }
 
 function slugify(value) {
@@ -1257,10 +1286,12 @@ function renderStore() {
 
   if (state.activeSection === 'Today' && !state.query.trim()) {
     renderTodayView()
+    enhanceShelfScrollers()
     return
   }
 
   renderCategoryView()
+  enhanceShelfScrollers()
 }
 
 function renderDetail(item) {

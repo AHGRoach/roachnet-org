@@ -92,7 +92,7 @@ const apiGroups = [
     basePath: '/brew',
     summary: 'Direct cask lane for Apple Silicon Macs that bypasses Setup.app but lands on the same runtime API after boot.',
     stack: 'homebrew-roachnet cask -> postflight config writer -> ~/RoachNet/app/RoachNet.app -> run-roachnet.mjs contained runtime bootstrap',
-    callers: ['brew tap AHGRoach/roachnet && brew install --cask roachnet', 'RoachNet-Homebrew.command', 'RoachNet.app first launch after cask install'],
+    callers: ['brew update && brew tap --force AHGRoach/roachnet && brew install --cask --no-quarantine roachnet', 'RoachNet-Homebrew.command', 'RoachNet.app first launch after cask install'],
     endpoints: [
       {
         id: 'brew-install-contract',
@@ -271,7 +271,7 @@ const apiGroups = [
           'Primary companion token or paired RoachTail peer token at the sidecar layer',
           'No body required',
         ],
-        response: ['appName, machineName, appsCatalogUrl, runtime, vault, sessions'],
+        response: ['appName, machineName (friendly desktop label), appsCatalogUrl, runtime, vault, sessions'],
         implementation:
           'The public sidecar listens on the companion port, verifies either the long-lived desktop token or a hashed per-peer RoachTail token, and proxies into the desktop runtime. The controller then fans out to runtimePayload, vaultPayload, and ChatService.getAllSessions() so the phone app can paint in one round-trip.',
         usedBy: ['RoachNet iOS first launch', 'manual refresh after saving connection settings'],
@@ -1794,6 +1794,7 @@ function renderRouteList() {
       renderRouteList()
       renderDetail()
       updateHash()
+      snapDetailPaneIntoView('smooth')
     })
   })
 }
@@ -1858,6 +1859,19 @@ function updateHash() {
   history.replaceState(null, '', `#${activeRouteId}`)
 }
 
+function snapDetailPaneIntoView(behavior = 'smooth') {
+  if (!detailPane) {
+    return
+  }
+
+  window.requestAnimationFrame(() => {
+    detailPane.scrollIntoView({
+      behavior,
+      block: 'start',
+    })
+  })
+}
+
 function hydrateFromHash() {
   const id = window.location.hash.replace(/^#/, '').trim()
   if (!id) {
@@ -1889,3 +1903,6 @@ searchInput?.addEventListener('input', (event) => {
 hydrateFromHash()
 syncSelection()
 renderAll()
+if (window.location.hash) {
+  snapDetailPaneIntoView('auto')
+}

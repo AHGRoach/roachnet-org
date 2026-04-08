@@ -25,12 +25,14 @@ if ! command -v brew >/dev/null 2>&1; then
   exit 1
 fi
 
-brew tap AHGRoach/roachnet
+echo "Refreshing Homebrew metadata ..."
+brew update --quiet
+brew tap --force AHGRoach/roachnet
 
 if brew list --cask roachnet >/dev/null 2>&1; then
-  brew reinstall --cask roachnet
+  brew reinstall --cask --force --no-quarantine roachnet
 else
-  brew install --cask roachnet
+  brew install --cask --no-quarantine roachnet
 fi
 
 open "$HOME/RoachNet/app/RoachNet.app"
