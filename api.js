@@ -256,8 +256,8 @@ const apiGroups = [
     label: 'Companion',
     scope: 'runtime',
     basePath: '/api/companion',
-    summary: 'Desktop companion token plus per-device RoachTail peer tokens for the iPhone and iPad carry lane.',
-    stack: 'roachnet-companion-server.mjs -> peer-aware token gate -> CompanionController -> ChatService / OllamaService / runtime relays -> RoachTail state in contained storage',
+    summary: 'Desktop companion token plus per-device RoachTail peer tokens for the iPhone and iPad carry lane, with RoachSync state folded into the same bridge.',
+    stack: 'roachnet-companion-server.mjs -> peer-aware token gate -> CompanionController -> ChatService / OllamaService / runtime relays -> RoachTail/RoachSync state in contained storage',
     callers: ['RoachNet iOS companion', 'future iPad surfaces'],
     endpoints: [
       {
@@ -284,10 +284,10 @@ const apiGroups = [
         summary: 'Returns desktop runtime, RoachClaw, service, and download state for the phone.',
         handler: 'CompanionController.runtime',
         request: ['Token-gated request, no body required'],
-        response: ['systemInfo, providers, roachClaw, roachTail, services, downloads, installedModels, issues'],
+        response: ['systemInfo, providers, roachClaw, roachTail, roachSync, services, downloads, installedModels, issues'],
         implementation:
-          'CompanionController.runtimePayload relays into the existing system, AI-provider, RoachClaw, downloads, installed-model, and RoachTail state lanes, then coalesces failures into an issues array so the mobile UI can stay live even when one lane is still warming up. Paired peer tokens only get this full payload while RoachTail is armed.',
-        usedBy: ['Runtime tab', 'RoachTail status panel', 'post-service-action refreshes', 'bootstrap payload'],
+          'CompanionController.runtimePayload relays into the existing system, AI-provider, RoachClaw, downloads, installed-model, RoachTail, and RoachSync state lanes, then coalesces failures into an issues array so the mobile UI can stay live even when one lane is still warming up. Paired peer tokens only get this full payload while RoachTail is armed.',
+        usedBy: ['Runtime tab', 'RoachTail status panel', 'RoachSync status panel', 'post-service-action refreshes', 'bootstrap payload'],
       },
       {
         id: 'companion-roachtail',
@@ -297,10 +297,10 @@ const apiGroups = [
         summary: 'Returns the private-device overlay state used by the companion app.',
         handler: 'CompanionController.roachtail',
         request: ['Token-gated request, no body required'],
-        response: ['enabled, networkName, deviceName, deviceId, status, relayHost, advertisedUrl, joinCode?, joinCodeIssuedAt?, joinCodeExpiresAt?, notes, peers'],
+        response: ['enabled, networkName, deviceName, deviceId, status, relayHost, advertisedUrl, runtimeOrigin?, runtimeTunnelUrl?, joinCode?, joinCodeIssuedAt?, joinCodeExpiresAt?, pairingPayload?, pairingIssuedAt?, notes, peers'],
         implementation:
-          'Reads a RoachTail state snapshot from the contained RoachNet storage lane when one exists, then falls back to the current companion env/config so the iPhone and iPad surfaces can still show bridge readiness before a full mesh config has been written. Peer-token requests still get this route while RoachTail is off so the phone can re-arm the lane, but the one-time join code is redacted from paired peers.',
-        usedBy: ['Runtime tab status cards', 'RoachTail toggle state', 'Connection debugging'],
+          'Reads a RoachTail state snapshot from the contained RoachNet storage lane when one exists, then falls back to the current companion env/config so the iPhone and iPad surfaces can still show bridge readiness before a full mesh config has been written. Peer-token requests still get this route while RoachTail is off so the phone can re-arm the lane, but the one-time join code is redacted from paired peers. Desktop callers also receive the QR-friendly pairing payload that wraps bridge URL, join code, and transport hints.',
+        usedBy: ['Runtime tab status cards', 'RoachTail toggle state', 'desktop QR pairing panel', 'Connection debugging'],
       },
       {
         id: 'companion-roachtail-pair',
@@ -333,6 +333,35 @@ const apiGroups = [
         implementation:
           'Writes RoachTail state back into the contained storage lane instead of keeping it in transient process memory, so the desktop shell, setup app, and mobile runtime all read the same source of truth. Peer tokens can toggle enable/disable and self-link or self-unlink, while refresh-code, relay-host, and full-peer edits stay restricted to the desktop companion token.',
         usedBy: ['RoachNet iOS runtime toggle', 'RoachNet macOS runtime panel', 'future relay-host editing'],
+      },
+      {
+        id: 'companion-roachsync',
+        method: 'GET',
+        path: '/roachsync',
+        title: 'RoachSync status',
+        summary: 'Returns the contained sync-lane snapshot the desktop and phone use for shared vault state.',
+        handler: 'CompanionController.roachsync',
+        request: ['Token-gated request, no body required'],
+        response: ['enabled, provider, networkName, deviceName, deviceId, status, folderId, folderPath, guiUrl?, apiUrl?, notes, peers'],
+        implementation:
+          'Reads the RoachSync state record from contained storage and falls back to the local vault path plus Syncthing-flavored defaults when the lane has not been armed yet. This keeps the iPhone and desktop runtime panes aligned around the same sync root.',
+        usedBy: ['RoachNet iOS runtime tab', 'RoachNet macOS runtime panel'],
+      },
+      {
+        id: 'companion-roachsync-affect',
+        method: 'POST',
+        path: '/roachsync/affect',
+        title: 'Mutate RoachSync state',
+        summary: 'Turns the contained sync lane on or off, refreshes its state, and clears peer metadata.',
+        handler: 'CompanionController.affectRoachSync',
+        request: [
+          'Body: { action, folderPath? }',
+          'Supported actions: enable, disable, refresh, set-folder-path, clear-peers',
+        ],
+        response: ['success, message, state'],
+        implementation:
+          'Writes the RoachSync state record back into contained storage so the desktop shell, the phone runtime view, and future account-backed sync surfaces all reflect the same vault-sync source of truth.',
+        usedBy: ['RoachNet iOS runtime toggle', 'RoachNet macOS runtime panel'],
       },
       {
         id: 'companion-vault',
@@ -760,8 +789,8 @@ const apiGroups = [
     label: 'RoachClaw',
     scope: 'runtime',
     basePath: '/api/roachclaw',
-    summary: 'RoachClaw status and onboarding application.',
-    stack: 'RoachClawController -> RoachClawService',
+    summary: 'RoachClaw status, onboarding application, and portable profile export.',
+    stack: 'RoachClawController -> RoachClawService -> contained workspace profile writer',
     callers: ['RoachClaw pane', 'ManagedAppRuntime'],
     endpoints: [
       {
@@ -775,6 +804,19 @@ const apiGroups = [
         response: ['RoachClaw status object'],
         implementation: 'Returns the resolved contained/local/cloud lane status, configured model, and service reachability from RoachClawService.',
         usedBy: ['RoachClaw status card', 'ManagedAppRuntime', 'setup post-install checks'],
+      },
+      {
+        id: 'roachclaw-profile',
+        method: 'GET',
+        path: '/profile',
+        title: 'Portable RoachClaw profile',
+        summary: 'Returns the contained RoachClaw portable profile used by the desktop runtime and future web surfaces.',
+        handler: 'getProfile',
+        request: ['No body required'],
+        response: ['Portable RoachClaw profile object with portableRoot, workspacePath, stateDir, defaultModel, provider URLs, and launch hints'],
+        implementation:
+          'Asks RoachClawService for the current portable profile, which captures the contained workspace root plus the default model and provider URLs in one machine-local contract the desktop runtime and future RoachClaw web lane can both read.',
+        usedBy: ['ManagedAppRuntime', 'future RoachClaw web chat lane', 'portable profile inspection'],
       },
       {
         id: 'roachclaw-apply',

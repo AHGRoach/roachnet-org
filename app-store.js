@@ -1,6 +1,6 @@
 const owner = 'AHGRoach'
 const repo = 'RoachNet'
-const releaseVersion = '1.0.0'
+const releaseVersion = window.__ROACHNET_SITE_CONFIG__?.releaseVersion || '1.0.6'
 const latestReleaseApi = `https://api.github.com/repos/${owner}/${repo}/releases/latest`
 const latestReleasePage = `https://github.com/${owner}/${repo}/releases/latest`
 const latestDownloadBase = `https://github.com/${owner}/${repo}/releases/latest/download`
@@ -1053,15 +1053,39 @@ function getCatalogItems() {
   return Array.isArray(state.catalog?.items) ? state.catalog.items : []
 }
 
+function buildFallbackBlurb(item, section) {
+  const subtitle = String(item.subtitle || '').trim()
+  const summary = String(item.summary || '').trim()
+
+  if (subtitle && subtitle.length <= 140) {
+    return subtitle.replace(/\.$/, '')
+  }
+
+  if (summary) {
+    const firstSentence = summary.split(/(?<=[.!?])\s+/)[0]?.trim()
+    if (firstSentence) {
+      return firstSentence.replace(/\.$/, '')
+    }
+  }
+
+  return `${item.title} lands in the ${section.navLabel} lane as its own named RoachNet app instead of vanishing into a random download pile.`
+}
+
+function buildFallbackDetail(item, section, blurb) {
+  const sourceLine = item.source ? `${item.source} stays grouped under the ${section.navLabel} lane.` : `${section.title}`
+  return [
+    `${blurb}.`,
+    `${item.title} lands in the ${section.navLabel} lane as its own named RoachNet app instead of vanishing into a random download pile.`,
+    sourceLine,
+  ]
+}
+
 function enrichItem(item) {
   const copy = itemCopy[item.id] || {}
   const section = sectionLookup.get(item.section) || sectionLookup.get('Today')
   const tier = deriveTier(item.status)
-  const blurb = copy.blurb || item.summary
-  const detail = copy.detail || [
-    blurb,
-    `${item.title} lands in the ${section.navLabel} lane as its own named RoachNet app instead of vanishing into a random download pile.`,
-  ]
+  const blurb = copy.blurb || buildFallbackBlurb(item, section)
+  const detail = copy.detail || buildFallbackDetail(item, section, blurb)
 
   return {
     ...item,

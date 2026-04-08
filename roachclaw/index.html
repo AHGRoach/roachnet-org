@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RoachClaw Web</title>
+    <meta
+      name="description"
+      content="RoachClaw on the web: the paired local lane, the future account lane, and the plan for a secure browser-facing RoachNet chat surface."
+    />
+    <meta name="theme-color" content="#0a1016" />
+    <link rel="canonical" href="https://roachnet.org/roachclaw/" />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="stylesheet" href="../app.css" />
+  </head>
+  <body data-page="roachclaw">
+    <div class="bg-glow bg-glow--blue" aria-hidden="true"></div>
+    <div class="bg-glow bg-glow--green" aria-hidden="true"></div>
+
+    <div class="docs-shell docs-shell--roachclaw">
+      <aside class="docs-sidebar">
+        <a class="api-docs-brand" href="https://roachnet.org/" aria-label="Back to RoachNet">
+          <img class="api-docs-brand__mark" src="../assets/roachnet-logo.png" alt="RoachNet logo" />
+          <div class="api-docs-brand__copy">
+            <span>RoachClaw</span>
+            <strong>The web lane for RoachNet chat.</strong>
+          </div>
+        </a>
+
+        <section class="docs-sidebar__intro">
+          <span class="api-docs-kicker">RoachClaw</span>
+          <h1>Keep the browser lane honest.</h1>
+          <p>RoachClaw on the web should either talk to your own paired runtime or a future authenticated account lane, not pretend the browser can see your local machine by magic.</p>
+        </section>
+
+        <div class="docs-sidebar__stack">
+          <article class="docs-sidebar__card">
+            <span class="api-docs-kicker">Paired lane</span>
+            <h2>Best first cut.</h2>
+            <p>Pair the browser to your own desktop runtime through RoachTail and keep the model lane on your hardware.</p>
+          </article>
+
+          <article class="docs-sidebar__card">
+            <span class="api-docs-kicker">Account lane</span>
+            <h2>Future hosted side.</h2>
+            <p>Accounts give the site a place to hold chat history, remembered installs, and synced preferences once the hosted lane is ready.</p>
+          </article>
+        </div>
+
+        <div class="api-docs-sidebar__links">
+          <a class="cta cta--ghost" href="https://roachnet.org/account/">Account</a>
+          <a class="cta cta--ghost" href="https://roachnet.org/api/">API docs</a>
+          <a class="cta cta--ghost" href="https://apps.roachnet.org/">Browse Apps</a>
+        </div>
+      </aside>
+
+      <main class="docs-main docs-main--roachclaw">
+        <header class="docs-hero">
+          <span class="api-docs-kicker">RoachClaw Web</span>
+          <h2>Explore the browser-facing RoachClaw lane without lying about what is actually live.</h2>
+          <p>This page tracks the two clean paths: a paired private bridge to your own machine, and a future account-backed web lane for the hosted side.</p>
+        </header>
+
+        <section class="roachclaw-web-surface">
+          <div class="roachclaw-mode-toggle" role="tablist" aria-label="RoachClaw web modes">
+            <button class="account-tab is-active" data-roachclaw-mode="paired" type="button">Paired desktop</button>
+            <button class="account-tab" data-roachclaw-mode="account" type="button">Account lane</button>
+            <button class="account-tab" data-roachclaw-mode="plan" type="button">Build plan</button>
+          </div>
+
+          <div class="roachclaw-web-grid">
+            <article class="roachclaw-web-card">
+              <span class="api-docs-kicker" id="roachclaw-mode-kicker">Paired desktop</span>
+              <h3 id="roachclaw-mode-title">The browser talks to your own runtime, not a mystery box.</h3>
+              <p id="roachclaw-mode-body">Pair through RoachTail, keep the model lane on your own machine, and let the site act like a clean front door instead of a fake hosted model wrapper.</p>
+              <div class="account-status-badge" id="roachclaw-mode-badge" data-state="ready">Best first lane</div>
+              <div class="account-actions-inline">
+                <a class="cta cta--primary" id="roachclaw-primary-action" href="https://roachnet.org/iOS/">Open pairing guide</a>
+                <a class="cta cta--ghost" href="https://roachnet.org/account/">Account page</a>
+              </div>
+            </article>
+
+            <article class="roachclaw-chat-prototype">
+              <div class="roachclaw-chat-prototype__header">
+                <span>RoachClaw</span>
+                <strong id="roachclaw-prototype-status">Exploration mode</strong>
+              </div>
+              <div class="roachclaw-chat-prototype__log" id="roachclaw-prototype-log">
+                <div class="roachclaw-chat-prototype__bubble roachclaw-chat-prototype__bubble--system">
+                  Pick a mode to see how the browser lane should behave.
+                </div>
+              </div>
+              <div class="roachclaw-chat-prototype__composer">
+                <input type="text" value="Ask about the paired local lane…" readonly />
+                <button class="cta cta--ghost" type="button" disabled>Send</button>
+              </div>
+            </article>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="../site-config.js"></script>
+    <script src="../roachclaw.js" type="module"></script>
+  </body>
+</html>

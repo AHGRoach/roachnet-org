@@ -1,9 +1,10 @@
 {
   "name": "roachnet-org",
   "private": true,
-  "version": "1.0.0",
+  "version": "1.0.6",
   "type": "module",
   "scripts": {
+    "build:config": "node scripts/render-site-config.mjs",
     "build:catalog": "node scripts/build-app-store-catalog.mjs",
     "build:apps": "node scripts/build-apps-site.mjs"
   }

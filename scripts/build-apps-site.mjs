@@ -18,6 +18,7 @@ async function main() {
     'app.js',
     'app-store.js',
     'app-store-catalog.json',
+    'site-config.js',
     'collections',
     'assets',
     'favicon.ico',

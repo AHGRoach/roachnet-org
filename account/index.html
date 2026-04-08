@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RoachNet Account</title>
+    <meta
+      name="description"
+      content="Sign in to the RoachNet website lane for future RoachClaw web chat, synced settings, and device-aware account features."
+    />
+    <meta name="theme-color" content="#0a1016" />
+    <link rel="canonical" href="https://roachnet.org/account/" />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="stylesheet" href="../app.css" />
+  </head>
+  <body data-page="account">
+    <div class="bg-glow bg-glow--blue" aria-hidden="true"></div>
+    <div class="bg-glow bg-glow--green" aria-hidden="true"></div>
+
+    <div class="docs-shell docs-shell--account">
+      <aside class="docs-sidebar">
+        <a class="api-docs-brand" href="https://roachnet.org/" aria-label="Back to RoachNet">
+          <img class="api-docs-brand__mark" src="../assets/roachnet-logo.png" alt="RoachNet logo" />
+          <div class="api-docs-brand__copy">
+            <span>RoachNet Account</span>
+            <strong>Sign in for the web lane and future device sync.</strong>
+          </div>
+        </a>
+
+        <section class="docs-sidebar__intro">
+          <span class="api-docs-kicker">Account</span>
+          <h1>Keep the website lane tied to your own RoachNet session.</h1>
+          <p>Accounts are for the web lane: RoachClaw chat on the site, synced preferences, and future cross-device install history.</p>
+        </section>
+
+        <div class="docs-sidebar__stack">
+          <article class="docs-sidebar__card">
+            <span class="api-docs-kicker">What it unlocks</span>
+            <h2>One sign-in across the website lane.</h2>
+            <ul class="docs-bullet-list">
+              <li>Future RoachClaw web chat access</li>
+              <li>Device-aware settings and RoachTail metadata</li>
+              <li>RoachSync-ready account state for later sync surfaces</li>
+            </ul>
+          </article>
+
+          <article class="docs-sidebar__card">
+            <span class="api-docs-kicker">Privacy</span>
+            <h2>Desktop data stays out of the public page.</h2>
+            <p>This lane is for account state, not for dumping local paths or machine-private filesystem details into the site.</p>
+          </article>
+        </div>
+
+        <div class="api-docs-sidebar__links">
+          <a class="cta cta--ghost" href="https://roachnet.org/">Back to RoachNet</a>
+          <a class="cta cta--ghost" href="https://roachnet.org/roachclaw/">RoachClaw on the web</a>
+          <a class="cta cta--ghost" href="https://roachnet.org/api/">API docs</a>
+        </div>
+      </aside>
+
+      <main class="docs-main docs-main--account">
+        <header class="docs-hero">
+          <span class="api-docs-kicker">Account</span>
+          <h2>Sign in when you want the web lane to remember you.</h2>
+          <p>Use the account lane for RoachClaw on the web, remembered settings, and the future hosted side of RoachSync and device history.</p>
+        </header>
+
+        <section class="account-surface">
+          <article class="account-status-card">
+            <span class="api-docs-kicker">Status</span>
+            <h3 id="account-status-title">Checking auth lane…</h3>
+            <p id="account-status-body">Loading the current account state for this deploy.</p>
+            <div class="account-status-badge" id="account-status-badge">Loading</div>
+            <div class="account-actions-inline">
+              <button class="cta cta--ghost" id="account-refresh" type="button">Refresh</button>
+              <button class="cta cta--ghost" id="account-signout" type="button" hidden>Sign out</button>
+            </div>
+          </article>
+
+          <article class="account-auth-card">
+            <div class="account-auth-card__tabs" role="tablist" aria-label="Account mode">
+              <button class="account-tab is-active" data-account-mode="signin" type="button">Sign in</button>
+              <button class="account-tab" data-account-mode="signup" type="button">Create account</button>
+            </div>
+
+            <form class="account-form" id="account-form">
+              <label class="account-field">
+                <span>Email</span>
+                <input id="account-email" type="email" autocomplete="email" placeholder="you@roachnet.org" required />
+              </label>
+
+              <label class="account-field">
+                <span>Password</span>
+                <input id="account-password" type="password" autocomplete="current-password" placeholder="Use a strong password" required />
+              </label>
+
+              <button class="cta cta--primary" id="account-submit" type="submit">Sign in</button>
+              <p class="account-form__note" id="account-form-note">This page is ready for the auth provider once the site keys are armed.</p>
+              <p class="account-form__feedback" id="account-feedback" aria-live="polite"></p>
+            </form>
+          </article>
+        </section>
+      </main>
+    </div>
+
+    <script src="../site-config.js"></script>
+    <script src="../account.js" type="module"></script>
+  </body>
+</html>
