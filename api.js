@@ -1794,6 +1794,10 @@ function renderRouteList() {
       renderRouteList()
       renderDetail()
       updateHash()
+      button.scrollIntoView({
+        behavior: 'smooth',
+        block: 'nearest',
+      })
       snapDetailPaneIntoView('smooth')
     })
   })
@@ -1906,3 +1910,10 @@ renderAll()
 if (window.location.hash) {
   snapDetailPaneIntoView('auto')
 }
+
+window.addEventListener('hashchange', () => {
+  hydrateFromHash()
+  syncSelection()
+  renderAll()
+  snapDetailPaneIntoView('smooth')
+})

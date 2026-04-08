@@ -550,6 +550,8 @@ function enhanceShelfScrollers() {
     }
 
     scroller.dataset.scrollEnhanced = 'true'
+    scroller.tabIndex = 0
+
     scroller.addEventListener(
       'wheel',
       (event) => {
@@ -569,6 +571,59 @@ function enhanceShelfScrollers() {
       },
       { passive: false }
     )
+
+    let pointerState = null
+
+    scroller.addEventListener('pointerdown', (event) => {
+      if (event.pointerType === 'mouse' && event.button !== 0) {
+        return
+      }
+
+      pointerState = {
+        id: event.pointerId,
+        startX: event.clientX,
+        startScrollLeft: scroller.scrollLeft,
+      }
+
+      scroller.setPointerCapture?.(event.pointerId)
+      scroller.dataset.dragging = 'true'
+    })
+
+    scroller.addEventListener('pointermove', (event) => {
+      if (!pointerState || pointerState.id !== event.pointerId) {
+        return
+      }
+
+      const delta = event.clientX - pointerState.startX
+      if (Math.abs(delta) < 2) {
+        return
+      }
+
+      scroller.scrollLeft = pointerState.startScrollLeft - delta
+    })
+
+    const clearPointerState = (event) => {
+      if (pointerState && pointerState.id === event.pointerId) {
+        scroller.releasePointerCapture?.(event.pointerId)
+        pointerState = null
+        delete scroller.dataset.dragging
+      }
+    }
+
+    scroller.addEventListener('pointerup', clearPointerState)
+    scroller.addEventListener('pointercancel', clearPointerState)
+    scroller.addEventListener('keydown', (event) => {
+      if (event.key !== 'ArrowLeft' && event.key !== 'ArrowRight') {
+        return
+      }
+
+      event.preventDefault()
+      const direction = event.key === 'ArrowRight' ? 1 : -1
+      scroller.scrollBy({
+        left: direction * Math.max(280, Math.round(scroller.clientWidth * 0.7)),
+        behavior: 'smooth',
+      })
+    })
   })
 }
 
@@ -1005,7 +1060,7 @@ function enrichItem(item) {
   const blurb = copy.blurb || item.summary
   const detail = copy.detail || [
     blurb,
-    `${item.title} installs into the ${section.navLabel} lane as its own named RoachNet app instead of disappearing into a loose download folder.`,
+    `${item.title} lands in the ${section.navLabel} lane as its own named RoachNet app instead of vanishing into a random download pile.`,
   ]
 
   return {

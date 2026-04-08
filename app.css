@@ -4208,6 +4208,13 @@ body[data-page="apps"] .apps-row__scroller {
   scroll-snap-type: x proximity;
   overscroll-behavior-x: contain;
   -webkit-overflow-scrolling: touch;
+  touch-action: pan-x;
+  cursor: grab;
+}
+
+body[data-page="apps"] .apps-row__scroller[data-dragging="true"] {
+  cursor: grabbing;
+  user-select: none;
 }
 
 body[data-page="apps"] .apps-row__scroller::-webkit-scrollbar {
