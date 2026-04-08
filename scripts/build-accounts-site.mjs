@@ -35,7 +35,7 @@ async function main() {
     force: true,
   })
 
-  const releaseVersion = process.env.ROACHNET_RELEASE_VERSION || '1.0.1'
+  const releaseVersion = process.env.ROACHNET_RELEASE_VERSION || '1.0.5'
   const authEnabled =
     process.env.ROACHNET_AUTH_ENABLED === '1' &&
     Boolean(process.env.ROACHNET_SUPABASE_URL) &&
@@ -50,11 +50,18 @@ async function main() {
       supabaseUrl: process.env.ROACHNET_SUPABASE_URL || '',
       supabaseAnonKey: process.env.ROACHNET_SUPABASE_ANON_KEY || '',
       redirectUrl: process.env.ROACHNET_AUTH_REDIRECT_URL || 'https://accounts.roachnet.org/',
+      registerUrl: process.env.ROACHNET_ACCOUNT_REGISTER_URL || '/.netlify/functions/register-account',
     },
     webChat: {
       enabled: webChatEnabled,
       mode: process.env.ROACHNET_WEB_CHAT_MODE || 'planned',
       accountRequired: process.env.ROACHNET_WEB_CHAT_ACCOUNT_REQUIRED !== '0',
+    },
+    turnstile: {
+      enabled:
+        process.env.ROACHNET_TURNSTILE_ENABLED === '1' &&
+        Boolean(process.env.ROACHNET_TURNSTILE_SITE_KEY),
+      siteKey: process.env.ROACHNET_TURNSTILE_SITE_KEY || '',
     },
   }
 

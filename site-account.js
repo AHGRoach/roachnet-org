@@ -1,16 +1,21 @@
 const defaultSiteConfig = {
-  releaseVersion: '1.0.1',
+  releaseVersion: '1.0.5',
   auth: {
     enabled: false,
     provider: 'supabase',
     supabaseUrl: '',
     supabaseAnonKey: '',
     redirectUrl: 'https://accounts.roachnet.org/',
+    registerUrl: '/.netlify/functions/register-account',
   },
   webChat: {
     enabled: false,
     mode: 'planned',
     accountRequired: true,
+  },
+  turnstile: {
+    enabled: false,
+    siteKey: '',
   },
 }
 
@@ -28,6 +33,10 @@ export function getSiteConfig() {
     webChat: {
       ...defaultSiteConfig.webChat,
       ...(configured.webChat || {}),
+    },
+    turnstile: {
+      ...defaultSiteConfig.turnstile,
+      ...(configured.turnstile || {}),
     },
   }
 }

@@ -19,143 +19,159 @@
   <body data-page="account">
     <div class="bg-glow bg-glow--blue" aria-hidden="true"></div>
     <div class="bg-glow bg-glow--green" aria-hidden="true"></div>
+    <header class="site-header account-topbar">
+      <a class="brand-lockup" href="https://roachnet.org/" aria-label="Back to RoachNet">
+        <img class="brand-mark" src="/assets/roachnet-logo.png" alt="RoachNet logo" />
+        <div class="brand-copy">
+          <strong>RoachNet Account</strong>
+          <span class="brand-kicker">Website sign-in, sync state, and future web chat</span>
+        </div>
+      </a>
 
-    <div class="docs-shell docs-shell--account">
-      <aside class="docs-sidebar">
-        <a class="api-docs-brand" href="https://roachnet.org/" aria-label="Back to RoachNet">
-          <img class="api-docs-brand__mark" src="/assets/roachnet-logo.png" alt="RoachNet logo" />
-          <div class="api-docs-brand__copy">
-            <span>RoachNet Account</span>
-            <strong>Sign in for the web lane and future device sync.</strong>
+      <nav class="site-nav" aria-label="Account links">
+        <a href="https://roachnet.org/">RoachNet</a>
+        <a href="https://roachnet.org/roachclaw/">RoachClaw</a>
+        <a href="https://roachnet.org/api/">API</a>
+      </nav>
+    </header>
+
+    <main class="account-page">
+      <section class="account-hero">
+        <article class="account-poster">
+          <span class="eyebrow">Account</span>
+          <h1>Sign in once. Keep your lane tied together.</h1>
+          <p>
+            Use the hosted lane for web chat, synced app picks, device links, and settings that
+            follow your RoachTail and RoachSync network.
+          </p>
+
+          <div class="account-chip-row" aria-label="Account features">
+            <span class="account-chip">RoachClaw web chat</span>
+            <span class="account-chip">Saved apps</span>
+            <span class="account-chip">Device links</span>
+            <span class="account-chip">Sync-ready settings</span>
           </div>
-        </a>
 
-        <section class="docs-sidebar__intro">
-          <span class="api-docs-kicker">Account</span>
-          <h1>Keep the website lane tied to your own devices.</h1>
-          <p>Accounts are for the hosted side of RoachNet: web chat, remembered settings, install history, and the metadata that ties your RoachTail and RoachSync lanes together without exposing local file paths.</p>
-        </section>
+          <div class="account-poster__grid">
+            <article class="account-mini-card">
+              <span class="feature-card__eyebrow">What syncs</span>
+              <strong>Apps, device links, and settings state.</strong>
+              <p>The hosted lane keeps metadata in step without dumping your local vault into the site.</p>
+            </article>
 
-        <div class="docs-sidebar__stack">
-          <article class="docs-sidebar__card">
-            <span class="api-docs-kicker">What it unlocks</span>
-            <h2>One sign-in across the website lane.</h2>
-            <ul class="docs-bullet-list">
-              <li>Future RoachClaw web chat access</li>
-              <li>Remembered settings and install history</li>
-              <li>RoachTail and RoachSync device metadata tied to one account lane</li>
-            </ul>
-          </article>
+            <article class="account-mini-card">
+              <span class="feature-card__eyebrow">What stays local</span>
+              <strong>Your runtime, models, vault, and machine paths.</strong>
+              <p>Desktop data stays on your own box unless you explicitly move it somewhere else.</p>
+            </article>
 
-          <article class="docs-sidebar__card">
-            <span class="api-docs-kicker">Privacy</span>
-            <h2>Desktop data stays out of the public page.</h2>
-            <p>This lane is for account state, not for dumping local paths, runtime secrets, or machine-private filesystem details into the site.</p>
-          </article>
+            <article class="account-mini-card">
+              <span class="feature-card__eyebrow">What comes next</span>
+              <strong>RoachClaw on the web and account-linked RoachTail.</strong>
+              <p>This lane is the bridge for the hosted side, not a replacement for the local app.</p>
+            </article>
+          </div>
+        </article>
 
-          <article class="docs-sidebar__card">
-            <span class="api-docs-kicker">Order</span>
-            <h2>Local first. Account second.</h2>
-            <p>Pair the desktop and phone through RoachTail first. Then sign into the website lane when you want the hosted side to remember devices, settings, and future chat history.</p>
-          </article>
-        </div>
-
-        <div class="api-docs-sidebar__links">
-          <a class="cta cta--ghost" href="https://roachnet.org/">Back to RoachNet</a>
-          <a class="cta cta--ghost" href="https://roachnet.org/roachclaw/">RoachClaw on the web</a>
-          <a class="cta cta--ghost" href="https://roachnet.org/api/">API docs</a>
-        </div>
-      </aside>
-
-      <main class="docs-main docs-main--account">
-        <header class="docs-hero">
-          <span class="api-docs-kicker">Account</span>
-          <h2>Sign in when you want the web lane tied to your session.</h2>
-          <p>Keep the desktop runtime local. Use the account lane for the hosted side: RoachClaw on the web, remembered settings, install history, and device-aware sync metadata.</p>
-        </header>
-
-        <section class="account-surface">
-          <article class="account-status-card">
-            <span class="api-docs-kicker">Status</span>
-            <h3 id="account-status-title">Checking auth lane…</h3>
-            <p id="account-status-body">Loading the current account state for this deploy.</p>
+        <section class="account-auth-shell">
+          <div class="account-inline-status">
+            <div>
+              <span class="feature-card__eyebrow">Account lane</span>
+              <h2 id="account-status-title">Checking auth lane…</h2>
+              <p id="account-status-body">Loading the current account state for this deploy.</p>
+            </div>
             <div class="account-status-badge" id="account-status-badge">Loading</div>
-            <div class="account-actions-inline">
-              <button class="cta cta--ghost" id="account-refresh" type="button">Refresh</button>
-              <button class="cta cta--ghost" id="account-signout" type="button" hidden>Sign out</button>
-            </div>
-          </article>
+          </div>
 
-          <article class="account-auth-card">
-            <div class="account-auth-card__tabs" role="tablist" aria-label="Account mode">
-              <button class="account-tab is-active" data-account-mode="signin" type="button">Sign in</button>
-              <button class="account-tab" data-account-mode="signup" type="button">Create account</button>
-            </div>
+          <div class="account-actions-inline">
+            <button class="cta cta--ghost" id="account-refresh" type="button">Refresh</button>
+            <button class="cta cta--ghost" id="account-signout" type="button" hidden>Sign out</button>
+          </div>
 
-            <form class="account-form" id="account-form">
-              <label class="account-field">
-                <span>Email</span>
-                <input id="account-email" type="email" autocomplete="email" placeholder="you@roachnet.org" required />
-              </label>
+          <div class="account-auth-card__tabs" role="tablist" aria-label="Account mode">
+            <button class="account-tab is-active" data-account-mode="signin" type="button">Sign in</button>
+            <button class="account-tab" data-account-mode="signup" type="button">Create account</button>
+          </div>
 
-              <label class="account-field">
-                <span>Password</span>
-                <input id="account-password" type="password" autocomplete="current-password" placeholder="Use a strong password" required />
-              </label>
+          <form class="account-form" id="account-form">
+            <label class="account-field account-name-field" id="account-name-field" hidden>
+              <span>Name</span>
+              <input id="account-display-name" type="text" autocomplete="nickname" maxlength="60" placeholder="How RoachNet should label this account" />
+            </label>
 
-              <button class="cta cta--primary" id="account-submit" type="submit">Sign in</button>
-              <p class="account-form__note" id="account-form-note">This page is ready for the auth provider once the site keys are armed.</p>
-              <p class="account-form__feedback" id="account-feedback" aria-live="polite"></p>
-            </form>
-          </article>
+            <label class="account-field">
+              <span>Email</span>
+              <input id="account-email" type="email" autocomplete="email" placeholder="you@roachnet.org" required />
+            </label>
 
-          <article class="account-status-card">
-            <span class="api-docs-kicker">Synced state</span>
-            <h3 id="account-snapshot-title">Sign in to load account state.</h3>
-            <p id="account-snapshot-body">Device links, saved apps, and settings metadata will show up here once the account lane is live for this session.</p>
+            <label class="account-field">
+              <span>Password</span>
+              <input id="account-password" type="password" autocomplete="current-password" placeholder="Use a strong password" required />
+            </label>
 
-            <div class="account-metrics">
-              <div class="account-metric">
-                <strong id="account-device-count">—</strong>
-                <span>Linked lanes</span>
-              </div>
+            <input id="account-started-at" type="hidden" />
+            <label class="account-honeypot" aria-hidden="true">
+              <span>Leave this blank</span>
+              <input id="account-company" type="text" tabindex="-1" autocomplete="off" />
+            </label>
 
-              <div class="account-metric">
-                <strong id="account-app-count">—</strong>
-                <span>Saved apps</span>
-              </div>
-
-              <div class="account-metric">
-                <strong id="account-settings-state">—</strong>
-                <span>Settings</span>
-              </div>
+            <div class="account-turnstile" id="account-turnstile-shell" hidden>
+              <div id="account-turnstile"></div>
+              <p class="account-form__note" id="account-turnstile-note">Verifying this request.</p>
             </div>
 
-            <div class="account-actions-inline">
-              <a class="cta cta--ghost" href="https://roachnet.org/roachclaw/">RoachClaw web lane</a>
-              <a class="cta cta--ghost" href="https://roachnet.org/iOS/">RoachNetiOS</a>
-            </div>
-          </article>
+            <button class="cta cta--primary" id="account-submit" type="submit">Sign in</button>
+            <p class="account-form__note" id="account-form-note">Sign in when you want the website lane tied to your account.</p>
+            <p class="account-form__feedback" id="account-feedback" aria-live="polite"></p>
+          </form>
         </section>
+      </section>
 
-        <section class="card-grid card-grid--three">
-          <article class="support-card" role="listitem">
-            <span class="feature-card__eyebrow">Desktop</span>
-            <h3>The app, vault, models, and runtime stay grouped on your own machine.</h3>
-          </article>
+      <section class="account-dashboard">
+        <article class="account-panel account-panel--snapshot">
+          <span class="feature-card__eyebrow">Synced state</span>
+          <h3 id="account-snapshot-title">Sign in to load account state.</h3>
+          <p id="account-snapshot-body">Device links, saved apps, and settings metadata will show up here once the account lane is live for this session.</p>
 
-          <article class="support-card" role="listitem">
-            <span class="feature-card__eyebrow">iPhone &amp; iPad</span>
-            <h3>RoachNetiOS carries chat, installs, RoachTail, and RoachSync status without needing a fake hosted runtime.</h3>
-          </article>
+          <div class="account-metrics">
+            <div class="account-metric">
+              <strong id="account-device-count">—</strong>
+              <span>Linked lanes</span>
+            </div>
 
-          <article class="support-card" role="listitem">
-            <span class="feature-card__eyebrow">Website lane</span>
-            <h3>The account layer is for remembered identity, future web chat, and synced metadata, not for leaking local machine details.</h3>
-          </article>
-        </section>
-      </main>
-    </div>
+            <div class="account-metric">
+              <strong id="account-app-count">—</strong>
+              <span>Saved apps</span>
+            </div>
+
+            <div class="account-metric">
+              <strong id="account-settings-state">—</strong>
+              <span>Settings</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="account-panel">
+          <span class="feature-card__eyebrow">Desktop and phone</span>
+          <h3>Keep the real work in the app.</h3>
+          <p>Use accounts for identity and sync metadata. Keep the runtime, vault, and local services on your own devices.</p>
+          <div class="account-actions-inline">
+            <a class="cta cta--ghost" href="https://roachnet.org/iOS/">RoachNetiOS</a>
+            <a class="cta cta--ghost" href="https://roachnet.org/roachclaw/">RoachClaw web lane</a>
+          </div>
+        </article>
+
+        <article class="account-panel">
+          <span class="feature-card__eyebrow">Privacy</span>
+          <h3>No local path dump. No fake cloud runtime.</h3>
+          <p>The site only stores account state that should be shared. Local file paths, runtime secrets, and vault content stay out of this lane.</p>
+          <div class="account-actions-inline">
+            <a class="cta cta--ghost" href="https://roachnet.org/api/">API docs</a>
+            <a class="cta cta--ghost" href="https://roachnet.org/">Back to RoachNet</a>
+          </div>
+        </article>
+      </section>
+    </main>
 
     <script src="/site-config.js"></script>
     <script src="/account.js" type="module"></script>

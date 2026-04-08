@@ -5,6 +5,9 @@ import {
   sessionLabel,
 } from './site-account.js'
 
+const browserDeviceStorageKey = 'RoachNetAccountBrowserDeviceID'
+const turnstileScriptId = 'roachnet-turnstile-script'
+
 const statusTitle = document.querySelector('#account-status-title')
 const statusBody = document.querySelector('#account-status-body')
 const statusBadge = document.querySelector('#account-status-badge')
@@ -16,18 +19,26 @@ const form = document.querySelector('#account-form')
 const formNote = document.querySelector('#account-form-note')
 const emailInput = document.querySelector('#account-email')
 const passwordInput = document.querySelector('#account-password')
+const displayNameInput = document.querySelector('#account-display-name')
+const displayNameField = document.querySelector('#account-name-field')
+const startedAtInput = document.querySelector('#account-started-at')
+const honeypotInput = document.querySelector('#account-company')
 const tabs = [...document.querySelectorAll('[data-account-mode]')]
 const snapshotTitle = document.querySelector('#account-snapshot-title')
 const snapshotBody = document.querySelector('#account-snapshot-body')
 const deviceCount = document.querySelector('#account-device-count')
 const appCount = document.querySelector('#account-app-count')
 const settingsState = document.querySelector('#account-settings-state')
-
-const browserDeviceStorageKey = 'RoachNetAccountBrowserDeviceID'
+const turnstileShell = document.querySelector('#account-turnstile-shell')
+const turnstileMount = document.querySelector('#account-turnstile')
+const turnstileNote = document.querySelector('#account-turnstile-note')
 
 let accountMode = 'signin'
 let authState = null
 let authSubscription = null
+let activeRequest = null
+let turnstileWidgetId = null
+let captchaToken = ''
 
 function setFeedback(message, tone = 'muted') {
   if (!feedback) return
@@ -51,10 +62,7 @@ function setSnapshot({
 
 function getBrowserDeviceID() {
   const existing = window.localStorage.getItem(browserDeviceStorageKey)
-  if (existing) {
-    return existing
-  }
-
+  if (existing) return existing
   const next = `account-web-${window.crypto.randomUUID()}`
   window.localStorage.setItem(browserDeviceStorageKey, next)
   return next
@@ -76,15 +84,44 @@ function displayNameFor(profile, session) {
   }
 
   const email = session?.user?.email || ''
-  if (!email) return 'RoachNet account'
-  return email.split('@')[0]
+  return email ? email.split('@')[0] : 'RoachNet account'
+}
+
+function setFormBusy(isBusy) {
+  activeRequest = isBusy
+  const disabled = Boolean(isBusy)
+
+  for (const field of [emailInput, passwordInput, displayNameInput, submitButton, refreshButton, signOutButton]) {
+    if (field) field.disabled = disabled
+  }
+}
+
+function resetTurnstileIfPresent() {
+  if (typeof window.turnstile?.reset === 'function' && turnstileWidgetId !== null) {
+    window.turnstile.reset(turnstileWidgetId)
+  }
+}
+
+function setTurnstileState(message, tone = 'muted') {
+  if (!turnstileNote) return
+  turnstileNote.textContent = message
+  turnstileNote.dataset.tone = tone
 }
 
 function setMode(nextMode) {
   accountMode = nextMode === 'signup' ? 'signup' : 'signin'
+
   tabs.forEach((tab) => {
     tab.classList.toggle('is-active', tab.dataset.accountMode === accountMode)
   })
+
+  if (displayNameField) {
+    displayNameField.hidden = accountMode !== 'signup'
+  }
+
+  if (passwordInput) {
+    passwordInput.autocomplete = accountMode === 'signup' ? 'new-password' : 'current-password'
+  }
 
   if (submitButton) {
     submitButton.textContent = accountMode === 'signup' ? 'Create account' : 'Sign in'
@@ -93,17 +130,15 @@ function setMode(nextMode) {
   if (formNote) {
     formNote.textContent =
       accountMode === 'signup'
-        ? 'Create the website account that will hold future RoachClaw web-chat and synced settings state.'
-        : 'Sign back in when you want the website lane tied to your existing RoachNet account.'
+        ? 'Create the hosted account that will hold web-chat access, device links, and synced app state.'
+        : 'Sign in when you want the website lane tied to your RoachNet account.'
   }
-}
 
-function setDisabled(disabled) {
-  for (const input of [emailInput, passwordInput, submitButton]) {
-    if (input) {
-      input.disabled = disabled
-    }
+  if (turnstileShell) {
+    turnstileShell.hidden = accountMode !== 'signup' || !authState?.config?.turnstile?.enabled
   }
+
+  setFeedback('')
 }
 
 function renderStatus() {
@@ -118,37 +153,38 @@ function renderStatus() {
     statusBadge.textContent = 'Disabled'
     statusBadge.dataset.state = 'disabled'
     signOutButton.hidden = true
-    setDisabled(true)
+    form?.setAttribute('aria-disabled', 'true')
+    setFormBusy(true)
     setSnapshot({
       title: 'Auth is disabled on this deploy.',
-      body: 'The hosted account lane is staged, but this site is not carrying live Supabase keys yet.',
+      body: 'The account lane is staged, but this deploy is missing live auth keys.',
     })
-    setFeedback('This deploy does not have live account auth configured yet. Your local device lanes still work without it.')
+    setFeedback('This deploy does not have live account auth configured yet.')
     return
   }
 
+  form?.removeAttribute('aria-disabled')
+  setFormBusy(false)
+
   if (session?.user) {
     statusTitle.textContent = 'Signed in.'
-    statusBody.textContent = `Website lane is linked to ${sessionLabel(session)} and ready for future RoachClaw web chat, remembered installs, and device-aware sync state.`
+    statusBody.textContent = `Website lane is linked to ${sessionLabel(session)}.`
     statusBadge.textContent = 'Live'
     statusBadge.dataset.state = 'live'
     signOutButton.hidden = false
-    setDisabled(false)
     setFeedback('Account session is live.', 'live')
     return
   }
 
   statusTitle.textContent = 'Ready for sign-in.'
-  statusBody.textContent = 'Use the account lane for future RoachClaw web chat, remembered site state, and account-linked device metadata.'
+  statusBody.textContent = 'Use the account lane for web chat, remembered installs, and account-linked device metadata.'
   statusBadge.textContent = 'Ready'
   statusBadge.dataset.state = 'ready'
   signOutButton.hidden = true
-  setDisabled(false)
   setSnapshot({
     title: 'Sign in to load account state.',
     body: 'Linked lanes, saved installs, and sync-ready settings metadata will show up here once you sign in.',
   })
-  setFeedback('')
 }
 
 async function syncSnapshot() {
@@ -198,8 +234,6 @@ async function syncSnapshot() {
     setSnapshot({
       title: 'Account snapshot needs attention.',
       body: 'The account session is live, but this browser lane could not finish loading its synced state.',
-      devices: '—',
-      apps: '—',
       settings: 'Error',
     })
     return
@@ -216,12 +250,99 @@ async function syncSnapshot() {
     title: `${displayNameFor(profile, authState.session)} is linked.`,
     body:
       devices > 0
-        ? 'RoachTail and RoachSync metadata can anchor themselves here without dumping local machine details into the public site.'
+        ? 'RoachTail and RoachSync metadata can anchor themselves here without leaking local machine details.'
         : 'This is a fresh account lane. Pair devices or save installs to start building synced state.',
     devices: String(devices),
     apps: String(apps),
     settings: settingsCount > 0 ? 'Remembered' : 'Fresh',
   })
+}
+
+function loadTurnstileScript() {
+  return new Promise((resolve, reject) => {
+    if (window.turnstile) {
+      resolve(window.turnstile)
+      return
+    }
+
+    const existing = document.querySelector(`#${turnstileScriptId}`)
+    if (existing) {
+      existing.addEventListener('load', () => resolve(window.turnstile), { once: true })
+      existing.addEventListener('error', reject, { once: true })
+      return
+    }
+
+    const script = document.createElement('script')
+    script.id = turnstileScriptId
+    script.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit'
+    script.async = true
+    script.defer = true
+    script.addEventListener('load', () => resolve(window.turnstile), { once: true })
+    script.addEventListener('error', reject, { once: true })
+    document.head.append(script)
+  })
+}
+
+async function ensureTurnstile() {
+  const turnstileConfig = authState?.config?.turnstile
+  if (!turnstileConfig?.enabled || !turnstileConfig?.siteKey || !turnstileMount || turnstileWidgetId !== null) {
+    if (turnstileShell) {
+      turnstileShell.hidden = accountMode !== 'signup' || !turnstileConfig?.enabled
+    }
+    return
+  }
+
+  setTurnstileState('Loading verification lane…')
+
+  try {
+    await loadTurnstileScript()
+    turnstileWidgetId = window.turnstile.render(turnstileMount, {
+      sitekey: turnstileConfig.siteKey,
+      theme: 'dark',
+      callback: (token) => {
+        captchaToken = token
+        setTurnstileState('Verification ready.', 'live')
+      },
+      'expired-callback': () => {
+        captchaToken = ''
+        setTurnstileState('Verification expired. Run it again.', 'error')
+      },
+      'error-callback': () => {
+        captchaToken = ''
+        setTurnstileState('Verification failed to load.', 'error')
+      },
+    })
+    setTurnstileState('Finish the human check to create the account.')
+  } catch {
+    setTurnstileState('Verification could not load right now.', 'error')
+  }
+}
+
+async function registerAccount({ email, password, displayName }) {
+  const registerUrl = authState?.config?.auth?.registerUrl || '/.netlify/functions/register-account'
+  const response = await fetch(registerUrl, {
+    method: 'POST',
+    headers: {
+      'content-type': 'application/json',
+    },
+    body: JSON.stringify({
+      email,
+      password,
+      displayName,
+      captchaToken,
+      company: honeypotInput?.value || '',
+      startedAt: startedAtInput?.value || '',
+    }),
+  })
+
+  const result = await response.json().catch(() => ({
+    ok: false,
+    message: 'The account lane returned unreadable data.',
+  }))
+
+  if (!response.ok || result.ok !== true) {
+    throw new Error(result.message || 'Account creation failed.')
+  }
 }
 
 async function loadAuthState() {
@@ -243,13 +364,14 @@ async function loadAuthState() {
     authSubscription = data.subscription
   }
 
+  await ensureTurnstile()
   await syncSnapshot()
 }
 
 tabs.forEach((tab) => {
   tab.addEventListener('click', () => {
+    if (activeRequest) return
     setMode(tab.dataset.accountMode)
-    setFeedback('')
   })
 })
 
@@ -268,6 +390,7 @@ refreshButton?.addEventListener('click', async () => {
 
 signOutButton?.addEventListener('click', async () => {
   if (!authState?.client) return
+  setFormBusy(true)
   setFeedback('Signing out…')
   await authState.client.auth.signOut()
   clearCachedAuthState()
@@ -277,55 +400,64 @@ signOutButton?.addEventListener('click', async () => {
 
 form?.addEventListener('submit', async (event) => {
   event.preventDefault()
+
   if (!authState?.client) {
-    setFeedback('Account auth is not armed on this deploy yet.')
+    setFeedback('Account auth is not armed on this deploy yet.', 'error')
     return
   }
 
   const email = emailInput?.value?.trim() || ''
   const password = passwordInput?.value || ''
+  const displayName = displayNameInput?.value?.trim() || ''
 
   if (!email || !password) {
-    setFeedback('Enter both email and password.')
+    setFeedback('Enter both email and password.', 'error')
     return
   }
 
+  if (accountMode === 'signup' && authState?.config?.turnstile?.enabled && !captchaToken) {
+    setFeedback('Finish the human check first.', 'error')
+    return
+  }
+
+  setFormBusy(true)
   setFeedback(accountMode === 'signup' ? 'Creating account…' : 'Signing in…')
 
-  const result =
-    accountMode === 'signup'
-      ? await authState.client.auth.signUp({
-          email,
-          password,
-          options: {
-            emailRedirectTo: authState.config?.auth?.redirectUrl,
-            data: {
-              display_name: email.split('@')[0],
-            },
-          },
-        })
-      : await authState.client.auth.signInWithPassword({ email, password })
+  try {
+    if (accountMode === 'signup') {
+      await registerAccount({ email, password, displayName })
+    }
 
-  if (result.error) {
-    setFeedback(result.error.message, 'error')
-    return
-  }
+    const result = await authState.client.auth.signInWithPassword({ email, password })
+    if (result.error) {
+      throw result.error
+    }
 
-  authState = {
-    ...authState,
-    session: result.data?.session || authState.session,
+    authState = {
+      ...authState,
+      session: result.data?.session || authState.session,
+    }
+
+    renderStatus()
+    await syncSnapshot()
+    setFeedback(accountMode === 'signup' ? 'Account created and signed in.' : 'Signed in.', 'live')
+
+    if (accountMode === 'signup') {
+      form.reset()
+      startedAtInput.value = String(Date.now())
+      captchaToken = ''
+      resetTurnstileIfPresent()
+      setMode('signin')
+    }
+  } catch (error) {
+    setFeedback(error?.message || 'Account request failed.', 'error')
+    captchaToken = ''
+    resetTurnstileIfPresent()
+  } finally {
+    setFormBusy(false)
   }
-  renderStatus()
-  await syncSnapshot()
-  setFeedback(
-    accountMode === 'signup'
-      ? result.data?.session
-        ? 'Account created and signed in.'
-        : 'Account created. Check your mail if the provider is set to confirm sign-ups.'
-      : 'Signed in.',
-    'live'
-  )
 })
 
+startedAtInput.value = String(Date.now())
 setMode(accountMode)
 loadAuthState()
