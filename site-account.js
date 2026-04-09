@@ -1,17 +1,21 @@
 const defaultSiteConfig = {
-  releaseVersion: '1.0.1',
+  releaseVersion: '1.0.5',
   auth: {
     enabled: false,
     provider: 'supabase',
     supabaseUrl: '',
     supabaseAnonKey: '',
     redirectUrl: 'https://accounts.roachnet.org/',
-    registerUrl: '/.netlify/functions/register-account',
+    registerUrl: 'https://accounts.roachnet.org/.netlify/functions/register-account',
+    remoteConfigUrl: 'https://accounts.roachnet.org/site-config.js',
   },
   webChat: {
     enabled: false,
     mode: 'planned',
     accountRequired: true,
+    endpoint: 'https://accounts.roachnet.org/.netlify/functions/roachclaw-chat',
+    providerLabel: 'Hosted RoachClaw lane',
+    modelLabel: 'Provider not armed',
   },
   turnstile: {
     enabled: false,
@@ -20,25 +24,79 @@ const defaultSiteConfig = {
 }
 
 let cachedAuthState = null
+let remoteConfigPromise = null
+
+function mergeSiteConfig(...configs) {
+  return configs.reduce(
+    (merged, configured = {}) => ({
+      ...merged,
+      ...configured,
+      auth: {
+        ...merged.auth,
+        ...(configured.auth || {}),
+      },
+      webChat: {
+        ...merged.webChat,
+        ...(configured.webChat || {}),
+      },
+      turnstile: {
+        ...merged.turnstile,
+        ...(configured.turnstile || {}),
+      },
+    }),
+    structuredClone(defaultSiteConfig)
+  )
+}
+
+function currentGlobalConfig() {
+  return window.__ROACHNET_SITE_CONFIG__ || {}
+}
+
+function currentRemoteConfig() {
+  return window.__ROACHNET_REMOTE_SITE_CONFIG__ || {}
+}
+
+async function loadRemoteSiteConfig() {
+  if (window.__ROACHNET_REMOTE_SITE_CONFIG__) {
+    return window.__ROACHNET_REMOTE_SITE_CONFIG__
+  }
+
+  if (window.location.hostname === 'accounts.roachnet.org') {
+    return {}
+  }
+
+  if (remoteConfigPromise) {
+    return remoteConfigPromise
+  }
+
+  const remoteConfigUrl =
+    currentGlobalConfig()?.auth?.remoteConfigUrl || defaultSiteConfig.auth.remoteConfigUrl
+
+  remoteConfigPromise = new Promise((resolve) => {
+    const priorConfig = currentGlobalConfig()
+    const script = document.createElement('script')
+    script.src = `${remoteConfigUrl}?t=${Date.now()}`
+    script.async = true
+
+    script.onload = () => {
+      window.__ROACHNET_REMOTE_SITE_CONFIG__ = window.__ROACHNET_SITE_CONFIG__ || {}
+      window.__ROACHNET_SITE_CONFIG__ = priorConfig
+      resolve(window.__ROACHNET_REMOTE_SITE_CONFIG__)
+    }
+
+    script.onerror = () => {
+      window.__ROACHNET_SITE_CONFIG__ = priorConfig
+      resolve({})
+    }
+
+    document.head.append(script)
+  })
+
+  return remoteConfigPromise
+}
 
 export function getSiteConfig() {
-  const configured = window.__ROACHNET_SITE_CONFIG__ || {}
-  return {
-    ...defaultSiteConfig,
-    ...configured,
-    auth: {
-      ...defaultSiteConfig.auth,
-      ...(configured.auth || {}),
-    },
-    webChat: {
-      ...defaultSiteConfig.webChat,
-      ...(configured.webChat || {}),
-    },
-    turnstile: {
-      ...defaultSiteConfig.turnstile,
-      ...(configured.turnstile || {}),
-    },
-  }
+  return mergeSiteConfig(currentGlobalConfig(), currentRemoteConfig())
 }
 
 export async function getSiteAuthState() {
@@ -46,7 +104,12 @@ export async function getSiteAuthState() {
     return cachedAuthState
   }
 
-  const config = getSiteConfig()
+  let config = getSiteConfig()
+  if ((!config.auth.enabled || !config.webChat.enabled) && window.location.hostname !== 'accounts.roachnet.org') {
+    await loadRemoteSiteConfig()
+    config = getSiteConfig()
+  }
+
   const auth = config.auth || {}
   const enabled =
     auth.enabled === true &&

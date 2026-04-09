@@ -158,6 +158,54 @@ const apiGroups = [
     ],
   },
   {
+    id: 'account-web',
+    label: 'Account + Web Chat',
+    scope: 'website',
+    basePath: '/.netlify/functions',
+    summary: 'Supabase-backed website identity plus the hosted RoachClaw web lane.',
+    stack: 'accounts.roachnet.org auth surface -> Supabase Auth + RLS tables -> Netlify functions -> hosted RoachClaw provider lane',
+    callers: ['accounts.roachnet.org', 'roachnet.org/roachclaw'],
+    endpoints: [
+      {
+        id: 'account-register',
+        method: 'POST',
+        path: '/register-account',
+        title: 'Create one website account',
+        summary: 'Creates a Supabase-backed RoachNet account for the website lane.',
+        handler: 'netlify/functions/register-account.mjs',
+        request: [
+          'Body: { email, password, displayName?, startedAt?, company?, captchaToken? }',
+          'Turnstile token when the challenge is armed on the deploy',
+        ],
+        response: ['JSON: { ok, message, userId? }', '409 when the email already exists'],
+        implementation:
+          'Runs server-side validation, optional Turnstile verification, then creates the user through the Supabase admin users API so sign-up can stay on the website lane without exposing the service-role key to the browser.',
+        usedBy: ['accounts.roachnet.org create-account flow'],
+      },
+      {
+        id: 'roachclaw-web-chat',
+        method: 'POST',
+        path: '/roachclaw-chat',
+        title: 'Send one hosted RoachClaw prompt',
+        summary: 'Verifies the signed-in account, checks thread ownership, stores the prompt, runs the hosted model, and stores the reply.',
+        handler: 'netlify/functions/roachclaw-chat.mjs',
+        request: [
+          'Authorization: Bearer <Supabase access token>',
+          'Body: { threadId?, message }',
+        ],
+        response: [
+          'JSON: { ok, thread, userMessage, assistantMessage, provider, model }',
+          '401 for missing or invalid account session',
+          '404 for threads outside the caller account',
+          '503 when the hosted model lane is not armed on the deploy',
+        ],
+        implementation:
+          'The function verifies the bearer token against Supabase Auth, scopes every thread/message lookup to that user id, inserts and reads through either the service-role backend or the caller token under RLS, calls the hosted model lane through an OpenAI-compatible endpoint, writes the assistant reply, and refreshes the thread title/summary. The browser only ever sees rows it owns through RLS.',
+        usedBy: ['roachnet.org/roachclaw hosted chat workspace'],
+      },
+    ],
+  },
+  {
     id: 'bootstrap',
     label: 'Bootstrap',
     scope: 'runtime',

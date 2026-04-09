@@ -50,12 +50,20 @@ async function main() {
       supabaseUrl: process.env.ROACHNET_SUPABASE_URL || '',
       supabaseAnonKey: process.env.ROACHNET_SUPABASE_ANON_KEY || '',
       redirectUrl: process.env.ROACHNET_AUTH_REDIRECT_URL || 'https://accounts.roachnet.org/',
-      registerUrl: process.env.ROACHNET_ACCOUNT_REGISTER_URL || '/.netlify/functions/register-account',
+      registerUrl:
+        process.env.ROACHNET_ACCOUNT_REGISTER_URL ||
+        'https://accounts.roachnet.org/.netlify/functions/register-account',
+      remoteConfigUrl: process.env.ROACHNET_AUTH_REMOTE_CONFIG_URL || 'https://accounts.roachnet.org/site-config.js',
     },
     webChat: {
       enabled: webChatEnabled,
       mode: process.env.ROACHNET_WEB_CHAT_MODE || 'planned',
       accountRequired: process.env.ROACHNET_WEB_CHAT_ACCOUNT_REQUIRED !== '0',
+      endpoint:
+        process.env.ROACHNET_WEB_CHAT_ENDPOINT ||
+        'https://accounts.roachnet.org/.netlify/functions/roachclaw-chat',
+      providerLabel: process.env.ROACHNET_WEB_CHAT_PROVIDER_LABEL || 'Hosted RoachClaw lane',
+      modelLabel: process.env.ROACHNET_WEB_CHAT_MODEL_LABEL || 'Provider not armed',
     },
     turnstile: {
       enabled:
