@@ -162,8 +162,8 @@ const apiGroups = [
     label: 'Account + Web Chat',
     scope: 'website',
     basePath: '/.netlify/functions',
-    summary: 'Supabase-backed website identity plus the hosted RoachClaw web lane.',
-    stack: 'accounts.roachnet.org auth surface -> Supabase Auth + RLS tables -> Netlify functions -> hosted RoachClaw provider lane',
+    summary: 'Supabase-backed website identity plus the free RoachClaw web lane.',
+    stack: 'accounts.roachnet.org auth surface -> Supabase Auth + RLS tables -> Netlify functions -> paired-device RoachClaw relay or RoachBrain Cloud fallback',
     callers: ['accounts.roachnet.org', 'roachnet.org/roachclaw'],
     endpoints: [
       {
@@ -187,20 +187,20 @@ const apiGroups = [
         method: 'POST',
         path: '/roachclaw-chat',
         title: 'Send one hosted RoachClaw prompt',
-        summary: 'Verifies the signed-in account, checks thread ownership, stores the prompt, runs the hosted model, and stores the reply.',
+        summary: 'Verifies the signed-in account, checks thread ownership, stores the prompt, and answers through the paired device or the hosted RoachBrain Cloud lane.',
         handler: 'netlify/functions/roachclaw-chat.mjs',
         request: [
           'Authorization: Bearer <Supabase access token>',
-          'Body: { threadId?, message }',
+          'Body: { threadId?, message, bridgeUrl?, bridgeToken?, bridgeLabel? }',
         ],
         response: [
           'JSON: { ok, thread, userMessage, assistantMessage, provider, model }',
           '401 for missing or invalid account session',
           '404 for threads outside the caller account',
-          '503 when the hosted model lane is not armed on the deploy',
+          '500 only when neither the paired-device lane nor the hosted cloud lane can finish the request',
         ],
         implementation:
-          'The function verifies the bearer token against Supabase Auth, scopes every thread/message lookup to that user id, inserts and reads through either the service-role backend or the caller token under RLS, calls the hosted model lane through an OpenAI-compatible endpoint, writes the assistant reply, and refreshes the thread title/summary. The browser only ever sees rows it owns through RLS.',
+          'The function verifies the bearer token against Supabase Auth, scopes every thread/message lookup to that user id, stores the prompt, and either forwards the request to the user’s paired RoachClaw device or answers through the hosted RoachBrain Cloud lane. The browser-local RoachBrain path stays available as a last-resort client fallback, but the normal no-device route now stays account-scoped on the server.',
         usedBy: ['roachnet.org/roachclaw hosted chat workspace'],
       },
     ],

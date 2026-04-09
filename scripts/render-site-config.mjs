@@ -29,13 +29,14 @@ const config = {
   },
   webChat: {
     enabled: webChatEnabled,
-    mode: process.env.ROACHNET_WEB_CHAT_MODE || 'planned',
+    mode: process.env.ROACHNET_WEB_CHAT_MODE || (webChatEnabled ? 'live' : 'planned'),
     accountRequired: process.env.ROACHNET_WEB_CHAT_ACCOUNT_REQUIRED !== '0',
     endpoint:
       process.env.ROACHNET_WEB_CHAT_ENDPOINT ||
       'https://accounts.roachnet.org/.netlify/functions/roachclaw-chat',
-    providerLabel: process.env.ROACHNET_WEB_CHAT_PROVIDER_LABEL || 'Hosted RoachClaw lane',
-    modelLabel: process.env.ROACHNET_WEB_CHAT_MODEL_LABEL || 'Provider not armed',
+    providerLabel:
+      process.env.ROACHNET_WEB_CHAT_PROVIDER_LABEL || 'RoachClaw local + RoachBrain Cloud',
+    modelLabel: process.env.ROACHNET_WEB_CHAT_MODEL_LABEL || 'Local relay or cloud model',
   },
 }
 

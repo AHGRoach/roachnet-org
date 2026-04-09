@@ -10,11 +10,11 @@ window.__ROACHNET_SITE_CONFIG__ = {
     "remoteConfigUrl": "https://accounts.roachnet.org/site-config.js"
   },
   "webChat": {
-    "enabled": false,
-    "mode": "planned",
+    "enabled": true,
+    "mode": "live",
     "accountRequired": true,
     "endpoint": "https://accounts.roachnet.org/.netlify/functions/roachclaw-chat",
-    "providerLabel": "Hosted RoachClaw lane",
-    "modelLabel": "Provider not armed"
+    "providerLabel": "RoachClaw local + RoachBrain Cloud",
+    "modelLabel": "Local relay or cloud model"
   }
 }

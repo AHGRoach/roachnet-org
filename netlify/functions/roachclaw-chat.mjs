@@ -1,3 +1,5 @@
+import { mkdir } from 'node:fs/promises'
+
 const allowedOrigins = new Set([
   'https://roachnet.org',
   'https://accounts.roachnet.org',
@@ -9,6 +11,19 @@ const allowedOrigins = new Set([
 
 const defaultSystemPrompt =
   'You are RoachClaw on the RoachNet web lane. Answer clearly, keep user data isolated to the authenticated account lane, never claim access to a local machine you cannot see, and prefer practical help over filler.'
+const roachBrainCacheDir = '/tmp/roachbrain-cloud-cache'
+const roachBrainCandidates = [
+  {
+    id: 'onnx-community/SmolLM2-135M-Instruct-ONNX-MHA',
+    label: 'SmolLM2 135M',
+  },
+  {
+    id: 'onnx-community/gemma-3-270m-it-ONNX',
+    label: 'Gemma 3 270M',
+  },
+]
+
+let roachBrainPipelinePromise = null
 
 function json(body, status = 200) {
   return new Response(JSON.stringify(body), {
@@ -57,6 +72,33 @@ function sanitizeMessageContent(value) {
   return text.slice(0, 12000)
 }
 
+function sanitizeLabel(value) {
+  return String(value || '')
+    .replace(/\s+/g, ' ')
+    .trim()
+    .slice(0, 120)
+}
+
+function normalizeBridgeUrl(value) {
+  const raw = String(value || '').trim()
+  if (!raw) {
+    return ''
+  }
+
+  try {
+    const url = new URL(raw)
+    if (!['http:', 'https:'].includes(url.protocol)) {
+      return ''
+    }
+    url.pathname = ''
+    url.search = ''
+    url.hash = ''
+    return url.toString().replace(/\/$/, '')
+  } catch {
+    return ''
+  }
+}
+
 function summarizePrompt(prompt) {
   const flattened = prompt.replace(/\s+/g, ' ').trim()
   if (!flattened) {
@@ -69,27 +111,6 @@ function summarizePrompt(prompt) {
 function summarizeReply(reply) {
   const flattened = reply.replace(/\s+/g, ' ').trim()
   return flattened.length > 180 ? `${flattened.slice(0, 177)}...` : flattened
-}
-
-function toAssistantText(result) {
-  const content = result?.choices?.[0]?.message?.content
-
-  if (typeof content === 'string') {
-    return content.trim()
-  }
-
-  if (Array.isArray(content)) {
-    return content
-      .map((part) => {
-        if (typeof part === 'string') return part
-        if (part?.type === 'text') return part.text || ''
-        return ''
-      })
-      .join('')
-      .trim()
-  }
-
-  return ''
 }
 
 async function verifyUserSession({ supabaseUrl, publishableKey, token }) {
@@ -143,51 +164,138 @@ function createDatabaseClient({ supabaseUrl, apiKey, authToken }) {
   return { request }
 }
 
-function buildOpenAIBaseUrl(rawBase) {
-  const base = String(rawBase || 'https://api.openai.com/v1/chat/completions').trim()
-  if (base.endsWith('/chat/completions')) {
-    return base
-  }
-
-  if (base.endsWith('/v1')) {
-    return `${base}/chat/completions`
-  }
-
-  return `${base.replace(/\/$/, '')}/chat/completions`
-}
-
-async function runHostedChat({ apiKey, apiBaseUrl, model, systemPrompt, messages }) {
-  const response = await fetch(buildOpenAIBaseUrl(apiBaseUrl), {
+async function sendRoachClawRelay({
+  bridgeUrl,
+  bridgeToken,
+  model,
+  content,
+  remoteSessionId,
+  messages,
+}) {
+  const requestUrl = `${bridgeUrl}/api/companion/chat/send`
+  const response = await fetch(requestUrl, {
     method: 'POST',
     headers: {
       'content-type': 'application/json',
-      authorization: `Bearer ${apiKey}`,
+      'x-roachnet-companion-token': bridgeToken,
     },
     body: JSON.stringify({
+      sessionId: remoteSessionId || undefined,
+      content,
       model,
-      temperature: 0.5,
-      messages: [{ role: 'system', content: systemPrompt }, ...messages],
+      messages: Array.isArray(messages) ? messages.slice(-20) : [],
     }),
   })
 
   const payload = await response.json().catch(() => ({}))
   if (!response.ok) {
-    const message =
-      payload?.error?.message ||
-      payload?.message ||
-      'Hosted RoachClaw could not get a clean response from the model lane.'
+    const message = payload?.error || payload?.message || 'RoachClaw could not get a clean reply from your device.'
     throw new Error(message)
   }
 
-  const text = toAssistantText(payload)
+  const text = String(payload?.assistantMessage?.content || '').trim()
   if (!text) {
-    throw new Error('Hosted RoachClaw returned an empty reply.')
+    throw new Error('RoachClaw returned an empty reply from the paired device.')
   }
 
   return {
     text,
-    provider: payload?.provider || 'openai-compatible',
-    model: payload?.model || model,
+    provider: 'RoachClaw local relay',
+    model: String(payload?.session?.model || model || '').trim() || null,
+    remoteSessionId: payload?.session?.id ? String(payload.session.id) : null,
+    remoteSessionTitle: sanitizeLabel(payload?.session?.title || ''),
+  }
+}
+
+function extractGeneratedReply(result) {
+  const generated = Array.isArray(result) ? result[0]?.generated_text ?? result[0] : result
+
+  if (Array.isArray(generated)) {
+    const assistant = [...generated].reverse().find((entry) => entry?.role === 'assistant' && entry?.content)
+    return String(assistant?.content || '').trim()
+  }
+
+  if (typeof generated === 'string') {
+    return generated.trim()
+  }
+
+  return ''
+}
+
+async function getRoachBrainPipeline() {
+  if (roachBrainPipelinePromise) {
+    return roachBrainPipelinePromise
+  }
+
+  roachBrainPipelinePromise = (async () => {
+    const { env, pipeline } = await import('@huggingface/transformers')
+    await mkdir(roachBrainCacheDir, { recursive: true })
+    env.cacheDir = roachBrainCacheDir
+    env.allowLocalModels = false
+    env.allowRemoteModels = true
+    env.useFSCache = true
+
+    let lastError = null
+    for (const candidate of roachBrainCandidates) {
+      for (const dtype of ['q4', 'q8']) {
+        try {
+          const generator = await pipeline('text-generation', candidate.id, {
+            dtype,
+          })
+          return {
+            generator,
+            modelLabel: candidate.label,
+          }
+        } catch (error) {
+          lastError = error
+          console.warn(`RoachBrain Cloud model attempt failed for ${candidate.label} (${dtype}).`, error)
+        }
+      }
+    }
+
+    throw lastError || new Error('RoachBrain Cloud could not load a usable model.')
+  })().catch((error) => {
+    roachBrainPipelinePromise = null
+    throw error
+  })
+
+  return roachBrainPipelinePromise
+}
+
+async function generateRoachBrainReply({ history, prompt }) {
+  const { generator, modelLabel } = await getRoachBrainPipeline()
+
+  const conversation = [
+    {
+      role: 'system',
+      content: defaultSystemPrompt,
+    },
+    ...history
+      .map((item) => ({
+        role: item.role === 'assistant' ? 'assistant' : 'user',
+        content: sanitizeMessageContent(item.content),
+      }))
+      .filter((item) => item.content.length > 0)
+      .slice(-10),
+  ]
+
+  const result = await generator(conversation, {
+    max_new_tokens: 96,
+    do_sample: false,
+    repetition_penalty: 1.04,
+  })
+
+  const text = extractGeneratedReply(result)
+  if (!text) {
+    throw new Error('RoachBrain Cloud returned an empty reply.')
+  }
+
+  return {
+    text,
+    provider: 'RoachBrain Cloud',
+    model: modelLabel,
+    remoteSessionId: null,
+    remoteSessionTitle: '',
   }
 }
 
@@ -204,10 +312,7 @@ export default async (request) => {
   const publishableKey = process.env.ROACHNET_SUPABASE_ANON_KEY || ''
   const serviceRoleKey = process.env.ROACHNET_SUPABASE_SERVICE_ROLE_KEY || ''
   const chatEnabled = process.env.ROACHNET_WEB_CHAT_ENABLED === '1'
-  const apiKey = process.env.ROACHNET_WEB_CHAT_API_KEY || ''
-  const apiBaseUrl = process.env.ROACHNET_WEB_CHAT_API_BASE_URL || ''
-  const model = process.env.ROACHNET_WEB_CHAT_MODEL || ''
-  const systemPrompt = process.env.ROACHNET_WEB_CHAT_SYSTEM_PROMPT || defaultSystemPrompt
+  const model = process.env.ROACHNET_WEB_CHAT_MODEL || 'RoachClaw relay'
 
   if (!supabaseUrl || !publishableKey) {
     return withCors(
@@ -216,14 +321,14 @@ export default async (request) => {
     )
   }
 
-  if (!chatEnabled || !apiKey || !model) {
+  if (!chatEnabled || !model) {
     return withCors(
       request,
       json(
         {
           ok: false,
           code: 'lane_not_armed',
-          message: 'Hosted RoachClaw is staged, but the model lane is not armed on this deploy yet.',
+          message: 'RoachClaw web is not armed on this deploy yet.',
         },
         503
       )
@@ -254,6 +359,9 @@ export default async (request) => {
 
   const prompt = sanitizeMessageContent(payload?.message)
   const threadId = String(payload?.threadId || '').trim()
+  const requestedBridgeUrl = normalizeBridgeUrl(payload?.bridgeUrl)
+  const bridgeToken = String(payload?.bridgeToken || '').trim()
+  const bridgeLabel = sanitizeLabel(payload?.bridgeLabel || '')
 
   if (!prompt) {
     return withCors(request, json({ ok: false, message: 'Enter a message first.' }, 400))
@@ -297,6 +405,10 @@ export default async (request) => {
       thread = inserted?.[0] || null
     }
 
+    const existingRelay = thread?.metadata?.relay && typeof thread.metadata.relay === 'object' ? thread.metadata.relay : {}
+    const bridgeUrl = requestedBridgeUrl || normalizeBridgeUrl(existingRelay?.bridgeUrl)
+    const useBridgeRelay = Boolean(bridgeUrl && bridgeToken)
+
     const userInsert = await databaseClient.request('chat_messages', {
       method: 'POST',
       body: {
@@ -319,16 +431,26 @@ export default async (request) => {
     })
     const history = await databaseClient.request('chat_messages', { query: messageQuery.toString() })
 
-    const reply = await runHostedChat({
-      apiKey,
-      apiBaseUrl,
-      model,
-      systemPrompt,
-      messages: history.map((item) => ({
+    const relayMessages = history
+      .map((item) => ({
         role: item.role,
-        content: item.content,
-      })),
-    })
+        content: sanitizeMessageContent(item.content),
+      }))
+      .filter((item) => item.content.length > 0)
+
+    const reply = useBridgeRelay
+      ? await sendRoachClawRelay({
+          bridgeUrl,
+          bridgeToken,
+          model,
+          content: prompt,
+          remoteSessionId: String(existingRelay?.remoteSessionId || '').trim(),
+          messages: relayMessages,
+        })
+      : await generateRoachBrainReply({
+          history: relayMessages,
+          prompt,
+        })
 
     const assistantInsert = await databaseClient.request('chat_messages', {
       method: 'POST',
@@ -341,9 +463,33 @@ export default async (request) => {
         model: reply.model,
         metadata: {
           source: 'roachnet.org/roachclaw',
+          relay: useBridgeRelay
+            ? {
+                kind: 'local-device',
+                bridgeUrl,
+                label: bridgeLabel || sanitizeLabel(existingRelay?.label || ''),
+              }
+            : {
+                kind: 'roachbrain-cloud',
+                label: 'RoachBrain Cloud',
+              },
         },
       },
     })
+
+    const relayMetadata = useBridgeRelay
+      ? {
+          kind: 'local-device',
+          bridgeUrl,
+          label: bridgeLabel || sanitizeLabel(existingRelay?.label || ''),
+          remoteSessionId: reply.remoteSessionId || String(existingRelay?.remoteSessionId || '').trim() || null,
+          lastUsedAt: new Date().toISOString(),
+        }
+      : {
+          kind: 'roachbrain-cloud',
+          label: 'RoachBrain Cloud',
+          lastUsedAt: new Date().toISOString(),
+        }
 
     const shouldRefreshTitle =
       !thread.summary ||
@@ -359,11 +505,19 @@ export default async (request) => {
       }).toString(),
       body: shouldRefreshTitle
         ? {
-            title: summarizePrompt(prompt),
+            title: sanitizeLabel(reply.remoteSessionTitle) || summarizePrompt(prompt),
             summary: summarizeReply(reply.text),
+            metadata: {
+              ...(thread.metadata && typeof thread.metadata === 'object' ? thread.metadata : {}),
+              relay: relayMetadata,
+            },
           }
         : {
             summary: thread.summary || summarizeReply(reply.text),
+            metadata: {
+              ...(thread.metadata && typeof thread.metadata === 'object' ? thread.metadata : {}),
+              relay: relayMetadata,
+            },
           },
     })
 

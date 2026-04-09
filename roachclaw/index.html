@@ -6,7 +6,7 @@
     <title>RoachClaw</title>
     <meta
       name="description"
-      content="RoachClaw on the web: account-scoped chat, secure thread history, and a browser lane that stays honest about what lives on your devices."
+      content="RoachClaw on the web: account-scoped chat, secure thread history, and a free AI lane powered by your own device or RoachBrain Cloud."
     />
     <meta name="theme-color" content="#0a1016" />
     <link rel="canonical" href="https://roachnet.org/roachclaw/" />
@@ -25,9 +25,9 @@
         <img class="brand-mark" src="../assets/roachnet-logo.png" alt="RoachNet logo" />
         <div class="brand-copy">
           <strong>RoachClaw</strong>
-          <span class="brand-kicker">Hosted account lane for RoachNet chat</span>
+          <span class="brand-kicker">Account lane for free secure RoachClaw chat</span>
         </div>
-        <span class="site-header__status">Web lane</span>
+        <span class="site-header__status">Web chat</span>
       </a>
 
       <div class="site-header__panel">
@@ -44,17 +44,17 @@
       <section class="roachclaw-shell">
         <aside class="roachclaw-rail roachclaw-rail--left">
           <article class="roachclaw-panel roachclaw-panel--brand">
-            <span class="feature-card__eyebrow">RoachClaw</span>
-            <h1>Account chat that stays in its lane.</h1>
-            <p>
-              Sign in, keep thread history tied to your own account, and use the browser lane
-              without pretending it can see your desktop by magic.
-            </p>
+          <span class="feature-card__eyebrow">RoachClaw</span>
+          <h1>Your RoachClaw chat, minus the fake cloud magic.</h1>
+          <p>
+              Sign in, keep thread history tied to your own account, and use the web lane without
+              pretending it can see your desktop by magic.
+          </p>
 
             <div class="roachclaw-chip-row" aria-label="RoachClaw lane notes">
               <span class="roachclaw-chip">Account-scoped threads</span>
-              <span class="roachclaw-chip">Secure server relay</span>
-              <span class="roachclaw-chip">RoachTail-aware future bridge</span>
+              <span class="roachclaw-chip">Free secure chat</span>
+              <span class="roachclaw-chip">Local bridge stays opt-in</span>
             </div>
           </article>
 
@@ -112,6 +112,71 @@
             </div>
           </article>
 
+          <article class="roachclaw-panel roachclaw-panel--auth">
+            <div class="account-inline-status">
+              <div>
+                <span class="feature-card__eyebrow">Free secure chat</span>
+                <h2 id="roachclaw-bridge-title">Browser fallback is ready. Pair a device when you want more.</h2>
+                <p id="roachclaw-bridge-body">
+                  Pair a RoachTail or companion bridge when you want your own RoachNet hardware to
+                  carry the model lane. If nothing is online, RoachBrain Cloud keeps chat running
+                  from your account instead of leaving you with a dead page.
+                </p>
+              </div>
+              <div class="account-status-badge" id="roachclaw-bridge-badge">Unpaired</div>
+            </div>
+
+            <form class="account-form" id="roachclaw-bridge-form">
+              <label class="account-field">
+                <span>Bridge URL</span>
+                <input
+                  id="roachclaw-bridge-url"
+                  type="url"
+                  inputmode="url"
+                  autocomplete="url"
+                  placeholder="https://your-device.roachtail"
+                />
+              </label>
+
+              <label class="account-field">
+                <span>Bridge token</span>
+                <input
+                  id="roachclaw-bridge-token"
+                  type="password"
+                  autocomplete="off"
+                  placeholder="One-time or peer token from your RoachNet device"
+                />
+              </label>
+
+              <label class="account-field">
+                <span>Device label</span>
+                <input
+                  id="roachclaw-bridge-label"
+                  type="text"
+                  autocomplete="off"
+                  maxlength="120"
+                  placeholder="Studio Mac mini"
+                />
+              </label>
+
+              <div class="account-actions-inline">
+                <button class="cta cta--primary" id="roachclaw-bridge-submit" type="submit">
+                  Pair bridge
+                </button>
+                <button class="cta cta--ghost" id="roachclaw-bridge-clear" type="button">
+                  Clear bridge
+                </button>
+              </div>
+
+              <p class="account-form__note">
+                The token stays in this browser. The site gets account auth and thread ownership;
+                your RoachNet device does the heavy lifting when paired. If nothing is paired,
+                RoachBrain Cloud picks up the chat lane.
+              </p>
+              <p class="account-form__feedback" id="roachclaw-bridge-feedback" aria-live="polite"></p>
+            </form>
+          </article>
+
           <article class="roachclaw-panel roachclaw-panel--threads">
             <div class="roachclaw-threads-head">
               <div>
@@ -135,7 +200,7 @@
           <article class="roachclaw-panel roachclaw-panel--workspace-head">
             <div class="roachclaw-workspace-head__copy">
               <span class="feature-card__eyebrow">Hosted RoachClaw</span>
-              <h2 id="roachclaw-workspace-title">Use the browser lane without losing ownership.</h2>
+              <h2 id="roachclaw-workspace-title">Use the browser lane without giving up the lane.</h2>
               <p id="roachclaw-workspace-body">
                 Your chat history belongs to your account. Local models, vault files, and machine
                 paths stay on your own devices unless you intentionally bridge them.
@@ -149,11 +214,11 @@
               </article>
               <article class="roachclaw-status-tile">
                 <span>Provider</span>
-                <strong id="roachclaw-status-provider">Staged</strong>
+                <strong id="roachclaw-status-provider">RoachBrain Cloud</strong>
               </article>
               <article class="roachclaw-status-tile">
                 <span>Model</span>
-                <strong id="roachclaw-status-model">Waiting</strong>
+                <strong id="roachclaw-status-model">Cloud lane ready</strong>
               </article>
             </div>
           </article>

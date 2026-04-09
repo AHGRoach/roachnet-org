@@ -5,6 +5,20 @@ import {
   sessionLabel,
 } from './site-account.js'
 
+const bridgeStorageKey = 'RoachNetRoachClawBridge'
+const localProviderLabel = 'RoachBrain Web'
+const localModelCandidates = [
+  {
+    id: 'onnx-community/gemma-3-270m-it-ONNX',
+    label: 'Gemma 3 270M',
+  },
+  {
+    id: 'onnx-community/Qwen2.5-0.5B-Instruct',
+    label: 'Qwen2.5 0.5B',
+  },
+]
+const localModelLabel = localModelCandidates[0].label
+
 const authTitle = document.querySelector('#roachclaw-auth-title')
 const authBody = document.querySelector('#roachclaw-auth-body')
 const authBadge = document.querySelector('#roachclaw-auth-badge')
@@ -13,6 +27,16 @@ const authSubmit = document.querySelector('#roachclaw-auth-submit')
 const signOutButton = document.querySelector('#roachclaw-signout')
 const authNote = document.querySelector('#roachclaw-auth-note')
 const authFeedback = document.querySelector('#roachclaw-auth-feedback')
+const bridgeTitle = document.querySelector('#roachclaw-bridge-title')
+const bridgeBody = document.querySelector('#roachclaw-bridge-body')
+const bridgeBadge = document.querySelector('#roachclaw-bridge-badge')
+const bridgeForm = document.querySelector('#roachclaw-bridge-form')
+const bridgeUrlInput = document.querySelector('#roachclaw-bridge-url')
+const bridgeTokenInput = document.querySelector('#roachclaw-bridge-token')
+const bridgeLabelInput = document.querySelector('#roachclaw-bridge-label')
+const bridgeSubmit = document.querySelector('#roachclaw-bridge-submit')
+const bridgeClear = document.querySelector('#roachclaw-bridge-clear')
+const bridgeFeedback = document.querySelector('#roachclaw-bridge-feedback')
 const emailInput = document.querySelector('#roachclaw-email')
 const passwordInput = document.querySelector('#roachclaw-password')
 const newChatButton = document.querySelector('#roachclaw-new-chat')
@@ -35,6 +59,9 @@ let activeThreadId = null
 let messages = []
 let authBusy = false
 let chatBusy = false
+let bridgeBusy = false
+let bridgeState = loadBridgeState()
+let localGeneratorPromise = null
 
 function escapeHtml(value) {
   return String(value || '')
@@ -50,9 +77,83 @@ function setAuthFeedback(message, tone = 'muted') {
   authFeedback.dataset.tone = tone
 }
 
+function setBridgeFeedback(message, tone = 'muted') {
+  bridgeFeedback.textContent = message || ''
+  bridgeFeedback.dataset.tone = tone
+}
+
 function setChatFeedback(message, tone = 'muted') {
   chatFeedback.textContent = message || ''
   chatFeedback.dataset.tone = tone
+}
+
+function summarizePrompt(value) {
+  const flattened = String(value || '').replace(/\s+/g, ' ').trim()
+  if (!flattened) return 'New chat'
+  return flattened.length > 64 ? `${flattened.slice(0, 61)}...` : flattened
+}
+
+function summarizeReply(value) {
+  const flattened = String(value || '').replace(/\s+/g, ' ').trim()
+  return flattened.length > 180 ? `${flattened.slice(0, 177)}...` : flattened
+}
+
+function normalizeBridgeUrl(value) {
+  const raw = String(value || '').trim()
+  if (!raw) return ''
+
+  try {
+    const url = new URL(raw)
+    if (!['http:', 'https:'].includes(url.protocol)) {
+      return ''
+    }
+    url.pathname = ''
+    url.search = ''
+    url.hash = ''
+    return url.toString().replace(/\/$/, '')
+  } catch {
+    return ''
+  }
+}
+
+function loadBridgeState() {
+  try {
+    const raw = window.localStorage.getItem(bridgeStorageKey)
+    if (!raw) {
+      return { url: '', token: '', label: '' }
+    }
+
+    const parsed = JSON.parse(raw)
+    return {
+      url: normalizeBridgeUrl(parsed?.url),
+      token: String(parsed?.token || '').trim(),
+      label: String(parsed?.label || '')
+        .replace(/\s+/g, ' ')
+        .trim()
+        .slice(0, 120),
+    }
+  } catch {
+    return { url: '', token: '', label: '' }
+  }
+}
+
+function saveBridgeState(nextState) {
+  bridgeState = {
+    url: normalizeBridgeUrl(nextState?.url),
+    token: String(nextState?.token || '').trim(),
+    label: String(nextState?.label || '')
+      .replace(/\s+/g, ' ')
+      .trim()
+      .slice(0, 120),
+  }
+
+  if (!bridgeState.url || !bridgeState.token) {
+    window.localStorage.removeItem(bridgeStorageKey)
+    bridgeState = { url: '', token: '', label: '' }
+    return
+  }
+
+  window.localStorage.setItem(bridgeStorageKey, JSON.stringify(bridgeState))
 }
 
 function formatRelativeTime(value) {
@@ -99,6 +200,15 @@ function setChatBusyState(isBusy) {
   syncComposerState()
 }
 
+function setBridgeBusyState(isBusy) {
+  bridgeBusy = isBusy
+  bridgeUrlInput.disabled = isBusy
+  bridgeTokenInput.disabled = isBusy
+  bridgeLabelInput.disabled = isBusy
+  bridgeSubmit.disabled = isBusy
+  bridgeClear.disabled = isBusy
+}
+
 function renderWorkspaceSummary() {
   const thread = activeThread()
 
@@ -111,8 +221,8 @@ function renderWorkspaceSummary() {
   }
 
   if (!authState?.enabled) {
-    workspaceTitle.textContent = 'Hosted RoachClaw is staged on this deploy.'
-    workspaceBody.textContent = authState?.reason || 'Auth is not armed on this deploy yet.'
+    workspaceTitle.textContent = 'Hosted RoachClaw needs account auth first.'
+    workspaceBody.textContent = authState?.reason || 'Accounts are not armed on this deploy yet.'
     return
   }
 
@@ -123,9 +233,16 @@ function renderWorkspaceSummary() {
     return
   }
 
+  if (!bridgeState.url || !bridgeState.token) {
+    workspaceTitle.textContent = 'Chat now, pair a device when you want more.'
+    workspaceBody.textContent =
+      'No paired device? RoachBrain Cloud keeps the lane alive from your account. Pair a RoachClaw device later when you want your own hardware to take over.'
+    return
+  }
+
   workspaceTitle.textContent = 'Start a fresh RoachClaw thread.'
   workspaceBody.textContent =
-    'New prompts stay tied to your own account history. Local device control and vault access still stay on the paired runtime path.'
+    'New prompts stay tied to your own account history while the actual model work stays on your RoachNet device.'
 }
 
 function renderStatusTiles() {
@@ -133,12 +250,38 @@ function renderStatusTiles() {
 
   statusAccount.textContent = authState.session?.user ? sessionLabel(authState.session) : 'Sign in required'
   statusProvider.textContent =
-    authState.config?.webChat?.enabled === true
-      ? authState.config.webChat.providerLabel || 'Hosted RoachClaw lane'
-      : 'Hosted lane staged'
+    bridgeState.url ? bridgeState.label || 'Your RoachClaw device' : 'RoachBrain Cloud'
   statusModel.textContent =
-    authState.config?.webChat?.modelLabel ||
-    (authState.config?.webChat?.enabled === true ? 'Live model' : 'Provider not armed')
+    activeThread()?.model || (bridgeState.url ? 'Paired device model' : authState.config?.webChat?.modelLabel || 'RoachBrain Cloud')
+}
+
+function renderBridgeState() {
+  const paired = Boolean(bridgeState.url && bridgeState.token)
+
+  bridgeUrlInput.value = bridgeState.url
+  bridgeTokenInput.value = bridgeState.token
+  bridgeLabelInput.value = bridgeState.label
+
+  if (!authState?.enabled) {
+    bridgeTitle.textContent = 'Account auth is still required.'
+    bridgeBody.textContent =
+      'The browser lane needs account auth for thread ownership before it can pair a RoachClaw device.'
+    bridgeBadge.textContent = 'Waiting'
+    bridgeBadge.dataset.state = 'disabled'
+    setBridgeFeedback('')
+    setBridgeBusyState(true)
+    return
+  }
+
+  bridgeTitle.textContent = paired
+    ? `Paired to ${bridgeState.label || 'your RoachClaw device'}.`
+    : 'Optional: pair your own RoachClaw device.'
+  bridgeBody.textContent = paired
+    ? 'This browser will use your stored bridge token to send prompts to your own RoachNet hardware. The site does not rent a model for you.'
+    : 'Paste a RoachTail or companion bridge URL plus a device token when you want this page to hand prompts to your own RoachNet hardware. If you leave it blank, RoachBrain Cloud handles the no-device lane for your signed-in account.'
+  bridgeBadge.textContent = paired ? 'Paired' : 'Unpaired'
+  bridgeBadge.dataset.state = paired ? 'live' : 'ready'
+  setBridgeBusyState(bridgeBusy)
 }
 
 function threadButtonMarkup(thread) {
@@ -165,7 +308,7 @@ function attachThreadHandlers() {
 
 function renderThreadList() {
   if (!authState?.enabled) {
-    threadList.innerHTML = '<div class="roachclaw-thread-empty">This deploy does not have account auth armed yet.</div>'
+    threadList.innerHTML = '<div class="roachclaw-thread-empty">This deploy does not have accounts armed yet.</div>'
     return
   }
 
@@ -291,6 +434,7 @@ function renderAuth() {
 
   setAuthBusyState(authBusy)
   syncComposerState()
+  renderBridgeState()
   renderStatusTiles()
   renderWorkspaceSummary()
 }
@@ -307,7 +451,7 @@ async function loadThreads(preferredThreadId = activeThreadId) {
 
   const { data, error } = await authState.client
     .from('chat_threads')
-    .select('id,title,summary,last_message_at,created_at')
+    .select('id,title,summary,last_message_at,created_at,metadata')
     .order('last_message_at', { ascending: false })
     .order('created_at', { ascending: false })
     .limit(40)
@@ -330,6 +474,247 @@ async function loadThreads(preferredThreadId = activeThreadId) {
   } else {
     messages = []
     renderMessages()
+  }
+}
+
+async function ensureThreadForPrompt(message) {
+  if (!authState?.client || !authState?.session?.user) {
+    throw new Error('Sign in first.')
+  }
+
+  const current = activeThread()
+  if (current?.id) {
+    return current
+  }
+
+  const metadata = bridgeState.url
+    ? {
+        relay: {
+          kind: 'local-device',
+          bridgeUrl: bridgeState.url,
+          label: bridgeState.label || null,
+        },
+      }
+    : {
+        relay: {
+          kind: 'browser-local',
+        },
+      }
+
+  const { data, error } = await authState.client
+    .from('chat_threads')
+    .insert({
+      user_id: authState.session.user.id,
+      title: summarizePrompt(message),
+      summary: null,
+      lane: 'roachclaw-web',
+      source: 'roachnet.org/roachclaw',
+      metadata,
+    })
+    .select('id,title,summary,last_message_at,created_at,metadata')
+    .single()
+
+  if (error || !data) {
+    throw new Error(error?.message || 'Could not create a RoachClaw thread.')
+  }
+
+  threads = [data, ...threads]
+  activeThreadId = data.id
+  renderThreadList()
+  return data
+}
+
+async function persistLocalMessages({ threadId, userMessage, assistantMessage, assistantModelLabel }) {
+  if (!authState?.client || !authState?.session?.user) {
+    throw new Error('Sign in first.')
+  }
+
+  const userInsert = await authState.client
+    .from('chat_messages')
+    .insert({
+      thread_id: threadId,
+      user_id: authState.session.user.id,
+      role: 'user',
+      content: userMessage,
+      metadata: {
+        source: 'roachnet.org/roachclaw',
+        relay: {
+          kind: 'browser-local',
+        },
+      },
+    })
+    .select('id')
+    .single()
+
+  if (userInsert.error) {
+    throw new Error(userInsert.error.message || 'Could not save your prompt.')
+  }
+
+  const assistantInsert = await authState.client
+    .from('chat_messages')
+    .insert({
+      thread_id: threadId,
+      user_id: authState.session.user.id,
+      role: 'assistant',
+      content: assistantMessage,
+      provider: localProviderLabel,
+      model: assistantModelLabel || localModelLabel,
+      metadata: {
+        source: 'roachnet.org/roachclaw',
+        relay: {
+          kind: 'browser-local',
+        },
+      },
+    })
+    .select('id')
+    .single()
+
+  if (assistantInsert.error) {
+    throw new Error(assistantInsert.error.message || 'Could not save the RoachBrain reply.')
+  }
+
+  const update = await authState.client
+    .from('chat_threads')
+    .update({
+      title: summarizePrompt(userMessage),
+      summary: summarizeReply(assistantMessage),
+      metadata: {
+        ...(activeThread()?.metadata || {}),
+        relay: {
+          kind: 'browser-local',
+        },
+      },
+    })
+    .eq('id', threadId)
+
+  if (update.error) {
+    throw new Error(update.error.message || 'Could not refresh the thread summary.')
+  }
+}
+
+async function getLocalGenerator() {
+  if (localGeneratorPromise) {
+    return localGeneratorPromise
+  }
+
+  localGeneratorPromise = (async () => {
+    const { pipeline, env } = await import('https://cdn.jsdelivr.net/npm/@huggingface/transformers@3.8.1')
+    env.useBrowserCache = true
+    env.useWasmCache = true
+    env.allowLocalModels = false
+
+    let canUseWebGPU = false
+    if (window.navigator?.gpu?.requestAdapter) {
+      try {
+        canUseWebGPU = Boolean(await window.navigator.gpu.requestAdapter())
+      } catch {
+        canUseWebGPU = false
+      }
+    }
+
+    const attempts = []
+    if (canUseWebGPU) {
+      for (const candidate of localModelCandidates) {
+        attempts.push({
+          ...candidate,
+          options: {
+            device: 'webgpu',
+            dtype: 'q4',
+          },
+        })
+      }
+    }
+
+    for (const candidate of localModelCandidates) {
+      attempts.push({
+        ...candidate,
+        options: {
+          dtype: 'q4',
+        },
+      })
+      attempts.push({
+        ...candidate,
+        options: {
+          dtype: 'q8',
+        },
+      })
+    }
+
+    let lastError = null
+    for (const attempt of attempts) {
+      try {
+        const generator = await pipeline('text-generation', attempt.id, attempt.options)
+        return {
+          generator,
+          modelLabel: attempt.label,
+        }
+      } catch (error) {
+        lastError = error
+        console.warn(`RoachBrain Web model attempt failed for ${attempt.label}.`, error)
+      }
+    }
+
+    throw lastError || new Error('RoachBrain Web could not load a usable browser model on this device.')
+  })().catch((error) => {
+    localGeneratorPromise = null
+    throw error
+  })
+
+  return localGeneratorPromise
+}
+
+function extractLocalReply(result) {
+  const generated = Array.isArray(result) ? result[0]?.generated_text ?? result[0] : result
+
+  if (Array.isArray(generated)) {
+    const assistant = [...generated].reverse().find((entry) => entry?.role === 'assistant' && entry?.content)
+    return String(assistant?.content || '').trim()
+  }
+
+  if (typeof generated === 'string') {
+    return generated.trim()
+  }
+
+  return ''
+}
+
+async function runBrowserLocalChat(message, history) {
+  setChatFeedback('Loading RoachBrain Web…', 'muted')
+  const { generator, modelLabel } = await getLocalGenerator()
+
+  const conversation = [
+    {
+      role: 'system',
+      content:
+        'You are RoachClaw on the RoachNet web lane. Keep replies practical, concise, and honest about what you cannot see. Never claim access to local files or devices unless the user explicitly paired a device bridge.',
+    },
+    ...history
+      .filter((entry) => entry && typeof entry === 'object')
+      .map((entry) => ({
+        role: entry.role === 'assistant' ? 'assistant' : 'user',
+        content: String(entry.content || '').trim(),
+      }))
+      .filter((entry) => entry.content.length > 0)
+      .slice(-10),
+    { role: 'user', content: message },
+  ]
+
+  setChatFeedback('Running RoachBrain Web in this browser…', 'muted')
+
+  const result = await generator(conversation, {
+    max_new_tokens: 96,
+    do_sample: false,
+    repetition_penalty: 1.04,
+  })
+
+  const reply = extractLocalReply(result)
+  if (!reply) {
+    throw new Error('RoachBrain Web did not return a usable reply.')
+  }
+
+  return {
+    reply,
+    modelLabel,
   }
 }
 
@@ -394,6 +779,62 @@ async function handleSignOut() {
   setAuthBusyState(false)
 }
 
+async function handleBridgeSubmit(event) {
+  event.preventDefault()
+
+  if (!authState?.enabled) {
+    setBridgeFeedback('Sign in first so the bridge has an account lane to attach to.', 'error')
+    return
+  }
+
+  const url = normalizeBridgeUrl(bridgeUrlInput.value)
+  const token = String(bridgeTokenInput.value || '').trim()
+  const label = String(bridgeLabelInput.value || '')
+    .replace(/\s+/g, ' ')
+    .trim()
+    .slice(0, 120)
+
+  if (!url || !token) {
+    setBridgeFeedback('Enter a bridge URL and token first.', 'error')
+    return
+  }
+
+  setBridgeBusyState(true)
+  setBridgeFeedback('Checking your RoachClaw bridge…')
+
+  try {
+    const response = await fetch(`${url}/health`, {
+      headers: {
+        accept: 'application/json',
+      },
+    })
+    const payload = await response.json().catch(() => ({}))
+    if (!response.ok || payload?.status !== 'ok') {
+      throw new Error('That bridge did not answer cleanly.')
+    }
+
+    saveBridgeState({ url, token, label })
+    setBridgeFeedback('Bridge paired in this browser.', 'live')
+    renderBridgeState()
+    syncComposerState()
+    renderStatusTiles()
+    renderWorkspaceSummary()
+  } catch (error) {
+    setBridgeFeedback(error instanceof Error ? error.message : 'That bridge did not answer cleanly.', 'error')
+  } finally {
+    setBridgeBusyState(false)
+  }
+}
+
+function handleBridgeClear() {
+  saveBridgeState({ url: '', token: '', label: '' })
+  setBridgeFeedback('Bridge cleared from this browser.', 'muted')
+  renderBridgeState()
+  syncComposerState()
+  renderStatusTiles()
+  renderWorkspaceSummary()
+}
+
 async function handleSend(event) {
   event.preventDefault()
 
@@ -438,7 +879,7 @@ async function handleSend(event) {
 
   promptInput.value = ''
   setChatBusyState(true)
-  setChatFeedback('Sending through the hosted lane…')
+  setChatFeedback(bridgeState.url ? 'Sending through your RoachClaw device…' : 'Sending through RoachBrain Cloud…')
 
   try {
     const response = await fetch(authState.config?.webChat?.endpoint || '/.netlify/functions/roachclaw-chat', {
@@ -450,22 +891,56 @@ async function handleSend(event) {
       body: JSON.stringify({
         threadId: activeThreadId,
         message,
+        bridgeUrl: bridgeState.url,
+        bridgeToken: bridgeState.token,
+        bridgeLabel: bridgeState.label,
       }),
     })
 
     const payload = await response.json().catch(() => ({}))
     if (!response.ok || payload?.ok !== true) {
+      if (!bridgeState.url) {
+        // Browser fallback stays available if the account-scoped cloud lane is unavailable.
+        const thread = await ensureThreadForPrompt(message)
+        const { reply, modelLabel } = await runBrowserLocalChat(message, previousMessages)
+        await persistLocalMessages({
+          threadId: thread.id,
+          userMessage: message,
+          assistantMessage: reply,
+          assistantModelLabel: modelLabel,
+        })
+        setChatFeedback(`Reply from ${localProviderLabel} · ${modelLabel}`, 'live')
+        await loadThreads(thread.id)
+        return
+      }
+
       throw new Error(payload?.message || 'RoachClaw could not finish the request.')
     }
 
     activeThreadId = payload.thread?.id || activeThreadId
-    setChatFeedback(`Reply from ${payload.provider || 'hosted lane'} · ${payload.model || 'model'}`, 'live')
+    setChatFeedback(
+      `Reply from ${payload.provider || (bridgeState.url ? 'RoachClaw local relay' : 'RoachBrain Cloud')} · ${payload.model || localModelLabel}`,
+      'live'
+    )
     await loadThreads(activeThreadId)
   } catch (error) {
-    messages = previousMessages
-    renderMessages()
-    promptInput.value = message
-    setChatFeedback(error instanceof Error ? error.message : 'RoachClaw could not finish the request.', 'error')
+    if (!bridgeState.url && /RoachBrain Cloud/i.test(String(error instanceof Error ? error.message : ''))) {
+      const thread = await ensureThreadForPrompt(message)
+      const { reply, modelLabel } = await runBrowserLocalChat(message, previousMessages)
+      await persistLocalMessages({
+        threadId: thread.id,
+        userMessage: message,
+        assistantMessage: reply,
+        assistantModelLabel: modelLabel,
+      })
+      setChatFeedback(`Reply from ${localProviderLabel} · ${modelLabel}`, 'live')
+      await loadThreads(thread.id)
+    } else {
+      messages = previousMessages
+      renderMessages()
+      promptInput.value = message
+      setChatFeedback(error instanceof Error ? error.message : 'RoachClaw could not finish the request.', 'error')
+    }
   } finally {
     setChatBusyState(false)
   }
@@ -509,6 +984,8 @@ async function initialize() {
 
 authForm.addEventListener('submit', handleAuthSubmit)
 signOutButton.addEventListener('click', handleSignOut)
+bridgeForm.addEventListener('submit', handleBridgeSubmit)
+bridgeClear.addEventListener('click', handleBridgeClear)
 newChatButton.addEventListener('click', () => {
   activeThreadId = null
   messages = []

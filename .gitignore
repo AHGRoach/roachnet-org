@@ -1,3 +1,4 @@
 website-apps-dist/
 website-accounts-dist/
 .netlify/
+node_modules/

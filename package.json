@@ -1,12 +1,22 @@
 {
   "name": "roachnet-org",
   "private": true,
-  "version": "1.0.1",
+  "version": "1.0.5",
   "type": "module",
+  "dependencies": {
+    "@huggingface/transformers": "^3.8.1",
+    "sharp": "file:./vendor/sharp-stub"
+  },
+  "overrides": {
+    "sharp": "file:./vendor/sharp-stub"
+  },
   "scripts": {
     "build:config": "node scripts/render-site-config.mjs",
     "build:catalog": "node scripts/build-app-store-catalog.mjs",
     "build:apps": "node scripts/build-apps-site.mjs",
     "build:accounts": "node scripts/build-accounts-site.mjs"
+  },
+  "optionalDependencies": {
+    "@img/sharp-linux-x64": "^0.34.5"
   }
 }

@@ -6,7 +6,7 @@
     <title>RoachNet Brew</title>
     <meta
       name="description"
-      content="Install RoachNet straight from Homebrew on Apple Silicon and keep the app, runtime, and local tools grouped under ~/RoachNet."
+      content="Install RoachNet from Homebrew and keep the app, runtime, tools, and vault grouped under ~/RoachNet."
     />
     <meta name="theme-color" content="#0b1016" />
     <link rel="canonical" href="https://roachnet.org/brew/" />
@@ -18,7 +18,7 @@
     <meta property="og:title" content="RoachNet Brew" />
     <meta
       property="og:description"
-      content="Direct Apple Silicon Homebrew lane for RoachNet with the contained runtime staged under ~/RoachNet."
+      content="Contained Homebrew lane for RoachNet. Same stack, shorter path."
     />
     <meta property="og:url" content="https://roachnet.org/brew/" />
     <meta property="og:image" content="https://roachnet.org/assets/screens/roachnet-native-home.jpg" />
@@ -26,7 +26,7 @@
     <meta name="twitter:title" content="RoachNet Brew" />
     <meta
       name="twitter:description"
-      content="Direct Homebrew lane for RoachNet. App in ~/RoachNet/app. Runtime and storage stay contained."
+      content="Install RoachNet from Homebrew and keep the whole stack grouped under ~/RoachNet."
     />
     <meta name="twitter:image" content="https://roachnet.org/assets/screens/roachnet-native-home.jpg" />
     <link rel="stylesheet" href="../app.css" />
@@ -64,9 +64,9 @@
       <section class="hero hero--brew">
         <div class="hero-copy">
           <p class="eyebrow">RoachNet Brew</p>
-          <h1>Install the native app straight from Homebrew.</h1>
+          <h1>Install RoachNet straight from Homebrew.</h1>
           <p class="hero-body">
-            Skip the setup app. Drop the shell into <code>~/RoachNet/app</code>. Keep the runtime, vault, and local tools under the RoachNet folder.
+            Same contained stack, no setup app. The shell lands in <code>~/RoachNet/app</code> and keeps its runtime, tools, and storage in the RoachNet folder.
           </p>
 
           <div class="hero-actions">
@@ -75,10 +75,10 @@
             <a class="cta cta--ghost" href="https://github.com/AHGRoach/homebrew-roachnet" target="_blank" rel="noreferrer">View tap repo</a>
           </div>
 
-          <p class="hero-footnote">Apple Silicon only. Fresh Homebrew installs are supported. The helper can install Homebrew first, refresh the tap, then run the cask cleanly.</p>
-          <p class="download-meta">Current cask target: RoachNet 1.0.1 · <code>brew update &amp;&amp; brew tap --force AHGRoach/roachnet &amp;&amp; brew install --cask --no-quarantine roachnet</code></p>
+          <p class="hero-footnote">Apple Silicon only. Fresh Homebrew installs are supported. Same contained lane, less ceremony.</p>
+          <p class="download-meta">Current cask target: RoachNet 1.0.5 · <code>brew update &amp;&amp; brew tap --force AHGRoach/roachnet &amp;&amp; brew install --cask --no-quarantine roachnet</code></p>
           <p class="homebrew-note" id="homebrew-note">
-            The direct lane writes the RoachNet config automatically, normalizes the copied app bundle for unsigned launch, marks the first launch as a contained Homebrew bootstrap, disables the companion bridge on first boot, and skips the launch intro so the shell can come up cleanly on a fresh Mac.
+            This lane writes the install config, normalizes the unsigned app bundle for launch, and boots the contained runtime without leaning on host Homebrew libraries.
           </p>
         </div>
 
@@ -102,7 +102,7 @@
       <section class="content-section" id="install">
         <div class="section-head">
           <p class="eyebrow">Install</p>
-          <h2>The short path.</h2>
+          <h2>Three commands. Same contained stack.</h2>
         </div>
 
         <div class="card-grid card-grid--three" role="list">
@@ -134,7 +134,7 @@
       <section class="content-section" id="layout">
         <div class="section-head">
           <p class="eyebrow">What it installs</p>
-          <h2>The contained layout.</h2>
+          <h2>What lands on disk.</h2>
         </div>
 
         <div class="runtime-grid" role="list">
@@ -167,7 +167,7 @@
       <section class="content-section" id="runtime">
         <div class="section-head">
           <p class="eyebrow">Homebrew runtime</p>
-          <h2>What differs from Setup.app.</h2>
+          <h2>What this lane does differently.</h2>
         </div>
 
         <div class="card-grid card-grid--support" role="list">
@@ -178,7 +178,7 @@
 
           <article class="support-card" role="listitem">
             <span class="feature-card__eyebrow">Unsigned launch-safe</span>
-            <h3>The copied app bundle is normalized and re-signed locally so clean Apple Silicon Macs can open the contained shell without depending on notarization or host Homebrew libraries.</h3>
+            <h3>The copied app bundle is normalized and re-signed locally so clean Apple Silicon Macs can open the contained shell without leaning on notarization or host Homebrew libraries.</h3>
           </article>
 
           <article class="support-card" role="listitem">
@@ -212,7 +212,7 @@
     <footer class="site-footer">
       <div class="site-footer__copy">
         <strong>RoachNet Brew</strong>
-        <span>Direct cask lane for Apple Silicon installs that keep the app and runtime grouped under the RoachNet folder.</span>
+        <span>Contained cask lane for Apple Silicon installs that keep the app and runtime grouped under the RoachNet folder.</span>
       </div>
       <nav class="site-footer__nav" aria-label="Footer">
         <a href="https://roachnet.org/">Home</a>
