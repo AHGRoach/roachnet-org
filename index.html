@@ -31,7 +31,7 @@
     <meta name="twitter:image" content="https://roachnet.org/assets/roachnet-logo.png" />
     <link rel="stylesheet" href="./app.css" />
   </head>
-  <body>
+  <body data-page="home">
     <div class="bg-glow bg-glow--blue" aria-hidden="true"></div>
     <div class="bg-glow bg-glow--green" aria-hidden="true"></div>
 
@@ -42,20 +42,24 @@
           <span class="brand-kicker">Local-first command center</span>
           <strong>RoachNet</strong>
         </div>
+        <span class="site-header__status">Desktop v1.0.1</span>
       </a>
 
-      <nav class="site-nav" aria-label="Primary">
-        <a href="#top">Home</a>
-        <a href="https://apps.roachnet.org">Apps</a>
-        <a href="https://roachnet.org/roachclaw/">RoachClaw</a>
-        <a href="https://accounts.roachnet.org/">Account</a>
-        <a href="https://roachnet.org/brew/">Brew</a>
-        <a href="https://roachnet.org/iOS/">iOS</a>
-        <a href="https://roachnet.org/api/">API</a>
-        <a href="#support">Support</a>
-        <a href="#downloads">Downloads</a>
-        <a href="https://github.com/AHGRoach/RoachNet" target="_blank" rel="noreferrer">GitHub</a>
-      </nav>
+      <div class="site-header__panel">
+        <nav class="site-nav site-nav--primary" aria-label="Primary">
+          <a class="is-current" href="#top">Home</a>
+          <a href="https://apps.roachnet.org">Apps</a>
+          <a href="https://roachnet.org/roachclaw/">RoachClaw</a>
+          <a href="https://roachnet.org/brew/">Brew</a>
+          <a href="https://roachnet.org/iOS/">iOS</a>
+        </nav>
+
+        <div class="site-header__actions" aria-label="Utility links">
+          <a class="site-action-pill" href="https://accounts.roachnet.org/">Account</a>
+          <a class="site-action-pill site-action-pill--ghost" href="https://roachnet.org/api/">API</a>
+          <a class="site-action-pill site-action-pill--ghost" href="https://github.com/AHGRoach/RoachNet" target="_blank" rel="noreferrer">GitHub</a>
+        </div>
+      </div>
     </header>
 
     <main id="top" class="page-shell">
