@@ -319,7 +319,8 @@ async function ensureTurnstile() {
 }
 
 async function registerAccount({ email, password, displayName }) {
-  const registerUrl = authState?.config?.auth?.registerUrl || '/.netlify/functions/register-account'
+  const registerUrl =
+    authState?.config?.auth?.registerUrl || 'https://roachnet.org/.netlify/functions/register-account'
   const response = await fetch(registerUrl, {
     method: 'POST',
     headers: {

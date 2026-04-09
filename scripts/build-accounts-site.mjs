@@ -17,6 +17,7 @@ async function main() {
     'app.css',
     'account.js',
     'site-account.js',
+    'site-config.js',
     'assets',
     'favicon.ico',
     'favicon-16x16.png',
@@ -34,51 +35,6 @@ async function main() {
   await cp(path.join(repoRoot, 'account/index.html'), path.join(outputRoot, 'index.html'), {
     force: true,
   })
-
-  const releaseVersion = process.env.ROACHNET_RELEASE_VERSION || '1.0.5'
-  const authEnabled =
-    process.env.ROACHNET_AUTH_ENABLED === '1' &&
-    Boolean(process.env.ROACHNET_SUPABASE_URL) &&
-    Boolean(process.env.ROACHNET_SUPABASE_ANON_KEY)
-  const webChatEnabled = process.env.ROACHNET_WEB_CHAT_ENABLED === '1'
-
-  const config = {
-    releaseVersion,
-    auth: {
-      enabled: authEnabled,
-      provider: 'supabase',
-      supabaseUrl: process.env.ROACHNET_SUPABASE_URL || '',
-      supabaseAnonKey: process.env.ROACHNET_SUPABASE_ANON_KEY || '',
-      redirectUrl: process.env.ROACHNET_AUTH_REDIRECT_URL || 'https://accounts.roachnet.org/',
-      registerUrl:
-        process.env.ROACHNET_ACCOUNT_REGISTER_URL ||
-        'https://accounts.roachnet.org/.netlify/functions/register-account',
-      remoteConfigUrl: process.env.ROACHNET_AUTH_REMOTE_CONFIG_URL || 'https://accounts.roachnet.org/site-config.js',
-    },
-    webChat: {
-      enabled: webChatEnabled,
-      mode: process.env.ROACHNET_WEB_CHAT_MODE || (webChatEnabled ? 'live' : 'planned'),
-      accountRequired: process.env.ROACHNET_WEB_CHAT_ACCOUNT_REQUIRED !== '0',
-      endpoint:
-        process.env.ROACHNET_WEB_CHAT_ENDPOINT ||
-        'https://accounts.roachnet.org/.netlify/functions/roachclaw-chat',
-      providerLabel:
-        process.env.ROACHNET_WEB_CHAT_PROVIDER_LABEL || 'RoachClaw local + RoachBrain Cloud',
-      modelLabel: process.env.ROACHNET_WEB_CHAT_MODEL_LABEL || 'Local relay or cloud model',
-    },
-    turnstile: {
-      enabled:
-        process.env.ROACHNET_TURNSTILE_ENABLED === '1' &&
-        Boolean(process.env.ROACHNET_TURNSTILE_SITE_KEY),
-      siteKey: process.env.ROACHNET_TURNSTILE_SITE_KEY || '',
-    },
-  }
-
-  await writeFile(
-    path.join(outputRoot, 'site-config.js'),
-    `window.__ROACHNET_SITE_CONFIG__ = ${JSON.stringify(config, null, 2)}\n`,
-    'utf8'
-  )
 
   await writeFile(
     path.join(outputRoot, '_redirects'),
