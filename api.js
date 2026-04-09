@@ -109,7 +109,7 @@ const apiGroups = [
           'Config writes: ~/Library/Application Support/roachnet/roachnet-installer.json and ~/.roachnet-setup.json',
         ],
         implementation:
-          'The cask copies the bundled native app out of the DMG, clears macOS quarantine metadata on the installed bundle, creates the contained storage/bin roots, and writes the same installer config the native shell expects so the Homebrew lane can skip Setup.app completely.',
+          'The cask copies the bundled native app out of the DMG, normalizes the copied app bundle as the real unsigned launch boundary, refreshes its local ad-hoc signature, creates the contained storage/bin roots, and writes the same installer config the native shell expects so the Homebrew lane can skip Setup.app completely.',
         usedBy: ['Homebrew postflight hook', 'roachnet.org/brew docs page'],
       },
       {
@@ -256,7 +256,7 @@ const apiGroups = [
     label: 'Companion',
     scope: 'runtime',
     basePath: '/api/companion',
-    summary: 'Desktop companion token plus per-device RoachTail peer tokens for the iPhone and iPad carry lane, with RoachSync state folded into the same bridge.',
+    summary: 'Desktop companion token plus per-device RoachTail peer tokens for the iPhone and iPad carry lane, with RoachSync state and future account-linked device metadata folded into the same bridge.',
     stack: 'roachnet-companion-server.mjs -> peer-aware token gate -> CompanionController -> ChatService / OllamaService / runtime relays -> RoachTail/RoachSync state in contained storage',
     callers: ['RoachNet iOS companion', 'future iPad surfaces'],
     endpoints: [
@@ -315,7 +315,7 @@ const apiGroups = [
         ],
         response: ['success, message, token, peerId, bridgeUrl, state'],
         implementation:
-          'The controller checks that RoachTail is enabled, validates the one-time join code against the contained state record and its short expiry window, mints a private peer token, stores only its SHA-256 hash, and returns the plaintext token once so the phone can save it into local connection settings.',
+          'The controller checks that RoachTail is enabled, validates the one-time join code against the contained state record and its short expiry window, mints a private peer token, stores only its SHA-256 hash, and returns the plaintext token once so the phone can save it into its local secure settings lane. RoachNetiOS now keeps that token in the iOS Keychain instead of plain user defaults.',
         usedBy: ['RoachNet iOS connection sheet', 'first-time phone pairing flow'],
       },
       {
@@ -438,8 +438,8 @@ const apiGroups = [
         request: ['Body: install intent payload from the Apps catalog, including action/slug/category/model/url metadata'],
         response: ['JSON: { ok, action, result }'],
         implementation:
-          'Normalizes the incoming intent, maps it onto the existing runtime install actions, and dispatches it into the same content/model install lanes the website already uses. The iOS app keeps a local pending-install queue when this bridge is unavailable, then flushes the queue back through this route on reconnect.',
-        usedBy: ['Apps tab install buttons in RoachNet iOS', 'Reconnect flush for queued mobile installs'],
+          'Normalizes the incoming intent, maps it onto the existing runtime install actions, and dispatches it into the same content/model install lanes the website already uses. The iOS app keeps a local pending-install queue when this bridge is unavailable, then flushes the queue back through this route on reconnect. The mobile app also accepts roachnet://install-content deep links, so the website, Apps store, and phone app all share the same install-intent contract.',
+        usedBy: ['Apps tab install buttons in RoachNet iOS', 'roachnet://install-content handoff into RoachNetiOS', 'Reconnect flush for queued mobile installs'],
       },
       {
         id: 'companion-services-affect',

@@ -70,9 +70,9 @@
           </div>
 
           <p class="hero-footnote">Apple Silicon only. Fresh Homebrew installs are supported. The helper can install Homebrew first, refresh the tap, then run the cask cleanly.</p>
-          <p class="download-meta">Current cask target: RoachNet 1.0.6 · <code>brew update &amp;&amp; brew tap --force AHGRoach/roachnet &amp;&amp; brew install --cask --no-quarantine roachnet</code></p>
+          <p class="download-meta">Current cask target: RoachNet 1.0.1 · <code>brew update &amp;&amp; brew tap --force AHGRoach/roachnet &amp;&amp; brew install --cask --no-quarantine roachnet</code></p>
           <p class="homebrew-note" id="homebrew-note">
-            The direct lane writes the RoachNet config automatically, marks the first launch as a contained Homebrew bootstrap, disables the companion bridge on first boot, and skips the launch intro so the shell can come up cleanly on a fresh Mac.
+            The direct lane writes the RoachNet config automatically, normalizes the copied app bundle for unsigned launch, marks the first launch as a contained Homebrew bootstrap, disables the companion bridge on first boot, and skips the launch intro so the shell can come up cleanly on a fresh Mac.
           </p>
         </div>
 
@@ -135,7 +135,7 @@
           <article class="runtime-card" role="listitem">
             <span class="feature-card__eyebrow">App bundle</span>
             <h3><code>~/RoachNet/app/RoachNet.app</code></h3>
-            <p>The Homebrew lane copies the native app directly out of the packaged DMG and clears macOS quarantine metadata on the installed bundle.</p>
+            <p>The Homebrew lane copies the native app directly out of the packaged DMG, clears inherited launch metadata across the installed bundle, and refreshes the local ad-hoc signature before first launch.</p>
           </article>
 
           <article class="runtime-card" role="listitem">
@@ -168,6 +168,11 @@
           <article class="support-card" role="listitem">
             <span class="feature-card__eyebrow">Portable Node</span>
             <h3>The packaged runtime ships its own portable Node lane and rejects Homebrew-linked dylib chains before the DMG is built.</h3>
+          </article>
+
+          <article class="support-card" role="listitem">
+            <span class="feature-card__eyebrow">Unsigned launch-safe</span>
+            <h3>The copied app bundle is normalized and re-signed locally so clean Apple Silicon Macs can open the contained shell without depending on notarization or host Homebrew libraries.</h3>
           </article>
 
           <article class="support-card" role="listitem">

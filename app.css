@@ -199,6 +199,34 @@ input:focus-visible {
   flex-wrap: wrap;
 }
 
+.site-nav {
+  position: relative;
+  isolation: isolate;
+  gap: 8px;
+  padding: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 999px;
+  background:
+    linear-gradient(135deg, rgba(20, 26, 34, 0.92), rgba(12, 17, 24, 0.82)),
+    rgba(10, 14, 19, 0.72);
+  box-shadow:
+    0 24px 56px rgba(0, 0, 0, 0.26),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(18px);
+}
+
+.site-nav::before {
+  content: "";
+  position: absolute;
+  inset: 1px;
+  z-index: -1;
+  border-radius: inherit;
+  background:
+    radial-gradient(circle at 18% 18%, rgba(92, 141, 255, 0.14), transparent 30%),
+    radial-gradient(circle at 82% 22%, rgba(50, 255, 126, 0.1), transparent 28%);
+  opacity: 0.9;
+}
+
 .site-nav a,
 .site-footer a {
   color: var(--rn-text-dim);
@@ -206,9 +234,46 @@ input:focus-visible {
   font-size: 0.95rem;
 }
 
+.site-nav a {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 40px;
+  padding: 0 14px;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.01);
+  overflow: hidden;
+}
+
+.site-nav a::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  background: linear-gradient(120deg, rgba(255, 255, 255, 0.14), transparent 58%);
+  transition: opacity 220ms ease;
+}
+
 .site-nav a:hover,
 .site-footer a:hover {
   color: var(--rn-text);
+}
+
+.site-nav a:hover,
+.site-nav a:focus-visible {
+  border-color: rgba(92, 141, 255, 0.24);
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow:
+    0 14px 32px rgba(0, 0, 0, 0.18),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+  transform: translateY(-1px);
+}
+
+.site-nav a:hover::before,
+.site-nav a:focus-visible::before {
+  opacity: 1;
 }
 
 .site-nav a,
@@ -1918,6 +1983,17 @@ input:focus-visible {
   .site-footer__nav,
   .site-footer__meta {
     width: 100%;
+  }
+
+  .site-nav {
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    padding: 8px;
+    scrollbar-width: none;
+  }
+
+  .site-nav::-webkit-scrollbar {
+    display: none;
   }
 
   .site-footer__meta {
