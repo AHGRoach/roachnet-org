@@ -130,8 +130,8 @@ function setMode(nextMode) {
   if (formNote) {
     formNote.textContent =
       accountMode === 'signup'
-        ? 'Create the hosted account that will hold web-chat access, device links, and synced app state.'
-        : 'Sign in when you want the website lane tied to your RoachNet account.'
+        ? 'Create the account that holds web chat, app picks, and device links.'
+        : 'Sign in when you want the website tied to your RoachNet account.'
   }
 
   if (turnstileShell) {
@@ -148,7 +148,7 @@ function renderStatus() {
   const session = authState.session
 
   if (!enabled) {
-    statusTitle.textContent = 'Auth lane staged, not armed.'
+    statusTitle.textContent = 'Auth is staged, not armed.'
     statusBody.textContent = authState.reason
     statusBadge.textContent = 'Disabled'
     statusBadge.dataset.state = 'disabled'
@@ -157,7 +157,7 @@ function renderStatus() {
     setFormBusy(true)
     setSnapshot({
       title: 'Auth is disabled on this deploy.',
-      body: 'The account lane is staged, but this deploy is missing live auth keys.',
+      body: 'The account system is staged, but this deploy is missing live auth keys.',
     })
     setFeedback('This deploy does not have live account auth configured yet.')
     return
@@ -168,7 +168,7 @@ function renderStatus() {
 
   if (session?.user) {
     statusTitle.textContent = 'Signed in.'
-    statusBody.textContent = `Website lane is linked to ${sessionLabel(session)}.`
+    statusBody.textContent = `Website account is linked to ${sessionLabel(session)}.`
     statusBadge.textContent = 'Live'
     statusBadge.dataset.state = 'live'
     signOutButton.hidden = false
@@ -177,13 +177,13 @@ function renderStatus() {
   }
 
   statusTitle.textContent = 'Ready for sign-in.'
-  statusBody.textContent = 'Use the account lane for web chat, remembered installs, and account-linked device metadata.'
+  statusBody.textContent = 'Use your account for web chat, saved app picks, and device metadata.'
   statusBadge.textContent = 'Ready'
   statusBadge.dataset.state = 'ready'
   signOutButton.hidden = true
   setSnapshot({
     title: 'Sign in to load account state.',
-    body: 'Linked lanes, saved installs, and sync-ready settings metadata will show up here once you sign in.',
+    body: 'Linked devices, saved app picks, and settings metadata will show up here once you sign in.',
   })
 }
 
@@ -233,7 +233,7 @@ async function syncSnapshot() {
     setFeedback(errors[0].message || 'Could not load the account snapshot.', 'error')
     setSnapshot({
       title: 'Account snapshot needs attention.',
-      body: 'The account session is live, but this browser lane could not finish loading its synced state.',
+      body: 'The account session is live, but this browser session could not finish loading its synced state.',
       settings: 'Error',
     })
     return
@@ -251,7 +251,7 @@ async function syncSnapshot() {
     body:
       devices > 0
         ? 'RoachTail and RoachSync metadata can anchor themselves here without leaking local machine details.'
-        : 'This is a fresh account lane. Pair devices or save installs to start building synced state.',
+        : 'This is a fresh account. Pair devices or save installs to start building synced state.',
     devices: String(devices),
     apps: String(apps),
     settings: settingsCount > 0 ? 'Remembered' : 'Fresh',
@@ -292,7 +292,7 @@ async function ensureTurnstile() {
     return
   }
 
-  setTurnstileState('Loading verification lane…')
+  setTurnstileState('Loading verification…')
 
   try {
     await loadTurnstileScript()
@@ -337,7 +337,7 @@ async function registerAccount({ email, password, displayName }) {
 
   const result = await response.json().catch(() => ({
     ok: false,
-    message: 'The account lane returned unreadable data.',
+    message: 'The account service returned unreadable data.',
   }))
 
   if (!response.ok || result.ok !== true) {

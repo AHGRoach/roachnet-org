@@ -227,16 +227,16 @@ function renderWorkspaceSummary() {
   }
 
   if (!authState?.session?.user) {
-    workspaceTitle.textContent = 'Sign in to open your own browser lane.'
+    workspaceTitle.textContent = 'Sign in to open your own chat history.'
     workspaceBody.textContent =
       'RoachClaw on the web keeps chat tied to your account instead of anonymous browser state.'
     return
   }
 
   if (!bridgeState.url || !bridgeState.token) {
-    workspaceTitle.textContent = 'Chat now, pair a device when you want more.'
+    workspaceTitle.textContent = 'Works in the browser. Better with your Mac behind it.'
     workspaceBody.textContent =
-      'No paired device? RoachBrain Cloud keeps the lane alive from your account. Pair a RoachClaw device later when you want your own hardware to take over.'
+      'No paired device? RoachBrain Cloud keeps chat alive from your account. Pair a RoachClaw device later when you want your own hardware to take over.'
     return
   }
 
@@ -248,11 +248,20 @@ function renderWorkspaceSummary() {
 function renderStatusTiles() {
   if (!authState) return
 
-  statusAccount.textContent = authState.session?.user ? sessionLabel(authState.session) : 'Sign in required'
-  statusProvider.textContent =
-    bridgeState.url ? bridgeState.label || 'Your RoachClaw device' : 'RoachBrain Cloud'
+  const accountTile = statusAccount?.closest('.roachclaw-status-tile')
+  const providerTile = statusProvider?.closest('.roachclaw-status-tile')
+  const modelTile = statusModel?.closest('.roachclaw-status-tile')
+  const signedIn = Boolean(authState.session?.user)
+  const paired = Boolean(bridgeState.url && bridgeState.token)
+
+  if (accountTile) accountTile.dataset.state = signedIn ? 'live' : authState.enabled ? 'ready' : 'disabled'
+  if (providerTile) providerTile.dataset.state = paired ? 'live' : 'ready'
+  if (modelTile) modelTile.dataset.state = activeThread()?.model ? 'live' : paired ? 'ready' : 'pending'
+
+  statusAccount.textContent = signedIn ? sessionLabel(authState.session) : 'Sign in required'
+  statusProvider.textContent = paired ? bridgeState.label || 'Your device' : 'RoachBrain Cloud'
   statusModel.textContent =
-    activeThread()?.model || (bridgeState.url ? 'Paired device model' : authState.config?.webChat?.modelLabel || 'RoachBrain Cloud')
+    activeThread()?.model || (paired ? 'Paired model ready' : authState.config?.webChat?.modelLabel || 'Cloud model ready')
 }
 
 function renderBridgeState() {
@@ -265,7 +274,7 @@ function renderBridgeState() {
   if (!authState?.enabled) {
     bridgeTitle.textContent = 'Account auth is still required.'
     bridgeBody.textContent =
-      'The browser lane needs account auth for thread ownership before it can pair a RoachClaw device.'
+      'The browser needs account auth for thread ownership before it can pair a RoachClaw device.'
     bridgeBadge.textContent = 'Waiting'
     bridgeBadge.dataset.state = 'disabled'
     setBridgeFeedback('')
@@ -278,7 +287,7 @@ function renderBridgeState() {
     : 'Optional: pair your own RoachClaw device.'
   bridgeBody.textContent = paired
     ? 'This browser will use your stored bridge token to send prompts to your own RoachNet hardware. The site does not rent a model for you.'
-    : 'Paste a RoachTail or companion bridge URL plus a device token when you want this page to hand prompts to your own RoachNet hardware. If you leave it blank, RoachBrain Cloud handles the no-device lane for your signed-in account.'
+    : 'Paste a RoachTail or companion bridge URL plus a device token when you want this page to hand prompts to your own RoachNet hardware. Leave it blank and RoachBrain Cloud handles the signed-in fallback.'
   bridgeBadge.textContent = paired ? 'Paired' : 'Unpaired'
   bridgeBadge.dataset.state = paired ? 'live' : 'ready'
   setBridgeBusyState(bridgeBusy)
@@ -288,7 +297,7 @@ function threadButtonMarkup(thread) {
   return `
     <button class="roachclaw-thread${thread.id === activeThreadId ? ' is-active' : ''}" type="button" data-thread-id="${thread.id}">
       <strong>${escapeHtml(thread.title || 'New chat')}</strong>
-      <span>${escapeHtml(thread.summary || 'Account-scoped RoachClaw thread.')}</span>
+      <span>${escapeHtml(thread.summary || 'Account-owned RoachClaw thread.')}</span>
       <small>${escapeHtml(formatRelativeTime(thread.last_message_at || thread.created_at))}</small>
     </button>
   `
@@ -364,19 +373,19 @@ function renderMessages() {
       <div class="roachclaw-empty-state">
         <span class="feature-card__eyebrow">First prompt</span>
         <h3>Start a thread from anywhere.</h3>
-        <p>This lane keeps the website account-scoped. It does not dump local machine state into the browser by default.</p>
+        <p>This page keeps chat tied to your account. It does not dump local machine state into the browser by default.</p>
         <div class="roachclaw-starter-grid">
           <button class="roachclaw-starter" data-roachclaw-starter="Summarize what RoachNet can do across desktop, iOS, and the Apps store.">
-            <strong>RoachNet overview</strong>
-            <span>Get a fast read on the current product surface.</span>
+            <strong>What is RoachNet?</strong>
+            <span>Good place to start.</span>
           </button>
           <button class="roachclaw-starter" data-roachclaw-starter="Help me map out a RoachTail + RoachSync device setup without exposing my public IP.">
-            <strong>RoachTail plan</strong>
-            <span>Draft a secure multi-device lane.</span>
+            <strong>Set up RoachTail</strong>
+            <span>Private multi-device bridge, explained.</span>
           </button>
           <button class="roachclaw-starter" data-roachclaw-starter="Give me a practical list of RoachNet Apps packs to install first for maps, medicine, and dev.">
-            <strong>Starter packs</strong>
-            <span>Pick the first content installs.</span>
+            <strong>What should I install first?</strong>
+            <span>First-run app pack suggestions.</span>
           </button>
         </div>
       </div>
@@ -399,7 +408,7 @@ function renderAuth() {
     authBody.textContent = authState.reason
     authBadge.textContent = 'Disabled'
     authBadge.dataset.state = 'disabled'
-    authNote.textContent = 'The account lane is staged, but this deploy is missing live auth keys.'
+    authNote.textContent = 'The account system is staged, but this deploy is missing live auth keys.'
     signOutButton.hidden = true
     setAuthFeedback('This deploy cannot sign in yet.', 'error')
     setAuthBusyState(true)
@@ -411,7 +420,7 @@ function renderAuth() {
 
   if (authState.session?.user) {
     authTitle.textContent = 'Signed in.'
-    authBody.textContent = `Browser lane is tied to ${sessionLabel(authState.session)}.`
+    authBody.textContent = `This chat is tied to ${sessionLabel(authState.session)}.`
     authBadge.textContent = 'Live'
     authBadge.dataset.state = 'live'
     authNote.textContent = 'Only this account can read or extend the threads shown here.'
@@ -420,9 +429,9 @@ function renderAuth() {
     signOutButton.hidden = false
     setAuthFeedback('Account session is live.', 'live')
   } else {
-    authTitle.textContent = 'Sign in to use the hosted RoachClaw lane.'
+    authTitle.textContent = 'Sign in to use hosted RoachClaw.'
     authBody.textContent =
-      'The browser lane uses your RoachNet account for thread ownership and secure history.'
+      'The browser uses your RoachNet account for thread ownership and secure history.'
     authBadge.textContent = 'Ready'
     authBadge.dataset.state = 'ready'
     authNote.textContent = 'Need an account first? Create it on the Accounts page, then sign in here.'
@@ -686,7 +695,7 @@ async function runBrowserLocalChat(message, history) {
     {
       role: 'system',
       content:
-        'You are RoachClaw on the RoachNet web lane. Keep replies practical, concise, and honest about what you cannot see. Never claim access to local files or devices unless the user explicitly paired a device bridge.',
+        'You are RoachClaw on the RoachNet web chat page. Keep replies practical, concise, and honest about what you cannot see. Never claim access to local files or devices unless the user explicitly paired a device bridge.',
     },
     ...history
       .filter((entry) => entry && typeof entry === 'object')
@@ -783,7 +792,7 @@ async function handleBridgeSubmit(event) {
   event.preventDefault()
 
   if (!authState?.enabled) {
-    setBridgeFeedback('Sign in first so the bridge has an account lane to attach to.', 'error')
+    setBridgeFeedback('Sign in first so the bridge has an account to attach to.', 'error')
     return
   }
 

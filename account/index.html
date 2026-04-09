@@ -6,7 +6,7 @@
     <title>RoachNet Account</title>
     <meta
       name="description"
-      content="Sign in to the RoachNet website lane for future RoachClaw web chat, synced settings, and device-aware account features."
+      content="Sign in for RoachClaw web chat, saved app picks, and device links. Runtime and local files stay on your hardware."
     />
     <meta name="theme-color" content="#0a1016" />
     <link rel="canonical" href="https://accounts.roachnet.org/" />
@@ -24,9 +24,9 @@
         <img class="brand-mark" src="/assets/roachnet-logo.png" alt="RoachNet logo" />
         <div class="brand-copy">
           <strong>RoachNet Account</strong>
-          <span class="brand-kicker">Website sign-in, sync state, and future web chat</span>
+          <span class="brand-kicker">Sign in · app picks · device links</span>
         </div>
-        <span class="site-header__status">Account lane</span>
+        <span class="site-header__status">Accounts</span>
       </a>
 
       <div class="site-header__panel">
@@ -42,36 +42,35 @@
       <section class="account-hero">
         <article class="account-poster">
           <span class="eyebrow">Account</span>
-          <h1>Sign in once. Keep your lane tied together.</h1>
+          <h1>One account. Everything synced that should be.</h1>
           <p>
-            Use the account lane for free RoachClaw web chat, synced app picks, device links, and
-            settings that follow your RoachTail and RoachSync network.
+            Sign in for RoachClaw web chat, saved app picks, and device links. Your runtime, models, and local files stay on your own hardware. The account just keeps the web stuff in order.
           </p>
 
           <div class="account-chip-row" aria-label="Account features">
             <span class="account-chip">RoachClaw web chat</span>
             <span class="account-chip">Saved apps</span>
             <span class="account-chip">Device links</span>
-            <span class="account-chip">Sync-ready settings</span>
+            <span class="account-chip">Settings sync</span>
           </div>
 
           <div class="account-poster__grid">
-            <article class="account-mini-card">
+            <article class="account-mini-card" data-reveal>
               <span class="feature-card__eyebrow">What syncs</span>
-              <strong>Apps, device links, and settings state.</strong>
-              <p>The hosted lane keeps metadata in step without dumping your local vault into the site.</p>
+              <strong>App picks, device links, web settings.</strong>
+              <p>The useful metadata stays in step without dumping your local vault into the site.</p>
             </article>
 
-            <article class="account-mini-card">
+            <article class="account-mini-card" data-reveal>
               <span class="feature-card__eyebrow">What stays local</span>
-              <strong>Your runtime, models, vault, and machine paths.</strong>
+              <strong>Runtime, models, vault, file paths. All of it.</strong>
               <p>Desktop data stays on your own box unless you explicitly move it somewhere else.</p>
             </article>
 
-            <article class="account-mini-card">
+            <article class="account-mini-card" data-reveal>
               <span class="feature-card__eyebrow">What comes next</span>
-              <strong>RoachClaw on the web and account-linked RoachTail.</strong>
-              <p>This lane keeps the website tied to you. The actual model work stays on your hardware or in the browser.</p>
+              <strong>Full RoachClaw web interface and account-linked RoachTail.</strong>
+              <p>The website knows who you are. The heavier work still belongs on your hardware or in the browser.</p>
             </article>
           </div>
         </article>
@@ -79,8 +78,8 @@
         <section class="account-auth-shell">
           <div class="account-inline-status">
             <div>
-              <span class="feature-card__eyebrow">Account lane</span>
-              <h2 id="account-status-title">Checking auth lane…</h2>
+              <span class="feature-card__eyebrow">Account</span>
+              <h2 id="account-status-title">Checking account…</h2>
               <p id="account-status-body">Loading the current account state for this deploy.</p>
             </div>
             <div class="account-status-badge" id="account-status-badge">Loading</div>
@@ -124,7 +123,7 @@
             </div>
 
             <button class="cta cta--primary" id="account-submit" type="submit">Sign in</button>
-            <p class="account-form__note" id="account-form-note">Sign in when you want the website lane tied to your account.</p>
+            <p class="account-form__note" id="account-form-note">Sign in when you want the website tied to your account.</p>
             <p class="account-form__feedback" id="account-feedback" aria-live="polite"></p>
           </form>
         </section>
@@ -134,12 +133,12 @@
         <article class="account-panel account-panel--snapshot">
           <span class="feature-card__eyebrow">Synced state</span>
           <h3 id="account-snapshot-title">Sign in to load account state.</h3>
-          <p id="account-snapshot-body">Device links, saved apps, and settings metadata will show up here once the account lane is live for this session.</p>
+          <p id="account-snapshot-body">Device links, saved apps, and settings metadata will show up here once this session is live.</p>
 
           <div class="account-metrics">
             <div class="account-metric">
               <strong id="account-device-count">—</strong>
-              <span>Linked lanes</span>
+              <span>Linked devices</span>
             </div>
 
             <div class="account-metric">
@@ -157,17 +156,17 @@
         <article class="account-panel">
           <span class="feature-card__eyebrow">Desktop and phone</span>
           <h3>Keep the real work in the app.</h3>
-          <p>Use accounts for identity and sync metadata. Keep the runtime, vault, and local services on your own devices.</p>
+          <p>The account is for identity and sync metadata. The runtime, vault, and local services belong on your own hardware.</p>
           <div class="account-actions-inline">
             <a class="cta cta--ghost" href="https://roachnet.org/iOS/">RoachNetiOS</a>
-            <a class="cta cta--ghost" href="https://roachnet.org/roachclaw/">RoachClaw web lane</a>
+            <a class="cta cta--ghost" href="https://roachnet.org/roachclaw/">RoachClaw web chat</a>
           </div>
         </article>
 
         <article class="account-panel">
           <span class="feature-card__eyebrow">Privacy</span>
           <h3>No local path dump. No fake cloud runtime.</h3>
-          <p>The site only stores account state that should be shared. Local file paths, runtime secrets, and vault content stay out of this lane.</p>
+          <p>The server stores what a server should store: identity and sync metadata. File paths, runtime secrets, and vault content never leave your machine.</p>
           <div class="account-actions-inline">
             <a class="cta cta--ghost" href="https://roachnet.org/api/">API docs</a>
             <a class="cta cta--ghost" href="https://roachnet.org/">Back to RoachNet</a>

@@ -25,7 +25,7 @@ const apiGroups = [
           'containerRuntime, dependencies, activeTask, lastCompletedTask, sourceModes',
         ],
         implementation:
-          'Normalizes installer config, probes bundled-vs-host dependency state, checks the optional Docker lane, and merges persisted installer settings before the setup UI paints. The setup app now boots this state route through a self-contained embedded Node runtime so the first screen does not depend on Homebrew-provided dylibs being present on the host Mac.',
+          'Normalizes installer config, probes bundled-vs-host dependency state, checks the optional Docker runtime path, and merges persisted installer settings before the setup UI paints. The setup app now boots this state route through a self-contained embedded Node runtime so the first screen does not depend on Homebrew-provided dylibs being present on the host Mac.',
         usedBy: ['Setup overview screen', 'Install-path editor', 'Dependency readiness cards', 'Docker opt-in toggle'],
       },
       {
@@ -49,12 +49,12 @@ const apiGroups = [
         method: 'POST',
         path: '/container-runtime/start',
         title: 'Start container runtime',
-        summary: 'Boots the optional Docker-backed runtime lane for setup.',
+        summary: 'Boots the optional Docker-backed runtime path for setup.',
         handler: 'handleContainerRuntimeStartRequest',
         request: ['No body required'],
         response: ['JSON: { ok: true, runtime }', '400 on runtime bootstrap failure'],
         implementation:
-          'Calls the runtime starter used by setup when the user opts into Docker-backed support services instead of the default contained local lane.',
+          'Calls the runtime starter used by setup when the user opts into Docker-backed support services instead of the default contained local runtime.',
         usedBy: ['Setup dependency/runtime stage'],
       },
       {
@@ -87,10 +87,10 @@ const apiGroups = [
   },
   {
     id: 'homebrew-lane',
-    label: 'Homebrew Lane',
+    label: 'Homebrew Install',
     scope: 'packaging',
     basePath: '/brew',
-    summary: 'Direct cask lane for Apple Silicon Macs that bypasses Setup.app but lands on the same runtime API after boot.',
+    summary: 'Direct cask install for Apple Silicon Macs that bypasses Setup.app but lands on the same runtime API after boot.',
     stack: 'homebrew-roachnet cask -> postflight config writer -> ~/RoachNet/app/RoachNet.app -> run-roachnet.mjs contained runtime bootstrap',
     callers: ['brew update && brew tap --force AHGRoach/roachnet && brew install --cask --no-quarantine roachnet', 'RoachNet-Homebrew.command', 'RoachNet.app first launch after cask install'],
     endpoints: [
@@ -109,7 +109,7 @@ const apiGroups = [
           'Config writes: ~/Library/Application Support/roachnet/roachnet-installer.json and ~/.roachnet-setup.json',
         ],
         implementation:
-          'The cask copies the bundled native app out of the DMG, normalizes the copied app bundle as the real unsigned launch boundary, refreshes its local ad-hoc signature, creates the contained storage/bin roots, and writes the same installer config the native shell expects so the Homebrew lane can skip Setup.app completely.',
+          'The cask copies the bundled native app out of the DMG, normalizes the copied app bundle as the real unsigned launch boundary, refreshes its local ad-hoc signature, creates the contained storage/bin roots, and writes the same installer config the native shell expects so the Homebrew install can skip Setup.app completely.',
         usedBy: ['Homebrew postflight hook', 'roachnet.org/brew docs page'],
       },
       {
@@ -117,7 +117,7 @@ const apiGroups = [
         method: 'GET',
         path: '/defaults',
         title: 'Homebrew first-boot defaults',
-        summary: 'Describes the safer first-launch settings used by the cask lane.',
+        summary: 'Describes the safer first-launch settings used by the cask install.',
         handler: 'Cask config payload',
         request: ['No HTTP body. Static documentation for the Homebrew bootstrap payload.'],
         response: [
@@ -131,7 +131,7 @@ const apiGroups = [
           'lastRuntimeHealthAt: null',
         ],
         implementation:
-          'The direct cask lane comes up with an explicit Homebrew install profile, marks the first launch as pending bootstrap, keeps the companion bridge off, and skips the launch-intro sheet so a fresh Mac can reach a stable runtime before pairing or extra bridge services are enabled.',
+          'The direct cask install comes up with an explicit Homebrew install profile, marks the first launch as pending bootstrap, keeps the companion bridge off, and skips the launch-intro sheet so a fresh Mac can reach a stable runtime before pairing or extra bridge services are enabled.',
         usedBy: ['RoachNet.app first boot after Homebrew install', 'Homebrew troubleshooting docs'],
       },
       {
@@ -139,7 +139,7 @@ const apiGroups = [
         method: 'GET',
         path: '/runtime',
         title: 'Contained Homebrew runtime',
-        summary: 'Explains where the compiled runtime is staged and how it differs from the standard setup lane.',
+        summary: 'Explains where the compiled runtime is staged and how it differs from the standard setup path.',
         handler: 'run-roachnet.mjs build-runtime bootstrap',
         request: ['No HTTP body. Static documentation for the contained runtime layout.'],
         response: [
@@ -152,7 +152,7 @@ const apiGroups = [
           'Runtime API surface: same as the standard native app once the shell is live',
         ],
         implementation:
-          'The Homebrew lane now stages the compiled runtime inside the contained RoachNet storage root instead of /tmp. On macOS, native Node addons and dylibs in that cache are stripped of inherited xattrs and re-signed ad hoc before launch so clean Apple Silicon installs do not depend on host Homebrew dylibs or transient staging paths. If a first-boot Homebrew launch comes up dirty, the native bridge clears the contained runtime cache and process state once, retries, and only then records a bootstrap failure.',
+          'The Homebrew install now stages the compiled runtime inside the contained RoachNet storage root instead of /tmp. On macOS, native Node addons and dylibs in that cache are stripped of inherited xattrs and re-signed ad hoc before launch so clean Apple Silicon installs do not depend on host Homebrew dylibs or transient staging paths. If a first-boot Homebrew launch comes up dirty, the native bridge clears the contained runtime cache and process state once, retries, and only then records a bootstrap failure.',
         usedBy: ['RoachNet.app runtime boot after Homebrew install', 'roachnet.org/api Homebrew section'],
       },
     ],
@@ -162,7 +162,7 @@ const apiGroups = [
     label: 'Account + Web Chat',
     scope: 'website',
     basePath: '/.netlify/functions',
-    summary: 'Supabase-backed website identity plus the free RoachClaw web lane.',
+    summary: 'Supabase-backed website identity plus the free RoachClaw web chat path.',
     stack: 'accounts.roachnet.org auth surface -> Supabase Auth + RLS tables -> Netlify functions -> paired-device RoachClaw relay or RoachBrain Cloud fallback',
     callers: ['accounts.roachnet.org', 'roachnet.org/roachclaw'],
     endpoints: [
@@ -171,7 +171,7 @@ const apiGroups = [
         method: 'POST',
         path: '/register-account',
         title: 'Create one website account',
-        summary: 'Creates a Supabase-backed RoachNet account for the website lane.',
+        summary: 'Creates a Supabase-backed RoachNet account for the website.',
         handler: 'netlify/functions/register-account.mjs',
         request: [
           'Body: { email, password, displayName?, startedAt?, company?, captchaToken? }',
@@ -179,7 +179,7 @@ const apiGroups = [
         ],
         response: ['JSON: { ok, message, userId? }', '409 when the email already exists'],
         implementation:
-          'Runs server-side validation, optional Turnstile verification, then creates the user through the Supabase admin users API so sign-up can stay on the website lane without exposing the service-role key to the browser.',
+          'Runs server-side validation, optional Turnstile verification, then creates the user through the Supabase admin users API so sign-up can stay on the website without exposing the service-role key to the browser.',
         usedBy: ['accounts.roachnet.org create-account flow'],
       },
       {
@@ -187,7 +187,7 @@ const apiGroups = [
         method: 'POST',
         path: '/roachclaw-chat',
         title: 'Send one hosted RoachClaw prompt',
-        summary: 'Verifies the signed-in account, checks thread ownership, stores the prompt, and answers through the paired device or the hosted RoachBrain Cloud lane.',
+        summary: 'Verifies the signed-in account, checks thread ownership, stores the prompt, and answers through the paired device or hosted RoachBrain Cloud.',
         handler: 'netlify/functions/roachclaw-chat.mjs',
         request: [
           'Authorization: Bearer <Supabase access token>',
@@ -197,10 +197,10 @@ const apiGroups = [
           'JSON: { ok, thread, userMessage, assistantMessage, provider, model }',
           '401 for missing or invalid account session',
           '404 for threads outside the caller account',
-          '500 only when neither the paired-device lane nor the hosted cloud lane can finish the request',
+          '500 only when neither the paired-device path nor the hosted cloud path can finish the request',
         ],
         implementation:
-          'The function verifies the bearer token against Supabase Auth, scopes every thread/message lookup to that user id, stores the prompt, and either forwards the request to the user’s paired RoachClaw device or answers through the hosted RoachBrain Cloud lane. The browser-local RoachBrain path stays available as a last-resort client fallback, but the normal no-device route now stays account-scoped on the server.',
+          'The function verifies the bearer token against Supabase Auth, scopes every thread/message lookup to that user id, stores the prompt, and either forwards the request to the user’s paired RoachClaw device or answers through hosted RoachBrain Cloud. The browser-local RoachBrain path stays available as a last-resort client fallback, but the normal no-device route now stays account-scoped on the server.',
         usedBy: ['roachnet.org/roachclaw hosted chat workspace'],
       },
     ],
@@ -304,7 +304,7 @@ const apiGroups = [
     label: 'Companion',
     scope: 'runtime',
     basePath: '/api/companion',
-    summary: 'Desktop companion token plus per-device RoachTail peer tokens for the iPhone and iPad carry lane, with RoachSync state and future account-linked device metadata folded into the same bridge.',
+    summary: 'Desktop companion token plus per-device RoachTail peer tokens for iPhone and iPad, with RoachSync state and future account-linked device metadata folded into the same bridge.',
     stack: 'roachnet-companion-server.mjs -> peer-aware token gate -> CompanionController -> ChatService / OllamaService / runtime relays -> RoachTail/RoachSync state in contained storage',
     callers: ['RoachNet iOS companion', 'future iPad surfaces'],
     endpoints: [
@@ -334,7 +334,7 @@ const apiGroups = [
         request: ['Token-gated request, no body required'],
         response: ['systemInfo, providers, roachClaw, roachTail, roachSync, services, downloads, installedModels, issues'],
         implementation:
-          'CompanionController.runtimePayload relays into the existing system, AI-provider, RoachClaw, downloads, installed-model, RoachTail, and RoachSync state lanes, then coalesces failures into an issues array so the mobile UI can stay live even when one lane is still warming up. Paired peer tokens only get this full payload while RoachTail is armed.',
+          'CompanionController.runtimePayload relays into the existing system, AI-provider, RoachClaw, downloads, installed-model, RoachTail, and RoachSync state surfaces, then coalesces failures into an issues array so the mobile UI can stay live even when one service is still warming up. Paired peer tokens only get this full payload while RoachTail is armed.',
         usedBy: ['Runtime tab', 'RoachTail status panel', 'RoachSync status panel', 'post-service-action refreshes', 'bootstrap payload'],
       },
       {
@@ -347,7 +347,7 @@ const apiGroups = [
         request: ['Token-gated request, no body required'],
         response: ['enabled, networkName, deviceName, deviceId, status, relayHost, advertisedUrl, runtimeOrigin?, runtimeTunnelUrl?, joinCode?, joinCodeIssuedAt?, joinCodeExpiresAt?, pairingPayload?, pairingIssuedAt?, notes, peers'],
         implementation:
-          'Reads a RoachTail state snapshot from the contained RoachNet storage lane when one exists, then falls back to the current companion env/config so the iPhone and iPad surfaces can still show bridge readiness before a full mesh config has been written. Peer-token requests still get this route while RoachTail is off so the phone can re-arm the lane, but the one-time join code is redacted from paired peers. Desktop callers also receive the QR-friendly pairing payload that wraps bridge URL, join code, and transport hints.',
+          'Reads a RoachTail state snapshot from contained RoachNet storage when one exists, then falls back to the current companion env/config so the iPhone and iPad surfaces can still show bridge readiness before a full mesh config has been written. Peer-token requests still get this route while RoachTail is off so the phone can re-arm the bridge, but the one-time join code is redacted from paired peers. Desktop callers also receive the QR-friendly pairing payload that wraps bridge URL, join code, and transport hints.',
         usedBy: ['Runtime tab status cards', 'RoachTail toggle state', 'desktop QR pairing panel', 'Connection debugging'],
       },
       {
@@ -363,7 +363,7 @@ const apiGroups = [
         ],
         response: ['success, message, token, peerId, bridgeUrl, state'],
         implementation:
-          'The controller checks that RoachTail is enabled, validates the one-time join code against the contained state record and its short expiry window, mints a private peer token, stores only its SHA-256 hash, and returns the plaintext token once so the phone can save it into its local secure settings lane. RoachNetiOS now keeps that token in the iOS Keychain instead of plain user defaults.',
+          'The controller checks that RoachTail is enabled, validates the one-time join code against the contained state record and its short expiry window, mints a private peer token, stores only its SHA-256 hash, and returns the plaintext token once so the phone can save it into its secure local settings. RoachNetiOS now keeps that token in the iOS Keychain instead of plain user defaults.',
         usedBy: ['RoachNet iOS connection sheet', 'first-time phone pairing flow'],
       },
       {
@@ -379,7 +379,7 @@ const apiGroups = [
         ],
         response: ['success, message, state'],
         implementation:
-          'Writes RoachTail state back into the contained storage lane instead of keeping it in transient process memory, so the desktop shell, setup app, and mobile runtime all read the same source of truth. Peer tokens can toggle enable/disable and self-link or self-unlink, while refresh-code, relay-host, and full-peer edits stay restricted to the desktop companion token.',
+          'Writes RoachTail state back into contained storage instead of keeping it in transient process memory, so the desktop shell, setup app, and mobile runtime all read the same source of truth. Peer tokens can toggle enable/disable and self-link or self-unlink, while refresh-code, relay-host, and full-peer edits stay restricted to the desktop companion token.',
         usedBy: ['RoachNet iOS runtime toggle', 'RoachNet macOS runtime panel', 'future relay-host editing'],
       },
       {
@@ -387,12 +387,12 @@ const apiGroups = [
         method: 'GET',
         path: '/roachsync',
         title: 'RoachSync status',
-        summary: 'Returns the contained sync-lane snapshot the desktop and phone use for shared vault state.',
+        summary: 'Returns the contained sync snapshot the desktop and phone use for shared vault state.',
         handler: 'CompanionController.roachsync',
         request: ['Token-gated request, no body required'],
         response: ['enabled, provider, networkName, deviceName, deviceId, status, folderId, folderPath, guiUrl?, apiUrl?, notes, peers'],
         implementation:
-          'Reads the RoachSync state record from contained storage and falls back to the local vault path plus Syncthing-flavored defaults when the lane has not been armed yet. This keeps the iPhone and desktop runtime panes aligned around the same sync root.',
+          'Reads the RoachSync state record from contained storage and falls back to the local vault path plus Syncthing-flavored defaults when sync has not been armed yet. This keeps the iPhone and desktop runtime panes aligned around the same sync root.',
         usedBy: ['RoachNet iOS runtime tab', 'RoachNet macOS runtime panel'],
       },
       {
@@ -400,7 +400,7 @@ const apiGroups = [
         method: 'POST',
         path: '/roachsync/affect',
         title: 'Mutate RoachSync state',
-        summary: 'Turns the contained sync lane on or off, refreshes its state, and clears peer metadata.',
+        summary: 'Turns contained sync on or off, refreshes its state, and clears peer metadata.',
         handler: 'CompanionController.affectRoachSync',
         request: [
           'Body: { action, folderPath? }',
@@ -434,7 +434,7 @@ const apiGroups = [
         request: ['Token-gated request, no body required'],
         response: ['Array of chat session summaries'],
         implementation:
-          'Passes through ChatService.getAllSessions() so the phone can render session history and reopen the current desktop lane.',
+          'Passes through ChatService.getAllSessions() so the phone can render session history and reopen the current desktop chat.',
         usedBy: ['Chat history sheet', 'bootstrap payload'],
       },
       {
@@ -447,7 +447,7 @@ const apiGroups = [
         request: ['Path param: id'],
         response: ['Full chat session with message history', '404 if the session is missing'],
         implementation:
-          'Coerces the session id to a number and resolves the chat lane through ChatService. Missing or synthetic local-only ids resolve to a 404.',
+          'Coerces the session id to a number and resolves the chat session through ChatService. Missing or synthetic local-only ids resolve to a 404.',
         usedBy: ['Opening a prior chat from the mobile history sheet'],
       },
       {
@@ -486,7 +486,7 @@ const apiGroups = [
         request: ['Body: install intent payload from the Apps catalog, including action/slug/category/model/url metadata'],
         response: ['JSON: { ok, action, result }'],
         implementation:
-          'Normalizes the incoming intent, maps it onto the existing runtime install actions, and dispatches it into the same content/model install lanes the website already uses. The iOS app keeps a local pending-install queue when this bridge is unavailable, then flushes the queue back through this route on reconnect. The mobile app also accepts roachnet://install-content deep links, so the website, Apps store, and phone app all share the same install-intent contract.',
+          'Normalizes the incoming intent, maps it onto the existing runtime install actions, and dispatches it into the same content/model install flows the website already uses. The iOS app keeps a local pending-install queue when this bridge is unavailable, then flushes the queue back through this route on reconnect. The mobile app also accepts roachnet://install-content deep links, so the website, Apps store, and phone app all share the same install-intent contract.',
         usedBy: ['Apps tab install buttons in RoachNet iOS', 'roachnet://install-content handoff into RoachNetiOS', 'Reconnect flush for queued mobile installs'],
       },
       {
@@ -546,7 +546,7 @@ const apiGroups = [
         handler: 'listCuratedCollections',
         request: ['No body required'],
         response: ['Curated collections manifest'],
-        implementation: 'Reads the curated map collection spec exposed to the native app and the Apps handoff lane.',
+        implementation: 'Reads the curated map collection spec exposed to the native app and the Apps handoff flow.',
         usedBy: ['Apps install flow', 'ManagedAppRuntime'],
       },
       {
@@ -558,7 +558,7 @@ const apiGroups = [
         handler: 'fetchLatestCollections',
         request: ['No body required'],
         response: ['JSON: { success }'],
-        implementation: 'Fetches the newest collection spec and updates the cached manifest used by the maps lane.',
+        implementation: 'Fetches the newest collection spec and updates the cached manifest used by Maps.',
         usedBy: ['Maps admin refresh'],
       },
       {
@@ -744,7 +744,7 @@ const apiGroups = [
         request: ['Body: { model }'],
         response: ['JSON: { success, message }'],
         implementation:
-          'Validates the model name and dispatches the download through OllamaService. In contained queue-disabled mode the inline worker retries until the local Ollama lane is ready, so first-boot model pulls stay alive on clean installs.',
+          'Validates the model name and dispatches the download through OllamaService. In contained queue-disabled mode the inline worker retries until the local Ollama runtime is ready, so first-boot model pulls stay alive on clean installs.',
         usedBy: ['Model store install actions', 'first-launch RoachClaw bootstrap'],
       },
       {
@@ -768,7 +768,7 @@ const apiGroups = [
         handler: 'installedModels',
         request: ['No body required'],
         response: ['Installed model array'],
-        implementation: 'Reads the installed-model list from the active Ollama lane and falls back to an empty array if the runtime is unavailable or still warming up.',
+        implementation: 'Reads the installed-model list from the active Ollama runtime and falls back to an empty array if the runtime is unavailable or still warming up.',
         usedBy: ['ManagedAppRuntime', 'RoachClaw status', 'model picker', 'model store'],
       },
     ],
@@ -778,7 +778,7 @@ const apiGroups = [
     label: 'OpenClaw',
     scope: 'runtime',
     basePath: '/api/openclaw',
-    summary: 'Skill discovery and install endpoints for the OpenClaw lane.',
+    summary: 'Skill discovery and install endpoints for OpenClaw.',
     stack: 'OpenClawController -> OpenClawService',
     callers: ['RoachClaw setup', 'skills browser'],
     endpoints: [
@@ -850,7 +850,7 @@ const apiGroups = [
         handler: 'getStatus',
         request: ['No body required'],
         response: ['RoachClaw status object'],
-        implementation: 'Returns the resolved contained/local/cloud lane status, configured model, and service reachability from RoachClawService.',
+        implementation: 'Returns the resolved contained/local/cloud RoachClaw status, configured model, and service reachability from RoachClawService.',
         usedBy: ['RoachClaw status card', 'ManagedAppRuntime', 'setup post-install checks'],
       },
       {
@@ -863,15 +863,15 @@ const apiGroups = [
         request: ['No body required'],
         response: ['Portable RoachClaw profile object with portableRoot, workspacePath, stateDir, defaultModel, provider URLs, and launch hints'],
         implementation:
-          'Asks RoachClawService for the current portable profile, which captures the contained workspace root plus the default model and provider URLs in one machine-local contract the desktop runtime and future RoachClaw web lane can both read.',
-        usedBy: ['ManagedAppRuntime', 'future RoachClaw web chat lane', 'portable profile inspection'],
+          'Asks RoachClawService for the current portable profile, which captures the contained workspace root plus the default model and provider URLs in one machine-local contract the desktop runtime and future RoachClaw web chat surface can both read.',
+        usedBy: ['ManagedAppRuntime', 'future RoachClaw web chat surface', 'portable profile inspection'],
       },
       {
         id: 'roachclaw-apply',
         method: 'POST',
         path: '/apply',
         title: 'Apply onboarding',
-        summary: 'Writes model and endpoint choices into the RoachClaw lane.',
+        summary: 'Writes model and endpoint choices into RoachClaw.',
         handler: 'apply',
         request: ['Body: { model, workspacePath, ollamaBaseUrl, openclawBaseUrl }'],
         response: ['Onboarding apply result or 400 error'],
@@ -932,9 +932,9 @@ const apiGroups = [
     label: 'Chat Sessions',
     scope: 'runtime',
     basePath: '/api/chat',
-    summary: 'Session CRUD and suggestion endpoints for the native chat lane.',
+    summary: 'Session CRUD and suggestion endpoints for the native chat surface.',
     stack: 'ChatsController -> ChatService / AIRuntimeService',
-    callers: ['Native chat UI', 'RoachClaw chat lane'],
+    callers: ['Native chat UI', 'RoachClaw chat surface'],
     endpoints: [
       {
         id: 'chat-sessions-index',

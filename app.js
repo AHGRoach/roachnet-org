@@ -86,7 +86,7 @@ const homebrewHelperUrl = '/downloads/RoachNet-Homebrew.command.zip'
 const storeSectionMeta = {
   'Map Regions': {
     eyebrow: 'Offline atlas',
-    blurb: 'Regional packs that keep the field map lane useful when the network is gone.',
+    blurb: 'Regional packs that keep your field maps useful when the network is gone.',
   },
   Medicine: {
     eyebrow: 'Care library',
@@ -110,7 +110,7 @@ const storeSectionMeta = {
   },
   'Software Development': {
     eyebrow: 'Dev courses',
-    blurb: 'Focused software-development installs that land in the Education and Dev lanes cleanly.',
+    blurb: 'Focused software-development installs that land in Education and Dev cleanly.',
   },
   'Machine Learning & Data Science': {
     eyebrow: 'ML packs',
@@ -130,7 +130,7 @@ const storeSectionMeta = {
   },
   'Model Packs': {
     eyebrow: 'RoachClaw models',
-    blurb: 'Contained RoachClaw-ready model installs for the native AI lane.',
+    blurb: 'Contained RoachClaw-ready model installs for the native AI workspace.',
   },
 }
 
@@ -149,14 +149,14 @@ const fallbackCatalog = {
       source: 'RoachNet mirror',
       icon: './assets/app-store/base-atlas.svg',
       summary:
-        'Install the shared vector atlas and base map assets first so regional packs open cleanly inside the RoachNet Maps lane.',
+        'Install the shared vector atlas and base map assets first so regional packs open cleanly inside RoachNet Maps.',
       featured: true,
       accent: 'blue',
       machineFit: 'Best first install on every supported Mac',
       includes: [
         'Shared vector atlas and renderer assets',
         'Required before regional map collections',
-        'Installs directly into the native Maps lane',
+        'Installs directly into native Maps',
       ],
       installLabel: 'Install to RoachNet',
       detailLabel: 'View manifest',
@@ -176,7 +176,7 @@ const fallbackCatalog = {
       source: 'Geofabrik + curated packs',
       icon: './assets/app-store/pacific-region.svg',
       summary:
-        'Queue the Pacific regional collection directly into RoachNet so the field map lane is useful immediately after install.',
+        'Queue the Pacific regional collection directly into RoachNet so your field maps are useful immediately after install.',
       accent: 'blue',
       machineFit: 'Ideal once Base Atlas is already installed',
       includes: [
@@ -195,7 +195,7 @@ const fallbackCatalog = {
     {
       id: 'course-freecodecamp-javascript',
       title: 'freeCodeCamp: JavaScript Algorithms and Data Structures',
-      subtitle: 'A compact coding course mirrored into the RoachNet Education lane',
+      subtitle: 'A compact coding course mirrored into RoachNet Education',
       category: 'Essential',
       section: 'Software Development',
       size: '7 MB',
@@ -229,12 +229,12 @@ const fallbackCatalog = {
       status: 'Great first install',
       source: 'Open Music Theory via Kiwix',
       summary:
-        'A real course app for RoachNet’s music lane, mirrored cleanly so the user can install focused theory content without dragging in a whole site or provider wrapper.',
+        'A real course app for RoachNet’s music shelf, mirrored cleanly so the user can install focused theory content without dragging in a whole site or provider wrapper.',
       accent: 'magenta',
       machineFit: 'Fast add-on for any supported machine',
       includes: [
         'Open music-theory coursework',
-        'Installs directly into the Education lane',
+        'Installs directly into Education',
         'Useful for production, arranging, and scoring sessions',
       ],
       installLabel: 'Install to RoachNet',
@@ -281,7 +281,7 @@ const fallbackCatalog = {
       section: 'AI Packs',
       size: '1-2 GB',
       status: 'Best first boot',
-      source: 'Contained Ollama lane',
+      source: 'Contained Ollama runtime',
       icon: './assets/app-store/roachclaw-quickstart.svg',
       summary:
         'Open RoachNet and queue the fast contained starter model so RoachClaw can answer on a clean machine without borrowing a host Ollama install.',
@@ -308,7 +308,7 @@ const fallbackCatalog = {
       section: 'AI Packs',
       size: '4-5 GB',
       status: 'For larger Apple Silicon Macs',
-      source: 'Contained Ollama lane',
+      source: 'Contained Ollama runtime',
       icon: './assets/app-store/roachclaw-studio.svg',
       summary:
         'A bigger local coding model for machines with more headroom. Queue it from the site and RoachNet will open directly into the RoachClaw workbench to stage the download.',
@@ -317,7 +317,7 @@ const fallbackCatalog = {
       includes: [
         'Contained 7B coding model queue',
         'RoachClaw workbench handoff',
-        'Larger local lane for stronger coding and agent tasks',
+        'Larger local model for stronger coding and agent tasks',
       ],
       installLabel: 'Get',
       detailLabel: 'Open RoachClaw',
@@ -433,17 +433,25 @@ function setHomebrewNote(text) {
   homebrewNote.textContent = text
 }
 
+function setInstallStepState(activeStep) {
+  document.querySelectorAll('[data-install-step]').forEach((card) => {
+    card.dataset.stepActive = String(card.dataset.installStep === String(activeStep))
+  })
+}
+
 function triggerHomebrewInstall() {
   window.location.href = homebrewHelperUrl
+  setInstallStepState(3)
   setHomebrewNote(
-    'Helper downloaded. Open the zip in Finder, then open RoachNet-Homebrew.command to launch Terminal, refresh the tap, and run the Homebrew install.'
+    'Helper downloaded. Open the zip in Finder, then open RoachNet-Homebrew.command to launch Terminal, refresh the tap, and install RoachNet.'
   )
 }
 
 async function copyHomebrewCommand() {
   try {
     await navigator.clipboard.writeText(homebrewCommand)
-    setHomebrewNote('Copied the refresh-first Homebrew command for the current RoachNet cask lane.')
+    setInstallStepState(1)
+    setHomebrewNote('Copied the refresh-first Homebrew command for the current RoachNet cask install.')
   } catch (error) {
     console.error(error)
     setHomebrewNote('Clipboard access was blocked. Open the helper download instead.')
@@ -1606,3 +1614,4 @@ closeAppDetail()
 loadLatestRelease()
 startHeroTelemetry()
 loadAppStoreCatalog()
+setInstallStepState(1)

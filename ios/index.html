@@ -6,7 +6,7 @@
     <title>RoachNet iOS</title>
     <meta
       name="description"
-      content="RoachNet iOS carries the RoachClaw chat lane, the shelf, runtime reads, and app installs without needing the Mac open."
+      content="RoachNet on iPhone and iPad: chat, vault, runtime status, and app installs without opening the laptop."
     />
     <meta name="theme-color" content="#0b1016" />
     <link rel="canonical" href="https://roachnet.org/iOS/" />
@@ -18,7 +18,7 @@
     <meta property="og:title" content="RoachNet iOS" />
     <meta
       property="og:description"
-      content="Carry the RoachNet lane on your phone: chat, shelf, runtime reads, and installs."
+      content="RoachNet on your phone: chat, vault, runtime status, and installs."
     />
     <meta property="og:url" content="https://roachnet.org/iOS/" />
     <meta property="og:image" content="https://roachnet.org/assets/screens/roachnet-ios-chat-v011.jpg" />
@@ -26,7 +26,7 @@
     <meta name="twitter:title" content="RoachNet iOS" />
     <meta
       name="twitter:description"
-      content="Phone lane for RoachClaw, the shelf, runtime reads, and app installs."
+      content="Chat, vault, runtime status, and app installs from your phone."
     />
     <meta name="twitter:image" content="https://roachnet.org/assets/screens/roachnet-ios-chat-v011.jpg" />
     <link rel="stylesheet" href="../app.css" />
@@ -39,7 +39,7 @@
       <a class="brand-lockup" href="https://roachnet.org/" aria-label="RoachNet home">
         <img class="brand-mark" src="../assets/roachnet-logo.png" alt="RoachNet logo" />
         <div class="brand-copy">
-          <span class="brand-kicker">RoachNet companion</span>
+          <span class="brand-kicker">iPhone &amp; iPad · SideStore</span>
           <strong>RoachNet iOS</strong>
         </div>
         <span class="site-header__status">iOS v0.1.2</span>
@@ -49,7 +49,7 @@
         <nav class="site-nav site-nav--primary" aria-label="Primary">
           <a href="https://roachnet.org/">Home</a>
           <a href="#screens">Screens</a>
-          <a href="#features">What’s new</a>
+          <a href="#features">Features</a>
           <a href="#install">Install</a>
           <a href="#pairing">Pairing</a>
         </nav>
@@ -65,9 +65,9 @@
       <section class="hero hero--ios">
         <div class="hero-copy">
           <p class="eyebrow">RoachNet iOS</p>
-          <h1>Carry the RoachNet lane.</h1>
+          <h1>RoachNet in your pocket.</h1>
           <p class="hero-body">
-            Pick up chat, read the shelf, queue installs, and watch the desktop lane without cracking the laptop open.
+            Chat with your local AI, check runtime status, read the vault shelf, and queue app installs for your Mac without opening the laptop.
           </p>
 
           <div class="hero-actions">
@@ -76,13 +76,14 @@
             <a class="cta cta--ghost" href="https://github.com/AHGRoach/RoachNet-iOS" target="_blank" rel="noreferrer">View on GitHub</a>
           </div>
 
-          <p class="hero-footnote">Unsigned IPA for SideStore and AltStore. Cached RoachBrain replies keep the lane useful when the desktop, RoachTail, or internet disappears.</p>
+          <p class="hero-footnote">Unsigned IPA. Install via SideStore or AltStore. Works best paired with your Mac. Still useful when it is not around.</p>
           <p class="download-meta">Current release: v0.1.2 · built for iPhone and iPad</p>
         </div>
 
         <div class="hero-visual ios-hero-visual" aria-hidden="true">
           <div class="app-screen-shot app-screen-shot--dark ios-hero-shot">
             <img src="../assets/screens/roachnet-ios-chat-v011.jpg" alt="RoachNet iOS chat surface" />
+            <span class="screen-version-chip">v0.1.2</span>
           </div>
           <div class="screen-chip-row">
             <span class="screen-chip">Chat</span>
@@ -96,52 +97,56 @@
       <section class="content-section" id="screens">
         <div class="section-head">
           <p class="eyebrow">Screens</p>
-          <h2>Four views. One carry lane.</h2>
-          <p>Chat first. Shelf, runtime, and installs right behind it.</p>
+          <h2>Four tabs. One phone.</h2>
+          <p>Chat first. Runtime, vault, and installs right behind it.</p>
         </div>
 
         <div class="ios-shot-wall ios-shot-wall--editorial">
-          <article class="ios-shot-card ios-shot-card--feature">
+          <article class="ios-shot-card ios-shot-card--feature" data-reveal>
             <div class="app-screen-shot app-screen-shot--dark">
               <img src="../assets/screens/roachnet-ios-chat-v011.jpg" alt="RoachNet iOS RoachClaw chat view" />
+              <span class="screen-version-chip">v0.1.2</span>
             </div>
             <div class="ios-shot-card__copy">
               <span class="feature-card__eyebrow">Chat</span>
-              <h3>Pick up the RoachClaw lane.</h3>
-              <p>Live chat when the Mac is paired. Cached RoachBrain replies when it is not.</p>
+              <h3>AI chat from your phone.</h3>
+              <p>Live and local when your Mac is reachable. Cached responses when it is not. You still get an answer.</p>
             </div>
           </article>
 
-          <article class="ios-shot-card ios-shot-card--compact">
+          <article class="ios-shot-card ios-shot-card--compact" data-reveal>
             <div class="app-screen-shot app-screen-shot--dark">
               <img src="../assets/screens/roachnet-ios-apps-v011.jpg" alt="RoachNet iOS Apps view" />
+              <span class="screen-version-chip">v0.1.2</span>
             </div>
             <div class="ios-shot-card__copy">
               <span class="feature-card__eyebrow">Apps</span>
-              <h3>Send installs back to your Mac.</h3>
-              <p>Saved apps, recent sends, and queued installs that flush when the desktop lane comes back.</p>
+              <h3>Queue installs from your phone.</h3>
+              <p>Browse packs, save picks, and send them to the Mac when the bridge reconnects.</p>
             </div>
           </article>
 
-          <article class="ios-shot-card ios-shot-card--compact">
+          <article class="ios-shot-card ios-shot-card--compact" data-reveal>
             <div class="app-screen-shot app-screen-shot--dark">
               <img src="../assets/screens/roachnet-ios-runtime-v011.jpg" alt="RoachNet iOS Runtime view" />
+              <span class="screen-version-chip">v0.1.2</span>
             </div>
             <div class="ios-shot-card__copy">
               <span class="feature-card__eyebrow">Runtime</span>
-              <h3>Check the desktop lane fast.</h3>
-              <p>Models, services, downloads, and the RoachTail toggle stay visible on the phone.</p>
+              <h3>Check the desktop fast.</h3>
+              <p>What is running, what is downloading, what needs attention. No laptop required.</p>
             </div>
           </article>
 
-          <article class="ios-shot-card ios-shot-card--wide">
+          <article class="ios-shot-card ios-shot-card--wide" data-reveal>
             <div class="app-screen-shot app-screen-shot--dark">
               <img src="../assets/screens/roachnet-ios-vault-v011.jpg" alt="RoachNet iOS Vault view" />
+              <span class="screen-version-chip">v0.1.2</span>
             </div>
             <div class="ios-shot-card__copy">
               <span class="feature-card__eyebrow">Vault</span>
               <h3>Read the shelf without opening the shell.</h3>
-              <p>RoachBrain, indexed files, and archive summaries stay close on the phone even when the bridge drops.</p>
+              <p>Indexed files and archive summaries on your phone. Still readable when the Mac bridge drops.</p>
             </div>
           </article>
         </div>
@@ -149,39 +154,39 @@
 
       <section class="content-section" id="features">
         <div class="section-head">
-          <p class="eyebrow">What’s new in 0.1.2</p>
-          <h2>Faster paint. Tougher bridge.</h2>
+          <p class="eyebrow">What’s in 0.1.2</p>
+          <h2>Faster, tougher, more complete.</h2>
         </div>
 
         <div class="card-grid card-grid--three" role="list">
-          <article class="support-card" role="listitem">
+          <article class="support-card" role="listitem" data-reveal>
             <span class="feature-card__eyebrow">Faster start</span>
-            <h3>Cached state paints fast instead of rebuilding the whole lane every launch.</h3>
+            <h3>Cached state on launch. Opens where you left it instead of cold-starting every time.</h3>
           </article>
 
-          <article class="support-card" role="listitem">
+          <article class="support-card" role="listitem" data-reveal>
             <span class="feature-card__eyebrow">RoachTail</span>
-            <h3>Each phone gets its own peer token and a private bridge lane back to the desktop.</h3>
+            <h3>Each device gets its own signed peer token. Revoke one without touching the others.</h3>
           </article>
 
-          <article class="support-card" role="listitem">
+          <article class="support-card" role="listitem" data-reveal>
             <span class="feature-card__eyebrow">QR pairing</span>
-            <h3>Scan the RoachTail pairing code from the Mac instead of hand-typing bridge details into the phone.</h3>
+            <h3>Scan the QR from the Mac. No typing a 32-character token into a phone keyboard.</h3>
           </article>
 
-          <article class="support-card" role="listitem">
+          <article class="support-card" role="listitem" data-reveal>
             <span class="feature-card__eyebrow">RoachSync</span>
-            <h3>See sync state, folder health, and linked devices from the same runtime lane as chat and installs.</h3>
+            <h3>Sync state, folder health, linked devices. Same view as chat and installs.</h3>
           </article>
 
-          <article class="support-card" role="listitem">
+          <article class="support-card" role="listitem" data-reveal>
             <span class="feature-card__eyebrow">Offline RoachBrain</span>
-            <h3>Cached runtime, shelf, and Apps state still answer when the Mac or internet disappears.</h3>
+            <h3>When the Mac goes dark, cached runtime and vault state keep answering. Not “no connection.” Actual answers.</h3>
           </article>
 
-          <article class="support-card" role="listitem">
+          <article class="support-card" role="listitem" data-reveal>
             <span class="feature-card__eyebrow">Apps utility</span>
-            <h3>Saved apps, recents, and queued sends make the mobile Apps lane useful away from the desktop.</h3>
+            <h3>Save apps, see recents, queue sends. Actually useful when you are not at your desk.</h3>
           </article>
         </div>
       </section>
@@ -190,23 +195,23 @@
         <div class="section-head">
           <p class="eyebrow">Install</p>
           <h2>Install with SideStore.</h2>
-          <p>Use the unsigned IPA and share it straight into SideStore. Same phone lane, no App Store middleman.</p>
+          <p>Use the unsigned IPA and share it straight into SideStore. No App Store middleman.</p>
         </div>
 
         <div class="card-grid card-grid--three" role="list">
-          <article class="support-card" role="listitem">
+          <article class="support-card" role="listitem" data-reveal>
             <span class="feature-card__eyebrow">1</span>
-            <h3>Download the unsigned IPA to Files on your iPhone or iPad.</h3>
+            <h3>Download the IPA to Files on your iPhone or iPad.</h3>
           </article>
 
-          <article class="support-card" role="listitem">
+          <article class="support-card" role="listitem" data-reveal>
             <span class="feature-card__eyebrow">2</span>
-            <h3>Open SideStore or AltStore and add the RoachNet IPA from Files.</h3>
+            <h3>In SideStore or AltStore, add the IPA from Files.</h3>
           </article>
 
-          <article class="support-card" role="listitem">
+          <article class="support-card" role="listitem" data-reveal>
             <span class="feature-card__eyebrow">3</span>
-            <h3>Let it sign and install, then open RoachNet iOS and pair the Mac lane.</h3>
+            <h3>Sign and install. Open RoachNetiOS and pair your Mac.</h3>
           </article>
         </div>
 
@@ -235,23 +240,23 @@
         <div class="section-head">
           <p class="eyebrow">Pairing</p>
           <h2>Point the phone at your Mac.</h2>
-          <p>The desktop still owns the models, the shelf, installs, and the RoachTail host lane. The phone stays the carry surface.</p>
+          <p>The desktop still owns the models, vault, installs, and RoachTail host. The phone stays quick and useful.</p>
         </div>
 
         <div class="card-grid card-grid--three" role="list">
-          <article class="support-card" role="listitem">
+          <article class="support-card" role="listitem" data-reveal>
             <span class="feature-card__eyebrow">Companion URL</span>
-            <h3>Use <code>http://&lt;your-mac-ip&gt;:38111</code> on a real device.</h3>
+            <h3><code>http://&lt;your-mac-ip&gt;:38111</code>. Find your Mac’s local IP in System Settings → Wi-Fi → Details.</h3>
           </article>
 
-          <article class="support-card" role="listitem">
+          <article class="support-card" role="listitem" data-reveal>
             <span class="feature-card__eyebrow">Pair code</span>
-            <h3>Scan the RoachTail QR code or use the one-time join code to mint a peer token for this device.</h3>
+            <h3>Scan the RoachTail QR or type the join code. Either way you get a signed peer token for this device.</h3>
           </article>
 
-          <article class="support-card" role="listitem">
+          <article class="support-card" role="listitem" data-reveal>
             <span class="feature-card__eyebrow">Fallback</span>
-            <h3>If the bridge goes dark, chat, vault reads, runtime snapshots, and Apps installs stay cached until the desktop comes back.</h3>
+            <h3>Bridge goes offline? Cached chat, vault reads, and runtime snapshots hold until the Mac comes back online.</h3>
           </article>
         </div>
 
@@ -264,12 +269,12 @@
     <footer class="site-footer">
       <div class="site-footer__copy">
         <strong>RoachNet iOS</strong>
-        <span>The phone lane for RoachClaw, runtime control, vault reads, and Apps installs.</span>
+        <span>RoachNet for iPhone and iPad. Chat, runtime check, vault, and app queues. No laptop needed.</span>
       </div>
       <nav class="site-footer__nav" aria-label="Footer">
         <a href="https://roachnet.org/">Home</a>
         <a href="#screens">Screens</a>
-        <a href="#features">What’s new</a>
+        <a href="#features">Features</a>
         <a href="#install">Install</a>
         <a href="#pairing">Pairing</a>
         <a href="https://roachnet.org/api/">API</a>

@@ -14,7 +14,7 @@ const defaultSiteConfig = {
     mode: 'planned',
     accountRequired: true,
     endpoint: 'https://accounts.roachnet.org/.netlify/functions/roachclaw-chat',
-    providerLabel: 'RoachClaw local + RoachBrain Cloud',
+    providerLabel: 'Your device or RoachBrain Cloud',
     modelLabel: 'Local relay or cloud model',
   },
   turnstile: {
@@ -125,7 +125,7 @@ export async function getSiteAuthState() {
       client: null,
       session: null,
       reason:
-        'Site accounts are not armed on this deploy yet. RoachTail, RoachSync, and the native runtime still stay on your own devices until this lane is live.',
+        'Site accounts are not armed on this deploy yet. RoachTail, RoachSync, and the native runtime still stay on your own devices until this is live.',
       config,
     }
     return cachedAuthState

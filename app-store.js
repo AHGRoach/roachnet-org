@@ -22,9 +22,9 @@ const sectionDefinitions = [
     key: 'Today',
     navLabel: 'Today',
     eyebrow: 'Today in RoachNet Apps',
-    title: 'A tighter install lane for the stuff you actually reach for.',
+    title: 'A tighter install view for the stuff you actually reach for.',
     description:
-      'RoachNet Apps is the darker little App Store behind the RoachNet shell: map regions, course packs, field libraries, Wikipedia shelves, and local model lanes that install straight into the native app.',
+      'RoachNet Apps is the darker little App Store behind the RoachNet shell: map regions, course packs, field libraries, Wikipedia shelves, and local model packs that install straight into the native app.',
     icon: '●',
     layout: 'today',
   },
@@ -34,7 +34,7 @@ const sectionDefinitions = [
     eyebrow: 'Offline atlas',
     title: 'Regional packs built around real-world use.',
     description:
-      'City detail, road networks, coastlines, and small-town coverage grouped into named installs so the Maps lane feels like a real atlas, not a loose pile of tiles.',
+      'City detail, road networks, coastlines, and small-town coverage grouped into named installs so Maps feels like a real atlas, not a loose pile of tiles.',
     icon: '⌘',
     layout: 'map',
   },
@@ -52,7 +52,7 @@ const sectionDefinitions = [
     key: 'Survival & Preparedness',
     navLabel: 'Survival',
     eyebrow: 'Field guides',
-    title: 'Planning, gear, food, routes, and bad-weather thinking in one lane.',
+    title: 'Planning, gear, food, routes, and bad-weather thinking in one place.',
     description:
       'Video series, manuals, and deep reading for people who actually think about prep, not just people who like the idea of it.',
     icon: '◆',
@@ -102,9 +102,9 @@ const sectionDefinitions = [
     key: 'Math & Problem Solving',
     navLabel: 'Math',
     eyebrow: 'Problem shelf',
-    title: 'Proofs, worked examples, and problem-solving lanes with real depth.',
+    title: 'Proofs, worked examples, and problem-solving shelves with real depth.',
     description:
-      'Math shelves for drills, intuition, advanced reference, and the kind of long-form thinking that deserves its own lane.',
+      'Math shelves for drills, intuition, advanced reference, and the kind of long-form thinking that deserves its own place.',
     icon: 'Σ',
     layout: 'grid',
   },
@@ -112,7 +112,7 @@ const sectionDefinitions = [
     key: 'Law, History & Society',
     navLabel: 'Society',
     eyebrow: 'Civic shelf',
-    title: 'Law, history, philosophy, and public-life reference in one lane.',
+    title: 'Law, history, philosophy, and public-life reference in one place.',
     description:
       'Useful context for policy, institutions, philosophy, and civic life without turning the machine into a browser graveyard.',
     icon: '⌂',
@@ -174,7 +174,7 @@ const sectionDefinitions = [
     eyebrow: 'Money shelf',
     title: 'Investing, money, crypto, and finance-heavy reference that still feels practical.',
     description:
-      'From basic money questions to cryptography and quant-minded reference, this lane keeps the numbers close.',
+      'From basic money questions to cryptography and quant-minded reference, this shelf keeps the numbers close.',
     icon: '$',
     layout: 'grid',
   },
@@ -184,7 +184,7 @@ const sectionDefinitions = [
     eyebrow: 'Dev shelf',
     title: 'Coding docs, focused tutorials, and install-ready dev study packs.',
     description:
-      'Good first coding shelves for the native Dev lane: language docs, framework references, and tutorials that stay available when the router starts acting weird.',
+      'Good first coding shelves for Dev: language docs, framework references, and tutorials that stay available when the router starts acting weird.',
     icon: '</>',
     layout: 'grid',
   },
@@ -274,7 +274,7 @@ const sectionDefinitions = [
     eyebrow: 'Culture shelf',
     title: 'Film, anime, games, genre reference, and media-brain installs.',
     description:
-      'A deeper pop-culture lane for fandom reference, worldbuilding, film trivia, and the weirdly useful side shelves.',
+      'A deeper pop-culture shelf for fandom reference, worldbuilding, film trivia, and the weirdly useful side shelves.',
     icon: '★',
     layout: 'grid',
   },
@@ -294,7 +294,7 @@ const sectionDefinitions = [
     eyebrow: 'Quick reference',
     title: 'Wikipedia installs sized like real choices, not one giant commitment.',
     description:
-      'Pick the small quick-reference lane or go all the way up to the full archive, depending on how much space you want to spend.',
+      'Pick the small quick-reference shelf or go all the way up to the full archive, depending on how much space you want to spend.',
     icon: 'W',
     layout: 'grid',
   },
@@ -302,9 +302,9 @@ const sectionDefinitions = [
     key: 'Model Packs',
     navLabel: 'Models',
     eyebrow: 'RoachClaw models',
-    title: 'Contained local model lanes for RoachClaw.',
+    title: 'Contained local model packs for RoachClaw.',
     description:
-      'Small starter models, bigger coding lanes, and generalist packs that RoachNet can queue straight into the contained local AI stack.',
+      'Small starter models, bigger coding models, and generalist packs that RoachNet can queue straight into the contained local AI stack.',
     icon: 'AI',
     layout: 'grid',
   },
@@ -330,7 +330,7 @@ const todayRows = [
   },
   {
     title: 'Editors’ picks',
-    note: 'A mix of field packs, learning shelves, and RoachClaw lanes worth adding next.',
+    note: 'A mix of field packs, study shelves, and RoachClaw picks worth adding next.',
     sections: [
       'Math & Problem Solving',
       'Law, History & Society',
@@ -351,7 +351,7 @@ const itemCopy = {
       'Open textbooks for math, science, computing, languages, and more, all pulled into one clean study shelf.',
     detail: [
       'Good for brushing up on core subjects or wandering into something new at 2 AM without ending up in a maze of tabs.',
-      'Wikibooks installs as its own RoachNet course app, so this lane shows up in Education as a single named library instead of a mess of separate files.',
+      'Wikibooks installs as its own RoachNet course app, so it shows up in Education as a single named library instead of a mess of separate files.',
     ],
   },
   'course-wikiversity_en_all_maxi': {
@@ -359,20 +359,20 @@ const itemCopy = {
       'Community-built courses and tutorials that feel more like guided paths than isolated articles.',
     detail: [
       'Wikiversity is good when you want the “walk me through it” version instead of a dry reference page.',
-      'It lands in Education as a distinct study lane with tutorials, course outlines, and practice-oriented material.',
+      'It lands in Education as a distinct study shelf with tutorials, course outlines, and practice-oriented material.',
     ],
   },
   'course-ted_mul_ted-ed': {
     blurb:
       'Short, tightly-produced lessons on specific ideas, from black holes to literary devices and historical weirdness.',
     detail: [
-      'TED-Ed is the quick-hit study shelf: concise explainers, clean pacing, and just enough polish to keep the learning lane lively.',
+      'TED-Ed is the quick-hit study shelf: concise explainers, clean pacing, and just enough polish to keep the learning shelf lively.',
       'It works well as a lightweight watch-later install inside the RoachNet vault.',
     ],
   },
   'course-openmusictheory.com_en_all': {
     blurb:
-      'Harmony, notation, rhythm, and ear-training in one clean music-theory lane.',
+      'Harmony, notation, rhythm, and ear-training in one clean music-theory shelf.',
     detail: [
       'Open Music Theory is useful for production, arranging, scoring, and the occasional “wait, what chord am I actually hearing?” moment.',
       'It installs as a real course app in the audio/education shelf instead of hiding in a generic provider bundle.',
@@ -382,7 +382,7 @@ const itemCopy = {
     blurb:
       'Shared basemap and renderer assets that every regional map install stacks on top of.',
     detail: [
-      'Base Atlas is the first thing to install if you want the map lane to behave like a real offline atlas instead of a partial shelf.',
+      'Base Atlas is the first thing to install if you want Maps to behave like a real offline atlas instead of a partial shelf.',
       'It provides the shared renderer and baseline assets so every regional pack opens cleanly inside RoachNet Maps.',
     ],
   },
@@ -440,7 +440,7 @@ const itemCopy = {
   },
   'course-medlineplus.gov_en_all': {
     blurb:
-      'NIH reference on conditions, symptoms, procedures, drugs, supplements, and wellness topics in one encyclopedia-style lane.',
+      'NIH reference on conditions, symptoms, procedures, drugs, supplements, and wellness topics in one encyclopedia-style shelf.',
   },
   'course-wikipedia_en_medicine_maxi': {
     blurb:
@@ -452,7 +452,7 @@ const itemCopy = {
   },
   'course-librepathology_en_all_maxi': {
     blurb:
-      'Microscopic findings, disease patterns, differential tables, and pathology case write-ups in one tight specialist lane.',
+      'Microscopic findings, disease patterns, differential tables, and pathology case write-ups in one tight specialist shelf.',
   },
   'course-canadian_prepper_winterprepping_en': {
     blurb:
@@ -460,7 +460,7 @@ const itemCopy = {
   },
   'course-canadian_prepper_bugoutroll_en': {
     blurb:
-      'A gear-first lane for packs, pouches, rolls, and how to build a setup where everything has a clear job.',
+      'A gear-first shelf for packs, pouches, rolls, and how to build a setup where everything has a clear job.',
   },
   'course-canadian_prepper_bugoutconcepts_en': {
     blurb:
@@ -480,7 +480,7 @@ const itemCopy = {
   },
   'course-libretexts.org_en_math': {
     blurb:
-      'A full math sequence in one lane: algebra, trig, calculus, linear algebra, stats, and more, laid out like a real course track.',
+      'A full math sequence in one shelf: algebra, trig, calculus, linear algebra, stats, and more, laid out like a real course track.',
   },
   'course-libretexts.org_en_phys': {
     blurb:
@@ -496,11 +496,11 @@ const itemCopy = {
   },
   'course-wikibooks_en_all_maxi': {
     blurb:
-      'The image-rich Wikibooks lane, keeping diagrams, figures, and illustrations where they actually teach something.',
+      'The image-rich Wikibooks shelf, keeping diagrams, figures, and illustrations where they actually teach something.',
   },
   'course-ted_mul_ted-conference': {
     blurb:
-      'Flagship TED talks across science, design, policy, culture, and human stories; a good ideas lane for background watching.',
+      'Flagship TED talks across science, design, policy, culture, and human stories; a good ideas shelf for background watching.',
   },
   'course-libretexts.org_en_human': {
     blurb:
@@ -1068,14 +1068,14 @@ function buildFallbackBlurb(item, section) {
     }
   }
 
-  return `${item.title} lands in the ${section.navLabel} lane as its own named RoachNet app instead of vanishing into a random download pile.`
+  return `${item.title} lands in ${section.navLabel} as its own named RoachNet app instead of vanishing into a random download pile.`
 }
 
 function buildFallbackDetail(item, section, blurb) {
-  const sourceLine = item.source ? `${item.source} stays grouped under the ${section.navLabel} lane.` : `${section.title}`
+  const sourceLine = item.source ? `${item.source} stays grouped under ${section.navLabel}.` : `${section.title}`
   return [
     `${blurb}.`,
-    `${item.title} lands in the ${section.navLabel} lane as its own named RoachNet app instead of vanishing into a random download pile.`,
+    `${item.title} lands in ${section.navLabel} as its own named RoachNet app instead of vanishing into a random download pile.`,
     sourceLine,
   ]
 }
@@ -1421,7 +1421,7 @@ function renderDetail(item) {
           <section>
             <h3>Included topics</h3>
             <ul>
-              ${(item.includes || ['Direct native install handoff into the right RoachNet lane.'])
+              ${(item.includes || ['Direct native install handoff into the right RoachNet section.'])
                 .map((entry) => `<li>${escapeHtml(entry)}</li>`)
                 .join('')}
             </ul>
@@ -1463,6 +1463,30 @@ function returnToRoachNetHome(event) {
 }
 
 async function loadCatalog() {
+  storeStage.innerHTML = `
+    <section class="apps-empty-state apps-empty-state--loading">
+      <strong>Loading the catalog…</strong>
+      <p>Pulling the current RoachNet Apps shelves and install metadata.</p>
+    </section>
+  `
+
+  const loadingFallbackTimer = window.setTimeout(() => {
+    if (state.catalog) {
+      return
+    }
+
+    storeStage.innerHTML = `
+      <section class="apps-empty-state">
+        <strong>RoachNet does not seem to be running.</strong>
+        <p>Open RoachNet if it is already installed. If not, download it first and come back for the packs.</p>
+        <div class="apps-empty-state__actions">
+          <a class="apps-card__install apps-card__install--hero" href="${hostedDownloads.mac.url}">Download RoachNet</a>
+          <a class="apps-card__secondary" href="roachnet://open">Open RoachNet</a>
+        </div>
+      </section>
+    `
+  }, 4000)
+
   try {
     const response = await fetch('./app-store-catalog.json', {
       headers: {
@@ -1475,8 +1499,10 @@ async function loadCatalog() {
     }
 
     state.catalog = await response.json()
+    window.clearTimeout(loadingFallbackTimer)
     renderStore()
   } catch (error) {
+    window.clearTimeout(loadingFallbackTimer)
     console.error(error)
     storeStage.innerHTML = `
       <section class="apps-empty-state">

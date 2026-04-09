@@ -6,7 +6,7 @@
     <title>RoachNet Apps</title>
     <meta
       name="description"
-      content="RoachNet Apps is the install-ready store for map regions, knowledge packs, course bundles, Wikipedia shelves, and RoachClaw model lanes that hand directly into the native RoachNet app."
+      content="RoachNet Apps is the install-ready store for maps, course packs, field guides, reference shelves, and RoachClaw models."
     />
     <meta name="theme-color" content="#0a0f14" />
     <link rel="canonical" href="https://apps.roachnet.org/" />
@@ -18,7 +18,7 @@
     <meta property="og:title" content="RoachNet Apps" />
     <meta
       property="og:description"
-      content="A darker, meaner little App Store for maps, course packs, offline references, and local model lanes that install into RoachNet."
+      content="A darker little App Store for maps, course packs, field guides, and model packs that install into RoachNet."
     />
     <meta property="og:url" content="https://apps.roachnet.org/" />
     <meta property="og:image" content="https://roachnet.org/assets/screens/roachnet-native-dev.jpg" />
@@ -26,7 +26,7 @@
     <meta name="twitter:title" content="RoachNet Apps" />
     <meta
       name="twitter:description"
-      content="Curated installs for RoachNet: map regions, medicine shelves, course packs, Wikipedia libraries, and RoachClaw model lanes."
+      content="Curated installs for RoachNet: maps, medicine, course packs, Wikipedia shelves, and RoachClaw models."
     />
     <meta name="twitter:image" content="https://roachnet.org/assets/screens/roachnet-native-dev.jpg" />
     <link rel="stylesheet" href="./app.css" />
@@ -41,7 +41,7 @@
           <img class="apps-store-brand__mark" src="./assets/roachnet-logo.png" alt="RoachNet logo" />
           <div class="apps-store-brand__copy">
             <span>RoachNet Apps</span>
-            <strong>Curated installs for the local-first command center.</strong>
+            <strong>Curated packs for your RoachNet shelf.</strong>
           </div>
         </a>
 
@@ -51,13 +51,13 @@
 
         <section class="apps-store-sidebar__card">
           <span class="apps-store-sidebar__eyebrow">Native install path</span>
-          <h2>Open RoachNet and queue the right pack.</h2>
-          <p>Install buttons use a native <code>roachnet://</code> handoff so the website behaves like a real store backend instead of a dead-end catalog.</p>
+          <h2>Pick a pack. RoachNet takes it from there.</h2>
+          <p>Install buttons use a native <code>roachnet://</code> handoff so the store can hand the right pack straight into the app.</p>
           <button class="cta cta--primary apps-store-sidebar__download" id="apps-primary-download" type="button">
-            Download RoachNet 1.0.1 for macOS
+            Download RoachNet 1.0.5 for macOS
           </button>
           <p class="apps-store-sidebar__meta" id="apps-download-meta">
-            Starts with RoachNet Setup v1.0.1 · RoachNet-Setup-macOS.dmg
+            Starts with RoachNet Setup v1.0.5 · RoachNet-Setup-macOS.dmg
           </p>
         </section>
       </aside>
@@ -90,7 +90,10 @@
         <div class="apps-store-content">
           <section class="apps-store-section-head" id="apps-section-head" aria-live="polite"></section>
           <section class="apps-store-stage" id="apps-store-stage" aria-live="polite">
-            Loading RoachNet Apps…
+            <section class="apps-empty-state apps-empty-state--loading">
+              <strong>Loading the catalog…</strong>
+              <p>Pulling the current RoachNet Apps shelves and install metadata.</p>
+            </section>
           </section>
         </div>
       </main>
