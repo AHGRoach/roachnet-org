@@ -228,7 +228,9 @@ async function getRoachBrainPipeline() {
   }
 
   roachBrainPipelinePromise = (async () => {
-    const { env, pipeline } = await import('@huggingface/transformers')
+    // Force the web runtime build so Netlify does not bundle the heavyweight
+    // native ONNX binaries for every platform into this function artifact.
+    const { env, pipeline } = await import('../../node_modules/@huggingface/transformers/dist/transformers.web.js')
     await mkdir(roachBrainCacheDir, { recursive: true })
     env.cacheDir = roachBrainCacheDir
     env.allowLocalModels = false
