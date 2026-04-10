@@ -1,6 +1,6 @@
 const owner = 'AHGRoach'
 const repo = 'RoachNet'
-const releaseVersion = window.__ROACHNET_SITE_CONFIG__?.releaseVersion || '1.0.5'
+const releaseVersion = window.__ROACHNET_SITE_CONFIG__?.releaseVersion || '1.0.2'
 const latestReleaseApi = `https://api.github.com/repos/${owner}/${repo}/releases/latest`
 const latestReleasePage = `https://github.com/${owner}/${repo}/releases/latest`
 const latestDownloadBase = `https://github.com/${owner}/${repo}/releases/latest/download`
@@ -42,6 +42,7 @@ const appStoreUpdated = document.querySelector('#app-store-updated')
 const appDetailOverlay = document.querySelector('#app-detail-overlay')
 const appDetailContent = document.querySelector('#app-detail-content')
 const appDetailClose = document.querySelector('#app-detail-close')
+const siteHeader = document.querySelector('.site-header')
 const appsCountStat = document.querySelector('#apps-count')
 const appsSectionsCountStat = document.querySelector('#apps-sections-count')
 const appsToolbarStats = document.querySelector('#apps-toolbar-stats')
@@ -1054,6 +1055,14 @@ function startFeaturedRotation() {
   }, 7000)
 }
 
+function syncHeaderState() {
+  if (!siteHeader) {
+    return
+  }
+
+  siteHeader.dataset.scrolled = window.scrollY > 18 ? 'true' : 'false'
+}
+
 function observeStoreReveals() {
   const revealTargets = document.querySelectorAll('[data-reveal]')
   if (!revealTargets.length) {
@@ -1611,6 +1620,9 @@ document.addEventListener('keydown', (event) => {
 })
 
 closeAppDetail()
+observeStoreReveals()
+syncHeaderState()
+window.addEventListener('scroll', syncHeaderState, { passive: true })
 loadLatestRelease()
 startHeroTelemetry()
 loadAppStoreCatalog()

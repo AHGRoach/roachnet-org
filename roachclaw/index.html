@@ -15,6 +15,7 @@
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <link rel="stylesheet" href="../app.css" />
+    <link rel="stylesheet" href="../app-polish.css" />
   </head>
   <body data-page="roachclaw">
     <div class="bg-glow bg-glow--blue" aria-hidden="true"></div>
@@ -44,16 +45,45 @@
       <section class="roachclaw-shell">
         <aside class="roachclaw-rail roachclaw-rail--left">
           <article class="roachclaw-panel roachclaw-panel--brand">
-          <span class="feature-card__eyebrow">RoachClaw</span>
-          <h1>RoachClaw on the web. No smoke and mirrors.</h1>
-          <p>
-              Sign in, keep your thread history, and chat in the browser. The website does not have access to your Mac. That is not a bug. That is the point.
-          </p>
+            <span class="feature-card__eyebrow">RoachClaw</span>
+            <h1>RoachClaw on the web. Yours from anywhere.</h1>
+            <p>
+              Sign in, keep your threads, and pick up where you left off. The site keeps your account lane in order. Your Mac stays yours unless you deliberately bridge it.
+            </p>
 
             <div class="roachclaw-chip-row" aria-label="RoachClaw notes">
               <span class="roachclaw-chip">Your threads are yours</span>
               <span class="roachclaw-chip">Free secure chat</span>
               <span class="roachclaw-chip">Local bridge stays opt-in</span>
+            </div>
+
+            <div class="poster-actions">
+              <a class="cta cta--primary" href="https://accounts.roachnet.org/">Open account</a>
+              <a class="cta cta--ghost" href="https://roachnet.org/">Back to RoachNet</a>
+            </div>
+
+            <div class="hero-signal-board hero-signal-board--compact">
+              <article class="hero-signal-card">
+                <span>Account</span>
+                <strong>Threads belong to your login, not the browser tab you opened them in.</strong>
+              </article>
+              <article class="hero-signal-card">
+                <span>Bridge</span>
+                <strong>Pair a device when you want your own hardware doing the work.</strong>
+              </article>
+            </div>
+
+            <div class="panel-note-grid">
+              <article class="panel-note-card">
+                <span class="feature-card__eyebrow">Cloud mode</span>
+                <strong>Works when no paired device is awake.</strong>
+                <p>Account chat stays reachable even when the desktop is asleep, offline, or somewhere else.</p>
+              </article>
+              <article class="panel-note-card">
+                <span class="feature-card__eyebrow">Local mode</span>
+                <strong>Bring your own hardware when you want the private bridge.</strong>
+                <p>Pair a RoachTail device and keep the heavier work on the machine you already trust.</p>
+              </article>
             </div>
           </article>
 
@@ -195,10 +225,15 @@
           <article class="roachclaw-panel roachclaw-panel--workspace-head">
             <div class="roachclaw-workspace-head__copy">
               <span class="feature-card__eyebrow">Hosted RoachClaw</span>
-              <h2 id="roachclaw-workspace-title">The browser sees your threads. Not your filesystem.</h2>
+              <h2 id="roachclaw-workspace-title">The browser gets your threads. Not your machine.</h2>
               <p id="roachclaw-workspace-body">
                 Thread history belongs to your account. Local models, vault files, and machine paths stay on your devices unless you intentionally bridge them.
               </p>
+
+              <div class="poster-actions">
+                <a class="cta cta--ghost" href="https://roachnet.org/api/">Read the API</a>
+                <a class="cta cta--ghost" href="https://roachnet.org/iOS/">Get RoachNetiOS</a>
+              </div>
             </div>
 
             <div class="roachclaw-chip-grid" aria-label="Hosted chat status">

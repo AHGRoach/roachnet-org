@@ -15,6 +15,7 @@ async function main() {
 
   const copyTargets = [
     'app.css',
+    'app-polish.css',
     'account.js',
     'site-account.js',
     'site-config.js',

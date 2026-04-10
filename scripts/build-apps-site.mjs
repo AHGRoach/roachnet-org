@@ -15,6 +15,7 @@ async function main() {
 
   const copyTargets = [
     'app.css',
+    'app-polish.css',
     'app.js',
     'app-store.js',
     'app-store-catalog.json',

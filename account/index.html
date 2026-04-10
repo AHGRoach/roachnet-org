@@ -15,6 +15,7 @@
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <link rel="stylesheet" href="/app.css" />
+    <link rel="stylesheet" href="/app-polish.css" />
   </head>
   <body data-page="account">
     <div class="bg-glow bg-glow--blue" aria-hidden="true"></div>
@@ -42,9 +43,9 @@
       <section class="account-hero">
         <article class="account-poster">
           <span class="eyebrow">Account</span>
-          <h1>One account. Everything synced that should be.</h1>
+          <h1>One account. Only the useful bits synced.</h1>
           <p>
-            Sign in for RoachClaw web chat, saved app picks, and device links. Your runtime, models, and local files stay on your own hardware. The account just keeps the web stuff in order.
+            Sign in for RoachClaw web chat, saved app picks, and device links. Your runtime, models, and local files stay on your own hardware. The account keeps the shared web state in order and leaves the real machine where it belongs.
           </p>
 
           <div class="account-chip-row" aria-label="Account features">
@@ -52,6 +53,23 @@
             <span class="account-chip">Saved apps</span>
             <span class="account-chip">Device links</span>
             <span class="account-chip">Settings sync</span>
+          </div>
+
+          <div class="poster-actions">
+            <a class="cta cta--primary" href="https://roachnet.org/roachclaw/">Open RoachClaw</a>
+            <a class="cta cta--ghost" href="https://roachnet.org/iOS/">Get RoachNetiOS</a>
+            <a class="cta cta--ghost" href="https://roachnet.org/api/">Read the API</a>
+          </div>
+
+          <div class="hero-signal-board hero-signal-board--compact">
+            <article class="hero-signal-card">
+              <span>Syncs</span>
+              <strong>App picks, device links, and web settings. Not your vault.</strong>
+            </article>
+            <article class="hero-signal-card">
+              <span>Stays local</span>
+              <strong>Runtime, models, files, and machine paths stay on your own hardware.</strong>
+            </article>
           </div>
 
           <div class="account-poster__grid">
@@ -69,8 +87,8 @@
 
             <article class="account-mini-card" data-reveal>
               <span class="feature-card__eyebrow">What comes next</span>
-              <strong>Full RoachClaw web interface and account-linked RoachTail.</strong>
-              <p>The website knows who you are. The heavier work still belongs on your hardware or in the browser.</p>
+              <strong>RoachClaw web chat, account-linked bridges, and cleaner multi-device carryover.</strong>
+              <p>The site knows who you are. The heavier work still belongs on your hardware or in the browser session you opened.</p>
             </article>
           </div>
         </article>
@@ -156,7 +174,7 @@
         <article class="account-panel">
           <span class="feature-card__eyebrow">Desktop and phone</span>
           <h3>Keep the real work in the app.</h3>
-          <p>The account is for identity and sync metadata. The runtime, vault, and local services belong on your own hardware.</p>
+          <p>The account is for identity and sync metadata. The runtime, vault, and local services still belong on your own hardware.</p>
           <div class="account-actions-inline">
             <a class="cta cta--ghost" href="https://roachnet.org/iOS/">RoachNetiOS</a>
             <a class="cta cta--ghost" href="https://roachnet.org/roachclaw/">RoachClaw web chat</a>
