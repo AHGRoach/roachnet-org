@@ -229,14 +229,14 @@ function renderWorkspaceSummary() {
   if (!authState?.session?.user) {
     workspaceTitle.textContent = 'Sign in to open your own chat history.'
     workspaceBody.textContent =
-      'RoachClaw on the web keeps chat tied to your account instead of anonymous browser state.'
+      'RoachClaw on the web keeps chat tied to your account instead of a disposable browser tab.'
     return
   }
 
   if (!bridgeState.url || !bridgeState.token) {
-    workspaceTitle.textContent = 'Works in the browser. Better with your Mac behind it.'
+    workspaceTitle.textContent = 'Works anywhere. Better when your own box is behind it.'
     workspaceBody.textContent =
-      'No paired device? RoachBrain Cloud keeps chat alive from your account. Pair a RoachClaw device later when you want your own hardware to take over.'
+      'No paired device? The hosted RoachBrain lane keeps chat alive from your account. Pair a RoachClaw device later when you want your own hardware to take over.'
     return
   }
 

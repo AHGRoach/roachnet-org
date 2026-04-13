@@ -41,7 +41,7 @@ const apiGroups = [
         ],
         response: ['JSON: { ok: true } or { ok: true, task } in dryRun mode', '409 if a setup task is already running'],
         implementation:
-          'Validates that no other setup task is active, stages the install in a temp root, copies the bundled source tree, installs contained OpenClaw and Ollama into the RoachNet folder, installs the bundled native app from InstallerAssets, smoke-tests /api/health, then promotes the staged tree or removes it on failure. The embedded setup runtime is packaged from the official portable Node build instead of a Homebrew-linked host binary, so the installer can boot on a clean Apple Silicon Mac without reaching into /opt/homebrew.',
+          'Validates that no other setup task is active, stages the install in a temp root, copies the bundled source tree, links or stages contained OpenClaw and Ollama into the RoachNet folder, installs the bundled native app from InstallerAssets, smoke-tests /api/health, then promotes the staged tree or removes it on failure. The embedded setup runtime is packaged from the official portable Node build instead of a Homebrew-linked host binary, so the installer can boot on a clean Apple Silicon Mac without reaching into /opt/homebrew. Heavy AI payload hydration is deferred when needed so the installer can finish the real app handoff instead of stalling on a giant first-run model job.',
         usedBy: ['Primary install button in Setup.app'],
       },
       {
@@ -92,7 +92,7 @@ const apiGroups = [
     basePath: '/brew',
     summary: 'Direct cask install for Apple Silicon Macs that bypasses Setup.app but lands on the same runtime API after boot.',
     stack: 'homebrew-roachnet cask -> postflight config writer -> ~/RoachNet/app/RoachNet.app -> run-roachnet.mjs contained runtime bootstrap',
-    callers: ['brew update && brew tap --force AHGRoach/roachnet && brew install --cask --no-quarantine roachnet', 'RoachNet-Homebrew.command', 'RoachNet.app first launch after cask install'],
+    callers: ['brew update && brew tap --force AHGRoach/roachnet && brew install --cask roachnet', 'RoachNet-Homebrew.command', 'RoachNet.app first launch after cask install'],
     endpoints: [
       {
         id: 'brew-install-contract',
@@ -154,6 +154,54 @@ const apiGroups = [
         implementation:
           'The Homebrew install now stages the compiled runtime inside the contained RoachNet storage root instead of /tmp. On macOS, native Node addons and dylibs in that cache are stripped of inherited xattrs and re-signed ad hoc before launch so clean Apple Silicon installs do not depend on host Homebrew dylibs or transient staging paths. If a first-boot Homebrew launch comes up dirty, the native bridge clears the contained runtime cache and process state once, retries, and only then records a bootstrap failure.',
         usedBy: ['RoachNet.app runtime boot after Homebrew install', 'roachnet.org/api Homebrew section'],
+      },
+    ],
+  },
+  {
+    id: 'ios-distribution',
+    label: 'RoachNetiOS Distribution',
+    scope: 'packaging',
+    basePath: '/iOS',
+    summary: 'Unsigned IPA and SideStore source contract for the RoachNetiOS install lane.',
+    stack: 'RoachNet-iOS release assets -> RoachNet-SideStore AltSource -> SideStore / AltStore signing flow -> RoachNetiOS first launch + RoachTail pairing',
+    callers: ['roachnet.org/iOS', 'RoachNet-SideStore apps.json', 'SideStore URL scheme', 'RoachNetiOS first launch'],
+    endpoints: [
+      {
+        id: 'ios-alt-source',
+        method: 'GET',
+        path: '/sidestore-source',
+        title: 'SideStore source contract',
+        summary: 'Documents the AltSource feed used to add RoachNetiOS to SideStore.',
+        handler: 'RoachNet-SideStore/apps.json',
+        request: ['No HTTP body. Static source metadata consumed by SideStore.'],
+        response: [
+          'Source URL: https://raw.githubusercontent.com/AHGRoach/RoachNet-SideStore/main/apps.json',
+          'Source repo: https://github.com/AHGRoach/RoachNet-SideStore',
+          'App: RoachNetiOS',
+          'Bundle identifier: com.ahgrecords.RoachNetCompanion',
+          'Use the raw source URL in SideStore when adding the feed manually.',
+        ],
+        implementation:
+          'The SideStore source publishes the RoachNetiOS IPA metadata, icon, screenshots, supported iOS floor, and the privacy permission strings for QR pairing and local-network access. The website ships the raw source URL, the public source repo, and the IPA lane so the install path does not depend on undocumented SideStore deep links.',
+        usedBy: ['roachnet.org/iOS install section', 'RoachNet SideStore repo', 'SideStore add-source flow'],
+      },
+      {
+        id: 'ios-direct-ipa',
+        method: 'GET',
+        path: '/ipa',
+        title: 'Direct IPA install contract',
+        summary: 'Documents the direct IPA lane for SideStore or AltStore when the source is not used.',
+        handler: 'RoachNet-iOS release asset',
+        request: ['No HTTP body. Static packaging contract for sideload tooling.'],
+        response: [
+          'Release asset: https://github.com/AHGRoach/RoachNet-iOS/releases/latest/download/RoachNetiOS-v0.1.2-unsigned.ipa',
+          'Download the IPA and share it to SideStore on-device.',
+          'Version: 0.1.2',
+          'Display name: RoachNetiOS',
+        ],
+        implementation:
+          'The direct IPA lane keeps the current unsigned artifact available for manual SideStore or AltStore import. On-device, the user downloads the IPA and shares it into SideStore instead of relying on an undocumented install deep link. RoachNetiOS still lands in the same pairing and offline-capable RoachBrain flow after signing.',
+        usedBy: ['roachnet.org/iOS install CTA', 'manual SideStore / AltStore import flow'],
       },
     ],
   },
@@ -1854,7 +1902,7 @@ function renderRouteList() {
     routeList.innerHTML = `
       <div class="api-empty-state">
         <span class="api-docs-kicker">No matches</span>
-        <h3>Nothing matches this filter.</h3>
+        <h3>Nothing lines up with that filter.</h3>
         <p>Try a different group, method, or search term.</p>
       </div>
     `
@@ -1901,7 +1949,7 @@ function renderDetail() {
       <div class="api-empty-state api-empty-state--detail">
         <span class="api-docs-kicker">Select a route</span>
         <h3>Pick an endpoint.</h3>
-        <p>Click any route on the left to see request shape, response shape, and the RoachNet implementation stack behind it.</p>
+        <p>Click any route on the left and the request, response, and implementation contract snap in here.</p>
       </div>
     `
     return

@@ -6,7 +6,7 @@
     <title>RoachClaw</title>
     <meta
       name="description"
-      content="RoachClaw on the web: account chat from anywhere, with your own device when it is there and RoachBrain Cloud when it is not."
+      content="RoachClaw on the web: secure account chat from anywhere, with your own hardware when you want it and the hosted RoachBrain lane when you do not."
     />
     <meta name="theme-color" content="#0a1016" />
     <link rel="canonical" href="https://roachnet.org/roachclaw/" />
@@ -26,7 +26,7 @@
         <img class="brand-mark" src="../assets/roachnet-logo.png" alt="RoachNet logo" />
         <div class="brand-copy">
           <strong>RoachClaw</strong>
-          <span class="brand-kicker">Web chat · account history · local bridge</span>
+          <span class="brand-kicker">Secure chat · your account · optional private bridge</span>
         </div>
         <span class="site-header__status">Web chat</span>
       </a>
@@ -44,17 +44,17 @@
     <main class="roachclaw-page">
       <section class="roachclaw-shell">
         <aside class="roachclaw-rail roachclaw-rail--left">
-          <article class="roachclaw-panel roachclaw-panel--brand">
+          <article class="roachclaw-panel roachclaw-panel--brand" data-reveal>
             <span class="feature-card__eyebrow">RoachClaw</span>
-            <h1>RoachClaw on the web. Yours from anywhere.</h1>
+            <h1>Your chat. Any browser.</h1>
             <p>
-              Sign in, keep your threads, and pick up where you left off. The site keeps your account lane in order. Your Mac stays yours unless you deliberately bridge it.
+              Sign in once, keep your own threads, and keep moving. Pair your hardware when you want the private bridge. Stay hosted when you do not.
             </p>
 
             <div class="roachclaw-chip-row" aria-label="RoachClaw notes">
-              <span class="roachclaw-chip">Your threads are yours</span>
+              <span class="roachclaw-chip">Account-scoped</span>
               <span class="roachclaw-chip">Free secure chat</span>
-              <span class="roachclaw-chip">Local bridge stays opt-in</span>
+              <span class="roachclaw-chip">Private bridge optional</span>
             </div>
 
             <div class="poster-actions">
@@ -65,29 +65,29 @@
             <div class="hero-signal-board hero-signal-board--compact">
               <article class="hero-signal-card">
                 <span>Account</span>
-                <strong>Threads belong to your login, not the browser tab you opened them in.</strong>
+                <strong>Your threads follow the account, not the browser tab.</strong>
               </article>
               <article class="hero-signal-card">
                 <span>Bridge</span>
-                <strong>Pair a device when you want your own hardware doing the work.</strong>
+                <strong>Pair a device when you want your own hardware doing the heavy work.</strong>
               </article>
             </div>
 
             <div class="panel-note-grid">
               <article class="panel-note-card">
                 <span class="feature-card__eyebrow">Cloud mode</span>
-                <strong>Works when no paired device is awake.</strong>
-                <p>Account chat stays reachable even when the desktop is asleep, offline, or somewhere else.</p>
+                <strong>Works when your machines are asleep.</strong>
+                <p>Open the page, sign in, and keep moving. No paired Mac required.</p>
               </article>
               <article class="panel-note-card">
                 <span class="feature-card__eyebrow">Local mode</span>
-                <strong>Bring your own hardware when you want the private bridge.</strong>
+                <strong>Use your own box when you want the private bridge.</strong>
                 <p>Pair a RoachTail device and keep the heavier work on the machine you already trust.</p>
               </article>
             </div>
           </article>
 
-          <article class="roachclaw-panel roachclaw-panel--auth">
+          <article class="roachclaw-panel roachclaw-panel--auth" data-reveal>
             <div class="account-inline-status">
               <div>
                 <span class="feature-card__eyebrow">Account</span>
@@ -141,13 +141,13 @@
             </div>
           </article>
 
-          <article class="roachclaw-panel roachclaw-panel--auth">
+          <article class="roachclaw-panel roachclaw-panel--auth" data-reveal>
             <div class="account-inline-status">
               <div>
                 <span class="feature-card__eyebrow">Device bridge</span>
-                <h2 id="roachclaw-bridge-title">Works in the browser. Better with your Mac behind it.</h2>
+                <h2 id="roachclaw-bridge-title">Works in the browser. Better with your own box behind it.</h2>
                 <p id="roachclaw-bridge-body">
-                  Pair a RoachTail device and your own hardware does the model work. No paired device? RoachBrain Cloud handles it here. Either way you get a response, not an error screen.
+                  Pair a RoachTail device and your own hardware does the model work. No paired device? RoachBrain Cloud handles it here. Either way you still get a reply.
                 </p>
               </div>
               <div class="account-status-badge" id="roachclaw-bridge-badge">Unpaired</div>
@@ -196,13 +196,13 @@
               </div>
 
               <p class="account-form__note">
-                The token stays in this browser. The site handles account auth and thread ownership. Your RoachNet device does the heavy lifting when paired.
+                The token stays in this browser. The site handles account auth and thread ownership. Your RoachNet device does the heavier work when paired.
               </p>
               <p class="account-form__feedback" id="roachclaw-bridge-feedback" aria-live="polite"></p>
             </form>
           </article>
 
-          <article class="roachclaw-panel roachclaw-panel--threads">
+          <article class="roachclaw-panel roachclaw-panel--threads" data-reveal>
             <div class="roachclaw-threads-head">
               <div>
                 <span class="feature-card__eyebrow">Threads</span>
@@ -222,12 +222,12 @@
         </aside>
 
         <section class="roachclaw-workspace">
-          <article class="roachclaw-panel roachclaw-panel--workspace-head">
+          <article class="roachclaw-panel roachclaw-panel--workspace-head" data-reveal>
             <div class="roachclaw-workspace-head__copy">
               <span class="feature-card__eyebrow">Hosted RoachClaw</span>
-              <h2 id="roachclaw-workspace-title">The browser gets your threads. Not your machine.</h2>
+              <h2 id="roachclaw-workspace-title">Account chat from anywhere.</h2>
               <p id="roachclaw-workspace-body">
-                Thread history belongs to your account. Local models, vault files, and machine paths stay on your devices unless you intentionally bridge them.
+                Threads stay with your login. Local models, vault files, and machine paths stay on your own devices unless you bridge them on purpose.
               </p>
 
               <div class="poster-actions">
@@ -252,13 +252,13 @@
             </div>
           </article>
 
-          <article class="roachclaw-panel roachclaw-panel--chat">
+          <article class="roachclaw-panel roachclaw-panel--chat" data-reveal>
             <div class="roachclaw-log" id="roachclaw-log">
               <div class="roachclaw-empty-state" id="roachclaw-empty-state">
                 <span class="feature-card__eyebrow">First prompt</span>
-                <h3>Start a thread from anywhere.</h3>
+                <h3>Ask for something useful.</h3>
                 <p>
-                  This page keeps chat tied to your account. It does not dump local machine state into the browser by default.
+                  The browser gets the thread. It does not get your machine state unless you deliberately bridge it.
                 </p>
 
                 <div class="roachclaw-starter-grid">
@@ -299,19 +299,19 @@
         </section>
 
         <aside class="roachclaw-rail roachclaw-rail--right">
-          <article class="roachclaw-panel roachclaw-panel--meta">
+          <article class="roachclaw-panel roachclaw-panel--meta" data-reveal>
             <span class="feature-card__eyebrow">Security</span>
             <h2>Your threads are yours.</h2>
             <p>
-              Sessions only load threads tied to the signed-in account. The server verifies your token before writing anything. Standard auth, done without shortcuts.
+              Sessions only load threads tied to the signed-in account. The server verifies the token before it writes anything.
             </p>
           </article>
 
-          <article class="roachclaw-panel roachclaw-panel--meta">
+          <article class="roachclaw-panel roachclaw-panel--meta" data-reveal>
             <span class="feature-card__eyebrow">Local device</span>
-            <h2>The browser sees your threads. Not your filesystem.</h2>
+            <h2>The browser gets your thread. Not your filesystem.</h2>
             <p>
-              Thread history lives on the server. Your runtime, vault, models, and file paths stay on your Mac until you explicitly bridge them somewhere.
+              Thread history lives on the server. Your runtime, vault, models, and file paths stay on your own machine until you deliberately bridge them.
             </p>
             <div class="account-actions-inline">
               <a class="cta cta--ghost" href="https://roachnet.org/api/">API docs</a>
@@ -319,11 +319,11 @@
             </div>
           </article>
 
-          <article class="roachclaw-panel roachclaw-panel--meta">
+          <article class="roachclaw-panel roachclaw-panel--meta" data-reveal>
             <span class="feature-card__eyebrow">What comes next</span>
-            <h2>The real power is still on your hardware.</h2>
+            <h2>The heavy work still belongs on your hardware.</h2>
             <p>
-              Web chat is the lightweight layer. Local models, vault state, and full device control live in the paired runtime. That is where it gets interesting.
+              Web chat is the easy front door. Local models, vault state, and full device control still live in the paired runtime.
             </p>
             <div class="account-actions-inline">
               <a class="cta cta--ghost" href="https://roachnet.org/iOS/">Pair devices</a>
@@ -335,6 +335,7 @@
     </main>
 
     <script src="../site-config.js"></script>
+    <script src="../app.js"></script>
     <script src="../roachclaw.js" type="module"></script>
   </body>
 </html>

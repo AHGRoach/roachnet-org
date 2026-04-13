@@ -30,9 +30,9 @@ brew update --quiet
 brew tap --force AHGRoach/roachnet
 
 if brew list --cask roachnet >/dev/null 2>&1; then
-  brew reinstall --cask --force --no-quarantine roachnet
+  brew reinstall --cask --force roachnet
 else
-  brew install --cask --no-quarantine roachnet
+  brew install --cask roachnet
 fi
 
 open "$HOME/RoachNet/app/RoachNet.app"

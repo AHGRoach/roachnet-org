@@ -22,10 +22,10 @@ const sectionDefinitions = [
     key: 'Today',
     navLabel: 'Today',
     eyebrow: 'Today in RoachNet Apps',
-    title: 'A tighter install view for the stuff you actually reach for.',
+    title: 'The packs you actually reach for.',
     description:
-      'RoachNet Apps is the darker little App Store behind the RoachNet shell: map regions, course packs, field libraries, Wikipedia shelves, and local model packs that install straight into the native app.',
-    icon: '●',
+      'Maps, shelves, guides, and model packs that hand straight into the native app.',
+    icon: '◎',
     layout: 'today',
   },
   {
@@ -34,18 +34,18 @@ const sectionDefinitions = [
     eyebrow: 'Offline atlas',
     title: 'Regional packs built around real-world use.',
     description:
-      'City detail, road networks, coastlines, and small-town coverage grouped into named installs so Maps feels like a real atlas, not a loose pile of tiles.',
-    icon: '⌘',
+      'City detail, road networks, coastlines, and small-town coverage grouped into named installs.',
+    icon: '⌖',
     layout: 'map',
   },
   {
     key: 'Medicine',
     navLabel: 'Medicine',
     eyebrow: 'Care library',
-    title: 'A stack of medical shelves that ranges from “what is this pill?” to “how do I stabilize this person?”',
+    title: 'Medical shelves from “what is this pill?” to “how do I stabilize this person?”',
     description:
-      'Medicine keeps the practical stuff close: drug references, treatment steps, emergency guides, pathologies, and course-style libraries that stay on your machine.',
-    icon: '+',
+      'Drug references, treatment steps, emergency guides, and deeper libraries that stay on your machine.',
+    icon: '✚',
     layout: 'grid',
   },
   {
@@ -55,7 +55,7 @@ const sectionDefinitions = [
     title: 'Planning, gear, food, routes, and bad-weather thinking in one place.',
     description:
       'Video series, manuals, and deep reading for people who actually think about prep, not just people who like the idea of it.',
-    icon: '◆',
+    icon: '⛺',
     layout: 'grid',
   },
   {
@@ -64,8 +64,8 @@ const sectionDefinitions = [
     eyebrow: 'Reference shelf',
     title: 'Study packs and reference sets that make your RoachNet machine feel like a small campus.',
     description:
-      'Open textbooks, course bundles, tutorials, and talk archives that turn the RoachNet vault into a proper offline study shelf.',
-    icon: '✦',
+      'Open textbooks, course bundles, tutorials, and talk archives that turn the RoachNet vault into a real offline study shelf.',
+    icon: '▦',
     layout: 'grid',
   },
   {
@@ -75,7 +75,7 @@ const sectionDefinitions = [
     title: 'Simulations, scientific Q&A, and hard-reference shelves for the curious machine.',
     description:
       'Physics, astronomy, chemistry, biology, and interactive science installs that feel like a compact lab bench inside RoachNet.',
-    icon: '⌬',
+    icon: '⚗',
     layout: 'grid',
   },
   {
@@ -85,7 +85,7 @@ const sectionDefinitions = [
     title: 'Youth-friendly shelves, reading packs, and shared-machine installs.',
     description:
       'Story collections, lighter encyclopedias, and family-oriented shelves that make sense on a machine other people touch too.',
-    icon: '✷',
+    icon: '☼',
     layout: 'grid',
   },
   {
@@ -105,7 +105,7 @@ const sectionDefinitions = [
     title: 'Proofs, worked examples, and problem-solving shelves with real depth.',
     description:
       'Math shelves for drills, intuition, advanced reference, and the kind of long-form thinking that deserves its own place.',
-    icon: 'Σ',
+    icon: '∑',
     layout: 'grid',
   },
   {
@@ -115,7 +115,7 @@ const sectionDefinitions = [
     title: 'Law, history, philosophy, and public-life reference in one place.',
     description:
       'Useful context for policy, institutions, philosophy, and civic life without turning the machine into a browser graveyard.',
-    icon: '⌂',
+    icon: '⚖',
     layout: 'grid',
   },
   {
@@ -135,7 +135,7 @@ const sectionDefinitions = [
     title: 'Fix guides, repair notes, and hands-on practical reference.',
     description:
       'DIY and repair installs keep workshop answers, teardown notes, and field fixes one click away inside the vault.',
-    icon: '↺',
+    icon: '⛭',
     layout: 'grid',
   },
   {
@@ -145,7 +145,7 @@ const sectionDefinitions = [
     title: 'Boards, components, fabrication, and electronics learning with real mileage.',
     description:
       'Hardware-minded installs for people who solder, print, breadboard, repair, or just like understanding how the box actually works.',
-    icon: '⌁',
+    icon: '⌬',
     layout: 'grid',
   },
   {
@@ -155,7 +155,7 @@ const sectionDefinitions = [
     title: 'Food, gardening, and self-reliance packs with practical mileage.',
     description:
       'Cooking, pantry planning, gardening, and homesteading installs that feel useful on a real machine, not just aspirational.',
-    icon: '△',
+    icon: '☘',
     layout: 'grid',
   },
   {
@@ -175,7 +175,7 @@ const sectionDefinitions = [
     title: 'Investing, money, crypto, and finance-heavy reference that still feels practical.',
     description:
       'From basic money questions to cryptography and quant-minded reference, this shelf keeps the numbers close.',
-    icon: '$',
+    icon: '₿',
     layout: 'grid',
   },
   {
@@ -184,8 +184,8 @@ const sectionDefinitions = [
     eyebrow: 'Dev shelf',
     title: 'Coding docs, focused tutorials, and install-ready dev study packs.',
     description:
-      'Good first coding shelves for Dev: language docs, framework references, and tutorials that stay available when the router starts acting weird.',
-    icon: '</>',
+      'Language docs, framework references, and tutorials that stay available when the router starts acting weird.',
+    icon: '⌨',
     layout: 'grid',
   },
   {
@@ -194,8 +194,8 @@ const sectionDefinitions = [
     eyebrow: 'ML shelf',
     title: 'Stats, data, and model-building references that stay local.',
     description:
-      'Machine learning and data-science packs that help RoachNet feel like a local lab instead of a tab farm.',
-    icon: '∿',
+      'Machine-learning and data-science packs that make RoachNet feel like a local lab instead of a tab farm.',
+    icon: '◔',
     layout: 'grid',
   },
   {
@@ -245,7 +245,7 @@ const sectionDefinitions = [
     title: 'Networking, systems, and operations references for the long session.',
     description:
       'Docs and guides for operators, builders, and anyone who still expects their machine to keep moving when hosted tooling slows down.',
-    icon: '⌇',
+    icon: '⛓',
     layout: 'grid',
   },
   {
@@ -254,7 +254,7 @@ const sectionDefinitions = [
     eyebrow: 'Route shelf',
     title: 'City guides, region notes, and practical travel reference sized like real installs.',
     description:
-      'Travel packs that stay readable offline and slot into the same vault as the maps, instead of disappearing behind a dead connection.',
+      'Travel packs that stay readable offline and slot into the same vault as the maps instead of disappearing behind a dead connection.',
     icon: '↗',
     layout: 'grid',
   },
@@ -304,7 +304,7 @@ const sectionDefinitions = [
     eyebrow: 'RoachClaw models',
     title: 'Contained local model packs for RoachClaw.',
     description:
-      'Small starter models, bigger coding models, and generalist packs that RoachNet can queue straight into the contained local AI stack.',
+      'Starter models, coding packs, and general-purpose models queued straight into the contained local AI stack.',
     icon: 'AI',
     layout: 'grid',
   },
@@ -1068,14 +1068,14 @@ function buildFallbackBlurb(item, section) {
     }
   }
 
-  return `${item.title} lands in ${section.navLabel} as its own named RoachNet app instead of vanishing into a random download pile.`
+  return `${item.title} installs cleanly into ${section.navLabel} instead of vanishing into Downloads.`
 }
 
 function buildFallbackDetail(item, section, blurb) {
-  const sourceLine = item.source ? `${item.source} stays grouped under ${section.navLabel}.` : `${section.title}`
+  const sourceLine = item.source ? `${item.source} stays grouped under ${section.navLabel}.` : `${section.title}.`
   return [
     `${blurb}.`,
-    `${item.title} lands in ${section.navLabel} as its own named RoachNet app instead of vanishing into a random download pile.`,
+    `${item.title} stays named, grouped, and install-ready inside RoachNet.`,
     sourceLine,
   ]
 }
@@ -1274,7 +1274,6 @@ function renderTodayView() {
         <h1>${escapeHtml(featured.title)}</h1>
         <p class="apps-hero-panel__lead">${escapeHtml(featured.blurb)}</p>
         <p class="apps-hero-panel__body">${escapeHtml(featured.detail[0])}</p>
-        <p class="apps-hero-panel__body">${escapeHtml(featured.detail[1] || '')}</p>
         ${renderBadgeRow(featured)}
         <div class="apps-hero-panel__actions">
           ${
@@ -1451,14 +1450,6 @@ function closeDetail() {
 
 function returnToRoachNetHome(event) {
   event?.preventDefault()
-
-  const referrer = document.referrer || ''
-  const cameFromHome = /^https:\/\/roachnet\.org(?:\/|$)/i.test(referrer)
-  if (cameFromHome && window.history.length > 1) {
-    window.history.back()
-    return
-  }
-
   window.location.href = 'https://roachnet.org/'
 }
 
@@ -1466,7 +1457,7 @@ async function loadCatalog() {
   storeStage.innerHTML = `
     <section class="apps-empty-state apps-empty-state--loading">
       <strong>Loading the catalog…</strong>
-      <p>Pulling the current RoachNet Apps shelves and install metadata.</p>
+      <p>Pulling the current RoachNet Apps shelves and the install handoff for each pack.</p>
     </section>
   `
 

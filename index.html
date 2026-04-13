@@ -6,7 +6,7 @@
     <title>RoachNet</title>
     <meta
       name="description"
-      content="AI, dev tools, maps, and your own offline archive. On your machine."
+      content="AI, dev tools, maps, and your own archive in one contained stack on your machine."
     />
     <meta name="theme-color" content="#0b1016" />
     <link rel="canonical" href="https://roachnet.org/" />
@@ -69,7 +69,7 @@
           <p class="eyebrow">RoachNet</p>
           <h1>AI, dev tools, maps, and your own archive. One contained stack.</h1>
           <p class="hero-body">
-            Local AI, a real dev workspace, offline maps, and your own reference shelf. One root on your hardware. Still works when the network does not.
+            Local AI, a real dev workspace, offline maps, and your own reference shelf. One root on your hardware. Still works when the network folds.
           </p>
 
           <div class="hero-actions">
@@ -86,7 +86,7 @@
           <p class="download-meta" id="download-meta">Setup.app or Homebrew. Either way everything lands in <code>~/RoachNet</code> and stays there.</p>
           <div class="homebrew-inline">
             <button class="cta cta--ghost cta--compact" data-homebrew-copy type="button">Copy brew command</button>
-            <span class="homebrew-inline__command"><code>brew update &amp;&amp; brew tap --force AHGRoach/roachnet &amp;&amp; brew install --cask --no-quarantine roachnet</code></span>
+            <span class="homebrew-inline__command"><code>brew update &amp;&amp; brew tap --force AHGRoach/roachnet &amp;&amp; brew install --cask roachnet</code></span>
           </div>
           <p class="homebrew-note" id="homebrew-note">
             Mac only. Browsers cannot launch Terminal directly, so this downloads a small helper that opens Terminal and runs the Homebrew install for you.
@@ -111,8 +111,8 @@
           </div>
           <div class="screen-chip-row">
             <span class="screen-chip">Home</span>
+            <span class="screen-chip">Dev</span>
             <span class="screen-chip">RoachClaw</span>
-            <span class="screen-chip">Maps</span>
             <span class="screen-chip">Runtime</span>
           </div>
           <div class="hero-signal-board">
@@ -142,19 +142,19 @@
           <article class="pillar-card" role="listitem" data-reveal>
             <span class="feature-card__eyebrow">Local models first</span>
             <h3>Local models, not rented tabs.</h3>
-            <p>RoachClaw runs on Ollama, on your hardware. Prompts do not leave the room. Works without internet.</p>
+            <p>RoachClaw stays on your hardware first. Prompts do not have to leave the room. Offline still counts.</p>
           </article>
 
           <article class="pillar-card" role="listitem" data-reveal>
             <span class="feature-card__eyebrow">Contained by default</span>
             <h3>One folder. Clean uninstall.</h3>
-            <p>Everything lives under <code>~/RoachNet</code>. Move to a new Mac: one <code>cp -r</code>. Uninstall: one <code>rm -rf</code>. Done.</p>
+            <p>Everything lives under <code>~/RoachNet</code>. Easier to move, back up, wipe, and trust.</p>
           </article>
 
           <article class="pillar-card" role="listitem" data-reveal>
             <span class="feature-card__eyebrow">Designed to disappear</span>
             <h3>Quick when called. Quiet when not.</h3>
-            <p>Not always open. That is intentional. Pull it up, do the thing, close it.</p>
+            <p>Not always open. That is the point. Pull it up, do the thing, close it.</p>
           </article>
         </div>
       </section>
@@ -204,25 +204,25 @@
 
           <article class="surface-card" role="listitem" data-reveal>
             <div class="surface-card__shot app-screen-shot app-screen-shot--dark">
-              <img src="./assets/screens/roachnet-native-home.jpg" alt="RoachNet native command grid with map and vault surfaces" />
+              <img src="./assets/screens/roachnet-native-maps.jpg" alt="RoachNet native maps surface" />
               <span class="screen-version-chip">v1.0.2</span>
             </div>
             <div class="surface-card__copy">
               <span class="feature-card__eyebrow">Maps &amp; Vault</span>
               <h3>Your reference shelf.</h3>
-              <p>Offline maps, docs, notes, and reference archives. Still there when the internet is not.</p>
+              <p>Offline routes, map packs, notes, and local reference shelves. Open it and move.</p>
             </div>
           </article>
 
           <article class="surface-card" role="listitem" data-reveal>
             <div class="surface-card__shot app-screen-shot app-screen-shot--dark">
-              <img src="./assets/screens/roachnet-native-setup.jpg" alt="RoachNet native setup flow" />
+              <img src="./assets/screens/roachnet-native-runtime.jpg" alt="RoachNet native runtime surface" />
               <span class="screen-version-chip">v1.0.2</span>
             </div>
             <div class="surface-card__copy">
-              <span class="feature-card__eyebrow">Setup</span>
-              <h3>The installer flow you actually start in.</h3>
-              <p>Checks the machine, stages the runtime, gets out of your way. No wizard marathon.</p>
+              <span class="feature-card__eyebrow">Runtime</span>
+              <h3>The stack health view.</h3>
+              <p>Runtime, account, RoachTail, and sync reads without a scavenger hunt through logs.</p>
             </div>
           </article>
 
@@ -333,7 +333,7 @@
             <button class="download-side-card" data-homebrew-install type="button" data-reveal>
               <span class="download-card__label">Homebrew · Apple Silicon</span>
               <strong>Prefer the terminal? Three commands. Same contained stack.</strong>
-              <small>brew update && brew tap --force AHGRoach/roachnet && brew install --cask --no-quarantine roachnet</small>
+              <small>brew update && brew tap --force AHGRoach/roachnet && brew install --cask roachnet</small>
             </button>
 
             <button class="download-side-card" data-platform="win" type="button" data-reveal>

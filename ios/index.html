@@ -6,7 +6,7 @@
     <title>RoachNet iOS</title>
     <meta
       name="description"
-      content="RoachNet on iPhone and iPad: chat, vault, runtime status, and app installs without opening the laptop."
+      content="RoachNet on iPhone and iPad: chat first, then vault, runtime, and installs without opening the laptop."
     />
     <meta name="theme-color" content="#0b1016" />
     <link rel="canonical" href="https://roachnet.org/iOS/" />
@@ -18,7 +18,7 @@
     <meta property="og:title" content="RoachNet iOS" />
     <meta
       property="og:description"
-      content="RoachNet on your phone: chat, vault, runtime status, and installs."
+      content="RoachNet on your phone: chat, vault, runtime, and installs from the same contained stack."
     />
     <meta property="og:url" content="https://roachnet.org/iOS/" />
     <meta property="og:image" content="https://roachnet.org/assets/screens/roachnet-ios-chat-v011.jpg" />
@@ -26,7 +26,7 @@
     <meta name="twitter:title" content="RoachNet iOS" />
     <meta
       name="twitter:description"
-      content="Chat, vault, runtime status, and app installs from your phone."
+      content="Chat, vault, runtime, and app installs from your phone."
     />
     <meta name="twitter:image" content="https://roachnet.org/assets/screens/roachnet-ios-chat-v011.jpg" />
     <link rel="stylesheet" href="../app.css" />
@@ -49,10 +49,9 @@
       <div class="site-header__panel">
         <nav class="site-nav site-nav--primary" aria-label="Primary">
           <a href="https://roachnet.org/">Home</a>
-          <a href="#screens">Screens</a>
-          <a href="#features">Features</a>
           <a href="#install">Install</a>
           <a href="#pairing">Pairing</a>
+          <a href="https://roachnet.org/api/">API</a>
         </nav>
 
         <div class="site-header__actions" aria-label="Utility links">
@@ -66,9 +65,9 @@
       <section class="hero hero--ios">
         <div class="hero-copy">
           <p class="eyebrow">RoachNet iOS</p>
-          <h1>RoachNet in your pocket.</h1>
+          <h1>RoachClaw in your pocket.</h1>
           <p class="hero-body">
-            Chat with your local AI, check runtime status, read the vault shelf, and queue app installs for your Mac without opening the laptop.
+            Chat first. Vault, installs, and runtime checks stay one tap away from the same contained stack you already run on the desktop.
           </p>
 
           <div class="hero-actions">
@@ -77,7 +76,7 @@
             <a class="cta cta--ghost" href="https://github.com/AHGRoach/RoachNet-iOS" target="_blank" rel="noreferrer">View on GitHub</a>
           </div>
 
-          <p class="hero-footnote">Unsigned IPA. Install via SideStore or AltStore. Works best paired with your Mac. Still useful when it is not around.</p>
+          <p class="hero-footnote">Unsigned IPA for SideStore. Pair it when you can. Keep moving when you cannot.</p>
           <p class="download-meta">Current release: v0.1.2 · built for iPhone and iPad</p>
         </div>
 
@@ -98,8 +97,8 @@
       <section class="content-section" id="screens">
         <div class="section-head">
           <p class="eyebrow">Screens</p>
-          <h2>Four tabs. One phone.</h2>
-          <p>Chat first. Runtime, vault, and installs right behind it.</p>
+          <h2>Chat first. Everything else stays close.</h2>
+          <p>One shell for chat, vault, installs, and runtime checks. No tiny-dashboard nonsense.</p>
         </div>
 
         <div class="ios-shot-wall ios-shot-wall--editorial">
@@ -110,8 +109,8 @@
             </div>
             <div class="ios-shot-card__copy">
               <span class="feature-card__eyebrow">Chat</span>
-              <h3>AI chat from your phone.</h3>
-              <p>Live and local when your Mac is reachable. Cached responses when it is not. You still get an answer.</p>
+              <h3>Keep the thread going.</h3>
+              <p>Use your paired machine when it is there. Fall back cleanly when it is not.</p>
             </div>
           </article>
 
@@ -122,8 +121,8 @@
             </div>
             <div class="ios-shot-card__copy">
               <span class="feature-card__eyebrow">Apps</span>
-              <h3>Queue installs from your phone.</h3>
-              <p>Browse packs, save picks, and send them to the Mac when the bridge reconnects.</p>
+              <h3>Queue packs from anywhere.</h3>
+              <p>Browse packs, save picks, and hand them to the Mac when the bridge comes back.</p>
             </div>
           </article>
 
@@ -135,7 +134,7 @@
             <div class="ios-shot-card__copy">
               <span class="feature-card__eyebrow">Runtime</span>
               <h3>Check the desktop fast.</h3>
-              <p>What is running, what is downloading, what needs attention. No laptop required.</p>
+              <p>What is live, what is downloading, and what needs attention. No laptop flip-open required.</p>
             </div>
           </article>
 
@@ -147,7 +146,7 @@
             <div class="ios-shot-card__copy">
               <span class="feature-card__eyebrow">Vault</span>
               <h3>Read the shelf without opening the shell.</h3>
-              <p>Indexed files and archive summaries on your phone. Still readable when the Mac bridge drops.</p>
+              <p>Indexed files and archive summaries on your phone, still readable when the bridge drops.</p>
             </div>
           </article>
         </div>
@@ -156,7 +155,8 @@
       <section class="content-section" id="features">
         <div class="section-head">
           <p class="eyebrow">What’s in 0.1.2</p>
-          <h2>Faster, tougher, more complete.</h2>
+          <h2>Faster, tougher, less fussy.</h2>
+          <p>The companion opens quicker, pairs faster, and leaves you in fewer dead ends.</p>
         </div>
 
         <div class="card-grid card-grid--three" role="list">
@@ -182,12 +182,12 @@
 
           <article class="support-card" role="listitem" data-reveal>
             <span class="feature-card__eyebrow">Offline RoachBrain</span>
-            <h3>When the Mac goes dark, cached runtime and vault state keep answering. Not “no connection.” Actual answers.</h3>
+            <h3>When the Mac goes dark, cached runtime and vault state still answer. Not “no connection.” Actual answers.</h3>
           </article>
 
           <article class="support-card" role="listitem" data-reveal>
             <span class="feature-card__eyebrow">Apps utility</span>
-            <h3>Save apps, see recents, queue sends. Actually useful when you are not at your desk.</h3>
+            <h3>Save apps, see recents, queue sends. Useful when you are not at your desk.</h3>
           </article>
         </div>
       </section>
@@ -196,18 +196,18 @@
         <div class="section-head">
           <p class="eyebrow">Install</p>
           <h2>Install with SideStore.</h2>
-          <p>Use the unsigned IPA and share it straight into SideStore. No App Store middleman.</p>
+          <p>Add the source or use the IPA. Same app, cleaner path.</p>
         </div>
 
         <div class="card-grid card-grid--three" role="list">
           <article class="support-card" role="listitem" data-reveal>
             <span class="feature-card__eyebrow">1</span>
-            <h3>Download the IPA to Files on your iPhone or iPad.</h3>
+            <h3>Add the RoachNet source to SideStore.</h3>
           </article>
 
           <article class="support-card" role="listitem" data-reveal>
             <span class="feature-card__eyebrow">2</span>
-            <h3>In SideStore or AltStore, add the IPA from Files.</h3>
+            <h3>Install RoachNetiOS from the source or fall back to the IPA.</h3>
           </article>
 
           <article class="support-card" role="listitem" data-reveal>
@@ -219,6 +219,13 @@
         <div class="section-actions">
           <a
             class="cta cta--primary"
+            data-sidestore-source
+            href="https://raw.githubusercontent.com/AHGRoach/RoachNet-SideStore/main/apps.json"
+          >
+            Add Source to SideStore
+          </a>
+          <a
+            class="cta cta--ghost"
             data-sidestore-cta
             href="https://github.com/AHGRoach/RoachNet-iOS/releases/latest/download/RoachNetiOS-v0.1.2-unsigned.ipa"
           >
@@ -231,23 +238,24 @@
           >
             Download IPA
           </a>
+          <a class="cta cta--ghost" href="https://github.com/AHGRoach/RoachNet-SideStore" target="_blank" rel="noreferrer">View SideStore source</a>
           <a class="cta cta--ghost" href="https://docs.sidestore.io/" target="_blank" rel="noreferrer">First time with SideStore?</a>
         </div>
-        <p class="ios-install-note" data-sidestore-note>Download the IPA, then share it to SideStore to install.</p>
+        <p class="ios-install-note" data-sidestore-note>Add the RoachNet source in SideStore, or download the IPA and share it to SideStore to install.</p>
         <p class="ios-install-note ios-install-note--desktop" data-sidestore-desktop hidden>Open this page on your iPhone or iPad, or AirDrop the IPA first.</p>
       </section>
 
       <section class="content-section" id="pairing">
         <div class="section-head">
           <p class="eyebrow">Pairing</p>
-          <h2>Point the phone at your Mac.</h2>
-          <p>The desktop still owns the models, vault, installs, and RoachTail host. The phone stays quick and useful.</p>
+          <h2>Point the phone at your RoachTail alias.</h2>
+          <p>The desktop still owns the models, vault, installs, and secure network host. The phone stays quick and useful instead of pretending to be the desktop.</p>
         </div>
 
         <div class="card-grid card-grid--three" role="list">
           <article class="support-card" role="listitem" data-reveal>
-            <span class="feature-card__eyebrow">Companion URL</span>
-            <h3><code>http://&lt;your-mac-ip&gt;:38111</code>. Find your Mac’s local IP in System Settings → Wi-Fi → Details.</h3>
+            <span class="feature-card__eyebrow">RoachTail alias</span>
+            <h3><code>https://roachnet.roachtail</code> or scan the QR from the desktop shell.</h3>
           </article>
 
           <article class="support-card" role="listitem" data-reveal>
@@ -274,38 +282,45 @@
       </div>
       <nav class="site-footer__nav" aria-label="Footer">
         <a href="https://roachnet.org/">Home</a>
-        <a href="#screens">Screens</a>
-        <a href="#features">Features</a>
         <a href="#install">Install</a>
         <a href="#pairing">Pairing</a>
         <a href="https://roachnet.org/api/">API</a>
         <a href="https://github.com/AHGRoach/RoachNet-iOS" target="_blank" rel="noreferrer">GitHub</a>
       </nav>
     </footer>
+    <script src="../app.js" type="module"></script>
     <script>
       (() => {
         const isIOS =
           /iPad|iPhone|iPod/.test(navigator.userAgent) ||
           (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1)
 
+        const sourceCTA = document.querySelector('[data-sidestore-source]')
         const installCTA = document.querySelector('[data-sidestore-cta]')
         const downloadCTA = document.querySelector('[data-ipa-download]')
         const note = document.querySelector('[data-sidestore-note]')
         const desktopHint = document.querySelector('[data-sidestore-desktop]')
+        const sourceURL = 'https://raw.githubusercontent.com/AHGRoach/RoachNet-SideStore/main/apps.json'
+        const ipaURL = 'https://github.com/AHGRoach/RoachNet-iOS/releases/latest/download/RoachNetiOS-v0.1.2-unsigned.ipa'
 
-        if (!installCTA || !downloadCTA || !note) {
+        if (!sourceCTA || !installCTA || !downloadCTA || !note) {
           return
         }
 
         if (isIOS) {
+          sourceCTA.textContent = 'Add Source to SideStore'
+          sourceCTA.href = sourceURL
           installCTA.textContent = 'Install with SideStore'
-          note.textContent = 'Download the IPA, then share it to SideStore to install.'
+          installCTA.href = ipaURL
+          note.textContent = 'Add the RoachNet source in SideStore, or download the IPA and share it to SideStore to install.'
           if (desktopHint) desktopHint.hidden = true
           return
         }
 
+        sourceCTA.textContent = 'Open Source JSON'
+        sourceCTA.href = sourceURL
         installCTA.textContent = 'Download IPA (for SideStore)'
-        note.textContent = 'Use this IPA with SideStore or AltStore on your iPhone or iPad.'
+        note.textContent = 'Use the source in SideStore, or use this IPA with SideStore or AltStore on your iPhone or iPad.'
         if (desktopHint) desktopHint.hidden = false
       })()
     </script>

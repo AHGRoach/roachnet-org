@@ -111,6 +111,31 @@ const aiPacks = [
     iconMonogram: 'Q15',
   },
   {
+    id: 'roachclaw-coder-compact',
+    title: 'RoachClaw Coder Compact',
+    subtitle: 'Contained qwen2.5-coder:3b fast lane',
+    category: 'Local AI',
+    section: 'Model Packs',
+    size: '2.0 GB',
+    status: 'Lean coding lane',
+    source: 'Contained Ollama lane',
+    summary:
+      'A roomier coding lane than Quickstart without jumping straight to the heavier packs. Good when you want better local code help without turning the machine into a space heater.',
+    accent: 'cyan',
+    machineFit: 'Best on everyday Apple Silicon Macs that want a small but useful local coding lane',
+    includes: [
+      'Contained 3B coding model queue',
+      'A cleaner step up from the first-boot model',
+      'Still light enough for daily local work',
+    ],
+    installIntent: {
+      action: 'roachclaw-model',
+      model: 'qwen2.5-coder:3b',
+    },
+    iconBand: 'RoachClaw',
+    iconMonogram: 'Q3B',
+  },
+  {
     id: 'roachclaw-studio',
     title: 'RoachClaw Studio',
     subtitle: 'Contained qwen2.5-coder:7b upgrade',
@@ -161,6 +186,81 @@ const aiPacks = [
     iconMonogram: 'Q7',
   },
   {
+    id: 'roachclaw-pocket',
+    title: 'RoachClaw Pocket',
+    subtitle: 'Contained llama3.2:3b small general model',
+    category: 'Local AI',
+    section: 'Model Packs',
+    size: '2.0 GB',
+    status: 'Fast everyday replies',
+    source: 'Contained Ollama lane',
+    summary:
+      'A lighter general model for quick chat, short notes, and mobile-minded pairings when you want local answers without loading one of the larger shelves.',
+    accent: 'green',
+    machineFit: 'Best when you want a lighter general chat lane that wakes up fast',
+    includes: [
+      'Contained 3B general model queue',
+      'Useful for quick replies and lighter note work',
+      'Fits nicely beside the coding-first shelves',
+    ],
+    installIntent: {
+      action: 'roachclaw-model',
+      model: 'llama3.2:3b',
+    },
+    iconBand: 'RoachClaw',
+    iconMonogram: 'L3',
+  },
+  {
+    id: 'roachclaw-analyst',
+    title: 'RoachClaw Analyst',
+    subtitle: 'Contained gemma3:4b research lane',
+    category: 'Local AI',
+    section: 'Model Packs',
+    size: '3.3 GB',
+    status: 'Balanced research lane',
+    source: 'Contained Ollama lane',
+    summary:
+      'A practical middleweight model for reading, summarizing, and working through ideas when you want something broader than the coder packs but still reasonably light.',
+    accent: 'blue',
+    machineFit: 'Best on Apple Silicon Macs that need a balanced local reading and planning lane',
+    includes: [
+      'Contained 4B research model queue',
+      'Strong for notes, summaries, and planning passes',
+      'Good bridge between lightweight chat and heavier local reasoning',
+    ],
+    installIntent: {
+      action: 'roachclaw-model',
+      model: 'gemma3:4b',
+    },
+    iconBand: 'RoachClaw',
+    iconMonogram: 'G4',
+  },
+  {
+    id: 'roachclaw-analyst-pro',
+    title: 'RoachClaw Analyst Pro',
+    subtitle: 'Contained gemma3:12b deep work lane',
+    category: 'Local AI',
+    section: 'Model Packs',
+    size: '8.1 GB',
+    status: 'Deep local analysis',
+    source: 'Contained Ollama lane',
+    summary:
+      'A heavier local analyst shelf for longer reads, tighter summaries, and more patient reasoning when the small lanes start to feel cramped.',
+    accent: 'magenta',
+    machineFit: 'Best on higher-memory Apple Silicon when you want a serious local analysis lane',
+    includes: [
+      'Contained 12B analyst model queue',
+      'More comfortable for longer reads and structured summaries',
+      'Good second shelf after a smaller general model',
+    ],
+    installIntent: {
+      action: 'roachclaw-model',
+      model: 'gemma3:12b',
+    },
+    iconBand: 'RoachClaw',
+    iconMonogram: 'G12',
+  },
+  {
     id: 'roachclaw-coder-large',
     title: 'RoachClaw Coder Large',
     subtitle: 'Contained qwen2.5-coder:14b lane',
@@ -185,6 +285,119 @@ const aiPacks = [
     iconBand: 'RoachClaw',
     iconMonogram: 'Q14',
   },
+  {
+    id: 'roachclaw-coder-ultra',
+    title: 'RoachClaw Coder Ultra',
+    subtitle: 'Contained qwen2.5-coder:32b heavyweight shelf',
+    category: 'Local AI',
+    section: 'Model Packs',
+    size: '19 GB',
+    status: 'Big machine only',
+    source: 'Contained Ollama lane',
+    summary:
+      'The heavyweight local coding shelf for machines with real headroom. This is the one you queue when you want the strongest contained coding lane RoachNet can sensibly carry.',
+    accent: 'violet',
+    machineFit: 'Best on high-memory Apple Silicon or a RoachTail-connected multi-machine setup',
+    includes: [
+      'Contained 32B coding model queue',
+      'Meant for serious local code work, not casual bootstraps',
+      'Pairs best with machines that can actually feed it',
+    ],
+    installIntent: {
+      action: 'roachclaw-model',
+      model: 'qwen2.5-coder:32b',
+    },
+    iconBand: 'RoachClaw',
+    iconMonogram: 'Q32',
+  },
+]
+
+const curatedMapPacks = [
+  {
+    id: 'map-global-mini',
+    title: 'Global Mini Atlas',
+    subtitle: 'Fast world fallback basemap',
+    url: 'https://github.com/Crosstalk-Solutions/project-nomad-maps/raw/refs/heads/master/pmtiles/global-min_2025-12.pmtiles',
+    sizeBytes: 184137576,
+    status: 'Travel-ready fallback',
+    accent: 'cyan',
+    machineFit: 'Best when you want one compact world map on every machine',
+    summary:
+      'A compact world basemap for quick travel checks, rough routing, and backup context when you do not need the heavier regional shelves yet.',
+    includes: [
+      'Single-file global PMTiles atlas',
+      'Fastest way to keep worldwide map context handy',
+      'Pairs well with Base Atlas and one regional shelf',
+    ],
+  },
+  {
+    id: 'map-california-solo',
+    title: 'California Solo',
+    subtitle: 'One-state West Coast map shelf',
+    url: 'https://github.com/Crosstalk-Solutions/project-nomad-maps/raw/refs/heads/master/pmtiles/california_2025-12.pmtiles',
+    sizeBytes: 1185114056,
+    status: 'High-detail state pack',
+    accent: 'blue',
+    machineFit: 'Best when you want deep California coverage without the whole Pacific shelf',
+    summary:
+      'A single-state California shelf for city grids, coast runs, mountain passes, and all the weird stretches in between.',
+    includes: [
+      'Focused California PMTiles install',
+      'Good when one state matters more than the whole region',
+      'Still lands directly in the native Maps lane',
+    ],
+  },
+  {
+    id: 'map-texas-solo',
+    title: 'Texas Solo',
+    subtitle: 'One-state South Central map shelf',
+    url: 'https://github.com/Crosstalk-Solutions/project-nomad-maps/raw/refs/heads/master/pmtiles/texas_2025-12.pmtiles',
+    sizeBytes: 903490126,
+    status: 'High-detail state pack',
+    accent: 'bronze',
+    machineFit: 'Best when you need Texas coverage without carrying the whole regional pack',
+    summary:
+      'A focused Texas shelf for metro sprawl, long highway cuts, border corridors, and the empty miles between them.',
+    includes: [
+      'Focused Texas PMTiles install',
+      'Useful when one big state is the whole trip',
+      'Lets the regional shelves stay optional',
+    ],
+  },
+  {
+    id: 'map-florida-solo',
+    title: 'Florida Solo',
+    subtitle: 'One-state coastal route shelf',
+    url: 'https://github.com/Crosstalk-Solutions/project-nomad-maps/raw/refs/heads/master/pmtiles/florida_2025-12.pmtiles',
+    sizeBytes: 1072848714,
+    status: 'High-detail state pack',
+    accent: 'green',
+    machineFit: 'Best when you want hurricane corridor and coastal sprawl coverage without the full South Atlantic lane',
+    summary:
+      'A focused Florida shelf for coastal sprawl, inland connectors, hurricane corridors, and the long flat drives in between.',
+    includes: [
+      'Focused Florida PMTiles install',
+      'Good state-first travel shelf for the Southeast',
+      'Queues into the same native Maps lane as the regional packs',
+    ],
+  },
+  {
+    id: 'map-new-york-solo',
+    title: 'New York Solo',
+    subtitle: 'One-state Northeast route shelf',
+    url: 'https://github.com/Crosstalk-Solutions/project-nomad-maps/raw/refs/heads/master/pmtiles/new_york_2025-12.pmtiles',
+    sizeBytes: 541225235,
+    status: 'Dense corridor pack',
+    accent: 'violet',
+    machineFit: 'Best when you want dense Northeast coverage without the whole Mid-Atlantic shelf',
+    summary:
+      'A focused New York shelf for city density, upstate routes, lake corridors, and everything between subway tunnels and back roads.',
+    includes: [
+      'Focused New York PMTiles install',
+      'Good for dense-route travel without the full region',
+      'Still works with the same contained Maps runtime',
+    ],
+  },
 ]
 
 function formatSizeFromMB(sizeMB) {
@@ -198,6 +411,14 @@ function formatSizeFromMB(sizeMB) {
   }
 
   return `${Math.round(sizeMB)} MB`
+}
+
+function formatSizeFromBytes(sizeBytes) {
+  if (!Number.isFinite(sizeBytes) || sizeBytes <= 0) {
+    return 'Unknown size'
+  }
+
+  return formatSizeFromMB(sizeBytes / (1024 * 1024))
 }
 
 function titleCaseWords(value) {
@@ -768,6 +989,25 @@ function toCatalog() {
 
     const items = [
       baseAtlas,
+      ...curatedMapPacks.map((item) => ({
+        ...item,
+        category: 'Maps',
+        section: 'Map Picks',
+        size: formatSizeFromBytes(item.sizeBytes),
+        source: 'RoachNet map mirror',
+        installLabel: modelPackInstallLabel(),
+        detailLabel: 'Open collection manifest',
+        detailUrl: './collections/maps.json',
+        installIntent: {
+          action: 'direct-download',
+          url: item.url,
+          filetype: 'map',
+        },
+        iconBand: 'Maps',
+        iconFamily: 'maps',
+        iconAsset: iconAssetForItem(item.id),
+        iconMonogram: shortMonogram(item.title),
+      })),
       ...mapItems,
       ...educationItems,
       ...wikipediaItems,

@@ -81,7 +81,7 @@ let featuredRotationIndex = 0
 let storeRevealObserver = null
 
 const homebrewCommand =
-  'brew update && brew tap --force AHGRoach/roachnet && brew install --cask --no-quarantine roachnet'
+  'brew update && brew tap --force AHGRoach/roachnet && brew install --cask roachnet'
 const homebrewHelperUrl = '/downloads/RoachNet-Homebrew.command.zip'
 
 const storeSectionMeta = {
@@ -1298,15 +1298,6 @@ function closeAppDetail() {
 
 function returnToRoachNetHome(event) {
   event?.preventDefault()
-
-  const referrer = document.referrer || ''
-  const cameFromRoachNetHome = /^https:\/\/roachnet\.org(?:\/|$)/i.test(referrer)
-
-  if (cameFromRoachNetHome && window.history.length > 1) {
-    window.history.back()
-    return
-  }
-
   window.location.href = 'https://roachnet.org/'
 }
 
