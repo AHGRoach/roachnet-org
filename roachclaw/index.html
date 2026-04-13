@@ -6,7 +6,7 @@
     <title>RoachClaw</title>
     <meta
       name="description"
-      content="RoachClaw on the web: secure account chat from anywhere, with your own hardware when you want it and the hosted RoachBrain lane when you do not."
+      content="RoachClaw on the web: secure account chat from anywhere, with your own hardware when you want it and hosted RoachBrain when you do not."
     />
     <meta name="theme-color" content="#0a1016" />
     <link rel="canonical" href="https://roachnet.org/roachclaw/" />
@@ -14,6 +14,21 @@
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="RoachClaw" />
+    <meta
+      property="og:description"
+      content="Account-scoped RoachClaw chat from anywhere, with hosted replies by default and your own paired hardware when you want it."
+    />
+    <meta property="og:url" content="https://roachnet.org/roachclaw/" />
+    <meta property="og:image" content="https://roachnet.org/assets/screens/roachnet-native-roachclaw.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="RoachClaw" />
+    <meta
+      name="twitter:description"
+      content="Account-scoped RoachClaw chat from anywhere, with hosted replies by default and your own paired hardware when you want it."
+    />
+    <meta name="twitter:image" content="https://roachnet.org/assets/screens/roachnet-native-roachclaw.jpg" />
     <link rel="stylesheet" href="../app.css" />
     <link rel="stylesheet" href="../app-polish.css" />
   </head>
@@ -26,7 +41,7 @@
         <img class="brand-mark" src="../assets/roachnet-logo.png" alt="RoachNet logo" />
         <div class="brand-copy">
           <strong>RoachClaw</strong>
-          <span class="brand-kicker">Secure chat · your account · optional private bridge</span>
+          <span class="brand-kicker">Account chat · hosted by default · private bridge optional</span>
         </div>
         <span class="site-header__status">Web chat</span>
       </a>
@@ -46,20 +61,25 @@
         <aside class="roachclaw-rail roachclaw-rail--left">
           <article class="roachclaw-panel roachclaw-panel--brand" data-reveal>
             <span class="feature-card__eyebrow">RoachClaw</span>
-            <h1>Your chat. Any browser.</h1>
+            <h1>Your threads. Any browser.</h1>
             <p>
-              Sign in once, keep your own threads, and keep moving. Pair your hardware when you want the private bridge. Stay hosted when you do not.
+              Sign in once, keep your own threads, and keep moving. Pair a RoachNet box when you want the private bridge. Stay hosted when you do not.
             </p>
 
             <div class="roachclaw-chip-row" aria-label="RoachClaw notes">
               <span class="roachclaw-chip">Account-scoped</span>
-              <span class="roachclaw-chip">Free secure chat</span>
+              <span class="roachclaw-chip">Hosted by default</span>
               <span class="roachclaw-chip">Private bridge optional</span>
             </div>
 
             <div class="poster-actions">
               <a class="cta cta--primary" href="https://accounts.roachnet.org/">Open account</a>
               <a class="cta cta--ghost" href="https://roachnet.org/">Back to RoachNet</a>
+            </div>
+
+            <div class="roachclaw-brand-shot app-screen-shot app-screen-shot--dark" aria-hidden="true">
+              <img src="../assets/screens/roachnet-native-roachclaw.jpg" alt="RoachClaw native workbench" />
+              <span class="screen-version-chip">RoachNet v1.0.2</span>
             </div>
 
             <div class="hero-signal-board hero-signal-board--compact">
@@ -206,7 +226,7 @@
             <div class="roachclaw-threads-head">
               <div>
                 <span class="feature-card__eyebrow">Threads</span>
-              <h2>Your chat history.</h2>
+              <h2>Your threads.</h2>
               </div>
               <button class="cta cta--ghost" id="roachclaw-new-chat" type="button" disabled>
                 New chat

@@ -25,7 +25,7 @@ const sectionDefinitions = [
     title: 'The packs you actually reach for.',
     description:
       'Maps, shelves, guides, and model packs that hand straight into the native app.',
-    icon: '◎',
+    icon: 'NOW',
     layout: 'today',
   },
   {
@@ -35,7 +35,7 @@ const sectionDefinitions = [
     title: 'Regional packs built around real-world use.',
     description:
       'City detail, road networks, coastlines, and small-town coverage grouped into named installs.',
-    icon: '⌖',
+    icon: 'MAP',
     layout: 'map',
   },
   {
@@ -45,7 +45,7 @@ const sectionDefinitions = [
     title: 'Medical shelves from “what is this pill?” to “how do I stabilize this person?”',
     description:
       'Drug references, treatment steps, emergency guides, and deeper libraries that stay on your machine.',
-    icon: '✚',
+    icon: 'MED',
     layout: 'grid',
   },
   {
@@ -55,7 +55,7 @@ const sectionDefinitions = [
     title: 'Planning, gear, food, routes, and bad-weather thinking in one place.',
     description:
       'Video series, manuals, and deep reading for people who actually think about prep, not just people who like the idea of it.',
-    icon: '⛺',
+    icon: 'SUR',
     layout: 'grid',
   },
   {
@@ -65,7 +65,7 @@ const sectionDefinitions = [
     title: 'Study packs and reference sets that make your RoachNet machine feel like a small campus.',
     description:
       'Open textbooks, course bundles, tutorials, and talk archives that turn the RoachNet vault into a real offline study shelf.',
-    icon: '▦',
+    icon: 'EDU',
     layout: 'grid',
   },
   {
@@ -75,7 +75,7 @@ const sectionDefinitions = [
     title: 'Simulations, scientific Q&A, and hard-reference shelves for the curious machine.',
     description:
       'Physics, astronomy, chemistry, biology, and interactive science installs that feel like a compact lab bench inside RoachNet.',
-    icon: '⚗',
+    icon: 'LAB',
     layout: 'grid',
   },
   {
@@ -85,7 +85,7 @@ const sectionDefinitions = [
     title: 'Youth-friendly shelves, reading packs, and shared-machine installs.',
     description:
       'Story collections, lighter encyclopedias, and family-oriented shelves that make sense on a machine other people touch too.',
-    icon: '☼',
+    icon: 'KID',
     layout: 'grid',
   },
   {
@@ -95,7 +95,7 @@ const sectionDefinitions = [
     title: 'Bigger study installs for people who actually use their desktop as a campus.',
     description:
       'Lecture libraries, open courses, and structured study packs that install like real apps instead of random downloads.',
-    icon: '▣',
+    icon: 'CRS',
     layout: 'grid',
   },
   {
@@ -105,7 +105,7 @@ const sectionDefinitions = [
     title: 'Proofs, worked examples, and problem-solving shelves with real depth.',
     description:
       'Math shelves for drills, intuition, advanced reference, and the kind of long-form thinking that deserves its own place.',
-    icon: '∑',
+    icon: 'MTH',
     layout: 'grid',
   },
   {
@@ -115,7 +115,7 @@ const sectionDefinitions = [
     title: 'Law, history, philosophy, and public-life reference in one place.',
     description:
       'Useful context for policy, institutions, philosophy, and civic life without turning the machine into a browser graveyard.',
-    icon: '⚖',
+    icon: 'SOC',
     layout: 'grid',
   },
   {
@@ -125,7 +125,7 @@ const sectionDefinitions = [
     title: 'Writing, language study, linguistics, and quote-heavy reference that stays close.',
     description:
       'Editing, reading, language learning, and language-design shelves that feel useful on a working machine.',
-    icon: '✎',
+    icon: 'TXT',
     layout: 'grid',
   },
   {
@@ -135,7 +135,7 @@ const sectionDefinitions = [
     title: 'Fix guides, repair notes, and hands-on practical reference.',
     description:
       'DIY and repair installs keep workshop answers, teardown notes, and field fixes one click away inside the vault.',
-    icon: '⛭',
+    icon: 'FIX',
     layout: 'grid',
   },
   {
@@ -145,7 +145,7 @@ const sectionDefinitions = [
     title: 'Boards, components, fabrication, and electronics learning with real mileage.',
     description:
       'Hardware-minded installs for people who solder, print, breadboard, repair, or just like understanding how the box actually works.',
-    icon: '⌬',
+    icon: 'PCB',
     layout: 'grid',
   },
   {
@@ -155,7 +155,7 @@ const sectionDefinitions = [
     title: 'Food, gardening, and self-reliance packs with practical mileage.',
     description:
       'Cooking, pantry planning, gardening, and homesteading installs that feel useful on a real machine, not just aspirational.',
-    icon: '☘',
+    icon: 'GRW',
     layout: 'grid',
   },
   {
@@ -165,7 +165,7 @@ const sectionDefinitions = [
     title: 'Energy, growing, repair, and practical build-it-yourself reference.',
     description:
       'Longer-lived shelves for self-reliance, field fixes, sustainability, and real-world making.',
-    icon: '⌂',
+    icon: 'HME',
     layout: 'grid',
   },
   {
@@ -175,7 +175,7 @@ const sectionDefinitions = [
     title: 'Investing, money, crypto, and finance-heavy reference that still feels practical.',
     description:
       'From basic money questions to cryptography and quant-minded reference, this shelf keeps the numbers close.',
-    icon: '₿',
+    icon: 'FIN',
     layout: 'grid',
   },
   {
@@ -185,7 +185,7 @@ const sectionDefinitions = [
     title: 'Coding docs, focused tutorials, and install-ready dev study packs.',
     description:
       'Language docs, framework references, and tutorials that stay available when the router starts acting weird.',
-    icon: '⌨',
+    icon: 'DEV',
     layout: 'grid',
   },
   {
@@ -195,7 +195,7 @@ const sectionDefinitions = [
     title: 'Stats, data, and model-building references that stay local.',
     description:
       'Machine-learning and data-science packs that make RoachNet feel like a local lab instead of a tab farm.',
-    icon: '◔',
+    icon: 'ML',
     layout: 'grid',
   },
   {
@@ -205,7 +205,7 @@ const sectionDefinitions = [
     title: 'OS docs, package-manager lore, and platform reference for the long machine session.',
     description:
       'Platform-specific shelves for package managers, Linux docs, SBCs, and systems work that always seems to matter at 1 AM.',
-    icon: '⌘',
+    icon: 'SYS',
     layout: 'grid',
   },
   {
@@ -215,7 +215,7 @@ const sectionDefinitions = [
     title: 'Privacy, defense, reverse-engineering, and security reference for the machine you actually trust.',
     description:
       'A tighter shelf for threat models, Tor, edge security, and the questions that tend to matter after midnight.',
-    icon: '⛨',
+    icon: 'SEC',
     layout: 'grid',
   },
   {
@@ -225,7 +225,7 @@ const sectionDefinitions = [
     title: 'Theory, sound, and production references for actual studio sessions.',
     description:
       'Open music-theory tracks, sound-focused talk archives, and audio references that belong next to the music tools instead of somewhere in Downloads.',
-    icon: '♪',
+    icon: 'AUD',
     layout: 'grid',
   },
   {
@@ -235,7 +235,7 @@ const sectionDefinitions = [
     title: '3D, graphics, photography, and visual-thinking shelves that feel useful on a workstation.',
     description:
       'Design and media installs for visual reference, Blender work, production art, and the questions you only remember when you are already in the middle of the thing.',
-    icon: '◩',
+    icon: 'DES',
     layout: 'grid',
   },
   {
@@ -245,7 +245,7 @@ const sectionDefinitions = [
     title: 'Networking, systems, and operations references for the long session.',
     description:
       'Docs and guides for operators, builders, and anyone who still expects their machine to keep moving when hosted tooling slows down.',
-    icon: '⛓',
+    icon: 'NET',
     layout: 'grid',
   },
   {
@@ -255,7 +255,7 @@ const sectionDefinitions = [
     title: 'City guides, region notes, and practical travel reference sized like real installs.',
     description:
       'Travel packs that stay readable offline and slot into the same vault as the maps instead of disappearing behind a dead connection.',
-    icon: '↗',
+    icon: 'TRV',
     layout: 'grid',
   },
   {
@@ -265,7 +265,7 @@ const sectionDefinitions = [
     title: 'Travel problem-solving, route thinking, and moving-around reference.',
     description:
       'Outdoor, travel, bicycle, aviation, expat, and mobility shelves for life away from the desk.',
-    icon: '⇢',
+    icon: 'MOV',
     layout: 'grid',
   },
   {
@@ -275,7 +275,7 @@ const sectionDefinitions = [
     title: 'Film, anime, games, genre reference, and media-brain installs.',
     description:
       'A deeper pop-culture shelf for fandom reference, worldbuilding, film trivia, and the weirdly useful side shelves.',
-    icon: '★',
+    icon: 'PLY',
     layout: 'grid',
   },
   {
@@ -285,7 +285,7 @@ const sectionDefinitions = [
     title: 'Dictionaries, source texts, and oversized public-domain shelves for the machine that keeps everything close.',
     description:
       'Wordbooks, source libraries, and enormous public-domain archives when you want the vault to feel more like a study room than a download folder.',
-    icon: '⌘K',
+    icon: 'LIB',
     layout: 'grid',
   },
   {
@@ -295,7 +295,7 @@ const sectionDefinitions = [
     title: 'Wikipedia installs sized like real choices, not one giant commitment.',
     description:
       'Pick the small quick-reference shelf or go all the way up to the full archive, depending on how much space you want to spend.',
-    icon: 'W',
+    icon: 'WIK',
     layout: 'grid',
   },
   {

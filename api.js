@@ -1992,6 +1992,8 @@ function renderDetail() {
       <ul>${(route.usedBy || route.groupCallers || []).map((item) => `<li>${item}</li>`).join('')}</ul>
     </section>
   `
+
+  detailPane.scrollTop = 0
 }
 
 function updateHash() {
