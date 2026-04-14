@@ -3177,10 +3177,15 @@ body[data-page="ios"] .download-meta {
 
 body[data-page="ios"] .section-head {
   margin-bottom: 12px;
+  max-width: 760px;
 }
 
 body[data-page="ios"] .section-head h2 {
-  max-width: 9ch;
+  max-width: 13ch;
+}
+
+body[data-page="ios"] .section-head p {
+  max-width: 58ch;
 }
 
 body[data-page="ios"] .content-section {
@@ -3229,6 +3234,10 @@ body[data-page="ios"] .ios-pair-shell {
   align-items: start;
 }
 
+body[data-page="ios"] .ios-pair-shell {
+  grid-template-columns: minmax(340px, 0.92fr) minmax(0, 1.08fr);
+}
+
 body[data-page="ios"] .ios-story-card {
   display: grid;
   gap: 14px;
@@ -3272,10 +3281,26 @@ body[data-page="ios"] .ios-pair-grid {
   gap: 18px;
 }
 
+body[data-page="ios"] .ios-pair-grid.card-grid--three {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
 body[data-page="ios"] .ios-feature-grid .support-card,
 body[data-page="ios"] .ios-install-grid .support-card,
 body[data-page="ios"] .ios-pair-grid .support-card {
   min-height: 100%;
+}
+
+body[data-page="ios"] .ios-pair-grid .support-card:last-child {
+  grid-column: 1 / -1;
+}
+
+body[data-page="ios"] .ios-pair-grid .support-card h3 {
+  max-width: 18ch;
+}
+
+body[data-page="ios"] .ios-pair-grid .support-card:last-child h3 {
+  max-width: 34ch;
 }
 
 body[data-page="ios"] .ios-story-card .section-actions {
@@ -3400,6 +3425,14 @@ body[data-page="apps"] .apps-nav-item__icon[data-icon="culture"] {
   body[data-page="ios"] .ios-install-shell,
   body[data-page="ios"] .ios-pair-shell {
     grid-template-columns: 1fr;
+  }
+
+  body[data-page="ios"] .ios-pair-grid.card-grid--three {
+    grid-template-columns: 1fr;
+  }
+
+  body[data-page="ios"] .ios-pair-grid .support-card:last-child {
+    grid-column: auto;
   }
 }
 
