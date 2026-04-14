@@ -2871,3 +2871,274 @@ body[data-page="apps"] .apps-row:hover {
     padding-left: 20px;
   }
 }
+
+/* ─── Homepage editorial rhythm pass ───────────────────────── */
+body[data-page="home"] .hero {
+  gap: 40px;
+  padding-block: 26px 34px;
+}
+
+body[data-page="home"] .hero-copy {
+  display: grid;
+  align-content: start;
+  gap: 0;
+}
+
+body[data-page="home"] .hero h1 {
+  max-width: 10.4ch;
+  margin-bottom: 16px;
+}
+
+body[data-page="home"] .hero-body {
+  max-width: 33rem;
+  font-size: 1.1rem;
+  line-height: 1.62;
+}
+
+body[data-page="home"] .hero-actions {
+  margin-top: 22px;
+}
+
+body[data-page="home"] .hero-links {
+  margin-top: 14px;
+  gap: 12px 18px;
+}
+
+body[data-page="home"] .hero-footnote {
+  margin-top: 18px;
+}
+
+body[data-page="home"] .download-meta {
+  max-width: 40ch;
+  margin-top: 6px;
+}
+
+body[data-page="home"] .homebrew-inline {
+  margin-top: 14px;
+  padding: 14px 16px;
+  border-radius: 18px;
+  background:
+    radial-gradient(circle at top right, rgba(92, 141, 255, 0.08), transparent 44%),
+    linear-gradient(180deg, rgba(14, 18, 24, 0.9), rgba(9, 13, 18, 0.96));
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow:
+    0 18px 40px rgba(0, 0, 0, 0.16),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+
+body[data-page="home"] .homebrew-inline code {
+  display: inline-flex;
+  align-items: center;
+  min-height: 34px;
+  padding: 0 12px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.045);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+body[data-page="home"] .homebrew-note {
+  max-width: 43ch;
+  margin-top: 10px;
+}
+
+body[data-page="home"] .hero-status {
+  margin-top: 16px;
+}
+
+body[data-page="home"] .hero-visual {
+  gap: 18px;
+}
+
+body[data-page="home"] .screen-frame--hero {
+  min-height: 568px;
+}
+
+body[data-page="home"] .hero-signal-board {
+  gap: 14px;
+}
+
+body[data-page="home"] .hero-signal-card {
+  min-height: 132px;
+}
+
+body[data-page="home"] .content-section {
+  gap: 22px;
+  padding-block: 34px 20px;
+}
+
+body[data-page="home"] .content-section--surfaces {
+  padding-top: 18px;
+}
+
+body[data-page="home"] .content-section--inside,
+body[data-page="home"] .content-section--runtime,
+body[data-page="home"] .content-section--downloads,
+body[data-page="home"] .content-section#support {
+  position: relative;
+}
+
+body[data-page="home"] .content-section--inside::before,
+body[data-page="home"] .content-section--runtime::before,
+body[data-page="home"] .content-section--downloads::before,
+body[data-page="home"] .content-section#support::before {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 1px;
+  margin-bottom: 8px;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0));
+}
+
+body[data-page="home"] .section-head {
+  margin-bottom: 14px;
+}
+
+body[data-page="home"] .section-head h2 {
+  max-width: 9.6ch;
+}
+
+body[data-page="home"] .content-section--surfaces .section-head h2 {
+  max-width: 8.6ch;
+}
+
+body[data-page="home"] .content-section--inside .section-head h2 {
+  max-width: 8ch;
+}
+
+body[data-page="home"] .content-section--runtime .section-head h2 {
+  max-width: 9.2ch;
+}
+
+body[data-page="home"] .content-section--downloads .section-head h2,
+body[data-page="home"] .content-section#support .section-head h2 {
+  max-width: 8.4ch;
+}
+
+body[data-page="home"] .surface-grid {
+  gap: 18px;
+}
+
+body[data-page="home"] .surface-card {
+  gap: 12px;
+}
+
+body[data-page="home"] .surface-card__copy {
+  gap: 6px;
+}
+
+body[data-page="home"] .surface-card__copy h3 {
+  font-size: 1.16rem;
+  line-height: 1.16;
+}
+
+body[data-page="home"] .usecase-grid {
+  gap: 18px 28px;
+}
+
+body[data-page="home"] .usecase-card {
+  min-height: 0;
+  padding-block: 16px;
+}
+
+body[data-page="home"] .usecase-card h3 {
+  font-size: clamp(1.08rem, 1.6vw, 1.24rem);
+  line-height: 1.38;
+  max-width: 26ch;
+}
+
+body[data-page="home"] .shelf-grid {
+  gap: 18px 24px;
+}
+
+body[data-page="home"] .shelf-card {
+  min-height: 0;
+  padding-block: 16px;
+}
+
+body[data-page="home"] .shelf-card h3 {
+  font-size: 1.06rem;
+  line-height: 1.42;
+}
+
+body[data-page="home"] .runtime-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px 26px;
+}
+
+body[data-page="home"] .runtime-card {
+  min-height: 0;
+  padding: 18px 18px 20px;
+  border-radius: 22px;
+  background:
+    radial-gradient(circle at top right, rgba(92, 141, 255, 0.06), transparent 44%),
+    linear-gradient(180deg, rgba(15, 20, 27, 0.88), rgba(9, 13, 18, 0.94));
+}
+
+body[data-page="home"] .runtime-card h3 {
+  font-size: 1.08rem;
+  line-height: 1.42;
+}
+
+body[data-page="home"] .download-layout {
+  gap: 18px;
+}
+
+body[data-page="home"] .download-hero-card {
+  min-height: 256px;
+}
+
+body[data-page="home"] .download-side-grid {
+  gap: 18px;
+}
+
+body[data-page="home"] .downloads-actions {
+  margin-top: 10px;
+  padding-top: 6px;
+}
+
+body[data-page="home"] .home-support-shell {
+  gap: 20px;
+}
+
+body[data-page="home"] .home-support-intro {
+  padding: 24px;
+}
+
+body[data-page="home"] .home-support-intro h3 {
+  max-width: 14ch;
+}
+
+body[data-page="home"] .home-support-grid {
+  gap: 20px;
+}
+
+body[data-page="home"] .support-card {
+  padding: 24px;
+}
+
+body[data-page="home"] .support-card h3 {
+  max-width: 22ch;
+  line-height: 1.28;
+}
+
+@media (max-width: 1180px) {
+  body[data-page="home"] .runtime-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 980px) {
+  body[data-page="home"] .hero {
+    gap: 28px;
+    min-height: auto;
+    padding-block: 24px 24px;
+  }
+
+  body[data-page="home"] .screen-frame--hero {
+    min-height: 460px;
+  }
+
+  body[data-page="home"] .homebrew-inline {
+    align-items: start;
+  }
+}
