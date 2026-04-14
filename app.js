@@ -372,6 +372,32 @@ function findAssetForPlatform(platformKey) {
   return null
 }
 
+function setPlatformFallback(platformKey, primaryButtons, label) {
+  if (platformKey === 'mac') {
+    primaryButtons.forEach((button) => {
+      button.textContent = 'Install RoachNet with Homebrew'
+      button.onclick = () => {
+        window.location.href = 'https://roachnet.org/brew/'
+      }
+    })
+    if (downloadMeta) {
+      downloadMeta.textContent =
+        'The macOS DMG is being republished. Homebrew is live now and lands the same stack in ~/RoachNet.'
+    }
+    return
+  }
+
+  primaryButtons.forEach((button) => {
+    button.textContent = `View ${label} release`
+    button.onclick = () => {
+      window.open(latestReleasePage, '_blank', 'noopener,noreferrer')
+    }
+  })
+  if (downloadMeta) {
+    downloadMeta.textContent = `No direct ${label} installer is posted yet. Opening the latest release instead.`
+  }
+}
+
 function setPrimaryButton(platformKey) {
   const hostedAsset = hostedDownloads[platformKey]
   const asset = findAssetForPlatform(platformKey)
@@ -385,7 +411,7 @@ function setPrimaryButton(platformKey) {
   activePlatform = platformKey
   markActivePlatform(platformKey)
 
-  if (hostedAsset) {
+  if (hostedAsset && (!latestRelease || asset)) {
     primaryButtons.forEach((button) => {
       button.textContent = `Download RoachNet ${hostedAsset.version} for ${label}`
       button.onclick = () => {
@@ -415,15 +441,7 @@ function setPrimaryButton(platformKey) {
     return
   }
 
-  primaryButtons.forEach((button) => {
-    button.textContent = `View ${label} release`
-    button.onclick = () => {
-      window.open(latestReleasePage, '_blank', 'noopener,noreferrer')
-    }
-  })
-  if (downloadMeta) {
-    downloadMeta.textContent = `No direct ${label} installer is posted yet. Opening the latest release instead.`
-  }
+  setPlatformFallback(platformKey, primaryButtons, label)
 }
 
 function setHomebrewNote(text) {
@@ -1369,13 +1387,18 @@ platformButtons.forEach((button) => {
     const hostedAsset = hostedDownloads[platformKey]
     const asset = findAssetForPlatform(platformKey)
 
-    if (hostedAsset) {
+    if (hostedAsset && (!latestRelease || asset)) {
       window.location.href = hostedAsset.url
       return
     }
 
     if (asset) {
       window.location.href = asset.browser_download_url
+      return
+    }
+
+    if (platformKey === 'mac') {
+      window.location.href = 'https://roachnet.org/brew/'
       return
     }
 
@@ -1456,8 +1479,28 @@ function runCommandItem(item) {
   const scrollTarget = item.dataset.scroll
 
   if (action === 'download') {
+    const asset = findAssetForPlatform(activePlatform)
     const hostedAsset = hostedDownloads[activePlatform] || hostedDownloads.mac
-    window.location.href = hostedAsset.url
+
+    if (hostedAsset && (!latestRelease || asset)) {
+      window.location.href = hostedAsset.url
+      closeCommandPalette()
+      return
+    }
+
+    if (asset) {
+      window.location.href = asset.browser_download_url
+      closeCommandPalette()
+      return
+    }
+
+    if (activePlatform === 'mac') {
+      window.location.href = 'https://roachnet.org/brew/'
+      closeCommandPalette()
+      return
+    }
+
+    window.open(latestReleasePage, '_blank', 'noopener,noreferrer')
     closeCommandPalette()
     return
   }
