@@ -65,9 +65,9 @@
       <section class="hero hero--ios">
         <div class="hero-copy">
           <p class="eyebrow">RoachNet iOS</p>
-          <h1>RoachClaw in your pocket.</h1>
+          <h1>The contained stack, in your pocket.</h1>
           <p class="hero-body">
-            Chat first. Vault, runtime, and installs stay close without turning the phone into a fake desktop.
+            RoachClaw first. Vault, runtime, and installs stay close without turning the phone into a fake desktop.
           </p>
 
           <div class="hero-actions">
@@ -155,11 +155,28 @@
       <section class="content-section" id="features">
         <div class="section-head">
           <p class="eyebrow">What’s in 0.1.2</p>
-          <h2>Faster, tougher, less fussy.</h2>
-          <p>The companion opens quicker, pairs faster, and leaves you in fewer dead ends.</p>
+          <h2>Small companion. Real utility.</h2>
+          <p>The companion opens quicker, pairs faster, and cuts down the dead ends.</p>
         </div>
 
-        <div class="card-grid card-grid--three" role="list">
+        <div class="ios-feature-shell">
+          <article class="ios-story-card ios-story-card--feature" data-reveal>
+            <span class="feature-card__eyebrow">Companion shell</span>
+            <h3>Built for the moments when you are not at the desk.</h3>
+            <p>It stays chat-first, keeps the runtime readable, and lets installs keep moving without pretending the phone is your workstation.</p>
+            <div class="hero-signal-board hero-signal-board--compact">
+              <article class="hero-signal-card">
+                <span>Fast launch</span>
+                <strong>Cached state means less waiting and fewer blank starts.</strong>
+              </article>
+              <article class="hero-signal-card">
+                <span>Useful offline</span>
+                <strong>Cached runtime and vault reads still give answers when the bridge drops.</strong>
+              </article>
+            </div>
+          </article>
+
+          <div class="card-grid card-grid--three ios-feature-grid" role="list">
           <article class="support-card" role="listitem" data-reveal>
             <span class="feature-card__eyebrow">Faster start</span>
             <h3>Cached state on launch. Opens where you left it instead of cold-starting every time.</h3>
@@ -189,18 +206,53 @@
             <span class="feature-card__eyebrow">Apps utility</span>
             <h3>Save apps, see recents, queue sends. Useful when you are not at your desk.</h3>
           </article>
+          </div>
         </div>
       </section>
 
       <section class="content-section" id="install">
         <div class="section-head">
           <p class="eyebrow">Install</p>
-          <h2>Install with SideStore.</h2>
-          <p>Add the source or use the IPA. Same app, cleaner path.</p>
+          <h2>SideStore, without the scavenger hunt.</h2>
+          <p>Add the source or use the IPA. Same build, cleaner path.</p>
         </div>
 
-        <div class="card-grid card-grid--three" role="list">
-          <article class="support-card" role="listitem" data-reveal>
+        <div class="ios-install-shell">
+          <article class="ios-story-card ios-story-card--install" data-reveal>
+            <span class="feature-card__eyebrow">Install lane</span>
+            <h3>Add the source, or hand SideStore the IPA directly.</h3>
+            <p>Both routes land the same companion build. The source is cleaner. The IPA is the fallback when you want it.</p>
+            <div class="section-actions">
+              <a
+                class="cta cta--primary"
+                data-sidestore-source
+                href="https://raw.githubusercontent.com/AHGRoach/RoachNet-SideStore/main/apps.json"
+              >
+                Add Source to SideStore
+              </a>
+              <a
+                class="cta cta--ghost"
+                data-sidestore-cta
+                href="https://github.com/AHGRoach/RoachNet-iOS/releases/latest/download/RoachNetiOS-v0.1.2-unsigned.ipa"
+              >
+                Install with SideStore
+              </a>
+              <a
+                class="cta cta--ghost"
+                data-ipa-download
+                href="https://github.com/AHGRoach/RoachNet-iOS/releases/latest/download/RoachNetiOS-v0.1.2-unsigned.ipa"
+              >
+                Download IPA
+              </a>
+              <a class="cta cta--ghost" href="https://github.com/AHGRoach/RoachNet-SideStore" target="_blank" rel="noreferrer">View SideStore source</a>
+              <a class="cta cta--ghost" href="https://docs.sidestore.io/" target="_blank" rel="noreferrer">First time with SideStore?</a>
+            </div>
+            <p class="ios-install-note" data-sidestore-note>Add the RoachNet source in SideStore, or download the IPA and share it to SideStore to install.</p>
+            <p class="ios-install-note ios-install-note--desktop" data-sidestore-desktop hidden>Open this page on your iPhone or iPad, or AirDrop the IPA first.</p>
+          </article>
+
+          <div class="card-grid card-grid--three ios-install-grid" role="list">
+            <article class="support-card" role="listitem" data-reveal>
             <span class="feature-card__eyebrow">1</span>
             <h3>Add the RoachNet source to SideStore.</h3>
           </article>
@@ -214,46 +266,39 @@
             <span class="feature-card__eyebrow">3</span>
             <h3>Sign and install. Open RoachNetiOS and pair your Mac.</h3>
           </article>
+          </div>
         </div>
-
-        <div class="section-actions">
-          <a
-            class="cta cta--primary"
-            data-sidestore-source
-            href="https://raw.githubusercontent.com/AHGRoach/RoachNet-SideStore/main/apps.json"
-          >
-            Add Source to SideStore
-          </a>
-          <a
-            class="cta cta--ghost"
-            data-sidestore-cta
-            href="https://github.com/AHGRoach/RoachNet-iOS/releases/latest/download/RoachNetiOS-v0.1.2-unsigned.ipa"
-          >
-            Install with SideStore
-          </a>
-          <a
-            class="cta cta--ghost"
-            data-ipa-download
-            href="https://github.com/AHGRoach/RoachNet-iOS/releases/latest/download/RoachNetiOS-v0.1.2-unsigned.ipa"
-          >
-            Download IPA
-          </a>
-          <a class="cta cta--ghost" href="https://github.com/AHGRoach/RoachNet-SideStore" target="_blank" rel="noreferrer">View SideStore source</a>
-          <a class="cta cta--ghost" href="https://docs.sidestore.io/" target="_blank" rel="noreferrer">First time with SideStore?</a>
-        </div>
-        <p class="ios-install-note" data-sidestore-note>Add the RoachNet source in SideStore, or download the IPA and share it to SideStore to install.</p>
-        <p class="ios-install-note ios-install-note--desktop" data-sidestore-desktop hidden>Open this page on your iPhone or iPad, or AirDrop the IPA first.</p>
       </section>
 
       <section class="content-section" id="pairing">
         <div class="section-head">
           <p class="eyebrow">Pairing</p>
-          <h2>Point the phone at your RoachTail alias.</h2>
-          <p>The desktop still owns the models, vault, installs, and secure network host. The phone stays quick and useful instead of pretending to be the desktop.</p>
+          <h2>Pair once. Keep the phone useful.</h2>
+          <p>The desktop still owns the models, vault, installs, and secure network host. The phone stays quick instead of pretending to be the desktop.</p>
         </div>
 
-        <div class="card-grid card-grid--three" role="list">
-          <article class="support-card" role="listitem" data-reveal>
+        <div class="ios-pair-shell">
+          <article class="ios-story-card ios-story-card--pair" data-reveal>
+            <span class="feature-card__eyebrow">RoachTail pairing</span>
+            <h3>Point the phone at the alias or scan the QR.</h3>
+            <p>The secure bridge belongs to the desktop runtime. The phone just needs a fast path in and a clean fallback when the machine goes dark.</p>
+            <div class="hero-signal-board hero-signal-board--compact">
+              <article class="hero-signal-card">
+                <span>Alias</span>
+                <strong><code>https://roachnet.roachtail</code> is the front door.</strong>
+              </article>
+              <article class="hero-signal-card">
+                <span>Fallback</span>
+                <strong>Cached reads hold the line until the desktop comes back.</strong>
+              </article>
+            </div>
+            <div class="section-actions">
+              <a class="cta cta--ghost" href="https://roachnet.org/api/">Read the API</a>
+            </div>
+          </article>
+
+          <div class="card-grid card-grid--three ios-pair-grid" role="list">
+            <article class="support-card" role="listitem" data-reveal>
             <span class="feature-card__eyebrow">RoachTail alias</span>
             <h3><code>https://roachnet.roachtail</code> or scan the QR from the desktop shell.</h3>
           </article>
@@ -267,10 +312,7 @@
             <span class="feature-card__eyebrow">Fallback</span>
             <h3>Bridge goes offline? Cached chat, vault reads, and runtime snapshots hold until the Mac comes back online.</h3>
           </article>
-        </div>
-
-        <div class="section-actions">
-          <a class="cta cta--ghost" href="https://roachnet.org/api/">Read the API</a>
+          </div>
         </div>
       </section>
     </main>

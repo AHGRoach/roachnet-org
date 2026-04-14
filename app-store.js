@@ -312,6 +312,41 @@ const sectionDefinitions = [
 
 const sectionLookup = new Map(sectionDefinitions.map((section) => [section.key, section]))
 const sectionSlugLookup = new Map(sectionDefinitions.map((section) => [slugify(section.navLabel), section.key]))
+const sectionGlyphs = {
+  Today: '✦',
+  'Map Regions': '⌖',
+  Medicine: '✚',
+  'Survival & Preparedness': '⛺',
+  'Education & Reference': '◫',
+  'Science & Simulations': '⚗',
+  'Kids & Family': '☻',
+  'Open Courses & Lectures': '≣',
+  'Math & Problem Solving': '∑',
+  'Law, History & Society': '⚖',
+  'Language & Writing': '¶',
+  'DIY & Repair': '⌁',
+  'Maker & Electronics': '⌬',
+  'Agriculture & Food': '❦',
+  'Homestead & Sustainability': '⌂',
+  'Finance & Crypto': '₿',
+  'Software Development': '⌘',
+  'Machine Learning & Data Science': '◉',
+  'Platforms & Systems': '⎈',
+  'Security & Privacy': '⛨',
+  'Music Production & Audio': '♪',
+  'Design & Visual Media': '◇',
+  'IT & Infrastructure': '⇄',
+  'Travel & Field Guides': '↗',
+  'Travel, Mobility & Outdoors': '⇆',
+  'Games, Film & Pop Culture': '✶',
+  'Dictionaries & Primary Sources': '≡',
+  Wikipedia: 'Ⓦ',
+  'Model Packs': '⬢',
+}
+
+function getSectionGlyph(section) {
+  return sectionGlyphs[section.key] || '•'
+}
 
 const todayFeaturedId = 'course-wikibooks_en_all_nopic'
 const todayRows = [
@@ -1182,7 +1217,10 @@ function renderSidebarNav() {
           data-section="${section.key}"
           aria-current="${active ? 'page' : 'false'}"
         >
-          <span class="apps-nav-item__icon" aria-hidden="true">${escapeHtml(section.icon)}</span>
+          <span class="apps-nav-item__icon" data-icon="${slugify(section.navLabel)}" aria-hidden="true">
+            <span class="apps-nav-item__glyph">${escapeHtml(getSectionGlyph(section))}</span>
+            <span class="apps-nav-item__code">${escapeHtml(section.icon)}</span>
+          </span>
           <span class="apps-nav-item__label">${escapeHtml(section.navLabel)}</span>
           <span class="apps-nav-item__count">${count}</span>
         </button>
