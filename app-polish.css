@@ -2524,3 +2524,350 @@ body[data-page="home"] .home-support-grid {
     grid-template-columns: 1fr;
   }
 }
+
+/* ─── Final visual pass: footer finish + homepage motion + RoachClaw cleanup ─── */
+body[data-page="home"],
+body[data-page="brew"],
+body[data-page="ios"],
+body[data-page="roachclaw"],
+body[data-page="api"],
+body[data-page="account"],
+body[data-page="apps"] {
+  min-height: 100svh;
+}
+
+body[data-page="home"] .page-shell,
+body[data-page="brew"] .page-shell,
+body[data-page="ios"] .page-shell,
+body[data-page="account"] .account-page,
+body[data-page="roachclaw"] .roachclaw-page,
+body[data-page="api"] .api-docs-shell,
+body[data-page="apps"] .apps-store-shell {
+  padding-bottom: 0;
+}
+
+body[data-page="home"] .site-footer,
+body[data-page="brew"] .site-footer,
+body[data-page="ios"] .site-footer,
+body[data-page="roachclaw"] .site-footer,
+body[data-page="api"] .site-footer,
+body[data-page="account"] .site-footer,
+body[data-page="apps"] .site-footer {
+  position: relative;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-top: 14px;
+  padding-bottom: calc(10px + env(safe-area-inset-bottom, 0px));
+}
+
+body[data-page="home"] .site-footer::before,
+body[data-page="brew"] .site-footer::before,
+body[data-page="ios"] .site-footer::before,
+body[data-page="roachclaw"] .site-footer::before,
+body[data-page="api"] .site-footer::before,
+body[data-page="account"] .site-footer::before,
+body[data-page="apps"] .site-footer::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(255, 79, 216, 0), rgba(255, 79, 216, 0.34), rgba(92, 141, 255, 0.34), rgba(50, 255, 126, 0));
+  opacity: 0.9;
+  pointer-events: none;
+}
+
+body[data-page="home"] .site-footer::after,
+body[data-page="brew"] .site-footer::after,
+body[data-page="ios"] .site-footer::after,
+body[data-page="roachclaw"] .site-footer::after,
+body[data-page="api"] .site-footer::after,
+body[data-page="account"] .site-footer::after,
+body[data-page="apps"] .site-footer::after {
+  content: "";
+  position: absolute;
+  inset: -46px 0 auto;
+  height: 58px;
+  background: linear-gradient(180deg, rgba(10, 14, 19, 0), rgba(10, 14, 19, 0.72));
+  pointer-events: none;
+  z-index: -1;
+}
+
+body[data-page="home"] .site-footer__copy,
+body[data-page="brew"] .site-footer__copy,
+body[data-page="ios"] .site-footer__copy,
+body[data-page="roachclaw"] .site-footer__copy,
+body[data-page="api"] .site-footer__copy,
+body[data-page="account"] .site-footer__copy,
+body[data-page="apps"] .site-footer__copy {
+  max-width: 38ch;
+}
+
+body[data-page="home"] .surface-card,
+body[data-page="home"] .download-hero-card,
+body[data-page="home"] .download-side-card,
+body[data-page="home"] .support-card,
+body[data-page="home"] .hero-signal-card,
+body[data-page="home"] .panel-note-card {
+  transform-origin: center top;
+  will-change: transform;
+}
+
+body[data-page="home"] .surface-card::before,
+body[data-page="home"] .download-hero-card::before,
+body[data-page="home"] .download-side-card::before,
+body[data-page="home"] .support-card::before {
+  opacity: 0;
+  transition: opacity 300ms ease, transform 420ms ease;
+}
+
+body[data-page="home"] .surface-card:hover,
+body[data-page="home"] .download-hero-card:hover,
+body[data-page="home"] .download-side-card:hover,
+body[data-page="home"] .support-card:hover {
+  transform: translateY(-8px) scale(1.008);
+  border-color: rgba(255, 255, 255, 0.14);
+  box-shadow:
+    0 40px 96px rgba(0, 0, 0, 0.3),
+    0 0 0 1px rgba(92, 141, 255, 0.09),
+    inset 0 1px 0 rgba(255, 255, 255, 0.07);
+  filter: saturate(1.05);
+}
+
+body[data-page="home"] .surface-card:hover::before,
+body[data-page="home"] .download-hero-card:hover::before,
+body[data-page="home"] .download-side-card:hover::before,
+body[data-page="home"] .support-card:hover::before {
+  opacity: 1;
+}
+
+body[data-page="home"] .surface-card:hover::after,
+body[data-page="home"] .download-hero-card:hover::after,
+body[data-page="home"] .download-side-card:hover::after,
+body[data-page="home"] .support-card:hover::after {
+  opacity: 0.95;
+}
+
+body[data-page="home"] .surface-card__shot img,
+body[data-page="home"] .download-hero-card .screen-frame__image,
+body[data-page="home"] .download-side-card .screen-frame__image {
+  transition: transform 520ms cubic-bezier(0.22, 1, 0.36, 1), filter 360ms ease;
+}
+
+body[data-page="home"] .surface-card:hover .surface-card__shot img {
+  transform: scale(1.05) translateY(-2px);
+  filter: saturate(1.1) contrast(1.03);
+}
+
+body[data-page="home"] .screen-version-chip,
+body[data-page="home"] .screen-chip,
+body[data-page="home"] .hero-status__pill {
+  transition:
+    transform 240ms cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 240ms ease,
+    background 240ms ease,
+    color 240ms ease;
+}
+
+body[data-page="home"] .surface-card:hover .screen-version-chip,
+body[data-page="home"] .download-hero-card:hover .screen-version-chip {
+  transform: translateY(-2px);
+  border-color: rgba(255, 255, 255, 0.16);
+}
+
+body[data-page="home"] .hero-signal-card,
+body[data-page="home"] .panel-note-card {
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+}
+
+body[data-page="home"] .hero-signal-card:hover,
+body[data-page="home"] .panel-note-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(255, 255, 255, 0.12);
+  box-shadow:
+    0 28px 66px rgba(0, 0, 0, 0.24),
+    0 0 0 1px rgba(92, 141, 255, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+
+body[data-page="home"] .pillar-card,
+body[data-page="home"] .usecase-card,
+body[data-page="home"] .shelf-card {
+  padding-top: 14px;
+  padding-bottom: 14px;
+  border-radius: 0 18px 18px 0;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.02), transparent 68%);
+}
+
+body[data-page="home"] .pillar-card:hover,
+body[data-page="home"] .usecase-card:hover,
+body[data-page="home"] .shelf-card:hover {
+  transform: translateY(-1px);
+  padding-left: 24px;
+  border-left-color: rgba(255, 255, 255, 0.22);
+  background: linear-gradient(90deg, rgba(92, 141, 255, 0.1), rgba(255, 79, 216, 0.045) 32%, transparent 76%);
+}
+
+body[data-page="home"] .hero-links a,
+body[data-page="home"] .downloads-actions .cta--ghost {
+  position: relative;
+}
+
+body[data-page="home"] .hero-links a:hover,
+body[data-page="home"] .downloads-actions .cta--ghost:hover {
+  transform: translateX(0);
+  color: rgba(250, 252, 255, 0.96);
+  text-shadow: 0 0 18px rgba(92, 141, 255, 0.2);
+}
+
+body[data-page="roachclaw"] .roachclaw-panel {
+  padding: 22px;
+  border-radius: 26px;
+}
+
+body[data-page="roachclaw"] .roachclaw-panel--brand {
+  gap: 20px;
+  padding: 26px;
+}
+
+body[data-page="roachclaw"] .roachclaw-panel--brand h1 {
+  max-width: 7.4ch;
+}
+
+body[data-page="roachclaw"] .roachclaw-panel--brand p,
+body[data-page="roachclaw"] .roachclaw-panel--workspace-head p,
+body[data-page="roachclaw"] .account-form__note {
+  max-width: 38ch;
+}
+
+body[data-page="roachclaw"] .roachclaw-panel--workspace-head {
+  gap: 20px;
+  grid-template-columns: minmax(0, 1.18fr) minmax(280px, 0.82fr);
+  align-items: start;
+}
+
+body[data-page="roachclaw"] .roachclaw-workspace-head__copy {
+  display: grid;
+  gap: 14px;
+  align-content: start;
+}
+
+body[data-page="roachclaw"] .roachclaw-chip-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+body[data-page="roachclaw"] .roachclaw-status-tile {
+  min-height: 110px;
+  padding: 16px;
+  border-radius: 20px;
+  background:
+    radial-gradient(circle at top right, rgba(92, 141, 255, 0.08), transparent 44%),
+    linear-gradient(180deg, rgba(15, 20, 27, 0.92), rgba(9, 13, 18, 0.97));
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.04),
+    0 18px 42px rgba(0, 0, 0, 0.14);
+}
+
+body[data-page="roachclaw"] .roachclaw-brand-shot {
+  border-radius: 28px;
+}
+
+body[data-page="roachclaw"] .roachclaw-brand-shot img {
+  aspect-ratio: 16 / 9.4;
+  object-position: center 10%;
+}
+
+body[data-page="roachclaw"] .hero-signal-board--compact,
+body[data-page="roachclaw"] .panel-note-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+body[data-page="roachclaw"] .hero-signal-card,
+body[data-page="roachclaw"] .panel-note-card,
+body[data-page="roachclaw"] .roachclaw-panel--meta,
+body[data-page="roachclaw"] .roachclaw-panel--threads,
+body[data-page="roachclaw"] .roachclaw-panel--auth {
+  background:
+    radial-gradient(circle at top right, rgba(92, 141, 255, 0.07), transparent 42%),
+    linear-gradient(180deg, rgba(17, 23, 31, 0.9), rgba(9, 13, 18, 0.96));
+}
+
+body[data-page="roachclaw"] .roachclaw-panel--chat {
+  min-height: clamp(580px, 70vh, 900px);
+}
+
+body[data-page="roachclaw"] .roachclaw-log {
+  padding-right: 10px;
+  padding-bottom: 8px;
+}
+
+body[data-page="roachclaw"] .roachclaw-thread:hover,
+body[data-page="roachclaw"] .roachclaw-starter:hover,
+body[data-page="roachclaw"] .roachclaw-panel--meta:hover,
+body[data-page="roachclaw"] .roachclaw-panel--auth:hover {
+  transform: translateY(-3px);
+  border-color: rgba(255, 255, 255, 0.11);
+  box-shadow:
+    0 24px 58px rgba(0, 0, 0, 0.2),
+    0 0 0 1px rgba(92, 141, 255, 0.06),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+body[data-page="api"] .api-docs-sidebar__intro,
+body[data-page="api"] .api-docs-hero {
+  overflow: hidden;
+}
+
+body[data-page="api"] .api-route-card,
+body[data-page="api"] .api-detail-block {
+  border-radius: 22px;
+}
+
+body[data-page="api"] .api-route-card.is-active,
+body[data-page="api"] .api-route-card:hover {
+  transform: translateY(-4px);
+}
+
+body[data-page="apps"] .apps-row,
+body[data-page="apps"] .apps-store-sidebar__card,
+body[data-page="apps"] .apps-nav-item {
+  border-radius: 24px;
+}
+
+body[data-page="apps"] .apps-row:hover {
+  transform: translateY(-3px);
+  box-shadow:
+    0 30px 72px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+@media (max-width: 1180px) {
+  body[data-page="roachclaw"] .roachclaw-panel--workspace-head,
+  body[data-page="roachclaw"] .hero-signal-board--compact,
+  body[data-page="roachclaw"] .panel-note-grid,
+  body[data-page="roachclaw"] .roachclaw-chip-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 980px) {
+  body[data-page="home"] .surface-card:hover,
+  body[data-page="home"] .download-hero-card:hover,
+  body[data-page="home"] .download-side-card:hover,
+  body[data-page="home"] .support-card:hover,
+  body[data-page="home"] .hero-signal-card:hover,
+  body[data-page="home"] .panel-note-card:hover {
+    transform: translateY(-4px);
+  }
+
+  body[data-page="home"] .pillar-card:hover,
+  body[data-page="home"] .usecase-card:hover,
+  body[data-page="home"] .shelf-card:hover {
+    padding-left: 20px;
+  }
+}
