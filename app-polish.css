@@ -2210,3 +2210,155 @@ body[data-page="ios"] .ios-shot-card .app-screen-shot img {
     transform: perspective(1800px) rotateY(14deg) rotateX(6deg) rotateZ(-6deg) translateY(0) scale(1);
   }
 }
+
+/* ─── Final footer + homepage interaction cleanup ─────────── */
+body[data-page="home"] .page-shell,
+body[data-page="brew"] .page-shell,
+body[data-page="ios"] .page-shell,
+body[data-page="account"] .page-shell {
+  padding-bottom: 14px;
+}
+
+body[data-page="home"] .site-footer,
+body[data-page="brew"] .site-footer,
+body[data-page="ios"] .site-footer,
+body[data-page="roachclaw"] .site-footer,
+body[data-page="api"] .site-footer,
+body[data-page="account"] .site-footer {
+  margin-top: 0;
+  padding-top: 10px;
+  padding-bottom: 16px;
+}
+
+body[data-page="home"] .surface-card,
+body[data-page="home"] .download-hero-card,
+body[data-page="home"] .download-side-card,
+body[data-page="home"] .support-card {
+  position: relative;
+  isolation: isolate;
+  transition:
+    transform 320ms cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 220ms ease,
+    box-shadow 320ms ease,
+    background 320ms ease,
+    filter 320ms ease;
+}
+
+body[data-page="home"] .surface-card::after,
+body[data-page="home"] .download-hero-card::after,
+body[data-page="home"] .download-side-card::after,
+body[data-page="home"] .support-card::after {
+  content: "";
+  position: absolute;
+  inset: auto 16% -24px;
+  height: 36px;
+  border-radius: 999px;
+  background: radial-gradient(circle, rgba(92, 141, 255, 0.24), rgba(255, 79, 216, 0.12) 46%, transparent 74%);
+  filter: blur(18px);
+  opacity: 0;
+  transform: scale(0.82);
+  transition: opacity 320ms ease, transform 320ms ease;
+  pointer-events: none;
+  z-index: -1;
+}
+
+body[data-page="home"] .surface-card:hover,
+body[data-page="home"] .download-hero-card:hover,
+body[data-page="home"] .download-side-card:hover,
+body[data-page="home"] .support-card:hover {
+  transform: translateY(-6px) scale(1.006);
+  border-color: rgba(255, 255, 255, 0.12);
+  box-shadow:
+    0 34px 84px rgba(0, 0, 0, 0.28),
+    0 0 0 1px rgba(92, 141, 255, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  filter: saturate(1.04);
+}
+
+body[data-page="home"] .surface-card:hover::after,
+body[data-page="home"] .download-hero-card:hover::after,
+body[data-page="home"] .download-side-card:hover::after,
+body[data-page="home"] .support-card:hover::after {
+  opacity: 0.85;
+  transform: scale(1);
+}
+
+body[data-page="home"] .surface-card:hover .surface-card__shot img {
+  transform: scale(1.042);
+  filter: saturate(1.08) contrast(1.03);
+}
+
+body[data-page="home"] .pillar-card,
+body[data-page="home"] .usecase-card,
+body[data-page="home"] .shelf-card {
+  position: relative;
+  padding: 10px 10px 10px 18px;
+  border-left: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 18px;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.015), transparent 62%);
+  transition:
+    transform 260ms cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 220ms ease,
+    background 260ms ease,
+    padding-left 260ms ease;
+}
+
+body[data-page="home"] .pillar-card::after,
+body[data-page="home"] .usecase-card::after,
+body[data-page="home"] .shelf-card::after {
+  content: "";
+  position: absolute;
+  left: -1px;
+  top: 16px;
+  bottom: 16px;
+  width: 2px;
+  border-radius: 999px;
+  background: linear-gradient(180deg, rgba(255, 79, 216, 0.88), rgba(92, 141, 255, 0.58), rgba(50, 255, 126, 0));
+  opacity: 0;
+  transform: scaleY(0.75);
+  transition: opacity 240ms ease, transform 240ms ease;
+}
+
+body[data-page="home"] .pillar-card:hover,
+body[data-page="home"] .usecase-card:hover,
+body[data-page="home"] .shelf-card:hover {
+  transform: translateY(-2px);
+  padding-left: 22px;
+  border-left-color: rgba(255, 255, 255, 0.18);
+  background: linear-gradient(90deg, rgba(92, 141, 255, 0.08), rgba(255, 79, 216, 0.03) 34%, transparent 72%);
+  box-shadow: none;
+}
+
+body[data-page="home"] .pillar-card:hover::after,
+body[data-page="home"] .usecase-card:hover::after,
+body[data-page="home"] .shelf-card:hover::after {
+  opacity: 1;
+  transform: scaleY(1);
+}
+
+body[data-page="home"] .hero-links a,
+body[data-page="home"] .downloads-actions .cta--ghost {
+  transition:
+    color 220ms ease,
+    transform 220ms cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 220ms ease;
+}
+
+body[data-page="home"] .hero-links a:hover {
+  transform: translateX(3px);
+}
+
+@media (max-width: 980px) {
+  body[data-page="home"] .surface-card:hover,
+  body[data-page="home"] .download-hero-card:hover,
+  body[data-page="home"] .download-side-card:hover,
+  body[data-page="home"] .support-card:hover {
+    transform: translateY(-4px) scale(1.002);
+  }
+
+  body[data-page="home"] .pillar-card:hover,
+  body[data-page="home"] .usecase-card:hover,
+  body[data-page="home"] .shelf-card:hover {
+    padding-left: 18px;
+  }
+}
