@@ -5448,19 +5448,68 @@ body[data-page="landing"] .landing-essay__block p {
   color: rgba(240, 244, 249, 0.92);
 }
 
-body[data-page="landing"] .landing-proof {
+body[data-page="landing"] .landing-mantra,
+body[data-page="landing"] .landing-surface-strip,
+body[data-page="landing"] .landing-mindset {
   display: grid;
-  gap: 26px;
+  gap: 18px;
 }
 
-body[data-page="landing"] .landing-proof__lead {
+body[data-page="landing"] .landing-mantra__lines {
+  display: grid;
+  gap: 8px;
+}
+
+body[data-page="landing"] .landing-mantra__lines p {
+  margin: 0;
+  font-family: var(--rn-font-landing);
+  font-size: clamp(3.2rem, 5.4vw, 5.9rem);
+  line-height: 0.9;
+  letter-spacing: -0.086em;
+  color: rgba(240, 244, 249, 0.92);
+}
+
+body[data-page="landing"] .landing-mantra__lines p:not(:first-child) {
+  color: rgba(229, 236, 243, 0.74);
+}
+
+body[data-page="landing"] .landing-surface-strip__items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+body[data-page="landing"] .landing-surface-strip__items span {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  padding: 0 16px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.035);
+  color: rgba(239, 244, 249, 0.9);
+  font-size: 0.96rem;
+  font-weight: 600;
+}
+
+body[data-page="landing"] .landing-surface-strip__body,
+body[data-page="landing"] .landing-mindset__copy p,
+body[data-page="landing"] .landing-mindset__item p,
+body[data-page="landing"] .landing-closer p,
+body[data-page="landing"] .landing-shortcut__copy p,
+body[data-page="landing"] .landing-shortcut__status {
+  max-width: 40ch;
+  margin: 0;
+  color: rgba(229, 236, 243, 0.72);
+  line-height: 1.68;
+}
+
+body[data-page="landing"] .landing-mindset__copy {
   display: grid;
   gap: 14px;
-  max-width: 760px;
 }
 
-body[data-page="landing"] .landing-proof__lead h2,
-body[data-page="landing"] .landing-shift__copy h2,
+body[data-page="landing"] .landing-mindset__copy h2,
 body[data-page="landing"] .landing-closer h2,
 body[data-page="landing"] .landing-shortcut__copy h2 {
   margin: 0;
@@ -5472,83 +5521,23 @@ body[data-page="landing"] .landing-shortcut__copy h2 {
   text-wrap: balance;
 }
 
-body[data-page="landing"] .landing-proof__lead p,
-body[data-page="landing"] .landing-shift__copy p,
-body[data-page="landing"] .landing-closer p,
-body[data-page="landing"] .landing-shortcut__copy p,
-body[data-page="landing"] .landing-shortcut__status {
-  max-width: 40ch;
-  margin: 0;
-  color: rgba(229, 236, 243, 0.72);
-  line-height: 1.68;
-}
-
-body[data-page="landing"] .landing-proof__grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 16px;
-}
-
-body[data-page="landing"] .landing-proof__item {
-  display: grid;
-  gap: 10px;
-  min-height: 220px;
-  padding: 24px;
-  border-radius: 28px;
-  border: 1px solid rgba(255, 255, 255, 0.07);
-  background:
-    linear-gradient(180deg, rgba(17, 22, 30, 0.94), rgba(8, 11, 16, 0.98)),
-    radial-gradient(circle at top right, rgba(88, 141, 255, 0.08), transparent 24%);
-  box-shadow:
-    0 24px 60px rgba(0, 0, 0, 0.2),
-    inset 0 1px 0 rgba(255, 255, 255, 0.04);
-}
-
-body[data-page="landing"] .landing-proof__kicker {
-  font-size: 0.78rem;
-  font-weight: 700;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: rgba(229, 236, 243, 0.44);
-}
-
-body[data-page="landing"] .landing-proof__item strong,
-body[data-page="landing"] .landing-shift__item strong {
-  font-family: var(--rn-font-landing);
-  font-size: clamp(1.45rem, 2.2vw, 2.1rem);
-  line-height: 0.98;
-  letter-spacing: -0.05em;
-}
-
-body[data-page="landing"] .landing-proof__item p,
-body[data-page="landing"] .landing-shift__item p {
-  margin: 0;
-  color: rgba(229, 236, 243, 0.68);
-  line-height: 1.62;
-}
-
-body[data-page="landing"] .landing-shift {
-  display: grid;
-  grid-template-columns: minmax(280px, 0.9fr) minmax(0, 1.1fr);
-  gap: 28px;
-  align-items: start;
-}
-
-body[data-page="landing"] .landing-shift__copy {
-  display: grid;
-  gap: 14px;
-}
-
-body[data-page="landing"] .landing-shift__list {
+body[data-page="landing"] .landing-mindset__list {
   display: grid;
   gap: 18px;
 }
 
-body[data-page="landing"] .landing-shift__item {
+body[data-page="landing"] .landing-mindset__item {
   display: grid;
   gap: 10px;
   padding-top: 18px;
   border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+body[data-page="landing"] .landing-mindset__item strong {
+  font-family: var(--rn-font-landing);
+  font-size: clamp(1.45rem, 2.2vw, 2.1rem);
+  line-height: 0.98;
+  letter-spacing: -0.05em;
 }
 
 body[data-page="landing"] .landing-closer {
@@ -5611,12 +5600,7 @@ body[data-page="landing"] .site-footer {
 
 @media (max-width: 1120px) {
   body[data-page="landing"] .landing-feel__sticky,
-  body[data-page="landing"] .landing-shift,
   body[data-page="landing"] .landing-shortcut {
-    grid-template-columns: 1fr;
-  }
-
-  body[data-page="landing"] .landing-proof__grid {
     grid-template-columns: 1fr;
   }
 }
@@ -5647,8 +5631,7 @@ body[data-page="landing"] .site-footer {
   body[data-page="landing"] .landing-hero--why .landing-hero__copy h1,
   body[data-page="landing"] .landing-feel__copy h2,
   body[data-page="landing"] .landing-essay__intro h2,
-  body[data-page="landing"] .landing-proof__lead h2,
-  body[data-page="landing"] .landing-shift__copy h2,
+  body[data-page="landing"] .landing-mindset__copy h2,
   body[data-page="landing"] .landing-closer h2,
   body[data-page="landing"] .landing-shortcut__copy h2 {
     max-width: none;
@@ -5691,6 +5674,10 @@ body[data-page="landing"] .site-footer {
   body[data-page="landing"] .landing-essay__block p {
     font-size: clamp(1.32rem, 6.6vw, 1.9rem);
     line-height: 1.14;
+  }
+
+  body[data-page="landing"] .landing-mantra__lines p {
+    font-size: clamp(2.5rem, 11vw, 4.1rem);
   }
 
   body[data-page="landing"] .landing-shortcut__panel {
