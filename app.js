@@ -165,19 +165,27 @@ function syncLandingNoiseState() {
   const viewportHeight = window.innerHeight || document.documentElement.clientHeight || 0
   const scrollSpan = Math.max(1, rect.height - viewportHeight)
   const progress = Math.min(1, Math.max(0, (-rect.top) / scrollSpan))
+  const sceneSpan = Math.max(1, landingNoiseScenes.length - 1)
+  const scenePhase = progress * sceneSpan
   landingNoiseSection.style.setProperty('--landing-noise-progress', progress.toFixed(4))
+  landingNoiseSection.style.setProperty('--landing-noise-phase', scenePhase.toFixed(4))
   const nextIndex = Math.min(
     landingNoiseScenes.length - 1,
-    progress >= 1 ? landingNoiseScenes.length - 1 : Math.floor(progress * landingNoiseScenes.length)
+    Math.round(scenePhase)
   )
+
+  landingNoiseScenes.forEach((scene, index) => {
+    const distance = scenePhase - index
+    const visibility = Math.max(0, 1 - Math.abs(distance) / 0.92)
+    const easedVisibility = Math.pow(visibility, 1.35)
+    scene.style.setProperty('--scene-distance', distance.toFixed(4))
+    scene.style.setProperty('--scene-visibility', easedVisibility.toFixed(4))
+    scene.classList.toggle('is-active', index === nextIndex)
+  })
 
   if (nextIndex !== landingNoiseActiveIndex) {
     landingNoiseActiveIndex = nextIndex
     const activeScene = landingNoiseScenes[nextIndex]
-
-    landingNoiseScenes.forEach((scene, index) => {
-      scene.classList.toggle('is-active', index === nextIndex)
-    })
 
     if (landingNoiseTitle) {
       landingNoiseTitle.textContent = activeScene?.dataset.sceneTitle || ''

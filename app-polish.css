@@ -5308,6 +5308,20 @@ body[data-page="landing"] .landing-feel__film::before {
   mix-blend-mode: screen;
 }
 
+body[data-page="landing"] .landing-feel__film::after {
+  content: "";
+  position: absolute;
+  inset: -14%;
+  pointer-events: none;
+  opacity: 0.52;
+  background:
+    radial-gradient(circle at calc(18% + (var(--landing-noise-progress, 0) * 48%)) calc(22% + (var(--landing-noise-progress, 0) * 20%)), rgba(214, 74, 255, 0.16), transparent 22%),
+    radial-gradient(circle at calc(76% - (var(--landing-noise-progress, 0) * 28%)) calc(30% + (var(--landing-noise-progress, 0) * 18%)), rgba(88, 141, 255, 0.16), transparent 24%),
+    radial-gradient(circle at calc(48% + (var(--landing-noise-progress, 0) * 10%)) calc(86% - (var(--landing-noise-progress, 0) * 16%)), rgba(47, 255, 143, 0.1), transparent 22%);
+  filter: blur(40px);
+  transform: scale(1.02);
+}
+
 body[data-page="landing"] .landing-feel__scene {
   position: absolute;
   inset: 28px;
@@ -5316,13 +5330,19 @@ body[data-page="landing"] .landing-feel__scene {
   gap: 18px;
   padding: 34px;
   border-radius: 32px;
-  opacity: 0.08;
-  filter: blur(14px);
-  transform: scale(0.94) translateY(24px);
+  opacity: calc(0.04 + (var(--scene-visibility, 0) * 0.96));
+  filter: blur(calc((1 - var(--scene-visibility, 0)) * 18px));
+  transform:
+    translate3d(
+      0,
+      calc((var(--scene-distance, 0) * -30px) + ((1 - var(--scene-visibility, 0)) * 32px)),
+      0
+    )
+    scale(calc(0.94 + (var(--scene-visibility, 0) * 0.06)));
   transition:
-    opacity 420ms ease,
-    filter 420ms ease,
-    transform 520ms cubic-bezier(0.22, 1, 0.36, 1);
+    opacity 220ms linear,
+    filter 220ms linear,
+    transform 220ms linear;
 }
 
 body[data-page="landing"] .landing-feel__scene::before {
@@ -5330,18 +5350,19 @@ body[data-page="landing"] .landing-feel__scene::before {
   position: absolute;
   inset: 0;
   border-radius: inherit;
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0));
+  border: 1px solid rgba(255, 255, 255, calc(0.03 + (var(--scene-visibility, 0) * 0.08)));
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, calc(0.01 + (var(--scene-visibility, 0) * 0.03))), rgba(255, 255, 255, 0));
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, calc(0.01 + (var(--scene-visibility, 0) * 0.06))),
+    0 32px 80px rgba(0, 0, 0, calc(0.06 + (var(--scene-visibility, 0) * 0.2)));
 }
 
 body[data-page="landing"] .landing-feel__scene.is-active {
-  opacity: 1;
-  filter: none;
-  transform: scale(1) translateY(0);
+  z-index: 2;
 }
 
-body[data-page="landing"] .landing-feel__scene strong,
-body[data-page="landing"] .landing-feel__caption strong {
+body[data-page="landing"] .landing-feel__scene strong {
   position: relative;
   z-index: 1;
   max-width: 8ch;
@@ -5350,12 +5371,25 @@ body[data-page="landing"] .landing-feel__caption strong {
   line-height: 0.88;
   letter-spacing: -0.084em;
   text-wrap: balance;
+  transform: translateY(calc((1 - var(--scene-visibility, 0)) * 16px));
+  opacity: calc(0.16 + (var(--scene-visibility, 0) * 0.84));
+  transition: transform 220ms linear, opacity 220ms linear;
 }
 
-body[data-page="landing"] .landing-feel__scene-kicker,
-body[data-page="landing"] .landing-feel__caption-kicker {
+body[data-page="landing"] .landing-feel__caption strong {
+  max-width: 10ch;
+}
+
+body[data-page="landing"] .landing-feel__scene-kicker {
   position: relative;
   z-index: 1;
+  color: rgba(232, 238, 245, 0.46);
+  opacity: calc(0.3 + (var(--scene-visibility, 0) * 0.7));
+  transform: translateY(calc((1 - var(--scene-visibility, 0)) * 12px));
+  transition: transform 220ms linear, opacity 220ms linear;
+}
+
+body[data-page="landing"] .landing-feel__caption-kicker {
   color: rgba(232, 238, 245, 0.46);
 }
 
@@ -5379,6 +5413,9 @@ body[data-page="landing"] .landing-feel__scene-grid span {
   background: rgba(255, 255, 255, 0.035);
   color: rgba(240, 245, 250, 0.84);
   font-size: 0.95rem;
+  opacity: calc(0.18 + (var(--scene-visibility, 0) * 0.82));
+  transform: translateY(calc((1 - var(--scene-visibility, 0)) * 18px));
+  transition: transform 220ms linear, opacity 220ms linear, background 220ms linear;
 }
 
 body[data-page="landing"] .landing-feel__scene-lines--noise span {
@@ -5408,6 +5445,28 @@ body[data-page="landing"] .landing-feel__caption p {
   max-width: 34ch;
   margin: 0;
   color: rgba(229, 236, 243, 0.68);
+  transform: translateY(calc((var(--landing-noise-progress, 0) - 0.5) * -6px));
+  transition: transform 220ms linear;
+}
+
+body[data-page="landing"] .landing-hero--why .landing-hero__copy > * {
+  animation: landingFadeRise 760ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+body[data-page="landing"] .landing-hero--why .landing-hero__copy > *:nth-child(2) {
+  animation-delay: 60ms;
+}
+
+body[data-page="landing"] .landing-hero--why .landing-hero__copy > *:nth-child(3) {
+  animation-delay: 120ms;
+}
+
+body[data-page="landing"] .landing-hero--why .landing-hero__copy > *:nth-child(4) {
+  animation-delay: 180ms;
+}
+
+body[data-page="landing"] .landing-hero--why .landing-hero__copy > *:nth-child(5) {
+  animation-delay: 240ms;
 }
 
 body[data-page="landing"] .landing-essay {
@@ -5467,10 +5526,20 @@ body[data-page="landing"] .landing-mantra__lines p {
   line-height: 0.9;
   letter-spacing: -0.086em;
   color: rgba(240, 244, 249, 0.92);
+  transform: translateY(0);
+  transition: transform 340ms cubic-bezier(0.22, 1, 0.36, 1), color 220ms ease;
 }
 
 body[data-page="landing"] .landing-mantra__lines p:not(:first-child) {
   color: rgba(229, 236, 243, 0.74);
+}
+
+body[data-page="landing"] .landing-mantra[data-reveal].is-revealed .landing-mantra__lines p:nth-child(2) {
+  transform: translateX(12px);
+}
+
+body[data-page="landing"] .landing-mantra[data-reveal].is-revealed .landing-mantra__lines p:nth-child(3) {
+  transform: translateX(24px);
 }
 
 body[data-page="landing"] .landing-surface-strip__items {
@@ -5596,6 +5665,20 @@ body[data-page="landing"] .shortcut-key {
 body[data-page="landing"] .site-footer {
   padding-top: 12px;
   padding-bottom: 18px;
+}
+
+@keyframes landingFadeRise {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 22px, 0);
+    filter: blur(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+    filter: none;
+  }
 }
 
 @media (max-width: 1120px) {
