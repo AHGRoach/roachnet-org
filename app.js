@@ -37,6 +37,7 @@ const landingNoiseScenes = [...document.querySelectorAll('[data-landing-noise-sc
 const landingNoiseTitle = document.querySelector('[data-landing-noise-title]')
 const landingNoiseCopy = document.querySelector('[data-landing-noise-copy]')
 const landingNoiseProgress = document.querySelector('[data-landing-noise-progress]')
+const landingCanvas = document.querySelector('[data-landing-canvas]')
 const heroTime = document.querySelector('[data-hero-time]')
 const heroConnectivity = document.querySelector('[data-hero-connectivity]')
 const heroStorage = document.querySelector('[data-hero-storage]')
@@ -256,6 +257,19 @@ function syncLandingNoiseState() {
       : landingNoiseVisualProgress
     landingNoiseFrame = window.requestAnimationFrame(animateLandingNoiseState)
   }
+}
+
+function syncLandingCanvasState() {
+  if (document.body?.dataset.page !== 'landing' || !landingCanvas) {
+    return
+  }
+
+  const scrollable = Math.max(
+    1,
+    (document.documentElement.scrollHeight || 0) - (window.innerHeight || 0)
+  )
+  const progress = Math.min(1, Math.max(0, window.scrollY / scrollable))
+  document.documentElement.style.setProperty('--landing-scroll', progress.toFixed(4))
 }
 
 const storeSectionMeta = {
@@ -1869,9 +1883,12 @@ closeAppDetail()
 observeStoreReveals()
 syncHeaderState()
 syncLandingNoiseState()
+syncLandingCanvasState()
 window.addEventListener('scroll', syncHeaderState, { passive: true })
 window.addEventListener('scroll', syncLandingNoiseState, { passive: true })
+window.addEventListener('scroll', syncLandingCanvasState, { passive: true })
 window.addEventListener('resize', syncLandingNoiseState, { passive: true })
+window.addEventListener('resize', syncLandingCanvasState, { passive: true })
 loadLatestRelease()
 startHeroTelemetry()
 loadAppStoreCatalog()

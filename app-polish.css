@@ -5909,9 +5909,340 @@ body[data-page="landing"] .site-footer {
     padding: 22px;
   }
 
-  body[data-page="landing"] .shortcut-key {
-    min-width: 86px;
-    min-height: 58px;
-    border-radius: 18px;
+body[data-page="landing"] .shortcut-key {
+  min-width: 86px;
+  min-height: 58px;
+  border-radius: 18px;
+}
+}
+
+/* ─── Landing rebuild: Raycast why-style editorial root ─────────────────── */
+body[data-page="landing"] .page-shell.landing-why {
+  position: relative;
+  width: min(1180px, calc(100vw - 48px));
+  gap: 0;
+  padding-top: clamp(112px, 15vh, 156px);
+  padding-bottom: 120px;
+}
+
+body[data-page="landing"] .site-header {
+  padding-top: 18px;
+  grid-template-columns: minmax(0, auto) minmax(0, 1fr);
+  align-items: start;
+}
+
+body[data-page="landing"] .brand-lockup,
+body[data-page="landing"] .site-header__panel,
+body[data-page="landing"] .site-header__panel::before,
+body[data-page="landing"] .site-header__panel::after,
+body[data-page="landing"] .site-header[data-scrolled="true"] .brand-lockup,
+body[data-page="landing"] .site-header[data-scrolled="true"] .site-header__panel {
+  border: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+body[data-page="landing"] .brand-lockup {
+  padding: 0;
+  gap: 10px;
+}
+
+body[data-page="landing"] .site-header__panel {
+  justify-content: flex-end;
+  gap: 22px;
+  padding: 0;
+}
+
+body[data-page="landing"] .site-header__actions {
+  padding-left: 0;
+  border-left: 0;
+}
+
+body[data-page="landing"] .site-header .site-nav a,
+body[data-page="landing"] .site-action-pill,
+body[data-page="landing"] .site-action-pill--ghost {
+  min-height: auto;
+  padding: 0 0 10px !important;
+  border-radius: 0;
+  border: 0;
+  background: transparent;
+  font-size: 0.96rem;
+  font-weight: 600;
+  color: rgba(227, 234, 241, 0.72);
+}
+
+body[data-page="landing"] .site-header .site-nav a:hover,
+body[data-page="landing"] .site-header .site-nav a.is-current,
+body[data-page="landing"] .site-action-pill:hover,
+body[data-page="landing"] .site-action-pill--ghost:hover {
+  color: rgba(247, 250, 255, 0.98);
+  transform: none;
+}
+
+body[data-page="landing"] .landing-why__hero,
+body[data-page="landing"] .landing-why__story,
+body[data-page="landing"] .landing-shortcut--essay {
+  position: relative;
+  z-index: 2;
+  width: min(640px, 100%);
+  margin-inline: auto;
+}
+
+body[data-page="landing"] .landing-why__hero {
+  display: grid;
+  gap: 18px;
+  min-height: clamp(300px, 42vh, 420px);
+}
+
+body[data-page="landing"] .landing-why__hero h1 {
+  margin: 0;
+  max-width: 7.2ch;
+  font-family: var(--rn-font-landing);
+  font-size: clamp(5.2rem, 10vw, 8.4rem);
+  line-height: 0.86;
+  letter-spacing: -0.092em;
+  text-wrap: balance;
+  animation: landingFadeRise 760ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+body[data-page="landing"] .landing-why__story {
+  display: grid;
+  gap: 42px;
+}
+
+body[data-page="landing"] .landing-why__block {
+  display: grid;
+  gap: 22px;
+}
+
+body[data-page="landing"] .landing-why__block p,
+body[data-page="landing"] .landing-why__list li,
+body[data-page="landing"] .landing-shortcut--essay .landing-shortcut__copy p {
+  margin: 0;
+  font-family: var(--rn-font-landing);
+  font-size: clamp(1.34rem, 1.7vw, 1.58rem);
+  line-height: 1.56;
+  letter-spacing: -0.022em;
+  color: rgba(228, 235, 243, 0.78);
+}
+
+body[data-page="landing"] .landing-why__block--intro p:first-child,
+body[data-page="landing"] .landing-why__block--shift p:first-child {
+  color: rgba(244, 247, 252, 0.92);
+}
+
+body[data-page="landing"] .landing-why__pullquote {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+  padding-top: 14px;
+}
+
+body[data-page="landing"] .landing-why__pullquote-mark {
+  color: rgba(219, 226, 234, 0.5);
+  font-size: 0.86rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+body[data-page="landing"] .landing-why__pullquote p {
+  margin: 0;
+  font-family: var(--rn-font-landing);
+  font-size: clamp(2.2rem, 4.5vw, 4.3rem);
+  line-height: 0.96;
+  letter-spacing: -0.074em;
+  color: rgba(246, 249, 252, 0.96);
+  text-wrap: balance;
+}
+
+body[data-page="landing"] .landing-why__list {
+  display: grid;
+  gap: 18px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+body[data-page="landing"] .landing-why__list li {
+  padding-left: 26px;
+  position: relative;
+}
+
+body[data-page="landing"] .landing-why__list li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: rgba(78, 255, 162, 0.9);
+}
+
+body[data-page="landing"] .landing-shortcut--essay {
+  display: grid;
+  gap: 18px;
+  padding-top: 68px;
+}
+
+body[data-page="landing"] .landing-shortcut--essay .landing-shortcut__copy {
+  display: grid;
+  gap: 14px;
+}
+
+body[data-page="landing"] .landing-shortcut--essay .landing-shortcut__copy h2 {
+  margin: 0;
+  font-family: var(--rn-font-landing);
+  font-size: clamp(2.6rem, 5vw, 4.8rem);
+  line-height: 0.92;
+  letter-spacing: -0.08em;
+  text-wrap: balance;
+}
+
+body[data-page="landing"] .landing-shortcut--essay .landing-shortcut__panel {
+  display: grid;
+  gap: 16px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+body[data-page="landing"] .landing-shortcut--essay .landing-shortcut__keys {
+  justify-content: flex-start;
+}
+
+body[data-page="landing"] .landing-shortcut--essay .landing-shortcut__status {
+  color: rgba(221, 228, 236, 0.62);
+}
+
+body[data-page="landing"] .landing-why__ribbons {
+  position: absolute;
+  left: 50%;
+  width: min(1180px, calc(100vw - 18px));
+  pointer-events: none;
+  transform: translateX(-50%);
+  opacity: 0.92;
+  z-index: 0;
+}
+
+body[data-page="landing"] .landing-why__ribbons::before,
+body[data-page="landing"] .landing-why__ribbons::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
+
+body[data-page="landing"] .landing-why__ribbons::before {
+  background:
+    repeating-linear-gradient(
+      -32deg,
+      transparent 0 13%,
+      rgba(67, 255, 161, 0.88) 13% 15.6%,
+      rgba(215, 70, 255, 0.76) 15.6% 18.2%,
+      transparent 18.2% 33%
+    );
+  -webkit-mask-image: radial-gradient(circle at 1px 1px, #000 1.2px, transparent 1.32px);
+  -webkit-mask-size: 8px 8px;
+  mask-image: radial-gradient(circle at 1px 1px, #000 1.2px, transparent 1.32px);
+  mask-size: 8px 8px;
+  filter: saturate(1.08);
+  transform: translate3d(0, calc(var(--landing-scroll, 0) * -36px), 0);
+}
+
+body[data-page="landing"] .landing-why__ribbons::after {
+  inset: 18px 0 0;
+  background:
+    linear-gradient(180deg, rgba(14, 18, 24, 0.04), rgba(14, 18, 24, 0.7)),
+    radial-gradient(circle at 22% 32%, rgba(64, 255, 158, 0.14), transparent 28%),
+    radial-gradient(circle at 74% 58%, rgba(214, 74, 255, 0.16), transparent 32%);
+  filter: blur(26px);
+  opacity: 0.72;
+  transform: translate3d(0, calc(var(--landing-scroll, 0) * -18px), 0);
+}
+
+body[data-page="landing"] .landing-why__ribbons--top {
+  top: 72px;
+  height: clamp(190px, 28vw, 320px);
+}
+
+body[data-page="landing"] .landing-why__ribbons--bottom {
+  bottom: 24px;
+  height: clamp(230px, 34vw, 380px);
+}
+
+body[data-page="landing"] .landing-why__wordmark {
+  position: absolute;
+  left: 18px;
+  right: 18px;
+  bottom: 18px;
+  font-family: var(--rn-font-landing);
+  font-size: clamp(4.2rem, 13vw, 11rem);
+  line-height: 0.84;
+  letter-spacing: -0.1em;
+  color: rgba(12, 16, 22, 0.82);
+  text-transform: none;
+}
+
+body[data-page="landing"] .site-footer {
+  margin-top: 0;
+  padding-top: 20px;
+  border-top-color: rgba(255, 255, 255, 0.08);
+}
+
+@media (max-width: 1120px) {
+  body[data-page="landing"] .page-shell.landing-why {
+    width: min(980px, calc(100vw - 40px));
+  }
+
+  body[data-page="landing"] .landing-why__hero,
+  body[data-page="landing"] .landing-why__story,
+  body[data-page="landing"] .landing-shortcut--essay {
+    width: min(600px, 100%);
+  }
+}
+
+@media (max-width: 760px) {
+  body[data-page="landing"] .page-shell.landing-why {
+    width: calc(100vw - 28px);
+    padding-top: 96px;
+    padding-bottom: 96px;
+  }
+
+  body[data-page="landing"] .landing-why__hero,
+  body[data-page="landing"] .landing-why__story,
+  body[data-page="landing"] .landing-shortcut--essay {
+    width: 100%;
+  }
+
+  body[data-page="landing"] .landing-why__hero {
+    min-height: 220px;
+  }
+
+  body[data-page="landing"] .landing-why__hero h1 {
+    font-size: clamp(3.7rem, 18vw, 5.8rem);
+  }
+
+  body[data-page="landing"] .landing-why__pullquote p {
+    font-size: clamp(2rem, 12vw, 3rem);
+  }
+
+  body[data-page="landing"] .landing-why__block p,
+  body[data-page="landing"] .landing-why__list li,
+  body[data-page="landing"] .landing-shortcut--essay .landing-shortcut__copy p {
+    font-size: clamp(1.18rem, 5.4vw, 1.34rem);
+  }
+
+  body[data-page="landing"] .landing-shortcut--essay .landing-shortcut__copy h2 {
+    font-size: clamp(2.2rem, 12vw, 3.4rem);
+  }
+
+  body[data-page="landing"] .landing-why__ribbons--top {
+    top: 84px;
+    height: 180px;
+  }
+
+  body[data-page="landing"] .landing-why__ribbons--bottom {
+    height: 220px;
   }
 }
