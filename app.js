@@ -89,6 +89,9 @@ let featuredRotationIndex = 0
 let storeRevealObserver = null
 let landingRedirectTimer = null
 let landingNoiseActiveIndex = 0
+let landingNoiseTargetProgress = 0
+let landingNoiseVisualProgress = 0
+let landingNoiseFrame = 0
 
 const homebrewCommand =
   'brew update && brew tap --force AHGRoach/roachnet && brew install --cask roachnet'
@@ -156,19 +159,17 @@ function triggerLandingDownloadAndRedirect() {
   }, 900)
 }
 
-function syncLandingNoiseState() {
+function applyLandingNoiseState(progress) {
   if (!landingNoiseSection || !landingNoiseScenes.length) {
     return
   }
 
-  const rect = landingNoiseSection.getBoundingClientRect()
-  const viewportHeight = window.innerHeight || document.documentElement.clientHeight || 0
-  const scrollSpan = Math.max(1, rect.height - viewportHeight)
-  const progress = Math.min(1, Math.max(0, (-rect.top) / scrollSpan))
   const sceneSpan = Math.max(1, landingNoiseScenes.length - 1)
   const scenePhase = progress * sceneSpan
+  const phaseBeat = 1 - Math.min(1, Math.abs(scenePhase - Math.round(scenePhase)) * 2)
   landingNoiseSection.style.setProperty('--landing-noise-progress', progress.toFixed(4))
   landingNoiseSection.style.setProperty('--landing-noise-phase', scenePhase.toFixed(4))
+  landingNoiseSection.style.setProperty('--landing-noise-beat', phaseBeat.toFixed(4))
   const nextIndex = Math.min(
     landingNoiseScenes.length - 1,
     Math.round(scenePhase)
@@ -176,8 +177,8 @@ function syncLandingNoiseState() {
 
   landingNoiseScenes.forEach((scene, index) => {
     const distance = scenePhase - index
-    const visibility = Math.max(0, 1 - Math.abs(distance) / 0.92)
-    const easedVisibility = Math.pow(visibility, 1.35)
+    const visibility = Math.max(0, 1 - Math.abs(distance) / 1.08)
+    const easedVisibility = visibility * visibility * (3 - 2 * visibility)
     scene.style.setProperty('--scene-distance', distance.toFixed(4))
     scene.style.setProperty('--scene-visibility', easedVisibility.toFixed(4))
     scene.classList.toggle('is-active', index === nextIndex)
@@ -198,6 +199,40 @@ function syncLandingNoiseState() {
 
   if (landingNoiseProgress) {
     landingNoiseProgress.style.setProperty('--landing-noise-progress', progress.toFixed(4))
+  }
+}
+
+function animateLandingNoiseState() {
+  const delta = landingNoiseTargetProgress - landingNoiseVisualProgress
+
+  if (Math.abs(delta) < 0.0006) {
+    landingNoiseVisualProgress = landingNoiseTargetProgress
+    applyLandingNoiseState(landingNoiseVisualProgress)
+    landingNoiseFrame = 0
+    return
+  }
+
+  landingNoiseVisualProgress += delta * 0.12
+  applyLandingNoiseState(landingNoiseVisualProgress)
+  landingNoiseFrame = window.requestAnimationFrame(animateLandingNoiseState)
+}
+
+function syncLandingNoiseState() {
+  if (!landingNoiseSection || !landingNoiseScenes.length) {
+    return
+  }
+
+  const rect = landingNoiseSection.getBoundingClientRect()
+  const viewportHeight = window.innerHeight || document.documentElement.clientHeight || 0
+  const scrollSpan = Math.max(1, rect.height - viewportHeight)
+  const rawProgress = Math.min(1, Math.max(0, (-rect.top) / scrollSpan))
+  landingNoiseTargetProgress = rawProgress
+
+  if (!landingNoiseFrame) {
+    landingNoiseVisualProgress = Math.abs(landingNoiseVisualProgress - landingNoiseTargetProgress) > 0.28
+      ? landingNoiseTargetProgress
+      : landingNoiseVisualProgress
+    landingNoiseFrame = window.requestAnimationFrame(animateLandingNoiseState)
   }
 }
 

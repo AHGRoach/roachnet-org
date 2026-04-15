@@ -5207,16 +5207,16 @@ body[data-page="landing"] .landing-hero--why .landing-hero__actions {
 }
 
 body[data-page="landing"] .landing-feel {
-  min-height: 250svh;
+  min-height: 292svh;
 }
 
 body[data-page="landing"] .landing-feel__sticky {
   position: sticky;
-  top: 108px;
+  top: 94px;
   display: grid;
   grid-template-columns: minmax(320px, 0.82fr) minmax(0, 1.18fr);
   gap: clamp(32px, 5vw, 64px);
-  min-height: calc(100svh - 132px);
+  min-height: calc(100svh - 118px);
   align-items: center;
 }
 
@@ -5248,6 +5248,8 @@ body[data-page="landing"] .landing-feel__stage {
   grid-template-columns: auto minmax(0, 1fr);
   gap: 18px;
   align-items: center;
+  transform: translateY(calc(var(--landing-noise-progress, 0) * -10px));
+  transition: transform 180ms linear;
 }
 
 body[data-page="landing"] .landing-feel__rail {
@@ -5258,8 +5260,23 @@ body[data-page="landing"] .landing-feel__rail {
 }
 
 body[data-page="landing"] .landing-feel__rail-line {
+  position: relative;
   width: 1px;
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.03));
+}
+
+body[data-page="landing"] .landing-feel__rail-line::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: calc(var(--landing-noise-progress, 0) * (100% - 92px));
+  width: 7px;
+  height: 92px;
+  border-radius: 999px;
+  transform: translate(-50%, 0);
+  background: linear-gradient(180deg, rgba(47, 255, 143, 0), rgba(47, 255, 143, 0.75), rgba(214, 74, 255, 0.8), rgba(214, 74, 255, 0));
+  opacity: calc(0.38 + (var(--landing-noise-beat, 0) * 0.4));
+  filter: blur(8px);
 }
 
 body[data-page="landing"] .landing-feel__rail-dot {
@@ -5275,7 +5292,8 @@ body[data-page="landing"] .landing-feel__rail-dot {
   box-shadow:
     0 0 24px rgba(110, 255, 159, 0.4),
     0 0 36px rgba(196, 78, 255, 0.18);
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%) scale(calc(0.9 + (var(--landing-noise-beat, 0) * 0.24)));
+  transition: transform 180ms linear;
 }
 
 body[data-page="landing"] .landing-feel__film {
@@ -5292,7 +5310,9 @@ body[data-page="landing"] .landing-feel__film {
   box-shadow:
     0 42px 110px rgba(0, 0, 0, 0.34),
     inset 0 1px 0 rgba(255, 255, 255, 0.04);
-  transform: translateY(calc(var(--landing-noise-progress, 0) * -18px));
+  transform:
+    translateY(calc(var(--landing-noise-progress, 0) * -24px))
+    scale(calc(1 + (var(--landing-noise-beat, 0) * 0.008)));
   transition: transform 180ms linear;
 }
 
@@ -5318,8 +5338,14 @@ body[data-page="landing"] .landing-feel__film::after {
     radial-gradient(circle at calc(18% + (var(--landing-noise-progress, 0) * 48%)) calc(22% + (var(--landing-noise-progress, 0) * 20%)), rgba(214, 74, 255, 0.16), transparent 22%),
     radial-gradient(circle at calc(76% - (var(--landing-noise-progress, 0) * 28%)) calc(30% + (var(--landing-noise-progress, 0) * 18%)), rgba(88, 141, 255, 0.16), transparent 24%),
     radial-gradient(circle at calc(48% + (var(--landing-noise-progress, 0) * 10%)) calc(86% - (var(--landing-noise-progress, 0) * 16%)), rgba(47, 255, 143, 0.1), transparent 22%);
-  filter: blur(40px);
-  transform: scale(1.02);
+  filter: blur(42px);
+  transform:
+    translate3d(
+      calc((var(--landing-noise-progress, 0) - 0.5) * 20px),
+      calc((var(--landing-noise-progress, 0) - 0.5) * -16px),
+      0
+    )
+    scale(calc(1.01 + (var(--landing-noise-beat, 0) * 0.03)));
 }
 
 body[data-page="landing"] .landing-feel__scene {
@@ -5334,8 +5360,8 @@ body[data-page="landing"] .landing-feel__scene {
   filter: blur(calc((1 - var(--scene-visibility, 0)) * 18px));
   transform:
     translate3d(
-      0,
-      calc((var(--scene-distance, 0) * -30px) + ((1 - var(--scene-visibility, 0)) * 32px)),
+      calc(var(--scene-distance, 0) * 12px),
+      calc((var(--scene-distance, 0) * -34px) + ((1 - var(--scene-visibility, 0)) * 34px)),
       0
     )
     scale(calc(0.94 + (var(--scene-visibility, 0) * 0.06)));
@@ -5371,7 +5397,12 @@ body[data-page="landing"] .landing-feel__scene strong {
   line-height: 0.88;
   letter-spacing: -0.084em;
   text-wrap: balance;
-  transform: translateY(calc((1 - var(--scene-visibility, 0)) * 16px));
+  transform:
+    translate3d(
+      calc(var(--scene-distance, 0) * 4px),
+      calc((1 - var(--scene-visibility, 0)) * 16px),
+      0
+    );
   opacity: calc(0.16 + (var(--scene-visibility, 0) * 0.84));
   transition: transform 220ms linear, opacity 220ms linear;
 }
@@ -5385,7 +5416,12 @@ body[data-page="landing"] .landing-feel__scene-kicker {
   z-index: 1;
   color: rgba(232, 238, 245, 0.46);
   opacity: calc(0.3 + (var(--scene-visibility, 0) * 0.7));
-  transform: translateY(calc((1 - var(--scene-visibility, 0)) * 12px));
+  transform:
+    translate3d(
+      calc(var(--scene-distance, 0) * 3px),
+      calc((1 - var(--scene-visibility, 0)) * 12px),
+      0
+    );
   transition: transform 220ms linear, opacity 220ms linear;
 }
 
@@ -5414,7 +5450,12 @@ body[data-page="landing"] .landing-feel__scene-grid span {
   color: rgba(240, 245, 250, 0.84);
   font-size: 0.95rem;
   opacity: calc(0.18 + (var(--scene-visibility, 0) * 0.82));
-  transform: translateY(calc((1 - var(--scene-visibility, 0)) * 18px));
+  transform:
+    translate3d(
+      calc(var(--scene-distance, 0) * 3px),
+      calc((1 - var(--scene-visibility, 0)) * 18px),
+      0
+    );
   transition: transform 220ms linear, opacity 220ms linear, background 220ms linear;
 }
 
@@ -5439,14 +5480,14 @@ body[data-page="landing"] .landing-feel__caption {
   display: grid;
   gap: 8px;
   pointer-events: none;
+  transform: translateY(calc((var(--landing-noise-progress, 0) - 0.5) * -8px));
+  transition: transform 180ms linear;
 }
 
 body[data-page="landing"] .landing-feel__caption p {
   max-width: 34ch;
   margin: 0;
   color: rgba(229, 236, 243, 0.68);
-  transform: translateY(calc((var(--landing-noise-progress, 0) - 0.5) * -6px));
-  transition: transform 220ms linear;
 }
 
 body[data-page="landing"] .landing-hero--why .landing-hero__copy > * {
