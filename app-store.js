@@ -617,6 +617,14 @@ function enhanceShelfScrollers() {
         return
       }
 
+      if (
+        event.target.closest(
+          'a[href], button, input, textarea, select, [data-select-id], [data-preview-id]'
+        )
+      ) {
+        return
+      }
+
       pointerState = {
         id: event.pointerId,
         startX: event.clientX,
@@ -1263,26 +1271,29 @@ function renderCard(item) {
       class="apps-card ${isSelected ? 'is-selected' : ''}"
       data-accent="${item.accent || 'blue'}"
       data-tier="${item.tier.tone}"
-      data-select-id="${item.id}"
-      tabindex="0"
-      role="button"
-      aria-pressed="${isSelected ? 'true' : 'false'}"
     >
-      <div class="apps-card__head">
-        <div class="apps-card__copy">
-          <div class="apps-card__title-row">
-            <div class="apps-card__icon">${renderStoreIcon(item, 'compact')}</div>
-            <div class="apps-card__title-copy">
-              <span class="apps-card__code">${escapeHtml(item.codeLabel)}</span>
-              <h3>${escapeHtml(item.title)}</h3>
+      <button
+        class="apps-card__focus"
+        type="button"
+        data-select-id="${item.id}"
+        aria-pressed="${isSelected ? 'true' : 'false'}"
+      >
+        <div class="apps-card__head">
+          <div class="apps-card__copy">
+            <div class="apps-card__title-row">
+              <div class="apps-card__icon">${renderStoreIcon(item, 'compact')}</div>
+              <div class="apps-card__title-copy">
+                <span class="apps-card__code">${escapeHtml(item.codeLabel)}</span>
+                <h3>${escapeHtml(item.title)}</h3>
+              </div>
             </div>
+            <p>${escapeHtml(item.blurb)}</p>
           </div>
-          <p>${escapeHtml(item.blurb)}</p>
         </div>
-      </div>
-      <div class="apps-card__meta">
-        ${item.metaRow.map((value) => `<span>${escapeHtml(value)}</span>`).join('')}
-      </div>
+        <div class="apps-card__meta">
+          ${item.metaRow.map((value) => `<span>${escapeHtml(value)}</span>`).join('')}
+        </div>
+      </button>
       <div class="apps-card__actions">
         ${
           item.installUrl
@@ -1307,6 +1318,221 @@ function resolvePreviewItem(items, fallbackId = state.activePreviewId || todayFe
   }
 
   return preview
+}
+
+function trimPreviewLine(value, fallback = 'Contained RoachNet install') {
+  const text = String(value || '')
+    .replace(/\s+/g, ' ')
+    .replace(/\.$/, '')
+    .trim()
+
+  if (!text) {
+    return fallback
+  }
+
+  return text.length > 82 ? `${text.slice(0, 79).trimEnd()}…` : text
+}
+
+function normalizedPreviewPool(item) {
+  return [...(item.includes || []), ...(item.detail || []), item.machineFit, item.summary]
+    .map((entry) => trimPreviewLine(entry, ''))
+    .filter(Boolean)
+    .filter((entry) => !/^Version\s/i.test(entry))
+}
+
+function previewTitle(item, fallback) {
+  const subtitle = trimPreviewLine(item.subtitle, '')
+  if (!subtitle) return fallback
+  return subtitle.length > 48 ? fallback : subtitle
+}
+
+function buildPreviewPanels(item) {
+  const pool = normalizedPreviewPool(item)
+  const fallbackLines = pool.slice(0, 3)
+
+  if (item.section === 'Map Regions' || item.category === 'Maps' || item.id.startsWith('map-') || item.id === 'base-atlas') {
+    const coverage = pool
+      .filter((entry) => !/native maps lane|install-ready|best/i.test(entry))
+      .slice(0, 3)
+
+    return [
+      {
+        label: 'Coverage',
+        title: previewTitle(item, item.title),
+        lines: coverage.length ? coverage : ['Roads and routes', 'City detail', 'Offline lookup'],
+      },
+      {
+        label: 'Inside Maps',
+        title: 'Layers that stay close',
+        lines: ['Offline basemap handoff', 'Fast zoom and route context', 'Native RoachNet Maps shelf'],
+      },
+      {
+        label: 'Use it for',
+        title: 'Field-ready map lane',
+        lines: [
+          trimPreviewLine(item.machineFit, 'Good when one region matters'),
+          'Works without a browser session',
+          'Snaps straight into the Maps lane',
+        ],
+      },
+    ]
+  }
+
+  if (item.section === 'Model Packs') {
+    const promptSet = /coder/i.test(`${item.title} ${item.subtitle}`)
+      ? ['Refactor this SwiftUI view', 'Explain this crash log', 'Write the install script']
+      : /analyst|research/i.test(`${item.title} ${item.subtitle}`)
+        ? ['Summarize this doc set', 'Pull the action items', 'Compare these notes']
+        : ['Draft this reply', 'Organize this plan', 'Answer locally first']
+
+    return [
+      {
+        label: 'Prompt starter',
+        title: 'RoachClaw opens here',
+        lines: promptSet,
+      },
+      {
+        label: 'What it does',
+        title: previewTitle(item, 'Local model lane'),
+        lines: (item.includes || []).slice(0, 3).map((entry) => trimPreviewLine(entry)),
+      },
+      {
+        label: 'Machine fit',
+        title: 'Contained model queue',
+        lines: [
+          trimPreviewLine(item.machineFit, 'Fits the contained local lane'),
+          'Cloud lane stays optional',
+          'Drops into RoachClaw directly',
+        ],
+      },
+    ]
+  }
+
+  if (item.section === 'Medicine') {
+    return [
+      {
+        label: 'Quick lookup',
+        title: 'Care shelf preview',
+        lines: ['Symptoms and conditions', 'Drug and dose reference', 'Triage and treatment notes'],
+      },
+      {
+        label: 'Inside this pack',
+        title: previewTitle(item, 'Field-ready reference'),
+        lines: fallbackLines.length ? fallbackLines : ['Field guides', 'Reference tables', 'Care workflows'],
+      },
+      {
+        label: 'Why install it',
+        title: 'Useful under pressure',
+        lines: [
+          trimPreviewLine(item.detail?.[0], 'Built for the quick answer first'),
+          'Native shelf, not a browser maze',
+          'Fast handoff into RoachNet care lanes',
+        ],
+      },
+    ]
+  }
+
+  if (item.section === 'Music Production & Audio') {
+    return [
+      {
+        label: 'Inside the shelf',
+        title: 'Audio study lane',
+        lines: ['Harmony and chord movement', 'Rhythm, notation, and timing', 'Listening and production context'],
+      },
+      {
+        label: 'Open first',
+        title: previewTitle(item, 'Course-style audio reference'),
+        lines: fallbackLines.length ? fallbackLines : ['Theory notes', 'Worked examples', 'Long-form reading'],
+      },
+      {
+        label: 'Studio use',
+        title: 'Keeps the session moving',
+        lines: [
+          trimPreviewLine(item.detail?.[0], 'Useful during writing or mix sessions'),
+          'Lives next to the rest of the stack',
+          'No tab hunt in the middle of the session',
+        ],
+      },
+    ]
+  }
+
+  if (item.section === 'Education & Reference' || item.section === 'Open Courses & Lectures') {
+    return [
+      {
+        label: 'Shelf contents',
+        title: 'Study lane preview',
+        lines: ['Course paths and chapters', 'Reference shelf search', 'Long-form reading that stays local'],
+      },
+      {
+        label: 'Inside this pack',
+        title: previewTitle(item, 'Reference shelf'),
+        lines: fallbackLines.length ? fallbackLines : ['Tutorials', 'Open textbooks', 'Reference material'],
+      },
+      {
+        label: 'Best for',
+        title: 'Useful when you stay in flow',
+        lines: [
+          trimPreviewLine(item.detail?.[0], 'Good when you need the answer without the tab pile'),
+          'Downloads into the named shelf',
+          'Works cleanly when the network is bad',
+        ],
+      },
+    ]
+  }
+
+  return [
+    {
+      label: 'Inside this pack',
+      title: previewTitle(item, item.section),
+      lines: fallbackLines.length ? fallbackLines : ['Contained install', 'Named shelf in RoachNet', 'Ready on demand'],
+    },
+    {
+      label: 'What it feels like',
+      title: 'Preview surface',
+      lines: [
+        trimPreviewLine(item.detail?.[0], 'Useful content first'),
+        trimPreviewLine(item.detail?.[1], 'The shelf stays grouped and named'),
+        'Native handoff instead of another download pile',
+      ],
+    },
+    {
+      label: 'Machine fit',
+      title: 'Install notes',
+      lines: [
+        trimPreviewLine(item.machineFit, 'Works on supported RoachNet installs'),
+        trimPreviewLine(item.source, 'RoachNet mirror'),
+        'Shows up in the right shelf automatically',
+      ],
+    },
+  ]
+}
+
+function renderPreviewPanels(item) {
+  const panels = buildPreviewPanels(item)
+
+  return `
+    <div class="apps-preview-stage__surface">
+      <div class="apps-preview-stage__surface-bar">
+        <span>Preview</span>
+        <strong>${escapeHtml(item.section)}</strong>
+      </div>
+      <div class="apps-preview-stage__surface-grid">
+        ${panels
+          .map(
+            (panel) => `
+              <section class="apps-preview-stage__panel">
+                <span class="apps-preview-stage__panel-kicker">${escapeHtml(panel.label)}</span>
+                <h2>${escapeHtml(panel.title)}</h2>
+                <ul>
+                  ${panel.lines.map((line) => `<li>${escapeHtml(trimPreviewLine(line))}</li>`).join('')}
+                </ul>
+              </section>
+            `
+          )
+          .join('')}
+      </div>
+    </div>
+  `
 }
 
 function renderPreviewStage(item, options = {}) {
@@ -1357,6 +1583,7 @@ function renderPreviewStage(item, options = {}) {
         <div class="apps-hero-panel__stack apps-preview-stage__stack">
           ${previewTopics.map((topic) => `<span>${escapeHtml(topic)}</span>`).join('')}
         </div>
+        ${renderPreviewPanels(item)}
       </div>
     </section>
   `
@@ -1381,7 +1608,7 @@ function renderShelfRow(title, note, items) {
 }
 
 function renderTodayView() {
-  const featured = resolvePreviewItem(getEnrichedItems(), todayFeaturedId)
+  const featured = resolvePreviewItem(getEnrichedItems(), state.activePreviewId || todayFeaturedId)
   const quickRows = todayRows
     .map((row) => renderShelfRow(row.title, row.note, row.ids ? byIds(row.ids) : bySections(row.sections || [])))
     .join('')
@@ -1629,21 +1856,31 @@ searchInput?.addEventListener('input', (event) => {
 storeStage?.addEventListener('click', (event) => {
   const previewButton = event.target.closest('[data-preview-id]')
   if (previewButton) {
+    const previewId = previewButton.dataset.previewId || state.activePreviewId
+    if (previewId && previewId !== state.activePreviewId) {
+      state.activePreviewId = previewId
+      shouldScrollPreviewIntoView = true
+      renderStore()
+    }
     event.preventDefault()
-    openDetail(previewButton.dataset.previewId)
-    return
-  }
-
-  if (event.target.closest('a[href], button')) {
+    openDetail(previewId)
     return
   }
 
   const previewCard = event.target.closest('[data-select-id]')
   if (previewCard) {
-    event.preventDefault()
-    state.activePreviewId = previewCard.dataset.selectId || state.activePreviewId
-    shouldScrollPreviewIntoView = true
-    renderStore()
+    const previewId = previewCard.dataset.selectId || state.activePreviewId
+    const actionLink = event.target.closest('a[href]')
+    if (actionLink) {
+      return
+    }
+
+    if (previewId && previewId !== state.activePreviewId) {
+      state.activePreviewId = previewId
+      shouldScrollPreviewIntoView = true
+      event.preventDefault()
+      renderStore()
+    }
   }
 })
 
