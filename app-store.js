@@ -579,6 +579,8 @@ const state = {
   activePreviewId: todayFeaturedId,
 }
 
+let shouldScrollPreviewIntoView = false
+
 function enhanceShelfScrollers() {
   storeStage?.querySelectorAll('.apps-row__scroller').forEach((scroller) => {
     if (scroller.dataset.scrollEnhanced === 'true') {
@@ -1253,6 +1255,48 @@ function renderBadgeRow(item) {
   `
 }
 
+function getPreviewSurface(item) {
+  const section = String(item.section || '').toLowerCase()
+  const category = String(item.category || '').toLowerCase()
+  const title = String(item.title || '').toLowerCase()
+
+  if (section.includes('map') || category.includes('map') || category.includes('travel')) {
+    return {
+      src: 'https://roachnet.org/assets/screens/roachnet-native-maps.jpg',
+      alt: 'RoachNet Maps surface',
+      label: 'Maps lane',
+    }
+  }
+
+  if (section.includes('model') || category.includes('local ai') || title.includes('roachclaw')) {
+    return {
+      src: 'https://roachnet.org/assets/screens/roachnet-native-roachclaw.jpg',
+      alt: 'RoachClaw surface',
+      label: 'RoachClaw lane',
+    }
+  }
+
+  if (
+    category.includes('computing') ||
+    category.includes('machine-learning') ||
+    category.includes('platforms') ||
+    category.includes('security') ||
+    category.includes('it-infrastructure')
+  ) {
+    return {
+      src: 'https://roachnet.org/assets/screens/roachnet-native-dev.jpg',
+      alt: 'RoachNet Dev surface',
+      label: 'Dev lane',
+    }
+  }
+
+  return {
+    src: 'https://roachnet.org/assets/screens/roachnet-native-home.jpg',
+    alt: 'RoachNet Home surface',
+    label: 'Home lane',
+  }
+}
+
 function renderCard(item) {
   const isSelected = item.id === state.activePreviewId
 
@@ -1314,6 +1358,7 @@ function renderPreviewStage(item, options = {}) {
   const secondary = item.detail?.[1] || item.machineFit || item.source || ''
   const previewTopics = (item.includes?.slice(0, 3) || [item.section, item.category, item.machineFit].filter(Boolean)).slice(0, 3)
   const detailUrl = item.detailUrl || item.primaryUrl
+  const previewSurface = getPreviewSurface(item)
 
   return `
     <section class="apps-preview-stage apps-hero-panel" data-accent="${item.accent || 'blue'}">
@@ -1341,8 +1386,9 @@ function renderPreviewStage(item, options = {}) {
       </div>
 
       <div class="apps-hero-panel__art apps-preview-stage__art" aria-hidden="true">
-        <div class="apps-hero-panel__icon">
-          ${renderStoreIcon(item, 'hero')}
+        <div class="apps-preview-stage__shot app-screen-shot app-screen-shot--dark">
+          <img src="${previewSurface.src}" alt="${escapeHtml(previewSurface.alt)}" />
+          <span class="screen-version-chip">${escapeHtml(previewSurface.label)}</span>
         </div>
         <div class="apps-hero-panel__strip">
           <span>${escapeHtml(item.section)}</span>
@@ -1446,11 +1492,23 @@ function renderStore() {
   if (state.activeSection === 'Today' && !state.query.trim()) {
     renderTodayView()
     enhanceShelfScrollers()
+    if (shouldScrollPreviewIntoView) {
+      shouldScrollPreviewIntoView = false
+      requestAnimationFrame(() => {
+        document.querySelector('.apps-preview-stage')?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+      })
+    }
     return
   }
 
   renderCategoryView()
   enhanceShelfScrollers()
+  if (shouldScrollPreviewIntoView) {
+    shouldScrollPreviewIntoView = false
+    requestAnimationFrame(() => {
+      document.querySelector('.apps-preview-stage')?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    })
+  }
 }
 
 function renderDetail(item) {
@@ -1624,6 +1682,7 @@ storeStage?.addEventListener('click', (event) => {
   if (previewCard) {
     event.preventDefault()
     state.activePreviewId = previewCard.dataset.selectId || state.activePreviewId
+    shouldScrollPreviewIntoView = true
     renderStore()
   }
 })
@@ -1637,6 +1696,7 @@ storeStage?.addEventListener('keydown', (event) => {
   if (event.key === 'Enter' || event.key === ' ') {
     event.preventDefault()
     state.activePreviewId = previewCard.dataset.selectId || state.activePreviewId
+    shouldScrollPreviewIntoView = true
     renderStore()
   }
 })
