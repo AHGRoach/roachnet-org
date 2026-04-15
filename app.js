@@ -29,6 +29,14 @@ const commandPalette = document.querySelector('#command-palette')
 const commandScrim = document.querySelector('#command-scrim')
 const commandInput = document.querySelector('#command-input')
 const commandItems = [...document.querySelectorAll('.command-item')]
+const landingDownloadButton = document.querySelector('[data-landing-download-button]')
+const landingDownloadStatus = document.querySelector('[data-landing-download-status]')
+const landingShortcutKeys = [...document.querySelectorAll('[data-shortcut-key]')]
+const landingNoiseSection = document.querySelector('[data-landing-noise]')
+const landingNoiseScenes = [...document.querySelectorAll('[data-landing-noise-scene]')]
+const landingNoiseTitle = document.querySelector('[data-landing-noise-title]')
+const landingNoiseCopy = document.querySelector('[data-landing-noise-copy]')
+const landingNoiseProgress = document.querySelector('[data-landing-noise-progress]')
 const heroTime = document.querySelector('[data-hero-time]')
 const heroConnectivity = document.querySelector('[data-hero-connectivity]')
 const heroStorage = document.querySelector('[data-hero-storage]')
@@ -79,10 +87,110 @@ let featuredRotationTimer = null
 let featuredRotationItems = []
 let featuredRotationIndex = 0
 let storeRevealObserver = null
+let landingRedirectTimer = null
+let landingNoiseActiveIndex = 0
 
 const homebrewCommand =
   'brew update && brew tap --force AHGRoach/roachnet && brew install --cask roachnet'
 const homebrewHelperUrl = '/downloads/RoachNet-Homebrew.command.zip'
+const homePageUrl = 'https://roachnet.org/home/'
+
+function setLandingShortcutStatus(text) {
+  if (!landingDownloadStatus) {
+    return
+  }
+
+  landingDownloadStatus.textContent = text
+}
+
+function setLandingShortcutKeys(activeKeys = []) {
+  const activeSet = new Set(activeKeys)
+  landingShortcutKeys.forEach((key) => {
+    key.dataset.active = activeSet.has(key.dataset.shortcutKey) ? 'true' : 'false'
+  })
+}
+
+function getDownloadUrlForPlatform(platformKey) {
+  const asset = findAssetForPlatform(platformKey)
+  if (asset?.browser_download_url) {
+    return asset.browser_download_url
+  }
+
+  if (hostedDownloads[platformKey]?.url) {
+    return hostedDownloads[platformKey].url
+  }
+
+  return latestReleasePage
+}
+
+function triggerBackgroundDownload(url) {
+  if (!url) {
+    return
+  }
+
+  if (url === latestReleasePage) {
+    window.open(url, '_blank', 'noopener,noreferrer')
+    return
+  }
+
+  const frame = document.createElement('iframe')
+  frame.hidden = true
+  frame.src = url
+  frame.setAttribute('aria-hidden', 'true')
+  document.body.appendChild(frame)
+  window.setTimeout(() => frame.remove(), 20000)
+}
+
+function triggerLandingDownloadAndRedirect() {
+  const downloadUrl = getDownloadUrlForPlatform('mac')
+  setLandingShortcutKeys(['shift', 'meta', 'r'])
+  setLandingShortcutStatus('Download started. Opening Home…')
+  triggerBackgroundDownload(downloadUrl)
+
+  if (landingRedirectTimer) {
+    window.clearTimeout(landingRedirectTimer)
+  }
+
+  landingRedirectTimer = window.setTimeout(() => {
+    window.location.href = homePageUrl
+  }, 900)
+}
+
+function syncLandingNoiseState() {
+  if (!landingNoiseSection || !landingNoiseScenes.length) {
+    return
+  }
+
+  const rect = landingNoiseSection.getBoundingClientRect()
+  const viewportHeight = window.innerHeight || document.documentElement.clientHeight || 0
+  const scrollSpan = Math.max(1, rect.height - viewportHeight)
+  const progress = Math.min(1, Math.max(0, (-rect.top) / scrollSpan))
+  const nextIndex = Math.min(
+    landingNoiseScenes.length - 1,
+    progress >= 1 ? landingNoiseScenes.length - 1 : Math.floor(progress * landingNoiseScenes.length)
+  )
+
+  if (nextIndex !== landingNoiseActiveIndex) {
+    landingNoiseActiveIndex = nextIndex
+    const activeScene = landingNoiseScenes[nextIndex]
+
+    landingNoiseScenes.forEach((scene, index) => {
+      scene.classList.toggle('is-active', index === nextIndex)
+    })
+
+    if (landingNoiseTitle) {
+      landingNoiseTitle.textContent = activeScene?.dataset.sceneTitle || ''
+    }
+
+    if (landingNoiseCopy) {
+      landingNoiseCopy.textContent = activeScene?.dataset.sceneCopy || ''
+    }
+  }
+
+  if (landingNoiseProgress) {
+    landingNoiseProgress.style.setProperty('--landing-noise-progress', progress.toFixed(4))
+  }
+}
 
 const storeSectionMeta = {
   'Map Regions': {
@@ -1416,6 +1524,44 @@ homebrewCopyButtons.forEach((button) => {
   })
 })
 
+landingDownloadButton?.addEventListener('click', triggerLandingDownloadAndRedirect)
+
+document.addEventListener(
+  'keydown',
+  (event) => {
+    if (document.body?.dataset.page !== 'landing') {
+      return
+    }
+
+    if (event.key === 'Shift') {
+      setLandingShortcutKeys(['shift'])
+      return
+    }
+
+    if (event.key === 'Meta') {
+      setLandingShortcutKeys(['meta'])
+      return
+    }
+
+    if (event.metaKey && event.shiftKey && event.key.toLowerCase() === 'r') {
+      event.preventDefault()
+      event.stopPropagation()
+      triggerLandingDownloadAndRedirect()
+    }
+  },
+  true
+)
+
+document.addEventListener('keyup', (event) => {
+  if (document.body?.dataset.page !== 'landing') {
+    return
+  }
+
+  if (event.key === 'Meta' || event.key === 'Shift' || event.key.toLowerCase() === 'r') {
+    setLandingShortcutKeys([])
+  }
+})
+
 function openCommandPalette() {
   if (!commandPalette) {
     return
@@ -1656,7 +1802,10 @@ document.addEventListener('keydown', (event) => {
 closeAppDetail()
 observeStoreReveals()
 syncHeaderState()
+syncLandingNoiseState()
 window.addEventListener('scroll', syncHeaderState, { passive: true })
+window.addEventListener('scroll', syncLandingNoiseState, { passive: true })
+window.addEventListener('resize', syncLandingNoiseState, { passive: true })
 loadLatestRelease()
 startHeroTelemetry()
 loadAppStoreCatalog()

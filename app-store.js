@@ -576,6 +576,7 @@ const state = {
   catalog: null,
   activeSection: resolveInitialSection(),
   query: '',
+  activePreviewId: todayFeaturedId,
 }
 
 function enhanceShelfScrollers() {
@@ -1253,8 +1254,18 @@ function renderBadgeRow(item) {
 }
 
 function renderCard(item) {
+  const isSelected = item.id === state.activePreviewId
+
   return `
-    <article class="apps-card" data-accent="${item.accent || 'blue'}" data-tier="${item.tier.tone}">
+    <article
+      class="apps-card ${isSelected ? 'is-selected' : ''}"
+      data-accent="${item.accent || 'blue'}"
+      data-tier="${item.tier.tone}"
+      data-select-id="${item.id}"
+      tabindex="0"
+      role="button"
+      aria-pressed="${isSelected ? 'true' : 'false'}"
+    >
       <div class="apps-card__head">
         <div class="apps-card__icon">${renderStoreIcon(item, 'compact')}</div>
         <div class="apps-card__copy">
@@ -1272,9 +1283,76 @@ function renderCard(item) {
             ? `<a class="apps-card__install" href="${item.installUrl}">${escapeHtml(item.installLabel || 'Install to RoachNet')}</a>`
             : ''
         }
-        <button class="apps-card__more" type="button" data-preview-id="${item.id}">More</button>
+        <button class="apps-card__more" type="button" data-preview-id="${item.id}">Open details</button>
       </div>
     </article>
+  `
+}
+
+function resolvePreviewItem(items, fallbackId = state.activePreviewId || todayFeaturedId) {
+  const preview =
+    items.find((item) => item.id === fallbackId) ||
+    items.find((item) => item.id === state.activePreviewId) ||
+    items[0] ||
+    null
+
+  if (preview) {
+    state.activePreviewId = preview.id
+  }
+
+  return preview
+}
+
+function renderPreviewStage(item, options = {}) {
+  if (!item) {
+    return ''
+  }
+
+  const eyebrow = options.eyebrow || item.section || 'Selected app'
+  const lead = options.lead || item.blurb
+  const body = item.detail?.[0] || item.summary || ''
+  const secondary = item.detail?.[1] || item.machineFit || item.source || ''
+  const previewTopics = (item.includes?.slice(0, 3) || [item.section, item.category, item.machineFit].filter(Boolean)).slice(0, 3)
+  const detailUrl = item.detailUrl || item.primaryUrl
+
+  return `
+    <section class="apps-preview-stage apps-hero-panel" data-accent="${item.accent || 'blue'}">
+      <div class="apps-hero-panel__copy">
+        <p class="apps-hero-panel__eyebrow">${escapeHtml(eyebrow)}</p>
+        <span class="apps-card__code apps-card__code--hero">${escapeHtml(item.codeLabel)}</span>
+        <h1>${escapeHtml(item.title)}</h1>
+        <p class="apps-hero-panel__lead">${escapeHtml(lead)}</p>
+        <p class="apps-hero-panel__body">${escapeHtml(body)}</p>
+        ${secondary ? `<p class="apps-preview-stage__secondary">${escapeHtml(secondary)}</p>` : ''}
+        ${renderBadgeRow(item)}
+        <div class="apps-hero-panel__actions">
+          ${
+            item.installUrl
+              ? `<a class="apps-card__install apps-card__install--hero" href="${item.installUrl}">${escapeHtml(item.installLabel || 'Install to RoachNet')}</a>`
+              : ''
+          }
+          <button class="apps-card__more apps-card__more--hero" type="button" data-preview-id="${item.id}">Open details</button>
+          ${
+            detailUrl
+              ? `<a class="apps-card__secondary" href="${detailUrl}">${escapeHtml(item.detailLabel || 'Open manifest')}</a>`
+              : ''
+          }
+        </div>
+      </div>
+
+      <div class="apps-hero-panel__art apps-preview-stage__art" aria-hidden="true">
+        <div class="apps-hero-panel__icon">
+          ${renderStoreIcon(item, 'hero')}
+        </div>
+        <div class="apps-hero-panel__strip">
+          <span>${escapeHtml(item.section)}</span>
+          <strong>${escapeHtml(item.machineFit || 'Install-ready')}</strong>
+        </div>
+        <div class="apps-hero-panel__stack apps-preview-stage__stack">
+          ${previewTopics.map((topic) => `<span>${escapeHtml(topic)}</span>`).join('')}
+        </div>
+      </div>
+    </section>
   `
 }
 
@@ -1297,7 +1375,7 @@ function renderShelfRow(title, note, items) {
 }
 
 function renderTodayView() {
-  const featured = findItemById(todayFeaturedId) || getEnrichedItems()[0]
+  const featured = resolvePreviewItem(getEnrichedItems(), todayFeaturedId)
   const quickRows = todayRows
     .map((row) => renderShelfRow(row.title, row.note, row.ids ? byIds(row.ids) : bySections(row.sections || [])))
     .join('')
@@ -1305,45 +1383,7 @@ function renderTodayView() {
   renderSectionHead('')
 
   storeStage.innerHTML = `
-    <section class="apps-hero-panel" data-accent="${featured.accent || 'blue'}">
-      <div class="apps-hero-panel__copy">
-        <p class="apps-hero-panel__eyebrow">Today in RoachNet Apps</p>
-        <span class="apps-card__code apps-card__code--hero">${escapeHtml(featured.codeLabel)}</span>
-        <h1>${escapeHtml(featured.title)}</h1>
-        <p class="apps-hero-panel__lead">${escapeHtml(featured.blurb)}</p>
-        <p class="apps-hero-panel__body">${escapeHtml(featured.detail[0])}</p>
-        ${renderBadgeRow(featured)}
-        <div class="apps-hero-panel__actions">
-          ${
-            featured.installUrl
-              ? `<a class="apps-card__install apps-card__install--hero" href="${featured.installUrl}">${escapeHtml(featured.installLabel || 'Install to RoachNet')}</a>`
-              : ''
-          }
-          <button class="apps-card__more apps-card__more--hero" type="button" data-preview-id="${featured.id}">Preview</button>
-          ${
-            featured.detailUrl
-              ? `<a class="apps-card__secondary" href="${featured.detailUrl}">${escapeHtml(featured.detailLabel || 'Open manifest')}</a>`
-              : ''
-          }
-        </div>
-      </div>
-
-      <div class="apps-hero-panel__art" aria-hidden="true">
-        <div class="apps-hero-panel__icon">
-          ${renderStoreIcon(featured, 'hero')}
-        </div>
-        <div class="apps-hero-panel__strip">
-          <span>${escapeHtml(featured.section)}</span>
-          <strong>${escapeHtml(featured.machineFit || 'Install-ready')}</strong>
-        </div>
-        <div class="apps-hero-panel__stack">
-          <span>Open textbooks</span>
-          <span>Math, science, computing, languages</span>
-          <span>Installs as its own named course app</span>
-        </div>
-      </div>
-    </section>
-
+    ${renderPreviewStage(featured, { eyebrow: 'Today in RoachNet Apps' })}
     ${quickRows}
   `
 }
@@ -1383,7 +1423,10 @@ function renderCategoryView() {
         ? 'apps-card-grid--standard'
         : 'apps-card-grid--standard'
 
+  const previewItem = resolvePreviewItem(items, items[0]?.id)
+
   storeStage.innerHTML = `
+    ${renderPreviewStage(previewItem, { eyebrow: activeSection.eyebrow })}
     <section class="apps-card-grid ${layoutClass}">
       ${items.map((item) => renderCard(item)).join('')}
     </section>
@@ -1488,7 +1531,7 @@ function closeDetail() {
 
 function returnToRoachNetHome(event) {
   event?.preventDefault()
-  window.location.href = 'https://roachnet.org/'
+  window.location.href = 'https://roachnet.org/home/'
 }
 
 async function loadCatalog() {
@@ -1544,6 +1587,7 @@ async function loadCatalog() {
 
 function setActiveSection(sectionKey) {
   state.activeSection = sectionKey
+  state.activePreviewId = sectionKey === 'Today' ? todayFeaturedId : ''
   if (sectionKey !== 'Today') {
     window.location.hash = slugify(sectionLookup.get(sectionKey)?.navLabel || sectionKey)
   } else {
@@ -1569,6 +1613,31 @@ storeStage?.addEventListener('click', (event) => {
   if (previewButton) {
     event.preventDefault()
     openDetail(previewButton.dataset.previewId)
+    return
+  }
+
+  if (event.target.closest('a[href], button')) {
+    return
+  }
+
+  const previewCard = event.target.closest('[data-select-id]')
+  if (previewCard) {
+    event.preventDefault()
+    state.activePreviewId = previewCard.dataset.selectId || state.activePreviewId
+    renderStore()
+  }
+})
+
+storeStage?.addEventListener('keydown', (event) => {
+  const previewCard = event.target.closest('[data-select-id]')
+  if (!previewCard) {
+    return
+  }
+
+  if (event.key === 'Enter' || event.key === ' ') {
+    event.preventDefault()
+    state.activePreviewId = previewCard.dataset.selectId || state.activePreviewId
+    renderStore()
   }
 })
 

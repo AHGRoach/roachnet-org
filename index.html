@@ -6,7 +6,7 @@
     <title>RoachNet</title>
     <meta
       name="description"
-      content="AI, dev tools, maps, and your own archive in one contained stack on your machine."
+      content="You weren’t crazy. The cloud got noisy. RoachNet brings AI, code, maps, and your archive back into one contained stack on your machine."
     />
     <meta name="theme-color" content="#0b1016" />
     <link rel="canonical" href="https://roachnet.org/" />
@@ -18,7 +18,7 @@
     <meta property="og:title" content="RoachNet" />
     <meta
       property="og:description"
-      content="Local AI, a dev workspace, offline maps, and a reference shelf in one folder on your hardware."
+      content="The cloud got noisy. RoachNet brings AI, code, maps, and your archive back into one contained stack on your machine."
     />
     <meta property="og:url" content="https://roachnet.org/" />
     <meta property="og:image" content="https://roachnet.org/assets/screens/roachnet-native-home.jpg" />
@@ -26,21 +26,21 @@
     <meta name="twitter:title" content="RoachNet" />
     <meta
       name="twitter:description"
-      content="Local AI, dev tools, maps, and your own shelf in one folder. Still works when the Wi-Fi doesn't."
+      content="Bring the important stuff home. RoachNet keeps AI, code, maps, and your archive in one contained stack on your machine."
     />
     <meta name="twitter:image" content="https://roachnet.org/assets/screens/roachnet-native-home.jpg" />
     <link rel="stylesheet" href="./app.css" />
     <link rel="stylesheet" href="./app-polish.css" />
   </head>
-  <body data-page="home">
+  <body data-page="landing">
     <div class="bg-glow bg-glow--blue" aria-hidden="true"></div>
     <div class="bg-glow bg-glow--green" aria-hidden="true"></div>
 
     <header class="site-header">
-      <a class="brand-lockup" href="#top" aria-label="RoachNet home">
+      <a class="brand-lockup" href="https://roachnet.org/" aria-label="RoachNet landing page">
         <img class="brand-mark" src="./assets/roachnet-logo.png" alt="RoachNet logo" />
         <div class="brand-copy">
-          <span class="brand-kicker">Your machine. Your stack.</span>
+          <span class="brand-kicker">offline on purpose</span>
           <strong>RoachNet</strong>
         </div>
         <span class="site-header__status">Desktop v1.0.2</span>
@@ -48,10 +48,10 @@
 
       <div class="site-header__panel">
         <nav class="site-nav site-nav--primary" aria-label="Primary">
-          <a class="is-current" href="#top">Home</a>
+          <a class="is-current" href="#top">Why</a>
+          <a href="https://roachnet.org/home/">Home</a>
           <a href="https://apps.roachnet.org">Apps</a>
           <a href="https://roachnet.org/roachclaw/">RoachClaw</a>
-          <a href="https://roachnet.org/brew/">Brew</a>
           <a href="https://roachnet.org/iOS/">iOS</a>
         </nav>
 
@@ -64,351 +64,244 @@
     </header>
 
     <main id="top" class="page-shell">
-      <section class="hero">
-        <div class="hero-copy">
+      <section class="landing-hero">
+        <div class="landing-hero__copy">
           <p class="eyebrow">RoachNet</p>
-          <h1>One contained stack for AI, code, maps, and your own archive.</h1>
-          <p class="hero-body">
-            Local AI, a real dev workspace, offline maps, and your own reference shelf in one root on your hardware. Still there when the network folds.
+          <h1>You weren’t crazy. The cloud got noisy.</h1>
+          <p class="landing-hero__body">
+            You used to open the laptop and just build. Now the work lives in tabs, logins, and dashboards. RoachNet brings AI, code, maps, and your archive back into one contained place on your machine.
           </p>
 
-          <div class="hero-actions">
-            <button class="cta cta--primary" id="primary-download" type="button">Download RoachNet 1.0.2 for macOS</button>
-            <button class="cta cta--ghost" data-homebrew-install type="button">Install with Homebrew</button>
-          </div>
-          <div class="hero-links" aria-label="RoachNet utility links">
-            <a href="https://roachnet.org/brew/">Homebrew details</a>
-            <a href="https://apps.roachnet.org">Browse RoachNet Apps</a>
-            <a href="https://github.com/AHGRoach/RoachNet" target="_blank" rel="noreferrer">View on GitHub</a>
+          <div class="landing-hero__actions">
+            <a class="cta cta--primary" href="#download">Bring it home</a>
+            <a class="cta cta--ghost" href="https://roachnet.org/home/">Open Home</a>
+            <a class="cta cta--ghost" href="https://apps.roachnet.org">Browse Apps</a>
           </div>
 
-          <p class="hero-footnote">Mac, Windows, Linux. Same stack, different installer.</p>
-          <p class="download-meta" id="download-meta">Setup.app or Homebrew. Either way everything lands in <code>~/RoachNet</code> and stays there.</p>
-          <div class="homebrew-inline">
-            <button class="cta cta--ghost cta--compact" data-homebrew-copy type="button">Copy brew command</button>
-            <span class="homebrew-inline__command"><code>brew update &amp;&amp; brew tap --force AHGRoach/roachnet &amp;&amp; brew install --cask roachnet</code></span>
+          <div class="landing-proof-row" aria-label="RoachNet proof points">
+            <span class="landing-proof-pill">A machine that’s yours</span>
+            <span class="landing-proof-pill">Tools that don’t move</span>
+            <span class="landing-proof-pill">Internet optional</span>
+            <span class="landing-proof-pill">offline on purpose</span>
           </div>
-          <p class="homebrew-note" id="homebrew-note">
-            Mac only. Browsers cannot launch Terminal directly, so this downloads a small helper that opens Terminal and runs the Homebrew install for you.
-          </p>
-
-          <div class="hero-status" aria-label="RoachNet status row">
-            <span data-hero-time>--:-- --</span>
-            <span class="hero-status__pill" data-hero-connectivity data-state="pending">Checking link</span>
-            <span data-hero-storage>Storage estimate pending</span>
-          </div>
-          <p class="hero-status__note">Local time and storage are estimated in-browser until the native app is installed.</p>
         </div>
 
-        <div class="hero-visual" aria-hidden="true">
-          <div class="screen-frame screen-frame--hero">
-            <img
-              class="screen-frame__image"
-              src="./assets/screens/roachnet-native-home.jpg"
-              alt="RoachNet native home command grid"
-            />
+        <div class="landing-hero__visual" aria-hidden="true">
+          <div class="landing-shot landing-shot--primary">
+            <img src="./assets/screens/roachnet-native-home.jpg" alt="RoachNet home surface" />
             <span class="screen-version-chip">v1.0.2</span>
           </div>
-          <div class="screen-chip-row">
-            <span class="screen-chip">Home</span>
-            <span class="screen-chip">Dev</span>
-            <span class="screen-chip">RoachClaw</span>
-            <span class="screen-chip">Runtime</span>
+          <div class="landing-shot landing-shot--secondary">
+            <img src="./assets/screens/roachnet-native-roachclaw.jpg" alt="RoachNet RoachClaw surface" />
           </div>
-          <div class="hero-signal-board">
-            <article class="hero-signal-card">
-              <span>Local AI</span>
-              <strong>RoachClaw stays on your box first.</strong>
-            </article>
-            <article class="hero-signal-card">
-              <span>One root</span>
-              <strong>App, runtime, tools, and vault in <code>~/RoachNet</code>.</strong>
-            </article>
-            <article class="hero-signal-card">
-              <span>Offline ready</span>
-              <strong>Maps, docs, and the archive still show up when the network does not.</strong>
-            </article>
+          <div class="landing-note-card">
+            <span>Always know where it is</span>
+            <strong>Instead of asking which service holds this, you know: it’s in RoachNet.</strong>
           </div>
         </div>
       </section>
 
-      <section class="content-section content-section--pillars" id="features">
-        <div class="section-head">
-          <p class="eyebrow">Why RoachNet</p>
-          <h2>Secure. Portable. Still there offline.</h2>
-          <p>One root on your machine. Easier to trust, easier to move, and still there when the network is not.</p>
-        </div>
+      <section class="landing-feel" id="noise" data-landing-noise>
+        <div class="landing-feel__sticky">
+          <div class="landing-feel__copy">
+            <p class="eyebrow">You weren’t crazy.</p>
+            <h2>We all felt the noise creep in.</h2>
+            <p>
+              The work did not get harder. The stack got louder. More tabs. More logins. More tools trying to manage
+              the machine instead of getting out of the way.
+            </p>
+          </div>
 
-        <div class="pillar-grid" role="list">
-          <article class="pillar-card" role="listitem" data-reveal>
-            <span class="feature-card__eyebrow">Local models first</span>
-            <h3>Local models, not rented tabs.</h3>
-            <p>RoachClaw stays on your hardware first. Prompts do not have to leave the room. Offline still counts.</p>
-          </article>
-
-          <article class="pillar-card" role="listitem" data-reveal>
-            <span class="feature-card__eyebrow">Contained by default</span>
-            <h3>One folder. Clean uninstall.</h3>
-            <p>Everything lives under <code>~/RoachNet</code>. Easier to move, back up, wipe, and trust.</p>
-          </article>
-
-          <article class="pillar-card" role="listitem" data-reveal>
-            <span class="feature-card__eyebrow">Designed to disappear</span>
-            <h3>Quick when called. Quiet when not.</h3>
-            <p>Not always open. That is the point. Pull it up, do the thing, close it.</p>
-          </article>
-        </div>
-      </section>
-
-      <section class="content-section content-section--surfaces" id="screens">
-        <div class="section-head">
-          <p class="eyebrow">Native surfaces</p>
-          <h2>Native surfaces that do real work.</h2>
-          <p>Five surfaces. One shell. No scavenger hunt through floating panels and buried status rows.</p>
-        </div>
-
-        <div class="surface-grid" role="list">
-          <article class="surface-card surface-card--featured" role="listitem" data-reveal>
-            <div class="surface-card__shot app-screen-shot app-screen-shot--dark">
-              <img src="./assets/screens/roachnet-native-home.jpg" alt="RoachNet native home command grid" />
-              <span class="screen-version-chip">v1.0.2</span>
+          <div class="landing-feel__stage" aria-live="polite">
+            <div class="landing-feel__rail" aria-hidden="true">
+              <span class="landing-feel__rail-line"></span>
+              <span class="landing-feel__rail-dot" data-landing-noise-progress></span>
             </div>
-            <div class="surface-card__copy">
-              <span class="feature-card__eyebrow">Home</span>
-              <h3>The command grid.</h3>
-              <p>Status, quick launch, system reads. In, out, done.</p>
+
+            <div class="landing-feel__film">
+              <article class="landing-feel__scene is-active" data-landing-noise-scene data-scene-title="Work used to begin faster." data-scene-copy="Open the laptop. Start building. That used to be enough.">
+                <span class="landing-feel__scene-kicker">Before the pile</span>
+                <strong>Open the lid. Build.</strong>
+                <div class="landing-feel__scene-lines">
+                  <span>editor ready</span>
+                  <span>project loaded</span>
+                  <span>focus intact</span>
+                </div>
+              </article>
+
+              <article class="landing-feel__scene" data-landing-noise-scene data-scene-title="Then every tool wanted a dashboard." data-scene-copy="The stack became a pile of hosted surfaces, status checks, and logins before the real work could even start.">
+                <span class="landing-feel__scene-kicker">The drift</span>
+                <strong>Tabs multiplied. The work did not.</strong>
+                <div class="landing-feel__scene-lines landing-feel__scene-lines--noise">
+                  <span>dashboard redesign shipped</span>
+                  <span>workspace session expired</span>
+                  <span>2FA challenge required</span>
+                  <span>subscription trial ended</span>
+                </div>
+              </article>
+
+              <article class="landing-feel__scene" data-landing-noise-scene data-scene-title="The machine stopped feeling like yours." data-scene-copy="You were still on your own hardware, but the important parts were scattered across other people’s products and timelines.">
+                <span class="landing-feel__scene-kicker">The friction</span>
+                <strong>Your stack started living somewhere else.</strong>
+                <div class="landing-feel__scene-grid">
+                  <span>identity provider</span>
+                  <span>hosted ai</span>
+                  <span>remote vault</span>
+                  <span>saas docs</span>
+                </div>
+              </article>
+
+              <article class="landing-feel__scene" data-landing-noise-scene data-scene-title="RoachNet brings the important stuff home." data-scene-copy="AI, archive, code, maps, and your runtime come back under one contained roof so the machine feels quiet again.">
+                <span class="landing-feel__scene-kicker">The correction</span>
+                <strong>One contained shell. One place to return to.</strong>
+                <div class="landing-feel__scene-lines landing-feel__scene-lines--signal">
+                  <span>roachclaw local</span>
+                  <span>vault attached</span>
+                  <span>runtime live</span>
+                  <span>internet optional</span>
+                </div>
+              </article>
             </div>
-          </article>
 
-          <article class="surface-card" role="listitem" data-reveal>
-            <div class="surface-card__shot app-screen-shot app-screen-shot--dark">
-              <img src="./assets/screens/roachnet-native-dev.jpg" alt="RoachNet native Dev workspace" />
-              <span class="screen-version-chip">v1.0.2</span>
+            <div class="landing-feel__caption">
+              <span class="landing-feel__caption-kicker">Sequence</span>
+              <strong data-landing-noise-title>Work used to begin faster.</strong>
+              <p data-landing-noise-copy>Open the laptop. Start building. That used to be enough.</p>
             </div>
-            <div class="surface-card__copy">
-              <span class="feature-card__eyebrow">Dev</span>
-              <h3>The native coding workspace.</h3>
-              <p>Projects, shell, AI assist, and secrets in one workspace. Nothing sprays across the rest of the machine.</p>
-            </div>
-          </article>
-
-          <article class="surface-card surface-card--featured-secondary" role="listitem" data-reveal>
-            <div class="surface-card__shot app-screen-shot app-screen-shot--dark">
-              <img src="./assets/screens/roachnet-native-roachclaw.jpg" alt="RoachNet native RoachClaw workbench" />
-              <span class="screen-version-chip">v1.0.2</span>
-            </div>
-            <div class="surface-card__copy">
-              <span class="feature-card__eyebrow">RoachClaw</span>
-              <h3>The local AI workbench.</h3>
-              <p>Local AI with real model control. Swap models, see what is loaded, stop guessing.</p>
-            </div>
-          </article>
-
-          <article class="surface-card" role="listitem" data-reveal>
-            <div class="surface-card__shot app-screen-shot app-screen-shot--dark">
-              <img src="./assets/screens/roachnet-native-maps.jpg" alt="RoachNet native maps surface" />
-              <span class="screen-version-chip">v1.0.2</span>
-            </div>
-            <div class="surface-card__copy">
-              <span class="feature-card__eyebrow">Maps &amp; Vault</span>
-              <h3>Your reference shelf.</h3>
-              <p>Offline routes, map packs, notes, and local reference shelves. Open it and move.</p>
-            </div>
-          </article>
-
-          <article class="surface-card" role="listitem" data-reveal>
-            <div class="surface-card__shot app-screen-shot app-screen-shot--dark">
-              <img src="./assets/screens/roachnet-native-runtime.jpg" alt="RoachNet native runtime surface" />
-              <span class="screen-version-chip">v1.0.2</span>
-            </div>
-            <div class="surface-card__copy">
-              <span class="feature-card__eyebrow">Runtime</span>
-              <h3>The stack health view.</h3>
-              <p>Runtime, account, RoachTail, and sync reads without a scavenger hunt through logs.</p>
-            </div>
-          </article>
-
-        </div>
-      </section>
-
-      <section class="content-section content-section--fit" id="fit">
-        <div class="section-head">
-          <p class="eyebrow">Where RoachNet fits</p>
-          <h2>Where it actually helps.</h2>
-          <p>It is at its best when you want the stack close, quick, and not dependent on somebody else’s uptime chart.</p>
-        </div>
-
-        <div class="usecase-grid" role="list">
-          <article class="usecase-card" role="listitem" data-reveal>
-            <span class="feature-card__eyebrow">Studio days</span>
-            <h3>Reference docs, stems, notes, and AI in one window instead of the usual eleven-tab disaster.</h3>
-          </article>
-
-          <article class="usecase-card" role="listitem" data-reveal>
-            <span class="feature-card__eyebrow">Travel</span>
-            <h3>Pack it like a drive. Models, maps, and docs do not care what the hotel Wi-Fi is doing.</h3>
-          </article>
-
-          <article class="usecase-card" role="listitem" data-reveal>
-            <span class="feature-card__eyebrow">Outages</span>
-            <h3>When AWS is having a day, you are not. Everything that matters runs on your hardware.</h3>
-          </article>
-        </div>
-      </section>
-
-      <section class="content-section content-section--inside" id="inside">
-        <div class="section-head">
-          <p class="eyebrow">What’s inside RoachNet</p>
-          <h2>Shelves worth installing.</h2>
-          <p>Curated packs that land inside RoachNet instead of scattering across Downloads like loose screws.</p>
-        </div>
-
-        <div class="shelf-grid" role="list">
-          <article class="shelf-card" role="listitem" data-reveal>
-            <span class="feature-card__eyebrow">Map Regions</span>
-            <h3>Offline atlas packs by region. Useful on day one, essential when signal drops.</h3>
-          </article>
-
-          <article class="shelf-card" role="listitem" data-reveal>
-            <span class="feature-card__eyebrow">Medicine</span>
-            <h3>Field guides and treatment references, offline. For people who actually prepare.</h3>
-          </article>
-
-          <article class="shelf-card" role="listitem" data-reveal>
-            <span class="feature-card__eyebrow">Dev &amp; ML</span>
-            <h3>Docs and ML references next to your editor instead of in a browser tab you will accidentally close.</h3>
-          </article>
-
-          <article class="shelf-card" role="listitem" data-reveal>
-            <span class="feature-card__eyebrow">Wikipedia &amp; Reference</span>
-            <h3>Curated Wikipedia packs. Not all of it, just the useful parts, indexed and offline.</h3>
-          </article>
-        </div>
-
-        <div class="section-actions">
-          <a class="cta cta--ghost" href="https://apps.roachnet.org">Browse RoachNet Apps</a>
-        </div>
-      </section>
-
-      <section class="content-section content-section--runtime" id="runtime">
-        <div class="section-head">
-          <p class="eyebrow">What RoachNet runs for you</p>
-          <h2>The runtime behind the shell.</h2>
-          <p>The app shell is the front door. The real work is the contained runtime behind it.</p>
-        </div>
-
-        <div class="runtime-grid" role="list">
-          <article class="runtime-card" role="listitem" data-reveal>
-            <span class="feature-card__eyebrow">Local runtime</span>
-            <h3>Services, helpers, and caches live inside <code>~/RoachNet</code>. Nothing bleeds across the OS.</h3>
-          </article>
-
-          <article class="runtime-card" role="listitem" data-reveal>
-            <span class="feature-card__eyebrow">RoachClaw</span>
-            <h3>Ollama and OpenClaw wired together. You can see exactly how.</h3>
-          </article>
-
-          <article class="runtime-card" role="listitem" data-reveal>
-            <span class="feature-card__eyebrow">Dev Studio</span>
-            <h3>Code, shell, and AI assist in one native workspace that already knows where your projects are.</h3>
-          </article>
-
-          <article class="runtime-card" role="listitem" data-reveal>
-            <span class="feature-card__eyebrow">Maps &amp; Vault</span>
-            <h3>Docs, maps, notes, and archives in one place. Move the folder, everything moves with it.</h3>
-          </article>
-        </div>
-      </section>
-
-      <section class="content-section content-section--downloads" id="downloads">
-        <div class="section-head">
-          <p class="eyebrow">Download</p>
-          <h2>Get it on your machine.</h2>
-          <p>Pick the install lane you want. The result is the same contained stack on your own hardware.</p>
-        </div>
-
-        <div class="home-download-note" data-reveal>
-          <strong>Same destination, different lane.</strong>
-          <span>Setup.app and Homebrew both land the stack in <code>~/RoachNet</code> so the app, runtime, vault, and tools stay together.</span>
-        </div>
-
-        <div class="download-layout">
-          <button class="download-hero-card" data-platform="mac" type="button" data-reveal>
-            <span class="download-card__label">macOS · Apple Silicon</span>
-            <strong>Full native stack for Apple Silicon. Everything in <code>~/RoachNet</code>.</strong>
-            <small>Download RoachNet-Setup-macOS.dmg</small>
-          </button>
-
-          <div class="download-side-grid">
-            <button class="download-side-card" data-homebrew-install type="button" data-reveal>
-              <span class="download-card__label">Homebrew · Apple Silicon</span>
-              <strong>Prefer the terminal? Three commands. Same contained stack.</strong>
-              <small>brew update && brew tap --force AHGRoach/roachnet && brew install --cask roachnet</small>
-            </button>
-
-            <button class="download-side-card" data-platform="win" type="button" data-reveal>
-              <span class="download-card__label">Windows 11 · x64</span>
-              <strong>Windows beta. Same stack, still early. File bugs.</strong>
-              <small>Download RoachNet-Setup-windows-x64-beta.exe</small>
-            </button>
-
-            <a class="download-side-card" href="https://roachnet.org/iOS/" data-reveal>
-              <span class="download-card__label">iPhone &amp; iPad · SideStore</span>
-              <strong>The phone companion. Chat, runtime status, vault reads, and app installs without touching the laptop.</strong>
-              <small>Download RoachNetiOS-v0.1.2-unsigned.ipa</small>
-            </a>
-
-            <a class="download-side-card" href="https://github.com/AHGRoach/RoachNet/releases/latest" target="_blank" rel="noreferrer" data-reveal>
-              <span class="download-card__label">Linux · Ubuntu / Bazzite</span>
-              <strong>Linux install guide. You know what you’re doing.</strong>
-              <small>View Linux install guide</small>
-            </a>
           </div>
         </div>
+      </section>
 
-        <div class="downloads-actions">
-          <button class="cta cta--primary" id="downloads-primary" type="button">Download RoachNet 1.0.2 for macOS</button>
-          <button class="cta cta--ghost" data-homebrew-install type="button">Install with Homebrew</button>
-          <a class="cta cta--ghost" href="https://roachnet.org/brew/">Homebrew details</a>
-          <a class="cta cta--ghost" href="https://roachnet.org/iOS/">RoachNet iOS</a>
-          <a class="cta cta--ghost" href="https://github.com/AHGRoach/RoachNet" target="_blank" rel="noreferrer">View on GitHub</a>
+      <section class="landing-strip" aria-label="RoachNet summary">
+        <article class="landing-strip__item" data-reveal>
+          <span class="feature-card__eyebrow">Contained</span>
+          <strong>Back it up like a folder, not a pile of dashboards.</strong>
+        </article>
+        <article class="landing-strip__item" data-reveal>
+          <span class="feature-card__eyebrow">Portable</span>
+          <strong>Same stack on your desktop, your laptop, or your lab machine.</strong>
+        </article>
+        <article class="landing-strip__item" data-reveal>
+          <span class="feature-card__eyebrow">Offline</span>
+          <strong>The network becomes a bonus, not the floor your work stands on.</strong>
+        </article>
+      </section>
+
+      <section class="landing-story" id="contained">
+        <div class="landing-story__media" data-reveal>
+          <div class="landing-story__frame">
+            <img src="./assets/screens/roachnet-native-home.jpg" alt="RoachNet home screenshot" />
+          </div>
+        </div>
+        <div class="landing-story__copy">
+          <p class="eyebrow">Meet RoachNet</p>
+          <h2>It lives on your machines.</h2>
+          <p>
+            RoachNet is an offline-first suite for AI, archiving, and development. Your models, tools, and data run locally, sync on your terms, and do not vanish when a login expires.
+          </p>
+          <ul class="landing-story__list">
+            <li>Contained install under <code>~/RoachNet</code></li>
+            <li>Durable archive for docs, projects, and the web you care about</li>
+            <li>Same reproducible environment across the machines you actually use</li>
+          </ul>
+          <a class="landing-story__link" href="https://roachnet.org/home/#downloads">See install lanes</a>
         </div>
       </section>
 
-      <section class="content-section" id="support">
+      <section class="landing-story landing-story--reverse" id="ai">
+        <div class="landing-story__media" data-reveal>
+          <div class="landing-story__frame">
+            <img src="./assets/screens/roachnet-native-roachclaw.jpg" alt="RoachClaw local AI workbench" />
+          </div>
+        </div>
+        <div class="landing-story__copy">
+          <p class="eyebrow">RoachClaw</p>
+          <h2>Spin up local AI and keep it close.</h2>
+          <p>
+            Use RoachClaw for local models without pretending every thought needs a remote provider. When the cloud helps, use it. When it does not, the local path is already there.
+          </p>
+          <ul class="landing-story__list">
+            <li>Local models first, not rented tabs by default</li>
+            <li>Runtime you can inspect instead of mystery behavior</li>
+            <li>Phone companion and web access when you want reach</li>
+          </ul>
+          <a class="landing-story__link" href="https://roachnet.org/roachclaw/">Open RoachClaw</a>
+        </div>
+      </section>
+
+      <section class="landing-story" id="extras">
+        <div class="landing-story__media" data-reveal>
+          <div class="landing-story__frame">
+            <img src="./assets/screens/roachnet-native-dev.jpg" alt="RoachNet Dev workspace" />
+          </div>
+        </div>
+        <div class="landing-story__copy">
+          <p class="eyebrow">Archive + Dev</p>
+          <h2>Stop asking which service holds this.</h2>
+          <p>
+            Once you stop assuming everything has to be hosted somewhere else, your whole relationship with computing shifts. The important thing has an address, and that address is RoachNet.
+          </p>
+          <ul class="landing-story__list">
+            <li>Keep core tools close instead of chasing dashboards</li>
+            <li>Treat the internet as an optional bonus, not a dependency</li>
+            <li>Design workflows nobody else can turn off from a control panel</li>
+          </ul>
+          <a class="landing-story__link" href="https://apps.roachnet.org">Browse the shelves</a>
+        </div>
+      </section>
+
+      <section class="landing-ecosystem">
         <div class="section-head">
-          <p class="eyebrow">Support</p>
-          <h2>Keep it sharp.</h2>
-          <p>Independent software stays alive the same way independent records do: somebody keeps showing up to make the next one better.</p>
+          <p class="eyebrow">A quieter foundation</p>
+          <h2>Modern work, less noise.</h2>
+          <p>RoachNet is built for people who like to own the stack they rely on, even if they still use plenty of cloud on top.</p>
         </div>
 
-        <div class="home-support-shell">
-          <article class="home-support-intro" data-reveal>
-            <span class="feature-card__eyebrow">Independent</span>
-            <h3>RoachNet exists because someone kept building the thing they wanted on their own machine.</h3>
-            <p>That buys cleaner priorities, a longer memory, and fewer fake roadmap slides. It also means direct support actually matters.</p>
-            <div class="support-card__actions">
-              <a class="cta cta--ghost support-card__cta" href="https://github.com/AHGRoach/RoachNet/releases/latest" target="_blank" rel="noreferrer">Read the changelog</a>
-              <a class="cta cta--ghost support-card__cta" href="https://github.com/AHGRoach/RoachNet" target="_blank" rel="noreferrer">Browse the source</a>
-            </div>
+        <div class="landing-ecosystem__grid">
+          <article class="landing-ecosystem__card" data-reveal>
+            <span class="feature-card__eyebrow">Home</span>
+            <h3>The whole contained stack.</h3>
+            <p>The denser product page with downloads, runtime, surfaces, and the actual details behind the pitch.</p>
+            <a class="landing-story__link" href="https://roachnet.org/home/">Open Home</a>
           </article>
 
-          <div class="home-support-grid">
-            <article class="support-card" data-reveal>
-              <span class="feature-card__eyebrow">AHG Records LLC</span>
-              <h3>The label behind the music, tools, and general stubbornness that keeps this alive.</h3>
-              <div class="support-card__actions">
-                <a class="cta cta--primary support-card__cta" href="https://www.paypal.com/cgi-bin/webscr?business=lesherist%40gmail.com&cmd=_donations&currency_code=USD&item_name=Donation+to+AHG+Records&return=https%3A%2F%2Fahgrecords.com%2Fhome" target="_blank" rel="noreferrer">Donate to AHG Records LLC</a>
-              </div>
-            </article>
+          <article class="landing-ecosystem__card" data-reveal>
+            <span class="feature-card__eyebrow">Apps</span>
+            <h3>The shelves stay organized.</h3>
+            <p>Curated packs for maps, reference shelves, and RoachClaw models that install straight into RoachNet.</p>
+            <a class="landing-story__link" href="https://apps.roachnet.org">Open Apps</a>
+          </article>
 
-            <article class="support-card" data-reveal>
-              <span class="feature-card__eyebrow">RoachNet Development</span>
-              <h3>Bug fixes, better sync, more mirrors, and whatever ships next. Backed by people who actually use it.</h3>
-              <div class="support-card__actions">
-                <a class="cta cta--primary support-card__cta" href="https://www.paypal.com/ncp/payment/ZV8RL9DWQXHGE" target="_blank" rel="noreferrer">Donate to RoachNet</a>
-              </div>
-            </article>
+          <article class="landing-ecosystem__card" data-reveal>
+            <span class="feature-card__eyebrow">iOS</span>
+            <h3>The phone stays useful.</h3>
+            <p>RoachClaw, runtime checks, vault reads, and install control from your pocket instead of from the desk.</p>
+            <a class="landing-story__link" href="https://roachnet.org/iOS/">Open iOS</a>
+          </article>
+        </div>
+      </section>
+
+      <section class="landing-shortcut" id="download">
+        <div class="landing-shortcut__copy">
+          <p class="eyebrow">Install</p>
+          <h2>Press Shift Command R and bring the important stuff home.</h2>
+          <p>
+            That shortcut is armed on this page. It starts the macOS download, then drops you straight into Home so you can keep moving while the installer lands.
+          </p>
+        </div>
+
+        <div class="landing-shortcut__panel" data-landing-shortcut>
+          <div class="landing-shortcut__keys" aria-label="Download shortcut">
+            <span class="shortcut-key" data-shortcut-key="shift">Shift</span>
+            <span class="shortcut-key" data-shortcut-key="meta">Command</span>
+            <span class="shortcut-key" data-shortcut-key="r">R</span>
+          </div>
+          <p class="landing-shortcut__status" data-landing-download-status>
+            Press the shortcut to start the macOS download. We will send you into Home right after.
+          </p>
+          <div class="landing-shortcut__actions">
+            <button class="cta cta--primary" data-landing-download-button type="button">Download now</button>
+            <a class="cta cta--ghost" href="https://roachnet.org/home/">Skip to Home</a>
           </div>
         </div>
       </section>
@@ -417,19 +310,16 @@
     <footer class="site-footer">
       <div class="site-footer__copy">
         <strong>RoachNet</strong>
-        <span>RoachNet · AI, dev tools, maps, and archives on hardware you own. No cloud required.</span>
+        <span>RoachNet · offline on purpose.</span>
       </div>
       <nav class="site-footer__nav" aria-label="Footer">
-        <a href="#top">Home</a>
+        <a href="#top">Why</a>
+        <a href="https://roachnet.org/home/">Home</a>
         <a href="https://apps.roachnet.org">Apps</a>
-        <a href="https://roachnet.org/brew/">Brew</a>
+        <a href="https://roachnet.org/roachclaw/">RoachClaw</a>
         <a href="https://roachnet.org/iOS/">iOS</a>
         <a href="https://roachnet.org/api/">API</a>
-        <a href="#support">Support</a>
-        <a href="#downloads">Downloads</a>
-        <a href="https://github.com/AHGRoach/RoachNet/releases/latest" target="_blank" rel="noreferrer">Changelog</a>
         <a href="https://github.com/AHGRoach/RoachNet" target="_blank" rel="noreferrer">GitHub</a>
-        <a href="mailto:contact@ahgrecords.com">contact@ahgrecords.com</a>
       </nav>
       <div class="site-footer__meta">
         <a
@@ -440,27 +330,12 @@
           rel="noreferrer"
           aria-label="Latest RoachNet release"
         >v1.0.2</a>
-        <a
-          class="netlify-badge"
-          href="https://www.netlify.com"
-          target="_blank"
-          rel="noreferrer"
-          aria-label="Proudly powered by Netlify"
-        >
-          <span>Proudly powered by Netlify</span>
-          <img
-            src="https://www.netlify.com/assets/badges/netlify-badge-color-accent.svg"
-            alt="Netlify"
-            loading="lazy"
-          />
-        </a>
       </div>
     </footer>
 
     <script src="./site-config.js"></script>
     <script src="./app.js" type="module"></script>
     <script>
-      // Live release badge: fetch latest tag from GitHub and update chip
       ;(async () => {
         const badge = document.getElementById('footer-release-badge')
         if (!badge) return
@@ -471,13 +346,7 @@
           if (!r.ok) return
           const d = await r.json()
           if (d.tag_name) {
-            const age = d.published_at
-              ? (() => {
-                  const days = Math.floor((Date.now() - new Date(d.published_at)) / 86_400_000)
-                  return days === 0 ? 'today' : days === 1 ? '1 day ago' : `${days} days ago`
-                })()
-              : ''
-            badge.textContent = d.tag_name + (age ? ` · ${age}` : '')
+            badge.textContent = d.tag_name
           }
         } catch (_) {}
       })()
