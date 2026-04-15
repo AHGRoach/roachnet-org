@@ -165,6 +165,7 @@ function syncLandingNoiseState() {
   const viewportHeight = window.innerHeight || document.documentElement.clientHeight || 0
   const scrollSpan = Math.max(1, rect.height - viewportHeight)
   const progress = Math.min(1, Math.max(0, (-rect.top) / scrollSpan))
+  landingNoiseSection.style.setProperty('--landing-noise-progress', progress.toFixed(4))
   const nextIndex = Math.min(
     landingNoiseScenes.length - 1,
     progress >= 1 ? landingNoiseScenes.length - 1 : Math.floor(progress * landingNoiseScenes.length)

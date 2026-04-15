@@ -4814,3 +4814,307 @@ body[data-page="apps"] .apps-section-head__copy h1 {
     grid-template-columns: 1fr;
   }
 }
+
+/* ─── Final site cleanup: footer badges, landing rhythm, API typography ─── */
+body[data-page="landing"] .page-shell {
+  padding-bottom: 42px;
+}
+
+body[data-page="home"] .page-shell,
+body[data-page="ios"] .page-shell,
+body[data-page="brew"] .page-shell {
+  padding-bottom: 34px !important;
+}
+
+body[data-page="roachclaw"] .roachclaw-page,
+body[data-page="account"] .account-page,
+body[data-page="api"] .api-docs-shell,
+body[data-page="apps"] .apps-store-shell {
+  padding-bottom: 34px !important;
+}
+
+body[data-page="apps"] .apps-store-shell {
+  margin-bottom: 18px;
+}
+
+body .site-footer {
+  padding-bottom: 20px;
+}
+
+body[data-page="landing"] .site-action-pill,
+body[data-page="landing"] .site-action-pill--ghost {
+  min-height: auto;
+  padding: 0 0 8px;
+  border: none;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+body[data-page="landing"] .site-action-pill:hover,
+body[data-page="landing"] .site-action-pill--ghost:hover {
+  transform: none;
+  background: transparent;
+  border-color: transparent;
+}
+
+body[data-page="landing"] .landing-hero--editorial .landing-hero__copy h1 {
+  max-width: 10.5ch;
+  font-size: clamp(5.2rem, 11.5vw, 10rem);
+  line-height: 0.84;
+  letter-spacing: -0.085em;
+}
+
+body[data-page="landing"] .landing-hero--editorial .landing-hero__copy h1 span {
+  display: block;
+}
+
+body[data-page="landing"] .landing-hero--editorial .landing-hero__copy h1 span:last-child {
+  color: rgba(225, 234, 243, 0.82);
+}
+
+body[data-page="landing"] .landing-hero--editorial .landing-hero__copy {
+  gap: 14px;
+}
+
+body[data-page="landing"] .landing-hero--editorial .landing-hero__body {
+  max-width: 37ch;
+  font-size: clamp(1.08rem, 1.4vw, 1.24rem);
+  line-height: 1.58;
+}
+
+body[data-page="landing"] .landing-hero__subnote {
+  color: rgba(225, 234, 243, 0.56);
+}
+
+body[data-page="landing"] .landing-feel__sticky {
+  gap: clamp(28px, 4vw, 52px);
+}
+
+body[data-page="landing"] .landing-feel__copy h2 {
+  max-width: 8ch;
+  font-size: clamp(3.8rem, 6.6vw, 7rem);
+  line-height: 0.86;
+  letter-spacing: -0.08em;
+}
+
+body[data-page="landing"] .landing-feel__copy p {
+  max-width: 33ch;
+  font-size: 1.04rem;
+}
+
+body[data-page="landing"] .landing-feel__film {
+  position: relative;
+  overflow: hidden;
+  min-height: clamp(600px, 74vh, 880px);
+  border-radius: 40px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background:
+    radial-gradient(circle at top right, rgba(92, 141, 255, 0.18), transparent 28%),
+    radial-gradient(circle at 18% 100%, rgba(50, 255, 126, 0.12), transparent 26%),
+    linear-gradient(180deg, rgba(9, 12, 17, 0.96), rgba(4, 6, 9, 0.99));
+  box-shadow:
+    0 34px 90px rgba(0, 0, 0, 0.34),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  transform: translateY(calc(var(--landing-noise-progress, 0) * -16px));
+}
+
+body[data-page="landing"] .landing-feel__film::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.16;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.03), transparent 18%),
+    repeating-linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.05) 0 1px,
+      transparent 1px 14px
+    );
+  mix-blend-mode: screen;
+}
+
+body[data-page="landing"] .landing-feel__scene {
+  display: grid;
+  align-content: end;
+  gap: 18px;
+  inset: 28px;
+  padding: 34px;
+  opacity: 0.14;
+  filter: blur(12px);
+  transform: scale(0.94);
+  transition:
+    opacity 360ms ease,
+    filter 360ms ease,
+    transform 460ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+body[data-page="landing"] .landing-feel__scene.is-active {
+  opacity: 1;
+  filter: none;
+  transform: scale(1);
+}
+
+body[data-page="landing"] .landing-feel__scene strong,
+body[data-page="landing"] .landing-feel__caption strong {
+  font-size: clamp(2.1rem, 4vw, 4.4rem);
+  line-height: 0.9;
+  letter-spacing: -0.075em;
+  max-width: 9ch;
+}
+
+body[data-page="landing"] .landing-feel__scene-lines,
+body[data-page="landing"] .landing-feel__scene-grid {
+  gap: 12px;
+}
+
+body[data-page="landing"] .landing-feel__scene-lines span,
+body[data-page="landing"] .landing-feel__scene-grid span {
+  min-height: 42px;
+  padding-inline: 16px;
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+body[data-page="landing"] .landing-feel__caption {
+  padding-inline: 6px;
+  gap: 8px;
+}
+
+body[data-page="landing"] .landing-editorial__intro h2,
+body[data-page="landing"] .landing-closer h2 {
+  max-width: 10ch;
+  font-size: clamp(3.6rem, 6vw, 6.6rem);
+  line-height: 0.88;
+  letter-spacing: -0.08em;
+}
+
+body[data-page="landing"] .landing-editorial__copy h3 {
+  max-width: 10ch;
+  font-size: clamp(2.4rem, 4vw, 4.5rem);
+  line-height: 0.9;
+  letter-spacing: -0.07em;
+}
+
+body[data-page="landing"] .landing-editorial__media {
+  border-radius: 28px;
+  box-shadow:
+    0 28px 72px rgba(0, 0, 0, 0.28),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+
+body[data-page="ios"] .ios-pair-grid .support-card {
+  align-content: start;
+  min-height: 0;
+}
+
+body[data-page="ios"] .ios-pair-grid .support-card h3 {
+  max-width: none;
+  font-size: clamp(1rem, 1.45vw, 1.16rem);
+  line-height: 1.24;
+  overflow-wrap: anywhere;
+  text-wrap: pretty;
+}
+
+body[data-page="ios"] .ios-pair-grid .support-card h3 code {
+  white-space: normal;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+body[data-page="api"] .api-docs-shell {
+  width: min(1380px, calc(100vw - 40px));
+  gap: 24px;
+  padding-top: 24px;
+}
+
+body[data-page="api"] .api-docs-sidebar__intro h1,
+body[data-page="api"] .api-docs-topbar__title strong,
+body[data-page="api"] .api-docs-hero h2,
+body[data-page="api"] .api-route-card strong,
+body[data-page="api"] .api-detail-header h3,
+body[data-page="api"] .api-empty-state h3,
+body[data-page="api"] .api-docs-group__copy strong {
+  font-family:
+    "Inter",
+    "SF Pro Display",
+    -apple-system,
+    BlinkMacSystemFont,
+    sans-serif;
+}
+
+body[data-page="api"] .api-docs-sidebar__intro h1 {
+  max-width: 9.5ch;
+  font-size: clamp(1.9rem, 3vw, 2.55rem);
+  line-height: 0.95;
+  letter-spacing: -0.06em;
+}
+
+body[data-page="api"] .api-docs-topbar {
+  grid-template-columns: minmax(0, 1fr) minmax(300px, 420px) auto;
+  gap: 18px;
+  padding: 20px 24px;
+}
+
+body[data-page="api"] .api-docs-topbar__title strong {
+  font-size: 1.18rem;
+  line-height: 1.08;
+  letter-spacing: -0.04em;
+}
+
+body[data-page="api"] .api-docs-hero {
+  grid-template-columns: minmax(0, 1.12fr) minmax(280px, 0.88fr);
+  gap: 20px;
+  padding: 28px;
+}
+
+body[data-page="api"] .api-docs-hero h2 {
+  font-size: clamp(2.1rem, 3.7vw, 3.4rem);
+  line-height: 0.92;
+  letter-spacing: -0.06em;
+}
+
+body[data-page="api"] .api-docs-sidebar__intro p,
+body[data-page="api"] .api-docs-hero p,
+body[data-page="api"] .api-route-card p,
+body[data-page="api"] .api-detail-header p,
+body[data-page="api"] .api-detail-block p,
+body[data-page="api"] .api-empty-state p {
+  max-width: 62ch;
+  font-family:
+    "Inter",
+    "SF Pro Display",
+    -apple-system,
+    BlinkMacSystemFont,
+    sans-serif;
+}
+
+body[data-page="api"] .api-docs-workspace {
+  grid-template-columns: minmax(0, 1.12fr) minmax(320px, 0.88fr);
+  gap: 20px;
+}
+
+body[data-page="api"] .api-route-card {
+  gap: 10px;
+  padding: 18px;
+}
+
+body[data-page="api"] .api-route-card strong {
+  font-size: 1rem;
+  line-height: 1.22;
+}
+
+body[data-page="api"] .api-detail-pane,
+body[data-page="api"] .api-route-pane {
+  padding: 20px;
+}
+
+@media (max-width: 1120px) {
+  body[data-page="api"] .api-docs-topbar,
+  body[data-page="api"] .api-docs-hero,
+  body[data-page="api"] .api-docs-workspace,
+  body[data-page="ios"] .ios-pair-grid.card-grid--three {
+    grid-template-columns: 1fr;
+  }
+}
