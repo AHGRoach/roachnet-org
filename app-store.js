@@ -1346,6 +1346,47 @@ function previewTitle(item, fallback) {
   return subtitle.length > 48 ? fallback : subtitle
 }
 
+const fieldPreviewSections = new Set([
+  'Survival & Preparedness',
+  'Travel & Field Guides',
+  'Travel, Mobility & Outdoors',
+  'Homestead & Sustainability',
+  'Agriculture & Food',
+])
+
+const studyPreviewSections = new Set([
+  'Education & Reference',
+  'Open Courses & Lectures',
+  'Law, History & Society',
+  'Language & Writing',
+  'Dictionaries & Primary Sources',
+  'Wikipedia',
+  'Kids & Family',
+  'Games, Film & Pop Culture',
+])
+
+const technicalPreviewSections = new Set([
+  'Science & Simulations',
+  'Math & Problem Solving',
+  'DIY & Repair',
+  'Maker & Electronics',
+  'Finance & Crypto',
+  'Software Development',
+  'Machine Learning & Data Science',
+  'Platforms & Systems',
+  'Security & Privacy',
+  'IT & Infrastructure',
+  'Design & Visual Media',
+])
+
+function buildPanel(label, title, lines) {
+  return {
+    label,
+    title,
+    lines: lines.map((line) => trimPreviewLine(line)).filter(Boolean).slice(0, 3),
+  }
+}
+
 function buildPreviewPanels(item) {
   const pool = normalizedPreviewPool(item)
   const fallbackLines = pool.slice(0, 3)
@@ -1477,6 +1518,66 @@ function buildPreviewPanels(item) {
           'Works cleanly when the network is bad',
         ],
       },
+    ]
+  }
+
+  if (fieldPreviewSections.has(item.section)) {
+    return [
+      buildPanel('Field view', previewTitle(item, 'Go-bag reference'), [
+        item.detail?.[0] || 'Practical field notes without the browser mess',
+        item.includes?.[0] || 'Offline reading built for bad connections',
+        item.includes?.[1] || 'Reference that stays local when you leave the desk',
+      ]),
+      buildPanel('Inside the pack', 'What lands in RoachNet', [
+        item.includes?.[0] || 'Checklists and working notes',
+        item.includes?.[1] || 'Long-form reading and guides',
+        item.includes?.[2] || 'Named shelf with direct native handoff',
+      ]),
+      buildPanel('Use it when', 'Useful away from the desk', [
+        item.machineFit || 'Good on a field machine or travel laptop',
+        item.detail?.[1] || 'Built for the quick answer first',
+        'Snaps into the right shelf automatically',
+      ]),
+    ]
+  }
+
+  if (studyPreviewSections.has(item.section)) {
+    return [
+      buildPanel('Shelf preview', previewTitle(item, 'Contained study shelf'), [
+        item.detail?.[0] || 'Long-form reading without the tab pile',
+        item.includes?.[0] || 'Structured chapters and reference paths',
+        item.includes?.[1] || 'Searchable locally inside RoachNet',
+      ]),
+      buildPanel('Inside the pack', 'What you open first', [
+        item.includes?.[0] || 'Primary texts and course chapters',
+        item.includes?.[1] || 'Reference lookups and side reading',
+        item.includes?.[2] || 'Fast shelf handoff into the vault',
+      ]),
+      buildPanel('Why install it', 'Useful when the signal drops', [
+        item.machineFit || 'Good for keeping core reading close',
+        item.detail?.[1] || 'Stays readable offline',
+        'Feels like a shelf, not a downloads folder',
+      ]),
+    ]
+  }
+
+  if (technicalPreviewSections.has(item.section)) {
+    return [
+      buildPanel('Workbench view', previewTitle(item, 'Technical reference lane'), [
+        item.detail?.[0] || 'Answers that stay on the machine instead of in old tabs',
+        item.includes?.[0] || 'Command-ready notes and references',
+        item.includes?.[1] || 'Local shelf search when the session gets long',
+      ]),
+      buildPanel('Inside the pack', 'What lands in the shelf', [
+        item.includes?.[0] || 'Guides and primary docs',
+        item.includes?.[1] || 'Worked examples and deeper notes',
+        item.includes?.[2] || 'Named install with clean native placement',
+      ]),
+      buildPanel('Machine fit', 'Built for long sessions', [
+        item.machineFit || 'Useful on the builder machine',
+        item.detail?.[1] || 'Good when you need the answer without breaking flow',
+        'Shows up in the right RoachNet lane automatically',
+      ]),
     ]
   }
 

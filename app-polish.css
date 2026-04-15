@@ -4723,13 +4723,13 @@ body[data-page="landing"] .landing-choice__links {
 
 body[data-page="apps"] .apps-preview-stage {
   grid-template-columns: minmax(0, 1.08fr) minmax(280px, 0.72fr);
-  align-items: center;
-  gap: 28px;
+  align-items: start;
+  gap: 22px;
 }
 
 body[data-page="apps"] .apps-preview-stage__art {
   gap: 16px;
-  align-content: center;
+  align-content: start;
 }
 
 body[data-page="apps"] .apps-preview-stage__surface {
@@ -4745,16 +4745,21 @@ body[data-page="apps"] .apps-preview-stage__stack {
 }
 
 body[data-page="apps"] .apps-preview-stage__icon {
-  width: min(100%, 320px);
-  justify-self: center;
+  width: min(100%, 286px);
+  justify-self: end;
 }
 
 body[data-page="apps"] .apps-preview-stage__icon .store-generated-icon--hero {
-  min-height: 320px;
+  min-height: 286px;
 }
 
 body[data-page="apps"] .apps-card__head {
   align-items: flex-start;
+}
+
+body[data-page="apps"] .apps-hero-panel__copy {
+  display: grid;
+  align-content: start;
 }
 
 body[data-page="apps"] .apps-card__copy {
@@ -5919,10 +5924,10 @@ body[data-page="landing"] .shortcut-key {
 /* ─── Landing rebuild: Raycast why-style editorial root ─────────────────── */
 body[data-page="landing"] .page-shell.landing-why {
   position: relative;
-  width: min(1180px, calc(100vw - 48px));
+  width: min(1280px, calc(100vw - 48px));
   gap: 0;
-  padding-top: clamp(112px, 15vh, 156px);
-  padding-bottom: 120px;
+  padding-top: clamp(106px, 14vh, 148px);
+  padding-bottom: 136px;
 }
 
 body[data-page="landing"] .site-header {
@@ -5986,30 +5991,218 @@ body[data-page="landing"] .landing-why__story,
 body[data-page="landing"] .landing-shortcut--essay {
   position: relative;
   z-index: 2;
-  width: min(640px, 100%);
+  width: min(760px, 100%);
   margin-inline: auto;
 }
 
 body[data-page="landing"] .landing-why__hero {
+  width: 100%;
+  display: grid;
+  grid-template-columns: minmax(0, 620px) minmax(320px, 1fr);
+  align-items: center;
+  gap: clamp(28px, 5vw, 72px);
+  min-height: clamp(420px, 64vh, 740px);
+  padding-bottom: 52px;
+}
+
+body[data-page="landing"] .landing-why__hero-copy {
   display: grid;
   gap: 18px;
-  min-height: clamp(300px, 42vh, 420px);
 }
 
 body[data-page="landing"] .landing-why__hero h1 {
   margin: 0;
-  max-width: 7.2ch;
+  display: grid;
+  gap: 10px;
+  max-width: 9.2ch;
   font-family: var(--rn-font-landing);
-  font-size: clamp(5.2rem, 10vw, 8.4rem);
-  line-height: 0.86;
-  letter-spacing: -0.092em;
+  font-size: clamp(4.9rem, 8.2vw, 8.5rem);
+  line-height: 0.84;
+  letter-spacing: -0.098em;
   text-wrap: balance;
   animation: landingFadeRise 760ms cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
+body[data-page="landing"] .landing-why__hero h1 span {
+  display: block;
+}
+
+body[data-page="landing"] .landing-why__hero h1 span:first-child {
+  color: rgba(247, 250, 253, 0.98);
+}
+
+body[data-page="landing"] .landing-why__hero h1 span:last-child {
+  color: rgba(227, 234, 241, 0.76);
+  letter-spacing: -0.074em;
+  word-spacing: 0.12em;
+}
+
+body[data-page="landing"] .landing-why__hero-note {
+  max-width: 23ch;
+  margin: 0;
+  font-family: var(--rn-font-landing);
+  font-size: clamp(1.18rem, 1.7vw, 1.42rem);
+  line-height: 1.5;
+  letter-spacing: -0.024em;
+  color: rgba(227, 234, 241, 0.7);
+  animation: landingFadeRise 920ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+body[data-page="landing"] .landing-why__hero-stage {
+  position: relative;
+  min-height: clamp(360px, 44vw, 620px);
+  overflow: hidden;
+  isolation: isolate;
+}
+
+body[data-page="landing"] .landing-why__hero-glow,
+body[data-page="landing"] .landing-why__hero-track,
+body[data-page="landing"] .landing-why__hero-orbit,
+body[data-page="landing"] .landing-why__hero-core {
+  position: absolute;
+}
+
+body[data-page="landing"] .landing-why__hero-glow {
+  border-radius: 999px;
+  filter: blur(38px);
+  opacity: 0.84;
+}
+
+body[data-page="landing"] .landing-why__hero-glow--green {
+  top: 14%;
+  left: 16%;
+  width: 190px;
+  height: 190px;
+  background: rgba(74, 255, 162, 0.28);
+  animation: landingHeroPulse 7.2s ease-in-out infinite;
+}
+
+body[data-page="landing"] .landing-why__hero-glow--magenta {
+  right: 8%;
+  bottom: 8%;
+  width: 220px;
+  height: 220px;
+  background: rgba(210, 74, 255, 0.22);
+  animation: landingHeroPulse 9.4s ease-in-out infinite reverse;
+}
+
+body[data-page="landing"] .landing-why__hero-track {
+  left: -8%;
+  right: -8%;
+  height: 108px;
+  border-radius: 999px;
+  background:
+    linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.06), transparent),
+    linear-gradient(120deg, rgba(67, 255, 161, 0.42), rgba(215, 70, 255, 0.34), rgba(92, 141, 255, 0.28));
+  transform: rotate(-24deg);
+  opacity: 0.64;
+  filter: blur(0.2px);
+}
+
+body[data-page="landing"] .landing-why__hero-track::after {
+  content: "";
+  position: absolute;
+  inset: 14px 22px;
+  border-radius: inherit;
+  background:
+    repeating-linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.24) 0 2px,
+      transparent 2px 22px
+    );
+  mix-blend-mode: screen;
+  opacity: 0.6;
+}
+
+body[data-page="landing"] .landing-why__hero-track--one {
+  top: 9%;
+  animation: landingHeroRailA 11s ease-in-out infinite;
+}
+
+body[data-page="landing"] .landing-why__hero-track--two {
+  top: 36%;
+  animation: landingHeroRailB 12.8s ease-in-out infinite;
+}
+
+body[data-page="landing"] .landing-why__hero-track--three {
+  top: 65%;
+  animation: landingHeroRailC 14.6s ease-in-out infinite;
+}
+
+body[data-page="landing"] .landing-why__hero-orbit {
+  top: 8%;
+  right: 6%;
+  display: grid;
+  gap: 12px;
+  justify-items: end;
+  animation: landingHeroFloat 8.8s ease-in-out infinite;
+}
+
+body[data-page="landing"] .landing-why__hero-orbit span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 34px;
+  padding: 0 16px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(10, 14, 20, 0.56);
+  box-shadow:
+    0 12px 24px rgba(0, 0, 0, 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  font-size: 0.86rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(239, 244, 248, 0.88);
+}
+
+body[data-page="landing"] .landing-why__hero-core {
+  left: 14%;
+  right: 14%;
+  bottom: 14%;
+  display: grid;
+  gap: 14px;
+  padding: 26px 28px;
+  border-radius: 34px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02)),
+    rgba(9, 13, 18, 0.76);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow:
+    0 28px 56px rgba(0, 0, 0, 0.26),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  animation: landingHeroCore 9.8s ease-in-out infinite;
+}
+
+body[data-page="landing"] .landing-why__hero-core-label {
+  color: rgba(221, 229, 237, 0.54);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+body[data-page="landing"] .landing-why__hero-core strong {
+  font-family: var(--rn-font-landing);
+  font-size: clamp(2.8rem, 5vw, 4.8rem);
+  line-height: 0.9;
+  letter-spacing: -0.09em;
+  color: rgba(247, 250, 253, 0.98);
+}
+
+body[data-page="landing"] .landing-why__hero-core p {
+  margin: 0;
+  max-width: 22ch;
+  font-size: 1rem;
+  line-height: 1.48;
+  color: rgba(229, 236, 242, 0.72);
+}
+
 body[data-page="landing"] .landing-why__story {
   display: grid;
-  gap: 42px;
+  gap: 48px;
 }
 
 body[data-page="landing"] .landing-why__block {
@@ -6022,9 +6215,9 @@ body[data-page="landing"] .landing-why__list li,
 body[data-page="landing"] .landing-shortcut--essay .landing-shortcut__copy p {
   margin: 0;
   font-family: var(--rn-font-landing);
-  font-size: clamp(1.34rem, 1.7vw, 1.58rem);
-  line-height: 1.56;
-  letter-spacing: -0.022em;
+  font-size: clamp(1.24rem, 1.42vw, 1.46rem);
+  line-height: 1.6;
+  letter-spacing: -0.018em;
   color: rgba(228, 235, 243, 0.78);
 }
 
@@ -6051,9 +6244,9 @@ body[data-page="landing"] .landing-why__pullquote-mark {
 body[data-page="landing"] .landing-why__pullquote p {
   margin: 0;
   font-family: var(--rn-font-landing);
-  font-size: clamp(2.2rem, 4.5vw, 4.3rem);
-  line-height: 0.96;
-  letter-spacing: -0.074em;
+  font-size: clamp(2.5rem, 4.8vw, 4.6rem);
+  line-height: 0.94;
+  letter-spacing: -0.082em;
   color: rgba(246, 249, 252, 0.96);
   text-wrap: balance;
 }
@@ -6082,7 +6275,7 @@ body[data-page="landing"] .landing-why__list li::before {
 body[data-page="landing"] .landing-shortcut--essay {
   display: grid;
   gap: 18px;
-  padding-top: 68px;
+  padding-top: 82px;
 }
 
 body[data-page="landing"] .landing-shortcut--essay .landing-shortcut__copy {
@@ -6093,7 +6286,7 @@ body[data-page="landing"] .landing-shortcut--essay .landing-shortcut__copy {
 body[data-page="landing"] .landing-shortcut--essay .landing-shortcut__copy h2 {
   margin: 0;
   font-family: var(--rn-font-landing);
-  font-size: clamp(2.6rem, 5vw, 4.8rem);
+  font-size: clamp(2.9rem, 5vw, 5rem);
   line-height: 0.92;
   letter-spacing: -0.08em;
   text-wrap: balance;
@@ -6163,25 +6356,40 @@ body[data-page="landing"] .landing-why__ribbons::after {
 
 body[data-page="landing"] .landing-why__ribbons--top {
   top: 72px;
-  height: clamp(190px, 28vw, 320px);
+  height: clamp(210px, 29vw, 340px);
 }
 
 body[data-page="landing"] .landing-why__ribbons--bottom {
-  bottom: 24px;
-  height: clamp(230px, 34vw, 380px);
+  bottom: 12px;
+  height: clamp(260px, 34vw, 420px);
 }
 
 body[data-page="landing"] .landing-why__wordmark {
   position: absolute;
-  left: 18px;
-  right: 18px;
-  bottom: 18px;
+  left: 0;
+  right: 0;
+  bottom: 34px;
+  text-align: center;
   font-family: var(--rn-font-landing);
   font-size: clamp(4.2rem, 13vw, 11rem);
   line-height: 0.84;
   letter-spacing: -0.1em;
-  color: rgba(12, 16, 22, 0.82);
+  color: rgba(241, 246, 250, 0.18);
+  text-shadow: 0 0 44px rgba(81, 255, 164, 0.12);
   text-transform: none;
+}
+
+body[data-page="landing"] .landing-why__wordmark-tag {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 16px;
+  text-align: center;
+  color: rgba(235, 242, 247, 0.52);
+  font-size: 0.86rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
 }
 
 body[data-page="landing"] .site-footer {
@@ -6192,13 +6400,30 @@ body[data-page="landing"] .site-footer {
 
 @media (max-width: 1120px) {
   body[data-page="landing"] .page-shell.landing-why {
-    width: min(980px, calc(100vw - 40px));
+    width: min(1080px, calc(100vw - 40px));
   }
 
-  body[data-page="landing"] .landing-why__hero,
   body[data-page="landing"] .landing-why__story,
   body[data-page="landing"] .landing-shortcut--essay {
-    width: min(600px, 100%);
+    width: min(700px, 100%);
+  }
+
+  body[data-page="landing"] .landing-why__hero {
+    grid-template-columns: 1fr;
+    align-items: start;
+    min-height: auto;
+    gap: 34px;
+  }
+
+  body[data-page="landing"] .landing-why__hero-copy {
+    width: min(700px, 100%);
+    margin-inline: auto;
+  }
+
+  body[data-page="landing"] .landing-why__hero-stage {
+    width: min(700px, 100%);
+    margin-inline: auto;
+    min-height: 420px;
   }
 }
 
@@ -6209,18 +6434,44 @@ body[data-page="landing"] .site-footer {
     padding-bottom: 96px;
   }
 
-  body[data-page="landing"] .landing-why__hero,
   body[data-page="landing"] .landing-why__story,
   body[data-page="landing"] .landing-shortcut--essay {
     width: 100%;
   }
 
   body[data-page="landing"] .landing-why__hero {
-    min-height: 220px;
+    gap: 24px;
+    padding-bottom: 34px;
   }
 
   body[data-page="landing"] .landing-why__hero h1 {
     font-size: clamp(3.7rem, 18vw, 5.8rem);
+  }
+
+  body[data-page="landing"] .landing-why__hero-note {
+    max-width: none;
+    font-size: 1.08rem;
+  }
+
+  body[data-page="landing"] .landing-why__hero-stage {
+    min-height: 320px;
+  }
+
+  body[data-page="landing"] .landing-why__hero-core {
+    left: 8%;
+    right: 8%;
+    bottom: 10%;
+    padding: 20px 22px;
+  }
+
+  body[data-page="landing"] .landing-why__hero-orbit {
+    gap: 10px;
+  }
+
+  body[data-page="landing"] .landing-why__hero-orbit span {
+    min-height: 30px;
+    padding-inline: 12px;
+    font-size: 0.74rem;
   }
 
   body[data-page="landing"] .landing-why__pullquote p {
@@ -6244,5 +6495,73 @@ body[data-page="landing"] .site-footer {
 
   body[data-page="landing"] .landing-why__ribbons--bottom {
     height: 220px;
+  }
+}
+
+@keyframes landingHeroRailA {
+  0%,
+  100% {
+    transform: rotate(-24deg) translate3d(-26px, -6px, 0);
+    opacity: 0.46;
+  }
+  50% {
+    transform: rotate(-24deg) translate3d(18px, 10px, 0);
+    opacity: 0.82;
+  }
+}
+
+@keyframes landingHeroRailB {
+  0%,
+  100% {
+    transform: rotate(-24deg) translate3d(22px, 6px, 0);
+    opacity: 0.38;
+  }
+  50% {
+    transform: rotate(-24deg) translate3d(-14px, -12px, 0);
+    opacity: 0.74;
+  }
+}
+
+@keyframes landingHeroRailC {
+  0%,
+  100% {
+    transform: rotate(-24deg) translate3d(-12px, 10px, 0);
+    opacity: 0.4;
+  }
+  50% {
+    transform: rotate(-24deg) translate3d(20px, -8px, 0);
+    opacity: 0.78;
+  }
+}
+
+@keyframes landingHeroFloat {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(-10px, 10px, 0);
+  }
+}
+
+@keyframes landingHeroCore {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(0, -8px, 0);
+  }
+}
+
+@keyframes landingHeroPulse {
+  0%,
+  100% {
+    transform: scale(0.92);
+    opacity: 0.52;
+  }
+  50% {
+    transform: scale(1.08);
+    opacity: 0.9;
   }
 }
