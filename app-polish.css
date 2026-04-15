@@ -5207,16 +5207,16 @@ body[data-page="landing"] .landing-hero--why .landing-hero__actions {
 }
 
 body[data-page="landing"] .landing-feel {
-  min-height: 292svh;
+  min-height: 328svh;
 }
 
 body[data-page="landing"] .landing-feel__sticky {
   position: sticky;
-  top: 94px;
+  top: 84px;
   display: grid;
   grid-template-columns: minmax(320px, 0.82fr) minmax(0, 1.18fr);
   gap: clamp(32px, 5vw, 64px);
-  min-height: calc(100svh - 118px);
+  min-height: calc(100svh - 104px);
   align-items: center;
 }
 
@@ -5298,7 +5298,7 @@ body[data-page="landing"] .landing-feel__rail-dot {
 
 body[data-page="landing"] .landing-feel__film {
   position: relative;
-  min-height: clamp(620px, 76vh, 880px);
+  min-height: clamp(660px, 78vh, 920px);
   overflow: hidden;
   border-radius: 42px;
   border: 1px solid rgba(255, 255, 255, 0.08);
@@ -5350,11 +5350,11 @@ body[data-page="landing"] .landing-feel__film::after {
 
 body[data-page="landing"] .landing-feel__scene {
   position: absolute;
-  inset: 28px;
+  inset: 34px;
   display: grid;
   align-content: end;
-  gap: 18px;
-  padding: 34px;
+  gap: 22px;
+  padding: 40px;
   border-radius: 32px;
   opacity: calc(0.04 + (var(--scene-visibility, 0) * 0.96));
   filter: blur(calc((1 - var(--scene-visibility, 0)) * 18px));
@@ -5391,7 +5391,7 @@ body[data-page="landing"] .landing-feel__scene.is-active {
 body[data-page="landing"] .landing-feel__scene strong {
   position: relative;
   z-index: 1;
-  max-width: 8ch;
+  max-width: 7.3ch;
   margin: 0;
   font-size: clamp(2.3rem, 4.1vw, 4.6rem);
   line-height: 0.88;
@@ -5434,7 +5434,7 @@ body[data-page="landing"] .landing-feel__scene-grid {
   position: relative;
   z-index: 1;
   display: grid;
-  gap: 12px;
+  gap: 14px;
 }
 
 body[data-page="landing"] .landing-feel__scene-lines span,
@@ -5474,20 +5474,38 @@ body[data-page="landing"] .landing-feel__scene-grid {
 
 body[data-page="landing"] .landing-feel__caption {
   position: absolute;
-  left: 52px;
-  right: 52px;
-  bottom: 34px;
+  left: 58px;
+  right: 58px;
+  bottom: 40px;
   display: grid;
   gap: 8px;
   pointer-events: none;
-  transform: translateY(calc((var(--landing-noise-progress, 0) - 0.5) * -8px));
-  transition: transform 180ms linear;
+  opacity: calc(1 - (var(--landing-noise-beat, 0) * 0.12));
+  transform:
+    translateY(calc((var(--landing-noise-progress, 0) - 0.5) * -6px))
+    scale(calc(1 - (var(--landing-noise-beat, 0) * 0.015)));
+  transition: transform 180ms linear, opacity 180ms linear;
 }
 
 body[data-page="landing"] .landing-feel__caption p {
   max-width: 34ch;
   margin: 0;
   color: rgba(229, 236, 243, 0.68);
+}
+
+body[data-page="landing"] .landing-feel__scene-lines span:nth-child(2),
+body[data-page="landing"] .landing-feel__scene-grid span:nth-child(2) {
+  transition-delay: 28ms;
+}
+
+body[data-page="landing"] .landing-feel__scene-lines span:nth-child(3),
+body[data-page="landing"] .landing-feel__scene-grid span:nth-child(3) {
+  transition-delay: 56ms;
+}
+
+body[data-page="landing"] .landing-feel__scene-lines span:nth-child(4),
+body[data-page="landing"] .landing-feel__scene-grid span:nth-child(4) {
+  transition-delay: 84ms;
 }
 
 body[data-page="landing"] .landing-hero--why .landing-hero__copy > * {
@@ -5780,7 +5798,7 @@ body[data-page="landing"] .site-footer {
   }
 
   body[data-page="landing"] .landing-feel__film {
-    min-height: 560px;
+    min-height: 580px;
     border-radius: 30px;
   }
 

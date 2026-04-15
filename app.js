@@ -165,8 +165,30 @@ function applyLandingNoiseState(progress) {
   }
 
   const sceneSpan = Math.max(1, landingNoiseScenes.length - 1)
-  const scenePhase = progress * sceneSpan
-  const phaseBeat = 1 - Math.min(1, Math.abs(scenePhase - Math.round(scenePhase)) * 2)
+  const rawPhase = progress * sceneSpan
+  const dwellStart = 0.2
+  const dwellEnd = 0.8
+  let scenePhase = rawPhase
+  let phaseBeat = 0
+
+  if (rawPhase < sceneSpan) {
+    const segmentIndex = Math.floor(rawPhase)
+    const localPhase = rawPhase - segmentIndex
+
+    if (localPhase <= dwellStart) {
+      scenePhase = segmentIndex
+      phaseBeat = 0
+    } else if (localPhase >= dwellEnd) {
+      scenePhase = segmentIndex + 1
+      phaseBeat = 0
+    } else {
+      const transition = (localPhase - dwellStart) / (dwellEnd - dwellStart)
+      const easedTransition = transition * transition * (3 - 2 * transition)
+      scenePhase = segmentIndex + easedTransition
+      phaseBeat = 1 - Math.abs(transition * 2 - 1)
+    }
+  }
+
   landingNoiseSection.style.setProperty('--landing-noise-progress', progress.toFixed(4))
   landingNoiseSection.style.setProperty('--landing-noise-phase', scenePhase.toFixed(4))
   landingNoiseSection.style.setProperty('--landing-noise-beat', phaseBeat.toFixed(4))
