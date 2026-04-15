@@ -1255,48 +1255,6 @@ function renderBadgeRow(item) {
   `
 }
 
-function getPreviewSurface(item) {
-  const section = String(item.section || '').toLowerCase()
-  const category = String(item.category || '').toLowerCase()
-  const title = String(item.title || '').toLowerCase()
-
-  if (section.includes('map') || category.includes('map') || category.includes('travel')) {
-    return {
-      src: 'https://roachnet.org/assets/screens/roachnet-native-maps.jpg',
-      alt: 'RoachNet Maps surface',
-      label: 'Maps lane',
-    }
-  }
-
-  if (section.includes('model') || category.includes('local ai') || title.includes('roachclaw')) {
-    return {
-      src: 'https://roachnet.org/assets/screens/roachnet-native-roachclaw.jpg',
-      alt: 'RoachClaw surface',
-      label: 'RoachClaw lane',
-    }
-  }
-
-  if (
-    category.includes('computing') ||
-    category.includes('machine-learning') ||
-    category.includes('platforms') ||
-    category.includes('security') ||
-    category.includes('it-infrastructure')
-  ) {
-    return {
-      src: 'https://roachnet.org/assets/screens/roachnet-native-dev.jpg',
-      alt: 'RoachNet Dev surface',
-      label: 'Dev lane',
-    }
-  }
-
-  return {
-    src: 'https://roachnet.org/assets/screens/roachnet-native-home.jpg',
-    alt: 'RoachNet Home surface',
-    label: 'Home lane',
-  }
-}
-
 function renderCard(item) {
   const isSelected = item.id === state.activePreviewId
 
@@ -1311,10 +1269,14 @@ function renderCard(item) {
       aria-pressed="${isSelected ? 'true' : 'false'}"
     >
       <div class="apps-card__head">
-        <div class="apps-card__icon">${renderStoreIcon(item, 'compact')}</div>
         <div class="apps-card__copy">
-          <span class="apps-card__code">${escapeHtml(item.codeLabel)}</span>
-          <h3>${escapeHtml(item.title)}</h3>
+          <div class="apps-card__title-row">
+            <div class="apps-card__icon">${renderStoreIcon(item, 'compact')}</div>
+            <div class="apps-card__title-copy">
+              <span class="apps-card__code">${escapeHtml(item.codeLabel)}</span>
+              <h3>${escapeHtml(item.title)}</h3>
+            </div>
+          </div>
           <p>${escapeHtml(item.blurb)}</p>
         </div>
       </div>
@@ -1358,7 +1320,6 @@ function renderPreviewStage(item, options = {}) {
   const secondary = item.detail?.[1] || item.machineFit || item.source || ''
   const previewTopics = (item.includes?.slice(0, 3) || [item.section, item.category, item.machineFit].filter(Boolean)).slice(0, 3)
   const detailUrl = item.detailUrl || item.primaryUrl
-  const previewSurface = getPreviewSurface(item)
 
   return `
     <section class="apps-preview-stage apps-hero-panel" data-accent="${item.accent || 'blue'}">
@@ -1386,9 +1347,8 @@ function renderPreviewStage(item, options = {}) {
       </div>
 
       <div class="apps-hero-panel__art apps-preview-stage__art" aria-hidden="true">
-        <div class="apps-preview-stage__shot app-screen-shot app-screen-shot--dark">
-          <img src="${previewSurface.src}" alt="${escapeHtml(previewSurface.alt)}" />
-          <span class="screen-version-chip">${escapeHtml(previewSurface.label)}</span>
+        <div class="apps-hero-panel__icon apps-preview-stage__icon">
+          ${renderStoreIcon(item, 'hero')}
         </div>
         <div class="apps-hero-panel__strip">
           <span>${escapeHtml(item.section)}</span>
