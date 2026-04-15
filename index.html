@@ -63,24 +63,22 @@
     </header>
 
     <main id="top" class="page-shell">
-      <section class="landing-hero landing-hero--editorial">
+      <section class="landing-hero landing-hero--editorial landing-hero--why">
         <div class="landing-hero__copy">
-          <p class="eyebrow">RoachNet</p>
+          <p class="eyebrow">Offline on purpose</p>
           <h1><span>You weren’t crazy.</span><span>The cloud got noisy.</span></h1>
           <p class="landing-hero__body">
-            You used to sit down, open the laptop, and just build. Then the work started living in tabs, logins, dashboards, and hosted tools that keep trying to help by getting in the way.
+            You used to sit down, open your laptop, and just build. Hours would disappear into code, writing, and research, not into debugging your setup, chasing logins, or nursing along some “smart” cloud tool that keeps trying to help by getting in your way.
           </p>
           <p class="landing-hero__body">
-            You still want the same thing: a machine that is yours, tools that do not move, and a setup that keeps working when the internet does not.
+            You still want the same thing: a machine that is yours, tools that do not move, and a setup that keeps working, even when the internet does not.
           </p>
-
           <div class="landing-hero__actions">
             <a class="cta cta--primary" href="#download">Bring it home</a>
             <a class="cta cta--ghost" href="https://roachnet.org/home/">Open Home</a>
           </div>
-
           <p class="landing-hero__subnote">
-            RoachNet is an offline-first suite for AI, archiving, and development that actually lives on your machines.
+            RoachNet is an offline-first suite for AI, archiving, maps, and development that actually lives on your machines.
           </p>
         </div>
       </section>
@@ -91,7 +89,7 @@
             <p class="eyebrow">You weren’t crazy.</p>
             <h2>The stack got louder. The work did not.</h2>
             <p>
-              More tabs. More logins. More tools trying to manage the machine instead of getting out of the way. The hardware stayed yours. The important parts started living somewhere else.
+              Now the work lives in tabs, identity providers, SaaS dashboards, and too many tools that want your attention before they let you do the work.
             </p>
           </div>
 
@@ -102,43 +100,63 @@
             </div>
 
             <div class="landing-feel__film">
-              <article class="landing-feel__scene is-active" data-landing-noise-scene data-scene-title="Open the lid. Start building." data-scene-copy="That used to be enough.">
+              <article
+                class="landing-feel__scene is-active"
+                data-landing-noise-scene
+                data-scene-title="You opened the laptop and just built."
+                data-scene-copy="Hours disappeared into the work instead of the setup."
+              >
                 <span class="landing-feel__scene-kicker">Before the pile</span>
-                <strong>Open the lid. Build.</strong>
-                <div class="landing-feel__scene-lines">
+                <strong>Open the lid. Start building.</strong>
+                <div class="landing-feel__scene-lines landing-feel__scene-lines--signal">
                   <span>editor ready</span>
                   <span>project loaded</span>
                   <span>focus intact</span>
                 </div>
               </article>
 
-              <article class="landing-feel__scene" data-landing-noise-scene data-scene-title="Then every tool wanted a dashboard." data-scene-copy="The stack became a pile of hosted surfaces, status checks, and logins before the real work could even start.">
+              <article
+                class="landing-feel__scene"
+                data-landing-noise-scene
+                data-scene-title="Then every tool wanted a dashboard."
+                data-scene-copy="Simple actions turned into long detours through status checks, hosted surfaces, and session prompts."
+              >
                 <span class="landing-feel__scene-kicker">The drift</span>
-                <strong>Tabs multiplied. The work did not.</strong>
+                <strong>Simple actions turned into detours.</strong>
                 <div class="landing-feel__scene-lines landing-feel__scene-lines--noise">
-                  <span>dashboard redesign shipped</span>
                   <span>workspace session expired</span>
-                  <span>2FA challenge required</span>
-                  <span>subscription trial ended</span>
+                  <span>verification required</span>
+                  <span>dashboard redesign shipped</span>
+                  <span>subscription changed</span>
                 </div>
               </article>
 
-              <article class="landing-feel__scene" data-landing-noise-scene data-scene-title="The machine stopped feeling like yours." data-scene-copy="You were still on your own hardware, but the important parts were scattered across other people’s products and timelines.">
-                <span class="landing-feel__scene-kicker">The friction</span>
+              <article
+                class="landing-feel__scene"
+                data-landing-noise-scene
+                data-scene-title="The hardware stayed yours. The important parts did not."
+                data-scene-copy="Your AI, docs, archive, and runtime kept drifting further into other people’s products."
+              >
+                <span class="landing-feel__scene-kicker">The fracture</span>
                 <strong>Your stack started living somewhere else.</strong>
                 <div class="landing-feel__scene-grid">
-                  <span>identity provider</span>
                   <span>hosted ai</span>
                   <span>remote vault</span>
+                  <span>identity provider</span>
                   <span>saas docs</span>
                 </div>
               </article>
 
-              <article class="landing-feel__scene" data-landing-noise-scene data-scene-title="RoachNet brings the important stuff home." data-scene-copy="AI, archive, code, maps, and your runtime come back under one contained roof so the machine feels quiet again.">
+              <article
+                class="landing-feel__scene"
+                data-landing-noise-scene
+                data-scene-title="RoachNet brings the important stuff home."
+                data-scene-copy="AI, archive, maps, runtime, and installs sit under one contained roof so the machine feels quiet again."
+              >
                 <span class="landing-feel__scene-kicker">The correction</span>
-                <strong>A quieter foundation for modern work.</strong>
+                <strong>One contained stack. The machine feels like yours again.</strong>
                 <div class="landing-feel__scene-lines landing-feel__scene-lines--signal">
-                  <span>roachclaw local</span>
+                  <span>RoachClaw local</span>
                   <span>vault attached</span>
                   <span>runtime live</span>
                   <span>internet optional</span>
@@ -148,69 +166,96 @@
 
             <div class="landing-feel__caption">
               <span class="landing-feel__caption-kicker">Sequence</span>
-              <strong data-landing-noise-title>Open the lid. Start building.</strong>
-              <p data-landing-noise-copy>That used to be enough.</p>
+              <strong data-landing-noise-title>You opened the laptop and just built.</strong>
+              <p data-landing-noise-copy>Hours disappeared into the work instead of the setup.</p>
             </div>
           </div>
         </div>
       </section>
 
-      <section class="landing-editorial">
-        <div class="landing-editorial__intro" data-reveal>
+      <section class="landing-essay">
+        <div class="landing-essay__intro" data-reveal>
           <p class="eyebrow">Meet RoachNet</p>
-          <h2>An offline-first suite for AI, archiving, and development that actually lives on your machines.</h2>
+          <h2>Meet RoachNet. An offline-first suite for AI, archiving, maps, and development that actually lives on your machines.</h2>
+        </div>
+
+        <article class="landing-essay__block" data-reveal>
           <p>
-            RoachNet treats your computer like a computer again. Models, tools, docs, maps, and your own archive run locally, sync on your terms, and do not disappear because a hosted product changed its roadmap.
+            RoachNet treats your computer like a computer again. Models, tools, docs, maps, and your own archive run locally, sync on your terms, and do not vanish because a login expired or a product manager got bored.
+          </p>
+        </article>
+
+        <article class="landing-essay__block" data-reveal>
+          <p>
+            Instead of asking which service holds this, you always know: it is in RoachNet. That makes travel, rebuilds, outages, and backups much less stupid.
+          </p>
+        </article>
+
+        <article class="landing-essay__block" data-reveal>
+          <p>
+            Spin up local AI with RoachClaw. Keep a durable archive of the web, docs, and projects you care about. Ship code from a reproducible dev lane that stays the same on the desktop, the laptop, or the lab machine.
+          </p>
+        </article>
+
+        <article class="landing-essay__block" data-reveal>
+          <p>
+            No surprise upgrades. No forced migrations. No “we’ve updated our terms” emails between you and your work.
+          </p>
+        </article>
+      </section>
+
+      <section class="landing-proof" data-reveal>
+        <div class="landing-proof__lead">
+          <p class="eyebrow">What comes back home</p>
+          <h2>Your AI. Your archive. Your maps. Your runtime.</h2>
+          <p>
+            The important parts stop being scattered across a dozen tabs and start living under one contained roof.
           </p>
         </div>
 
-        <article class="landing-editorial__section" data-reveal>
-          <div class="landing-editorial__copy">
-            <span class="feature-card__eyebrow">A machine that’s yours</span>
-            <h3>Instead of asking which service holds this, you know where it is.</h3>
-            <p>
-              It is in RoachNet. That makes backup, travel, outages, and rebuilds far less stupid.
-            </p>
-            <p>
-              The internet can still help. It just stops being the floor your work stands on.
-            </p>
-          </div>
-          <figure class="landing-editorial__media">
-            <img src="./assets/screens/roachnet-native-home.jpg" alt="RoachNet home surface" />
-          </figure>
-        </article>
+        <div class="landing-proof__grid">
+          <article class="landing-proof__item">
+            <span class="landing-proof__kicker">RoachClaw</span>
+            <strong>Local models first.</strong>
+            <p>Keep the assistant close and treat cloud help like an option, not the baseline.</p>
+          </article>
+          <article class="landing-proof__item">
+            <span class="landing-proof__kicker">Vault</span>
+            <strong>Archive what matters.</strong>
+            <p>Docs, web captures, packs, and installs stay available when the network goes dark.</p>
+          </article>
+          <article class="landing-proof__item">
+            <span class="landing-proof__kicker">Maps</span>
+            <strong>Carry the field shelf.</strong>
+            <p>Regional map packs and offline references land where they belong instead of in your downloads folder.</p>
+          </article>
+          <article class="landing-proof__item">
+            <span class="landing-proof__kicker">Dev</span>
+            <strong>Build in one lane.</strong>
+            <p>Keep the runtime, tools, and project surface in one contained root instead of smearing it across the OS.</p>
+          </article>
+        </div>
+      </section>
 
-        <article class="landing-editorial__section landing-editorial__section--reverse" data-reveal>
-          <div class="landing-editorial__copy">
-            <span class="feature-card__eyebrow">RoachClaw</span>
-            <h3>Spin up local AI and keep the heavier work close.</h3>
-            <p>
-              RoachClaw keeps local models on your hardware first, with cloud help only when you actually want it.
-            </p>
-            <p>
-              No surprise upgrades. No forced migrations. No hosted tab between you and your own machine.
-            </p>
-          </div>
-          <figure class="landing-editorial__media">
-            <img src="./assets/screens/roachnet-native-roachclaw.jpg" alt="RoachClaw local AI workbench" />
-          </figure>
-        </article>
-
-        <article class="landing-editorial__section" data-reveal>
-          <div class="landing-editorial__copy">
-            <span class="feature-card__eyebrow">Apps, maps, docs, and dev</span>
-            <h3>Install shelves. Keep building. Let the machine stay quiet.</h3>
-            <p>
-              Reference packs, model packs, maps, and a reproducible dev lane all live in the same contained root instead of being smeared across the OS.
-            </p>
-            <p>
-              Once you stop assuming everything has to be hosted elsewhere, your whole relationship with computing gets calmer.
-            </p>
-          </div>
-          <figure class="landing-editorial__media">
-            <img src="./assets/screens/roachnet-native-dev.jpg" alt="RoachNet Dev workspace" />
-          </figure>
-        </article>
+      <section class="landing-shift" data-reveal>
+        <div class="landing-shift__copy">
+          <p class="eyebrow">What shifts</p>
+          <h2>Once the important stuff comes home, the whole relationship with computing changes.</h2>
+        </div>
+        <div class="landing-shift__list">
+          <article class="landing-shift__item">
+            <strong>Keep your core tools close.</strong>
+            <p>Stop chasing new dashboards just to reach the same work.</p>
+          </article>
+          <article class="landing-shift__item">
+            <strong>Treat the internet as a bonus.</strong>
+            <p>Use it when it helps, not because the whole stack falls apart without it.</p>
+          </article>
+          <article class="landing-shift__item">
+            <strong>Build workflows that cannot be turned off remotely.</strong>
+            <p>Design workflows that cannot be turned off from someone else’s control panel.</p>
+          </article>
+        </div>
       </section>
 
       <section class="landing-closer" data-reveal>
@@ -228,10 +273,10 @@
 
       <section class="landing-shortcut" id="download">
         <div class="landing-shortcut__copy">
-          <p class="eyebrow">Install</p>
-          <h2>Press Shift Command R and bring the important stuff home.</h2>
+          <p class="eyebrow">Download</p>
+          <h2>Press Shift Command R to download RoachNet and take the environment back.</h2>
           <p>
-            That shortcut is armed on this page. It starts the macOS download, then drops you straight into Home so you can keep moving while the installer lands.
+            The shortcut is armed on this page. It starts the macOS download, then drops you into Home so you can keep moving while the installer lands.
           </p>
         </div>
 
