@@ -1454,7 +1454,9 @@ input:focus-visible {
     rgba(7, 11, 17, 0.96);
   transition:
     transform 240ms cubic-bezier(0.22, 1, 0.36, 1),
-    box-shadow 240ms ease;
+    box-shadow 240ms ease,
+    filter 240ms ease;
+  will-change: transform, filter;
 }
 
 .store-generated-icon:hover {
@@ -1497,6 +1499,11 @@ input:focus-visible {
   border: 1px solid rgba(255, 255, 255, 0.08);
   transform: rotate(14deg);
   opacity: 0.85;
+  transition:
+    transform 480ms cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 320ms ease,
+    border-color 320ms ease;
+  animation: storeIconMeshDrift 11s ease-in-out infinite;
 }
 
 .store-generated-icon__glyph {
@@ -1507,6 +1514,10 @@ input:focus-visible {
   font-weight: 900;
   letter-spacing: 0.18em;
   text-transform: uppercase;
+  transition:
+    transform 420ms cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 320ms ease;
+  animation: storeIconGlyphDrift 8.8s ease-in-out infinite;
 }
 
 .store-generated-icon::before,
@@ -1522,6 +1533,10 @@ input:focus-visible {
     radial-gradient(circle at 20% 0%, var(--store-icon-glow, rgba(92, 141, 255, 0.36)), transparent 58%),
     linear-gradient(180deg, rgba(255, 255, 255, 0.08), transparent 58%);
   z-index: -2;
+  transition:
+    opacity 360ms ease,
+    transform 520ms cubic-bezier(0.22, 1, 0.36, 1),
+    filter 360ms ease;
 }
 
 .store-generated-icon::after {
@@ -1529,6 +1544,9 @@ input:focus-visible {
   border-radius: inherit;
   border: 1px solid rgba(255, 255, 255, 0.1);
   z-index: -1;
+  transition:
+    opacity 320ms ease,
+    border-color 320ms ease;
 }
 
 .store-generated-icon__band,
@@ -1551,6 +1569,10 @@ input:focus-visible {
   letter-spacing: 0.14em;
   text-transform: uppercase;
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.16);
+  transition:
+    transform 360ms cubic-bezier(0.22, 1, 0.36, 1),
+    background 260ms ease,
+    border-color 260ms ease;
 }
 
 .store-generated-icon__mono {
@@ -1560,6 +1582,10 @@ input:focus-visible {
   line-height: 0.92;
   letter-spacing: -0.08em;
   text-shadow: 0 0 18px rgba(255, 255, 255, 0.08);
+  transition:
+    transform 440ms cubic-bezier(0.22, 1, 0.36, 1),
+    text-shadow 320ms ease,
+    color 260ms ease;
 }
 
 .store-generated-icon--mini {
@@ -3982,6 +4008,7 @@ body[data-page="apps"] .apps-store-brand__copy strong {
   font-size: 1rem;
   line-height: 1.35;
   letter-spacing: -0.03em;
+  text-wrap: pretty;
 }
 
 body[data-page="apps"] .apps-store-back {
@@ -4116,7 +4143,25 @@ body[data-page="apps"] .apps-nav-item__icon {
 }
 
 body[data-page="apps"] .apps-nav-item__count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  justify-self: end;
+  min-width: 2.5rem;
+  min-height: 1.9rem;
+  padding: 0 0.55rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.06);
   color: rgba(216, 222, 230, 0.64);
+  white-space: nowrap;
+}
+
+body[data-page="apps"] .apps-nav-item__label {
+  display: block;
+  min-width: 0;
+  line-height: 1.08;
+  text-wrap: pretty;
 }
 
 body[data-page="apps"] .apps-store-sidebar__card {
@@ -4137,6 +4182,7 @@ body[data-page="apps"] .apps-store-sidebar__card h2 {
   font-size: 1.15rem;
   line-height: 1.15;
   letter-spacing: -0.04em;
+  text-wrap: pretty;
 }
 
 body[data-page="apps"] .apps-store-sidebar__card p,
@@ -4145,6 +4191,7 @@ body[data-page="apps"] .apps-store-sidebar__meta {
   color: rgba(216, 222, 230, 0.78);
   font-size: 0.93rem;
   line-height: 1.6;
+  text-wrap: pretty;
 }
 
 body[data-page="apps"] .apps-store-sidebar__card code {
@@ -4867,10 +4914,60 @@ body[data-page="apps"] .store-generated-icon {
 }
 
 body[data-page="apps"] .apps-card:hover .store-generated-icon,
+body[data-page="apps"] .apps-card.is-selected .store-generated-icon,
 body[data-page="apps"] .apps-hero-panel:hover .store-generated-icon,
 body[data-page="apps"] .apps-detail__hero:hover .store-generated-icon {
-  transform: translateY(-3px) scale(1.02) rotate(-1.5deg);
-  filter: saturate(1.05);
+  transform: translateY(-5px) scale(1.045) rotate(-2.5deg);
+  filter: saturate(1.12) brightness(1.02);
+}
+
+body[data-page="apps"] .apps-card:hover .store-generated-icon::before,
+body[data-page="apps"] .apps-card.is-selected .store-generated-icon::before,
+body[data-page="apps"] .apps-hero-panel:hover .store-generated-icon::before,
+body[data-page="apps"] .apps-detail__hero:hover .store-generated-icon::before {
+  transform: scale(1.08);
+  filter: saturate(1.14);
+}
+
+body[data-page="apps"] .apps-card:hover .store-generated-icon::after,
+body[data-page="apps"] .apps-card.is-selected .store-generated-icon::after,
+body[data-page="apps"] .apps-hero-panel:hover .store-generated-icon::after,
+body[data-page="apps"] .apps-detail__hero:hover .store-generated-icon::after {
+  border-color: rgba(255, 255, 255, 0.18);
+}
+
+body[data-page="apps"] .apps-card:hover .store-generated-icon__mesh,
+body[data-page="apps"] .apps-card.is-selected .store-generated-icon__mesh,
+body[data-page="apps"] .apps-hero-panel:hover .store-generated-icon__mesh,
+body[data-page="apps"] .apps-detail__hero:hover .store-generated-icon__mesh {
+  transform: rotate(22deg) translate3d(-4px, -7px, 0) scale(1.05);
+  opacity: 1;
+}
+
+body[data-page="apps"] .apps-card:hover .store-generated-icon__glyph,
+body[data-page="apps"] .apps-card.is-selected .store-generated-icon__glyph,
+body[data-page="apps"] .apps-hero-panel:hover .store-generated-icon__glyph,
+body[data-page="apps"] .apps-detail__hero:hover .store-generated-icon__glyph {
+  transform: translate3d(2px, -3px, 0);
+  opacity: 0.8;
+}
+
+body[data-page="apps"] .apps-card:hover .store-generated-icon__band,
+body[data-page="apps"] .apps-card.is-selected .store-generated-icon__band,
+body[data-page="apps"] .apps-hero-panel:hover .store-generated-icon__band,
+body[data-page="apps"] .apps-detail__hero:hover .store-generated-icon__band {
+  transform: translateY(-3px);
+  border-color: rgba(255, 255, 255, 0.18);
+}
+
+body[data-page="apps"] .apps-card:hover .store-generated-icon__mono,
+body[data-page="apps"] .apps-card.is-selected .store-generated-icon__mono,
+body[data-page="apps"] .apps-hero-panel:hover .store-generated-icon__mono,
+body[data-page="apps"] .apps-detail__hero:hover .store-generated-icon__mono {
+  transform: translate3d(0, -4px, 0) scale(1.05);
+  text-shadow:
+    0 0 22px rgba(145, 56, 216, 0.22),
+    0 0 34px rgba(255, 255, 255, 0.12);
 }
 
 body[data-page="apps"] .apps-card:nth-child(2n) {
@@ -4899,6 +4996,28 @@ body[data-page="apps"] .apps-card:nth-child(3n) {
   }
   50% {
     transform: translateY(-7px) rotate(-1.2deg);
+  }
+}
+
+@keyframes storeIconMeshDrift {
+  0%,
+  100% {
+    transform: rotate(14deg) translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: rotate(18deg) translate3d(-3px, -4px, 0) scale(1.03);
+  }
+}
+
+@keyframes storeIconGlyphDrift {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+    opacity: 0.76;
+  }
+  50% {
+    transform: translate3d(2px, -2px, 0);
+    opacity: 0.92;
   }
 }
 

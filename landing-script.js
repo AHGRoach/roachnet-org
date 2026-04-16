@@ -7,7 +7,7 @@
 // Scroll progress bar
 const progressBar = document.querySelector(".landing-scroll-progress");
 const heroSignal = document.querySelector(".why-hero__signal");
-const heroSignalWordmark = document.querySelector(".why-hero__signal-wordmark");
+const heroSignalCore = document.querySelector(".why-hero__signal-core");
 const bottomMark = document.querySelector(".why-bottom-mark");
 
 function syncScrollProgress() {
@@ -28,15 +28,16 @@ function burstGlitch(target) {
   window.setTimeout(() => target.classList.remove("is-bursting"), 320);
 }
 
-if (heroSignal && heroSignalWordmark) {
+if (heroSignal && heroSignalCore) {
   let heroX = 0;
   let heroY = 0;
   let rafId = 0;
 
   const syncHeroDrift = () => {
     rafId = 0;
-    heroSignalWordmark.style.setProperty("--hero-glitch-x", `${heroX.toFixed(2)}px`);
-    heroSignalWordmark.style.setProperty("--hero-glitch-y", `${heroY.toFixed(2)}px`);
+    heroSignalCore.style.setProperty("--hero-core-x", `${heroX.toFixed(2)}px`);
+    heroSignalCore.style.setProperty("--hero-core-y", `${heroY.toFixed(2)}px`);
+    heroSignal.style.setProperty("--hero-rail-shift", `${(heroX * 0.45).toFixed(2)}px`);
   };
 
   const queueHeroDrift = () => {
@@ -61,7 +62,7 @@ if (heroSignal && heroSignalWordmark) {
   });
 
   const queueBurst = () => {
-    burstGlitch(heroSignalWordmark);
+    burstGlitch(heroSignal);
     if (bottomMark) {
       burstGlitch(bottomMark);
     }

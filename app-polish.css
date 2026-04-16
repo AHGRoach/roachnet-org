@@ -2088,6 +2088,10 @@ body[data-page="apps"] .apps-card.is-selected::before {
   opacity: 1;
 }
 
+body[data-page="apps"] .apps-card.is-selected .store-generated-icon {
+  filter: saturate(1.18) brightness(1.03);
+}
+
 body[data-page="apps"] .apps-card__focus:focus-visible {
   outline: 2px solid rgba(50, 255, 126, 0.45);
   outline-offset: 3px;
@@ -3354,9 +3358,9 @@ body[data-page="ios"] .ios-story-card .ios-install-note {
 }
 
 body[data-page="apps"] .apps-nav-item {
-  grid-template-columns: 46px minmax(0, 1fr) auto;
-  gap: 12px;
-  min-height: 52px;
+  grid-template-columns: 42px minmax(0, 1fr) minmax(44px, auto);
+  gap: 10px;
+  min-height: 56px;
   padding: 0 14px;
   opacity: 0;
   transform: translateX(-10px) scale(0.985);
@@ -3414,6 +3418,8 @@ body[data-page="apps"] .apps-nav-item__code {
 
 body[data-page="apps"] .apps-nav-item__label {
   font-weight: 600;
+  font-size: 0.94rem;
+  line-height: 1.08;
   letter-spacing: -0.02em;
   transition: transform 220ms cubic-bezier(0.22, 1, 0.36, 1), color 180ms ease;
 }
@@ -3428,6 +3434,8 @@ body[data-page="apps"] .apps-nav-item:hover .apps-nav-item__icon {
 }
 
 body[data-page="apps"] .apps-nav-item__count {
+  font-size: 0.7rem;
+  letter-spacing: 0.02em;
   transition:
     transform 220ms cubic-bezier(0.22, 1, 0.36, 1),
     color 180ms ease,
@@ -7266,4 +7274,54 @@ body[data-page="brew"] [data-install-step]:hover {
     opacity: 1;
     transform: translateY(0) scale(1);
   }
+}
+
+/* Shared motion refresh */
+:root {
+  --rn-ease-fluid: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+body .site-nav a,
+body .site-header__action,
+body .rn-nav-link,
+body .rn-nav-primary,
+body .rn-nav-ghost,
+body .rn-btn,
+body .cta,
+body .apps-card__install,
+body .apps-card__more,
+body .apps-card__secondary,
+body .site-footer__nav a,
+body .account-tab,
+body .api-route-card,
+body .roatchclaw-thread {
+  transition:
+    transform 300ms var(--rn-ease-fluid),
+    border-color 220ms ease,
+    box-shadow 320ms var(--rn-ease-fluid),
+    background 260ms ease,
+    color 220ms ease,
+    opacity 220ms ease;
+  will-change: transform;
+}
+
+body .site-nav a:hover,
+body .site-header__action:hover,
+body .rn-nav-link:hover,
+body .rn-nav-primary:hover,
+body .rn-nav-ghost:hover,
+body .rn-btn:hover,
+body .cta:hover,
+body .apps-card__install:hover,
+body .apps-card__more:hover,
+body .apps-card__secondary:hover,
+body .account-tab:hover:not(.is-active) {
+  transform: translateY(-2px);
+}
+
+body [data-reveal] {
+  transition:
+    opacity 760ms var(--rn-ease-fluid),
+    transform 760ms var(--rn-ease-fluid),
+    filter 760ms var(--rn-ease-fluid);
 }
