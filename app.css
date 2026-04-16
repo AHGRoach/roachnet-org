@@ -1537,6 +1537,7 @@ input:focus-visible {
     opacity 360ms ease,
     transform 520ms cubic-bezier(0.22, 1, 0.36, 1),
     filter 360ms ease;
+  animation: storeIconAuraPulse 6.8s ease-in-out infinite;
 }
 
 .store-generated-icon::after {
@@ -1547,6 +1548,7 @@ input:focus-visible {
   transition:
     opacity 320ms ease,
     border-color 320ms ease;
+  animation: storeIconFramePulse 8.4s ease-in-out infinite;
 }
 
 .store-generated-icon__band,
@@ -1573,6 +1575,7 @@ input:focus-visible {
     transform 360ms cubic-bezier(0.22, 1, 0.36, 1),
     background 260ms ease,
     border-color 260ms ease;
+  animation: storeIconBandSweep 7.2s ease-in-out infinite;
 }
 
 .store-generated-icon__mono {
@@ -1586,6 +1589,7 @@ input:focus-visible {
     transform 440ms cubic-bezier(0.22, 1, 0.36, 1),
     text-shadow 320ms ease,
     color 260ms ease;
+  animation: storeIconMonoLift 8.8s ease-in-out infinite;
 }
 
 .store-generated-icon--mini {
@@ -3933,7 +3937,7 @@ body[data-page="apps"] .apps-store-shell {
   position: relative;
   z-index: 1;
   display: grid;
-  grid-template-columns: 280px minmax(0, 1fr);
+  grid-template-columns: 296px minmax(0, 1fr);
   min-height: 100vh;
 }
 
@@ -3945,7 +3949,7 @@ body[data-page="apps"] .apps-store-sidebar {
   align-content: stretch;
   gap: 18px;
   height: 100vh;
-  padding: 28px 20px 24px 28px;
+  padding: 28px 22px 24px 28px;
   border-right: 1px solid rgba(255, 255, 255, 0.06);
   background:
     linear-gradient(180deg, rgba(7, 10, 14, 0.96), rgba(7, 10, 14, 0.88)),
@@ -4167,8 +4171,9 @@ body[data-page="apps"] .apps-nav-item__label {
 body[data-page="apps"] .apps-store-sidebar__card {
   margin-top: auto;
   display: grid;
-  gap: 10px;
-  padding: 18px;
+  align-content: start;
+  gap: 12px;
+  padding: 20px 18px 18px;
   border-radius: 22px;
   background:
     radial-gradient(circle at top right, rgba(92, 141, 255, 0.16), transparent 34%),
@@ -4192,6 +4197,7 @@ body[data-page="apps"] .apps-store-sidebar__meta {
   font-size: 0.93rem;
   line-height: 1.6;
   text-wrap: pretty;
+  overflow-wrap: anywhere;
 }
 
 body[data-page="apps"] .apps-store-sidebar__card code {
@@ -4203,7 +4209,13 @@ body[data-page="apps"] .apps-store-sidebar__card code {
 
 body[data-page="apps"] .apps-store-sidebar__download {
   width: 100%;
+  min-height: 52px;
+  padding: 0 18px;
   justify-content: center;
+  text-align: center;
+  white-space: normal;
+  line-height: 1.18;
+  text-wrap: balance;
 }
 
 body[data-page="apps"] .apps-store-main {
@@ -4917,16 +4929,19 @@ body[data-page="apps"] .apps-card:hover .store-generated-icon,
 body[data-page="apps"] .apps-card.is-selected .store-generated-icon,
 body[data-page="apps"] .apps-hero-panel:hover .store-generated-icon,
 body[data-page="apps"] .apps-detail__hero:hover .store-generated-icon {
-  transform: translateY(-5px) scale(1.045) rotate(-2.5deg);
-  filter: saturate(1.12) brightness(1.02);
+  transform: translateY(-8px) scale(1.08) rotate(-3.8deg);
+  filter:
+    saturate(1.18)
+    brightness(1.06)
+    drop-shadow(0 18px 34px rgba(145, 56, 216, 0.2));
 }
 
 body[data-page="apps"] .apps-card:hover .store-generated-icon::before,
 body[data-page="apps"] .apps-card.is-selected .store-generated-icon::before,
 body[data-page="apps"] .apps-hero-panel:hover .store-generated-icon::before,
 body[data-page="apps"] .apps-detail__hero:hover .store-generated-icon::before {
-  transform: scale(1.08);
-  filter: saturate(1.14);
+  transform: scale(1.16) rotate(-1.8deg);
+  filter: saturate(1.2) brightness(1.06);
 }
 
 body[data-page="apps"] .apps-card:hover .store-generated-icon::after,
@@ -4940,7 +4955,7 @@ body[data-page="apps"] .apps-card:hover .store-generated-icon__mesh,
 body[data-page="apps"] .apps-card.is-selected .store-generated-icon__mesh,
 body[data-page="apps"] .apps-hero-panel:hover .store-generated-icon__mesh,
 body[data-page="apps"] .apps-detail__hero:hover .store-generated-icon__mesh {
-  transform: rotate(22deg) translate3d(-4px, -7px, 0) scale(1.05);
+  transform: rotate(26deg) translate3d(-8px, -10px, 0) scale(1.1);
   opacity: 1;
 }
 
@@ -4948,15 +4963,15 @@ body[data-page="apps"] .apps-card:hover .store-generated-icon__glyph,
 body[data-page="apps"] .apps-card.is-selected .store-generated-icon__glyph,
 body[data-page="apps"] .apps-hero-panel:hover .store-generated-icon__glyph,
 body[data-page="apps"] .apps-detail__hero:hover .store-generated-icon__glyph {
-  transform: translate3d(2px, -3px, 0);
-  opacity: 0.8;
+  transform: translate3d(5px, -6px, 0) rotate(-2deg);
+  opacity: 0.92;
 }
 
 body[data-page="apps"] .apps-card:hover .store-generated-icon__band,
 body[data-page="apps"] .apps-card.is-selected .store-generated-icon__band,
 body[data-page="apps"] .apps-hero-panel:hover .store-generated-icon__band,
 body[data-page="apps"] .apps-detail__hero:hover .store-generated-icon__band {
-  transform: translateY(-3px);
+  transform: translate3d(0, -5px, 0) scale(1.02);
   border-color: rgba(255, 255, 255, 0.18);
 }
 
@@ -4964,10 +4979,10 @@ body[data-page="apps"] .apps-card:hover .store-generated-icon__mono,
 body[data-page="apps"] .apps-card.is-selected .store-generated-icon__mono,
 body[data-page="apps"] .apps-hero-panel:hover .store-generated-icon__mono,
 body[data-page="apps"] .apps-detail__hero:hover .store-generated-icon__mono {
-  transform: translate3d(0, -4px, 0) scale(1.05);
+  transform: translate3d(0, -7px, 0) scale(1.1) rotate(-1.2deg);
   text-shadow:
-    0 0 22px rgba(145, 56, 216, 0.22),
-    0 0 34px rgba(255, 255, 255, 0.12);
+    0 0 26px rgba(145, 56, 216, 0.28),
+    0 0 42px rgba(255, 255, 255, 0.14);
 }
 
 body[data-page="apps"] .apps-card:nth-child(2n) {
@@ -5021,6 +5036,58 @@ body[data-page="apps"] .apps-card:nth-child(3n) {
   }
 }
 
+@keyframes storeIconAuraPulse {
+  0%,
+  100% {
+    opacity: 0.86;
+    transform: scale(0.98);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.08);
+  }
+}
+
+@keyframes storeIconFramePulse {
+  0%,
+  100% {
+    opacity: 0.82;
+    border-color: rgba(255, 255, 255, 0.1);
+  }
+  50% {
+    opacity: 1;
+    border-color: rgba(255, 255, 255, 0.18);
+  }
+}
+
+@keyframes storeIconBandSweep {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.16);
+  }
+  50% {
+    transform: translate3d(0, -2px, 0) scale(1.02);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.2),
+      0 10px 18px rgba(145, 56, 216, 0.16);
+  }
+}
+
+@keyframes storeIconMonoLift {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+    text-shadow: 0 0 18px rgba(255, 255, 255, 0.08);
+  }
+  50% {
+    transform: translate3d(0, -3px, 0) scale(1.03);
+    text-shadow:
+      0 0 22px rgba(145, 56, 216, 0.22),
+      0 0 34px rgba(255, 255, 255, 0.14);
+  }
+}
+
 @keyframes apps-modal-in {
   from {
     opacity: 0;
@@ -5034,7 +5101,7 @@ body[data-page="apps"] .apps-card:nth-child(3n) {
 
 @media (max-width: 1200px) {
   body[data-page="apps"] .apps-store-shell {
-    grid-template-columns: 240px minmax(0, 1fr);
+    grid-template-columns: 252px minmax(0, 1fr);
   }
 
   body[data-page="apps"] .apps-card-grid--standard {
@@ -5051,6 +5118,7 @@ body[data-page="apps"] .apps-card:nth-child(3n) {
     position: static;
     height: auto;
     padding-right: 28px;
+    padding-bottom: 20px;
     border-right: 0;
     border-bottom: 1px solid rgba(255, 255, 255, 0.06);
   }
@@ -5103,6 +5171,16 @@ body[data-page="apps"] .apps-card:nth-child(3n) {
 
   body[data-page="apps"] .apps-nav-highlight {
     display: none;
+  }
+
+  body[data-page="apps"] .apps-store-sidebar__card {
+    gap: 10px;
+    padding: 18px 16px 16px;
+  }
+
+  body[data-page="apps"] .apps-store-sidebar__download {
+    min-height: 48px;
+    font-size: 0.92rem;
   }
 
   body[data-page="apps"] .apps-card-grid--map,

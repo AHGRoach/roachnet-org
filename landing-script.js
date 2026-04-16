@@ -17,8 +17,28 @@ function syncScrollProgress() {
   progressBar.style.width = pct.toFixed(2) + "%";
 }
 
-window.addEventListener("scroll", syncScrollProgress, { passive: true });
+function syncHeroScrollMotion() {
+  if (!heroSignal) return;
+
+  const rect = heroSignal.getBoundingClientRect();
+  const viewport = Math.max(window.innerHeight, 1);
+  const offset = ((rect.top + rect.height * 0.45) - viewport * 0.5) / viewport;
+  const clamped = Math.max(-1, Math.min(1, offset));
+
+  heroSignal.style.setProperty("--hero-scroll-shift", `${(-clamped * 18).toFixed(2)}px`);
+
+  if (heroSignalCore) {
+    heroSignalCore.style.setProperty("--hero-scroll-y", `${(-clamped * 10).toFixed(2)}px`);
+  }
+}
+
+window.addEventListener("scroll", () => {
+  syncScrollProgress();
+  syncHeroScrollMotion();
+}, { passive: true });
+window.addEventListener("resize", syncHeroScrollMotion, { passive: true });
 syncScrollProgress();
+syncHeroScrollMotion();
 
 function burstGlitch(target) {
   if (!target) return;

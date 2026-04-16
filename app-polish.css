@@ -4390,8 +4390,7 @@ body[data-page="landing"] .site-footer {
 body:not([data-page="landing"]) .hero-copy h1,
 body[data-page="api"] .api-docs-sidebar__intro h1,
 body[data-page="account"] .account-poster h1,
-body[data-page="roachclaw"] .roachclaw-panel--brand h1,
-body[data-page="apps"] .apps-store-sidebar__card h2 {
+body[data-page="roachclaw"] .roachclaw-panel--brand h1 {
   font-family: var(--rn-font-landing);
   letter-spacing: -0.055em;
   line-height: 0.94;
@@ -4404,16 +4403,14 @@ body:not([data-page="landing"]) .hero-copy h1 {
 
 body[data-page="api"] .api-docs-sidebar__intro h1,
 body[data-page="account"] .account-poster h1,
-body[data-page="roachclaw"] .roachclaw-panel--brand h1,
-body[data-page="apps"] .apps-store-sidebar__card h2 {
+body[data-page="roachclaw"] .roachclaw-panel--brand h1 {
   font-size: clamp(2.8rem, 4.8vw, 4.9rem);
 }
 
 body:not([data-page="landing"]) .hero-body,
 body[data-page="api"] .api-docs-sidebar__intro p,
 body[data-page="account"] .account-poster p,
-body[data-page="roachclaw"] .roachclaw-panel--brand > p,
-body[data-page="apps"] .apps-store-sidebar__card p {
+body[data-page="roachclaw"] .roachclaw-panel--brand > p {
   font-family: var(--rn-font-landing);
   color: rgba(232, 238, 245, 0.8);
 }
@@ -7324,4 +7321,131 @@ body [data-reveal] {
     opacity 760ms var(--rn-ease-fluid),
     transform 760ms var(--rn-ease-fluid),
     filter 760ms var(--rn-ease-fluid);
+}
+
+/* Final compact-screen, motion, and voice fit pass */
+body[data-page="apps"] .apps-store-sidebar__card h2 {
+  max-width: none;
+  font-family:
+    "Inter",
+    "SF Pro Display",
+    -apple-system,
+    BlinkMacSystemFont,
+    sans-serif;
+  font-size: clamp(1.24rem, 1.55vw, 1.56rem);
+  line-height: 1.02;
+  letter-spacing: -0.05em;
+  text-wrap: pretty;
+}
+
+body[data-page="apps"] .apps-store-sidebar__card p,
+body[data-page="apps"] .apps-store-sidebar__meta {
+  max-width: none;
+  font-family:
+    "Inter",
+    "SF Pro Display",
+    -apple-system,
+    BlinkMacSystemFont,
+    sans-serif;
+}
+
+body[data-page="apps"] .apps-store-sidebar__card p {
+  font-size: 0.94rem;
+  line-height: 1.58;
+}
+
+body[data-page="apps"] .apps-store-sidebar__meta {
+  font-size: 0.8rem;
+  line-height: 1.42;
+  color: rgba(226, 232, 240, 0.7);
+}
+
+body .screen-frame,
+body .app-screen-shot,
+body .hero-signal-card,
+body .feature-card,
+body .support-card,
+body .account-mini-card,
+body[data-page="api"] .api-docs-hero__meta article,
+body[data-page="api"] .api-route-card {
+  transition:
+    transform 420ms var(--rn-ease-fluid),
+    border-color 260ms ease,
+    box-shadow 420ms var(--rn-ease-fluid),
+    filter 320ms ease;
+}
+
+body .screen-frame:hover,
+body .app-screen-shot:hover,
+body .hero-signal-card:hover,
+body .feature-card:hover,
+body .support-card:hover,
+body .account-mini-card:hover,
+body[data-page="api"] .api-docs-hero__meta article:hover,
+body[data-page="api"] .api-route-card:hover {
+  transform: translateY(-5px);
+}
+
+body .screen-frame__image,
+body .app-screen-shot img {
+  transition:
+    transform 860ms var(--rn-ease-fluid),
+    filter 320ms ease;
+}
+
+body .screen-frame:hover .screen-frame__image,
+body .app-screen-shot:hover img {
+  transform: scale(1.045);
+  filter: saturate(1.05) contrast(1.02);
+}
+
+@media (max-width: 900px) {
+  body .site-header__panel {
+    gap: 10px;
+  }
+
+  body[data-page="home"] .page-shell,
+  body[data-page="brew"] .page-shell,
+  body[data-page="ios"] .page-shell,
+  body[data-page="account"] .account-page,
+  body[data-page="roachclaw"] .roachclaw-page,
+  body[data-page="api"] .api-docs-shell {
+    gap: 28px;
+  }
+}
+
+@media (max-width: 760px) {
+  body:not([data-page="landing"]) .hero-copy h1,
+  body[data-page="api"] .api-docs-sidebar__intro h1,
+  body[data-page="account"] .account-poster h1,
+  body[data-page="roachclaw"] .roachclaw-panel--brand h1 {
+    font-size: clamp(2.2rem, 11.8vw, 3.8rem);
+    line-height: 0.98;
+    letter-spacing: -0.05em;
+  }
+
+  body:not([data-page="landing"]) .hero-body,
+  body[data-page="api"] .api-docs-sidebar__intro p,
+  body[data-page="account"] .account-poster p,
+  body[data-page="roachclaw"] .roachclaw-panel--brand > p {
+    max-width: none;
+    font-size: 1rem;
+    line-height: 1.58;
+  }
+
+  body .site-footer__copy,
+  body .site-footer__nav,
+  body .site-footer__meta {
+    width: 100%;
+    max-width: none;
+  }
+
+  body .site-footer__nav,
+  body .site-footer__meta {
+    justify-content: flex-start;
+  }
+
+  body[data-page="apps"] .apps-store-sidebar__card h2 {
+    font-size: clamp(1.22rem, 6vw, 1.46rem);
+  }
 }
