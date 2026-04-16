@@ -3915,7 +3915,8 @@ body[data-page="apps"] .apps-store-sidebar {
   position: sticky;
   top: 0;
   display: grid;
-  align-content: start;
+  grid-template-rows: auto auto minmax(0, 1fr) auto;
+  align-content: stretch;
   gap: 18px;
   height: 100vh;
   padding: 28px 20px 24px 28px;
@@ -4002,8 +4003,62 @@ body[data-page="apps"] .apps-store-back:hover {
 }
 
 body[data-page="apps"] .apps-store-sidebar__nav {
+  position: relative;
+  min-height: 0;
   display: grid;
   gap: 6px;
+  overflow: auto;
+  padding: 4px 8px 8px 0;
+  margin-right: -8px;
+  overscroll-behavior: contain;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(145, 56, 216, 0.44) rgba(255, 255, 255, 0.04);
+  scroll-padding-block: 18px;
+}
+
+body[data-page="apps"] .apps-store-sidebar__nav::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+body[data-page="apps"] .apps-store-sidebar__nav::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 999px;
+}
+
+body[data-page="apps"] .apps-store-sidebar__nav::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, rgba(145, 56, 216, 0.68), rgba(92, 141, 255, 0.42));
+  border: 2px solid rgba(7, 10, 14, 0.94);
+  border-radius: 999px;
+}
+
+body[data-page="apps"] .apps-nav-highlight {
+  position: absolute;
+  left: 0;
+  right: 8px;
+  top: 0;
+  height: 52px;
+  border-radius: 18px;
+  background:
+    linear-gradient(135deg, rgba(145, 56, 216, 0.18), rgba(92, 141, 255, 0.12)),
+    rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(145, 56, 216, 0.18);
+  box-shadow:
+    0 18px 44px rgba(0, 0, 0, 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  transform: translateY(var(--apps-nav-highlight-top, 0));
+  opacity: 0;
+  transition:
+    transform 360ms cubic-bezier(0.22, 1, 0.36, 1),
+    height 260ms cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 220ms ease;
+  pointer-events: none;
+  z-index: 0;
+}
+
+body[data-page="apps"] .apps-store-sidebar__nav.is-ready .apps-nav-highlight {
+  height: var(--apps-nav-highlight-height, 52px);
+  opacity: 1;
 }
 
 body[data-page="apps"] .apps-nav-item {
@@ -4017,6 +4072,8 @@ body[data-page="apps"] .apps-nav-item {
   color: rgba(236, 240, 247, 0.78);
   background: transparent;
   border: 1px solid transparent;
+  position: relative;
+  z-index: 1;
 }
 
 body[data-page="apps"] .apps-nav-item:hover {
@@ -4906,14 +4963,26 @@ body[data-page="apps"] .apps-card:nth-child(3n) {
   }
 
   body[data-page="apps"] .apps-store-sidebar__nav {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    display: flex;
+    gap: 10px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding: 0 0 10px;
+    margin-right: 0;
+    scroll-snap-type: x proximity;
   }
 
   body[data-page="apps"] .apps-nav-item {
     grid-template-columns: 22px minmax(0, 1fr);
+    min-width: 186px;
+    scroll-snap-align: start;
   }
 
   body[data-page="apps"] .apps-nav-item__count {
+    display: none;
+  }
+
+  body[data-page="apps"] .apps-nav-highlight {
     display: none;
   }
 

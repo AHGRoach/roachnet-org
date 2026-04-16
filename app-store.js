@@ -580,6 +580,108 @@ const state = {
 }
 
 let shouldScrollPreviewIntoView = false
+let sidebarNavBound = false
+let sidebarNavResizeObserver = null
+
+function syncSidebarNavOverflowState() {
+  if (!sidebarNav) return
+
+  const hasVerticalOverflow = sidebarNav.scrollHeight > sidebarNav.clientHeight + 8
+  const hasHorizontalOverflow = sidebarNav.scrollWidth > sidebarNav.clientWidth + 8
+
+  sidebarNav.classList.toggle('is-scrollable-y', hasVerticalOverflow)
+  sidebarNav.classList.toggle('is-scrollable-x', hasHorizontalOverflow)
+  sidebarNav.classList.toggle('is-scrolled-y', sidebarNav.scrollTop > 6)
+  sidebarNav.classList.toggle(
+    'is-at-end-y',
+    !hasVerticalOverflow || sidebarNav.scrollTop + sidebarNav.clientHeight >= sidebarNav.scrollHeight - 6
+  )
+  sidebarNav.classList.toggle('is-scrolled-x', sidebarNav.scrollLeft > 6)
+  sidebarNav.classList.toggle(
+    'is-at-end-x',
+    !hasHorizontalOverflow || sidebarNav.scrollLeft + sidebarNav.clientWidth >= sidebarNav.scrollWidth - 6
+  )
+}
+
+function syncSidebarNavHighlight({ behavior = 'smooth' } = {}) {
+  if (!sidebarNav) return
+
+  const activeButton = sidebarNav.querySelector('.apps-nav-item--active')
+  const highlight = sidebarNav.querySelector('.apps-nav-highlight')
+  const compactLayout = window.matchMedia('(max-width: 760px)').matches
+
+  syncSidebarNavOverflowState()
+
+  if (!activeButton || !highlight) {
+    sidebarNav.classList.remove('is-ready')
+    return
+  }
+
+  if (compactLayout) {
+    sidebarNav.classList.remove('is-ready')
+    activeButton.scrollIntoView({
+      behavior,
+      block: 'nearest',
+      inline: 'center',
+    })
+    return
+  }
+
+  sidebarNav.style.setProperty('--apps-nav-highlight-top', `${activeButton.offsetTop}px`)
+  sidebarNav.style.setProperty('--apps-nav-highlight-height', `${activeButton.offsetHeight}px`)
+  sidebarNav.classList.add('is-ready')
+
+  activeButton.scrollIntoView({
+    block: 'center',
+    inline: 'nearest',
+    behavior,
+  })
+}
+
+function ensureSidebarNavBindings() {
+  if (!sidebarNav || sidebarNavBound) return
+
+  sidebarNavBound = true
+
+  sidebarNav.addEventListener('scroll', syncSidebarNavOverflowState, { passive: true })
+
+  sidebarNav.addEventListener('keydown', (event) => {
+    const current = event.target.closest('[data-section]')
+    if (!current) return
+
+    const items = [...sidebarNav.querySelectorAll('[data-section]')]
+    const index = items.indexOf(current)
+    if (index === -1) return
+
+    let nextIndex = null
+    if (event.key === 'ArrowDown' || event.key === 'ArrowRight') {
+      nextIndex = Math.min(items.length - 1, index + 1)
+    } else if (event.key === 'ArrowUp' || event.key === 'ArrowLeft') {
+      nextIndex = Math.max(0, index - 1)
+    } else if (event.key === 'Home') {
+      nextIndex = 0
+    } else if (event.key === 'End') {
+      nextIndex = items.length - 1
+    }
+
+    if (nextIndex === null || nextIndex === index) return
+
+    event.preventDefault()
+    const nextButton = items[nextIndex]
+    nextButton?.focus()
+    nextButton?.click()
+  })
+
+  const resizeHandler = () => syncSidebarNavHighlight({ behavior: 'auto' })
+  window.addEventListener('resize', resizeHandler)
+
+  if ('ResizeObserver' in window) {
+    sidebarNavResizeObserver = new ResizeObserver(() => {
+      syncSidebarNavHighlight({ behavior: 'auto' })
+    })
+    sidebarNavResizeObserver.observe(sidebarNav)
+  }
+}
 
 function enhanceShelfScrollers() {
   storeStage?.querySelectorAll('.apps-row__scroller').forEach((scroller) => {
@@ -1248,8 +1350,10 @@ function renderSidebarNav() {
     return map
   }, new Map())
 
-  sidebarNav.innerHTML = sectionDefinitions
-    .map((section) => {
+  sidebarNav.innerHTML = `
+    <div class="apps-nav-highlight" aria-hidden="true"></div>
+    ${sectionDefinitions
+      .map((section, index) => {
       const count = section.key === 'Today' ? items.length : counts.get(section.key) || 0
       const active = state.activeSection === section.key
 
@@ -1259,6 +1363,7 @@ function renderSidebarNav() {
           type="button"
           data-section="${section.key}"
           aria-current="${active ? 'page' : 'false'}"
+          style="--apps-nav-index:${index};"
         >
           <span class="apps-nav-item__icon" data-icon="${slugify(section.navLabel)}" aria-hidden="true">
             <span class="apps-nav-item__glyph">${escapeHtml(getSectionGlyph(section))}</span>
@@ -1268,14 +1373,15 @@ function renderSidebarNav() {
           <span class="apps-nav-item__count">${count}</span>
         </button>
       `
-    })
-    .join('')
+      })
+      .join('')}
+  `
 
+  ensureSidebarNavBindings()
   requestAnimationFrame(() => {
-    const activeBtn = sidebarNav.querySelector('.apps-nav-item--active')
-    if (activeBtn) {
-      activeBtn.scrollIntoView({ block: 'nearest', behavior: 'smooth' })
-    }
+    syncSidebarNavHighlight({
+      behavior: state.catalog ? 'smooth' : 'auto',
+    })
   })
 }
 
