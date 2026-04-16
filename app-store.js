@@ -314,34 +314,34 @@ const sectionLookup = new Map(sectionDefinitions.map((section) => [section.key, 
 const sectionSlugLookup = new Map(sectionDefinitions.map((section) => [slugify(section.navLabel), section.key]))
 const sectionGlyphs = {
   Today: '✦',
-  'Map Regions': '⌖',
-  Medicine: '✚',
-  'Survival & Preparedness': '⛺',
-  'Education & Reference': '◫',
-  'Science & Simulations': '⚗',
-  'Kids & Family': '☻',
-  'Open Courses & Lectures': '≣',
-  'Math & Problem Solving': '∑',
+  'Map Regions': '🌍',
+  Medicine: '🩺',
+  'Survival & Preparedness': '🏕',
+  'Education & Reference': '📖',
+  'Science & Simulations': '🔬',
+  'Kids & Family': '🧸',
+  'Open Courses & Lectures': '🎓',
+  'Math & Problem Solving': '🧮',
   'Law, History & Society': '⚖',
-  'Language & Writing': '¶',
-  'DIY & Repair': '⌁',
-  'Maker & Electronics': '⌬',
-  'Agriculture & Food': '❦',
-  'Homestead & Sustainability': '⌂',
-  'Finance & Crypto': '₿',
-  'Software Development': '⌘',
-  'Machine Learning & Data Science': '◉',
-  'Platforms & Systems': '⎈',
-  'Security & Privacy': '⛨',
-  'Music Production & Audio': '♪',
-  'Design & Visual Media': '◇',
-  'IT & Infrastructure': '⇄',
-  'Travel & Field Guides': '↗',
-  'Travel, Mobility & Outdoors': '⇆',
-  'Games, Film & Pop Culture': '✶',
-  'Dictionaries & Primary Sources': '≡',
+  'Language & Writing': '✍',
+  'DIY & Repair': '🔧',
+  'Maker & Electronics': '🔌',
+  'Agriculture & Food': '🌱',
+  'Homestead & Sustainability': '🏡',
+  'Finance & Crypto': '📊',
+  'Software Development': '⌨',
+  'Machine Learning & Data Science': '🧠',
+  'Platforms & Systems': '🖥',
+  'Security & Privacy': '🔒',
+  'Music Production & Audio': '🎵',
+  'Design & Visual Media': '🎨',
+  'IT & Infrastructure': '🌐',
+  'Travel & Field Guides': '🧭',
+  'Travel, Mobility & Outdoors': '🚴',
+  'Games, Film & Pop Culture': '🎮',
+  'Dictionaries & Primary Sources': '📚',
   Wikipedia: 'Ⓦ',
-  'Model Packs': '⬢',
+  'Model Packs': '⬡',
 }
 
 function getSectionGlyph(section) {
@@ -611,6 +611,9 @@ function enhanceShelfScrollers() {
     )
 
     let pointerState = null
+    let velocity = 0
+    let lastMoveTime = 0
+    let animFrame = null
 
     scroller.addEventListener('pointerdown', (event) => {
       if (event.pointerType === 'mouse' && event.button !== 0) {
@@ -625,12 +628,20 @@ function enhanceShelfScrollers() {
         return
       }
 
+      if (animFrame) {
+        cancelAnimationFrame(animFrame)
+        animFrame = null
+      }
+
+      velocity = 0
       pointerState = {
         id: event.pointerId,
         startX: event.clientX,
+        lastX: event.clientX,
         startScrollLeft: scroller.scrollLeft,
       }
 
+      lastMoveTime = Date.now()
       scroller.setPointerCapture?.(event.pointerId)
       scroller.dataset.dragging = 'true'
     })
@@ -645,14 +656,35 @@ function enhanceShelfScrollers() {
         return
       }
 
+      const now = Date.now()
+      const dt = now - lastMoveTime
+      if (dt > 0) {
+        velocity = (event.clientX - pointerState.lastX) / dt
+      }
+      pointerState.lastX = event.clientX
+      lastMoveTime = now
+
       scroller.scrollLeft = pointerState.startScrollLeft - delta
     })
 
     const clearPointerState = (event) => {
       if (pointerState && pointerState.id === event.pointerId) {
         scroller.releasePointerCapture?.(event.pointerId)
+
+        const releaseVelocity = velocity * -1
         pointerState = null
         delete scroller.dataset.dragging
+
+        if (Math.abs(releaseVelocity) > 0.15) {
+          let momentum = releaseVelocity * 180
+          const decelerate = () => {
+            momentum *= 0.94
+            if (Math.abs(momentum) < 0.5) return
+            scroller.scrollLeft += momentum * 0.016
+            animFrame = requestAnimationFrame(decelerate)
+          }
+          animFrame = requestAnimationFrame(decelerate)
+        }
       }
     }
 
@@ -1238,6 +1270,13 @@ function renderSidebarNav() {
       `
     })
     .join('')
+
+  requestAnimationFrame(() => {
+    const activeBtn = sidebarNav.querySelector('.apps-nav-item--active')
+    if (activeBtn) {
+      activeBtn.scrollIntoView({ block: 'nearest', behavior: 'smooth' })
+    }
+  })
 }
 
 function renderSectionHead(content = '') {
@@ -1757,7 +1796,8 @@ function renderCategoryView() {
         ? 'apps-card-grid--standard'
         : 'apps-card-grid--standard'
 
-  const previewItem = resolvePreviewItem(items, items[0]?.id)
+  const previewId = state.activePreviewId || items[0]?.id
+  const previewItem = resolvePreviewItem(items, previewId) || resolvePreviewItem(getEnrichedItems(), previewId) || resolvePreviewItem(items, items[0]?.id)
 
   storeStage.innerHTML = `
     ${renderPreviewStage(previewItem, { eyebrow: activeSection.eyebrow })}
@@ -1933,7 +1973,12 @@ async function loadCatalog() {
 
 function setActiveSection(sectionKey) {
   state.activeSection = sectionKey
-  state.activePreviewId = sectionKey === 'Today' ? todayFeaturedId : ''
+  if (sectionKey === 'Today') {
+    state.activePreviewId = todayFeaturedId
+  } else {
+    const sectionItems = getSectionItems(sectionKey)
+    state.activePreviewId = sectionItems[0]?.id || ''
+  }
   if (sectionKey !== 'Today') {
     window.location.hash = slugify(sectionLookup.get(sectionKey)?.navLabel || sectionKey)
   } else {

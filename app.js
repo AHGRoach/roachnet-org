@@ -1893,3 +1893,42 @@ loadLatestRelease()
 startHeroTelemetry()
 loadAppStoreCatalog()
 setInstallStepState(1)
+
+/* ── Landing page: scroll progress bar & reveal observer ────────────────── */
+;(() => {
+  if (document.body?.dataset.page !== 'landing') return
+
+  const progressBar = document.querySelector('.landing-scroll-progress')
+
+  function syncScrollProgress() {
+    if (!progressBar) return
+    const scrollable = Math.max(1, document.documentElement.scrollHeight - window.innerHeight)
+    const pct = Math.min(100, Math.max(0, (window.scrollY / scrollable) * 100))
+    progressBar.style.width = pct.toFixed(2) + '%'
+  }
+
+  window.addEventListener('scroll', syncScrollProgress, { passive: true })
+  syncScrollProgress()
+
+  const landingReveals = document.querySelectorAll('body[data-page="landing"] [data-reveal]')
+  if (!landingReveals.length) return
+
+  if (!('IntersectionObserver' in window)) {
+    landingReveals.forEach((el) => el.classList.add('is-visible'))
+    return
+  }
+
+  const landingRevealObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible')
+          landingRevealObserver.unobserve(entry.target)
+        }
+      })
+    },
+    { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }
+  )
+
+  landingReveals.forEach((el) => landingRevealObserver.observe(el))
+})()

@@ -1,4 +1,5 @@
 website-apps-dist/
 website-accounts-dist/
+live-site-snapshots/
 .netlify/
 node_modules/

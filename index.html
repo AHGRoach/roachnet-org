@@ -3,12 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>RoachNet</title>
+    <title>RoachNet – Offline-first AI, Archiving & Dev Stack</title>
     <meta
       name="description"
-      content="You weren’t crazy. The cloud got noisy. RoachNet brings AI, code, maps, and your archive back into one contained stack on your machine."
+      content="You weren't crazy. The cloud got noisy. RoachNet brings AI, code, maps, and your archive back into one contained stack on your machine."
     />
-    <meta name="theme-color" content="#0b1016" />
+    <meta name="theme-color" content="#05060a" />
     <link rel="canonical" href="https://roachnet.org/" />
     <link rel="icon" href="/favicon.ico" sizes="any" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
@@ -29,209 +29,363 @@
       content="Bring the important stuff home. RoachNet keeps AI, code, maps, and your archive in one contained stack on your machine."
     />
     <meta name="twitter:image" content="https://roachnet.org/assets/screens/roachnet-native-home.jpg" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap"
+    />
     <link rel="stylesheet" href="./app.css" />
     <link rel="stylesheet" href="./app-polish.css" />
+    <link rel="stylesheet" href="./landing.css" />
   </head>
-  <body data-page="landing">
-    <div class="bg-glow bg-glow--blue" aria-hidden="true"></div>
-    <div class="bg-glow bg-glow--green" aria-hidden="true"></div>
+  <body class="rn-body" data-page="landing">
 
-    <header class="site-header">
-      <a class="brand-lockup" href="https://roachnet.org/" aria-label="RoachNet landing page">
-        <img class="brand-mark" src="./assets/roachnet-logo.png" alt="RoachNet logo" />
-        <div class="brand-copy">
-          <span class="brand-kicker">offline on purpose</span>
-          <strong>RoachNet</strong>
-        </div>
-      </a>
+    <!-- Dithered parallax background -->
+    <div class="dither-bg" aria-hidden="true">
+      <canvas id="dither-canvas"></canvas>
+    </div>
 
-      <div class="site-header__panel">
-        <nav class="site-nav site-nav--primary" aria-label="Primary">
-          <a class="is-current" href="#top">Mission</a>
-          <a href="https://roachnet.org/home/">Home</a>
-          <a href="https://apps.roachnet.org">Apps</a>
-          <a href="https://roachnet.org/roachclaw/">RoachClaw</a>
-          <a href="https://roachnet.org/iOS/">iOS</a>
+    <!-- Navigation -->
+    <header class="rn-nav">
+      <div class="rn-nav-inner">
+        <a href="https://roachnet.org/" class="rn-logo" aria-label="RoachNet landing page">
+          <img class="rn-logo-img" src="./assets/roachnet-logo.png" alt="RoachNet logo" />
+          <span class="rn-logo-text">RoachNet</span>
+        </a>
+        <nav class="rn-nav-links">
+          <a href="#top" class="rn-nav-link is-current">Mission</a>
+          <a href="https://roachnet.org/home/" class="rn-nav-link">Home</a>
+          <a href="https://apps.roachnet.org" class="rn-nav-link">Apps</a>
+          <a href="https://roachnet.org/roachclaw/" class="rn-nav-link">RoachClaw</a>
+          <a href="https://roachnet.org/iOS/" class="rn-nav-link">iOS</a>
         </nav>
-
-        <div class="site-header__actions" aria-label="Utility links">
-          <a class="site-action-pill" href="https://accounts.roachnet.org/">Account</a>
-          <a class="site-action-pill site-action-pill--ghost" href="https://roachnet.org/api/">API</a>
-          <a class="site-action-pill site-action-pill--ghost" href="https://github.com/AHGRoach/RoachNet" target="_blank" rel="noreferrer">GitHub</a>
+        <div class="rn-nav-cta">
+          <a class="rn-nav-ghost" href="https://accounts.roachnet.org/">Account</a>
+          <a class="rn-nav-ghost" href="https://roachnet.org/api/">API</a>
+          <a class="rn-nav-primary" href="https://github.com/AHGRoach/RoachNet" target="_blank" rel="noreferrer">GitHub</a>
         </div>
       </div>
     </header>
 
-    <main id="top" class="page-shell landing-why">
-      <div class="landing-why__ribbons landing-why__ribbons--top" aria-hidden="true"></div>
+    <div class="landing-scroll-progress" aria-hidden="true"></div>
 
-      <section class="landing-why__hero">
-        <div class="landing-why__hero-copy">
-          <p class="eyebrow">Mission</p>
-          <h1>
-            <span>You weren’t crazy.</span>
-            <span>The&nbsp;cloud got&nbsp;noisy.</span>
+    <!-- Main content -->
+    <main id="top" class="rn-main">
+
+      <!-- Hero: single-column, centered, editorial -->
+      <section class="why-hero">
+        <div class="why-hero__inner">
+          <h1 class="why-hero__title">
+            You weren't crazy.<br />
+            The&nbsp;cloud got&nbsp;noisy.
           </h1>
-        </div>
-
-        <div class="landing-why__hero-stage" data-landing-canvas aria-hidden="true">
-          <span class="landing-why__hero-glow landing-why__hero-glow--green"></span>
-          <span class="landing-why__hero-glow landing-why__hero-glow--magenta"></span>
-          <span class="landing-why__hero-track landing-why__hero-track--one"></span>
-          <span class="landing-why__hero-track landing-why__hero-track--two"></span>
-          <span class="landing-why__hero-track landing-why__hero-track--three"></span>
-
-          <div class="landing-why__hero-orbit">
-            <span>RoachClaw</span>
-            <span>Vault</span>
-            <span>Maps</span>
-            <span>Dev</span>
-          </div>
-
-          <div class="landing-why__hero-core">
-            <span class="landing-why__hero-core-label">Contained stack</span>
-            <strong>RoachNet</strong>
-            <p>AI, maps, vault, and code kept close.</p>
+          <p class="why-hero__lede">
+            Hours of focused work leading to a sense of deliberate time investment.
+            Then a notification pulls you out. A tab demands attention. A service
+            you depend on has "exciting changes" that break the thing you were
+            counting on.
+          </p>
+          <div class="why-hero__signal" aria-hidden="true">
+            <div class="why-hero__signal-wordmark" data-glitch-wordmark="RoachNet">
+              <span class="why-hero__signal-wordmark-base">RoachNet</span>
+            </div>
+            <div class="why-hero__signal-rails">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
           </div>
         </div>
       </section>
 
-      <section class="landing-why__story">
-        <article class="landing-why__block landing-why__block--intro" data-reveal>
-          <p>
-            You used to sit down, open your laptop, and just build. Hours would disappear into code, writing, research — not into debugging your setup, chasing logins, or nursing along some “smart” cloud tool that keeps trying to help by getting in your way.
+      <!-- Flow: the problem -->
+      <section class="why-section" data-reveal>
+        <div class="why-section__inner">
+          <p class="why-prose">
+            You used to sit down, open your laptop, and just <em>build</em>.
+            Hours would disappear into code, writing, research &mdash; not into
+            debugging your setup, chasing logins, or nursing along some "smart"
+            cloud tool that keeps trying to help by getting in your way.
           </p>
-          <p>
-            Now your work lives in a dozen tabs, three identity providers, and however many SaaS dashboards decided to redesign themselves this quarter. Your “stack” feels less like a system and more like a pile.
+          <p class="why-prose">
+            Now your work lives in a dozen tabs, three identity providers, and
+            however many SaaS dashboards decided to redesign themselves this
+            quarter. Your "stack" feels less like a system and more like a pile.
           </p>
-          <p>
-            And yet, for the work that actually matters, you still crave something simple:
-          </p>
-        </article>
+        </div>
+      </section>
 
-        <blockquote class="landing-why__pullquote" data-reveal>
-          <span class="landing-why__pullquote-mark">That’s where RoachNet comes in.</span>
-          <p>A machine that’s yours. Tools that don’t move. A setup that keeps working, even when the internet doesn’t.</p>
-        </blockquote>
+      <!-- Blockquote: the turn -->
+      <section class="why-section why-section--quote" data-reveal>
+        <div class="why-section__inner">
+          <blockquote class="why-blockquote">
+            <p>Say hello to <strong data-text="RoachNet">RoachNet</strong>,<br />your shortcut to everything.</p>
+          </blockquote>
+        </div>
+      </section>
 
-        <article class="landing-why__block" data-reveal>
-          <p>
-            Meet RoachNet — an offline-first suite for AI, archiving, and development that actually lives on your machines.
+      <!-- What RoachNet is -->
+      <section class="why-section" data-reveal>
+        <div class="why-section__inner">
+          <p class="why-prose">
+            RoachNet is your portable, offline-first stack for AI, archiving, and
+            development &mdash; a self-contained environment where your models,
+            your tools, and your data run locally, sync on your terms, and don't
+            vanish when a login expires or a product manager gets bored.
           </p>
-          <p>
-            RoachNet treats your computer like a computer again. It’s a self-contained environment where your models, your tools, and your data run locally, sync on your terms, and don’t vanish when a login expires or a product manager gets bored.
+          <p class="why-prose">
+            Instead of asking "which service holds this?", you always know:
+            <strong>it's in RoachNet.</strong>
           </p>
-          <p>
-            Instead of asking “which service holds this?”, you always know: it’s in RoachNet.
-          </p>
-        </article>
+        </div>
+      </section>
 
-        <article class="landing-why__block" data-reveal>
-          <p>
-            Spin up local AI with RoachClaw. Keep a durable archive of the web, docs, and projects you care about. Ship code from a reproducible dev environment that’s the same on your desktop, your laptop, or your lab machine.
+      <!-- What you can do -->
+      <section class="why-section" data-reveal>
+        <div class="why-section__inner">
+          <h2 class="why-heading">No more losing focus in tabs and dashboards.</h2>
+          <p class="why-prose">
+            Pull up anything on your rig &mdash; from AI workbench to music
+            library &mdash; without ever opening a single bloated app. Spin up a
+            local model with RoachClaw. Snapshot your documents into encrypted
+            packs. Launch terminals and dashboards from a single command.
           </p>
-          <p>
-            No surprise upgrades. No forced migrations. No “we’ve updated our terms” emails between you and your work.
+          <p class="why-prose">
+            Think of it the way early command-line interfaces were designed:
+            fast access to everything, keyboard-first, zero unnecessary friction.
+            But built for modern work, modern hardware, and an internet that's
+            optional rather than mandatory.
           </p>
-        </article>
+        </div>
+      </section>
 
-        <article class="landing-why__block landing-why__block--shift" data-reveal>
-          <p>
-            Once you stop assuming everything has to be hosted elsewhere, your whole relationship with computing shifts. You start:
+      <!-- Capability cards -->
+      <section class="why-section" data-reveal>
+        <div class="why-capabilities">
+          <article class="why-cap-card" data-reveal>
+            <span class="why-cap-card__icon" aria-hidden="true">&#xe2;</span>
+            <h3>Local AI</h3>
+            <p>Spin up RoachClaw with contained models. No API keys, no cloud dependency. Run models on your own metal.</p>
+          </article>
+          <article class="why-cap-card" data-reveal>
+            <span class="why-cap-card__icon" aria-hidden="true">&#x26B6;</span>
+            <h3>Durable Archive</h3>
+            <p>Keep the web, docs, playlists, and projects you care about in a vault that doesn't expire or leak.</p>
+          </article>
+          <article class="why-cap-card" data-reveal>
+            <span class="why-cap-card__icon" aria-hidden="true">&#x2318;</span>
+            <h3>Dev Environment</h3>
+            <p>Ship code from a reproducible setup &mdash; same on every machine you own, no browser required.</p>
+          </article>
+        </div>
+      </section>
+
+      <!-- Accent statement -->
+      <section class="why-section why-section--accent" data-reveal>
+        <div class="why-section__inner">
+          <p class="why-accent-line">
+            No surprise upgrades. No forced migrations. No "we've updated our
+            terms" emails between you and your work.
           </p>
-          <ul class="landing-why__list">
+        </div>
+      </section>
+
+      <!-- A different relationship -->
+      <section class="why-section" data-reveal>
+        <div class="why-section__inner">
+          <h2 class="why-heading">A different relationship with computing</h2>
+          <p class="why-prose">
+            Once you stop assuming everything has to be hosted elsewhere, your
+            whole relationship with computing shifts.
+          </p>
+          <ul class="why-list">
             <li>Keeping your core tools close, instead of chasing new dashboards.</li>
             <li>Treating the internet as an optional bonus, not a dependency.</li>
-            <li>Designing workflows that can’t be turned off from someone else’s control panel.</li>
+            <li>Designing workflows that can't be turned off from someone else's control panel.</li>
           </ul>
-        </article>
-
-        <article class="landing-why__block" data-reveal>
-          <p>
-            RoachNet is built for that mindset. For people who like to own the stack they rely on, even if they still use plenty of cloud on top.
-          </p>
-          <p>
-            It’s not nostalgia. It’s just a quieter, saner foundation for modern work — one where your AI, your archive, and your dev tools are portable, offline-capable, and under your control.
-          </p>
-          <p>
-            You can keep clicking through other people’s platforms. Or you can bring the important stuff home.
-          </p>
-        </article>
+        </div>
       </section>
 
-      <section class="landing-shortcut landing-shortcut--essay" id="download" data-reveal>
-        <div class="landing-shortcut__copy">
-          <p class="eyebrow">Download</p>
-          <h2>Press Shift Command R to download RoachNet and take your environment back.</h2>
-          <p>
-            This page listens for the shortcut. It starts the macOS download, then drops you into Home automatically so you can keep moving while the installer lands.
+      <!-- Closing -->
+      <section class="why-section" data-reveal>
+        <div class="why-section__inner">
+          <p class="why-prose">
+            RoachNet is built for that mindset. For people who like to own the
+            stack they rely on, even if they still use plenty of cloud on top.
+          </p>
+          <p class="why-prose">
+            It's not nostalgia. It's just a quieter, saner foundation for modern
+            work &mdash; one where your AI, your archive, and your dev tools are
+            portable, offline-capable, and under your control.
           </p>
         </div>
+      </section>
 
-        <div class="landing-shortcut__panel" data-landing-shortcut>
-          <div class="landing-shortcut__keys" aria-label="Download shortcut">
-            <span class="shortcut-key" data-shortcut-key="shift">Shift</span>
-            <span class="shortcut-key" data-shortcut-key="meta">Command</span>
-            <span class="shortcut-key" data-shortcut-key="r">R</span>
+      <!-- The choice -->
+      <section class="why-section why-section--final" data-reveal>
+        <div class="why-section__inner">
+          <p class="why-final-line">
+            The choice is yours: continue clicking through<br />
+            other people's platforms. Or bring the<br />
+            important stuff home.
+          </p>
+        </div>
+      </section>
+
+      <!-- Download CTA -->
+      <section class="why-section why-section--cta" id="download-section" data-reveal>
+        <div class="why-cta">
+          <div class="why-cta__keys" data-landing-shortcut aria-label="Download shortcut">
+            <span class="why-cta__key" data-shortcut-key="shift">Shift</span>
+            <span class="why-cta__key" data-shortcut-key="meta">&#x2318;</span>
+            <span class="why-cta__key" data-shortcut-key="r">R</span>
           </div>
-          <p class="landing-shortcut__status" data-landing-download-status>
+          <p class="why-cta__text">
+            Press <span class="why-cta__kbd">&#x21E7;</span><span class="why-cta__kbd">&#x2318;</span><span class="why-cta__kbd">R</span> to download RoachNet and stay in the flow.
+          </p>
+          <p class="why-cta__status" data-landing-download-status>
             Press the shortcut to start the macOS download. We will send you into Home right after.
           </p>
-          <div class="landing-shortcut__actions">
-            <button class="cta cta--primary" data-landing-download-button type="button">Download now</button>
-            <a class="cta cta--ghost" href="https://roachnet.org/home/">Skip to Home</a>
+          <div class="why-cta__buttons">
+            <button class="rn-btn rn-btn-primary" data-landing-download-button type="button">Download now</button>
+            <a class="rn-btn rn-btn-ghost" href="https://roachnet.org/home/">Skip to Home</a>
           </div>
         </div>
       </section>
 
-      <div class="landing-why__ribbons landing-why__ribbons--bottom" aria-hidden="true">
-        <span class="landing-why__wordmark">RoachNet</span>
-        <span class="landing-why__wordmark-tag">offline on purpose</span>
+      <!-- Bottom wordmark -->
+      <div class="why-bottom-mark" aria-hidden="true">
+        <span class="why-bottom-wordmark">RoachNet</span>
+        <span class="why-bottom-tag">offline on purpose</span>
       </div>
     </main>
 
-    <footer class="site-footer">
-      <div class="site-footer__copy">
-        <strong>RoachNet</strong>
-        <span>RoachNet · offline on purpose.</span>
-      </div>
-      <nav class="site-footer__nav" aria-label="Footer">
-        <a href="#top">Mission</a>
-        <a href="https://roachnet.org/home/">Home</a>
-        <a href="https://apps.roachnet.org">Apps</a>
-        <a href="https://roachnet.org/roachclaw/">RoachClaw</a>
-        <a href="https://roachnet.org/iOS/">iOS</a>
-        <a href="https://roachnet.org/api/">API</a>
-        <a href="https://github.com/AHGRoach/RoachNet" target="_blank" rel="noreferrer">GitHub</a>
-      </nav>
-      <div class="site-footer__meta">
-        <a
-          class="site-footer__release-chip"
-          id="footer-release-badge"
-          href="https://github.com/AHGRoach/RoachNet/releases/latest"
-          target="_blank"
-          rel="noreferrer"
-          aria-label="Latest RoachNet release"
-        >v1.0.2</a>
-        <a
-          class="netlify-badge"
-          href="https://www.netlify.com"
-          target="_blank"
-          rel="noreferrer"
-          aria-label="Proudly powered by Netlify"
-        >
-          <span>Proudly powered by Netlify</span>
-          <img
-            src="https://www.netlify.com/assets/badges/netlify-badge-color-accent.svg"
-            alt="Netlify"
-            loading="lazy"
-          />
-        </a>
+    <!-- Footer -->
+    <footer class="rn-footer">
+      <div class="rn-footer-inner">
+        <div class="rn-footer-copy">
+          <strong>RoachNet</strong>
+          <span>RoachNet &middot; offline on purpose.</span>
+        </div>
+        <nav class="rn-footer-nav" aria-label="Footer">
+          <a href="#top">Mission</a>
+          <a href="https://roachnet.org/home/">Home</a>
+          <a href="https://apps.roachnet.org">Apps</a>
+          <a href="https://roachnet.org/roachclaw/">RoachClaw</a>
+          <a href="https://roachnet.org/iOS/">iOS</a>
+          <a href="https://roachnet.org/api/">API</a>
+          <a href="https://github.com/AHGRoach/RoachNet" target="_blank" rel="noreferrer">GitHub</a>
+        </nav>
+        <div class="rn-footer-meta">
+          <div class="rn-footer-brand" aria-hidden="true">
+            <span>RoachNet</span>
+          </div>
+          <a
+            class="rn-release-chip"
+            id="footer-release-badge"
+            href="https://github.com/AHGRoach/RoachNet/releases/latest"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="Latest RoachNet release"
+          >v1.0.2</a>
+          <a
+            class="rn-netlify-badge"
+            href="https://www.netlify.com"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="Proudly powered by Netlify"
+          >
+            <span>Proudly powered by Netlify</span>
+            <img
+              src="https://www.netlify.com/assets/badges/netlify-badge-color-accent.svg"
+              alt="Netlify"
+              loading="lazy"
+            />
+          </a>
+        </div>
       </div>
     </footer>
 
     <script src="./site-config.js"></script>
     <script src="./app.js" type="module"></script>
+    <script src="./landing-script.js"></script>
+    <script>
+      /* Dithered parallax background */
+      ;(function () {
+        const canvas = document.getElementById('dither-canvas');
+        if (!canvas) return;
+        const ctx = canvas.getContext('2d');
+        const SCALE = 4;          // pixel size for dithered look
+        let w, h, cols, rows;
+        let scrollY = 0;
+        let time = 0;
+        let raf;
+
+        function resize() {
+          w = window.innerWidth;
+          h = window.innerHeight;
+          canvas.width = Math.ceil(w / SCALE);
+          canvas.height = Math.ceil(h / SCALE);
+          cols = canvas.width;
+          rows = canvas.height;
+        }
+
+        // Bayer 4x4 dither matrix (normalized 0-1)
+        const bayer = [
+          [ 0/16,  8/16,  2/16, 10/16],
+          [12/16,  4/16, 14/16,  6/16],
+          [ 3/16, 11/16,  1/16,  9/16],
+          [15/16,  7/16, 13/16,  5/16]
+        ];
+
+        function draw() {
+          time += 0.003;
+          const imgData = ctx.createImageData(cols, rows);
+          const data = imgData.data;
+          const scroll = scrollY * 0.0003;
+
+          for (let y = 0; y < rows; y++) {
+            for (let x = 0; x < cols; x++) {
+              // Multiple layered noise-like patterns with parallax
+              const px = x / cols;
+              const py = y / rows;
+              const layer1 = Math.sin((px * 6.0 + time * 0.7) + scroll * 2) *
+                            Math.cos((py * 8.0 - time * 0.5) + scroll) * 0.5 + 0.5;
+              const layer2 = Math.sin((px * 14.0 - time * 1.1) + scroll * 3) *
+                            Math.cos((py * 10.0 + time * 0.3) - scroll * 1.5) * 0.5 + 0.5;
+              const layer3 = Math.sin((px * 3.0 + py * 4.0 + time * 0.2) + scroll) * 0.5 + 0.5;
+
+              const combined = (layer1 * 0.35 + layer2 * 0.25 + layer3 * 0.4);
+              const threshold = bayer[y % 4][x % 4];
+              const on = combined > threshold ? 1 : 0;
+
+              // Purple-tinted dithering
+              const idx = (y * cols + x) * 4;
+              data[idx]     = on * 18;   // R
+              data[idx + 1] = on * 8;    // G
+              data[idx + 2] = on * 28;   // B
+              data[idx + 3] = on * 40;   // A — subtle
+            }
+          }
+
+          ctx.putImageData(imgData, 0, 0);
+          raf = requestAnimationFrame(draw);
+        }
+
+        window.addEventListener('scroll', function () {
+          scrollY = window.scrollY;
+        }, { passive: true });
+
+        window.addEventListener('resize', function () {
+          resize();
+        });
+
+        // Respect reduced motion
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+        resize();
+        draw();
+      })();
+    </script>
     <script>
       ;(async () => {
         const badge = document.getElementById('footer-release-badge')

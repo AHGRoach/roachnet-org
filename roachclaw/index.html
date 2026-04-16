@@ -31,361 +31,243 @@
     <meta name="twitter:image" content="https://roachnet.org/assets/screens/roachnet-native-roachclaw.jpg" />
     <link rel="stylesheet" href="../app.css" />
     <link rel="stylesheet" href="../app-polish.css" />
+    <link rel="stylesheet" href="../roachclaw-web.css" />
   </head>
   <body data-page="roachclaw">
     <div class="bg-glow bg-glow--blue" aria-hidden="true"></div>
     <div class="bg-glow bg-glow--green" aria-hidden="true"></div>
 
-    <header class="site-header roachclaw-topbar">
-      <a class="brand-lockup" href="https://roachnet.org/" aria-label="Back to RoachNet">
-        <img class="brand-mark" src="../assets/roachnet-logo.png" alt="RoachNet logo" />
-        <div class="brand-copy">
-          <strong>RoachClaw</strong>
-          <span class="brand-kicker">Account chat · your threads stay yours</span>
-        </div>
-        <span class="site-header__status">Web chat</span>
-      </a>
-
-      <div class="site-header__panel">
-        <nav class="site-nav site-nav--primary" aria-label="RoachClaw links">
-          <a href="https://roachnet.org/home/">Home</a>
-          <a href="https://apps.roachnet.org/">Apps</a>
-          <a href="https://accounts.roachnet.org/">Account</a>
-          <a href="https://roachnet.org/api/">API</a>
-        </nav>
-      </div>
-    </header>
-
-    <main class="roachclaw-page">
-      <section class="roachclaw-shell">
-        <aside class="roachclaw-rail roachclaw-rail--left">
-          <article class="roachclaw-panel roachclaw-panel--brand" data-reveal>
-            <span class="feature-card__eyebrow">RoachClaw</span>
-            <h1>Your chat. Any browser. Still yours.</h1>
-            <p>
-              Sign in and keep moving. Use the hosted lane when you are away from your machines, or pair your own box when you want your hardware behind the thread.
-            </p>
-
-            <div class="roachclaw-chip-row" aria-label="RoachClaw notes">
-              <span class="roachclaw-chip">Account-scoped</span>
-              <span class="roachclaw-chip">Hosted first</span>
-              <span class="roachclaw-chip">Bridge on purpose</span>
-            </div>
-
-            <div class="poster-actions">
-              <a class="cta cta--primary" href="https://accounts.roachnet.org/">Sign in</a>
-              <a class="cta cta--ghost" href="https://roachnet.org/home/">Back to RoachNet</a>
-            </div>
-
-            <div class="roachclaw-brand-shot app-screen-shot app-screen-shot--dark" aria-hidden="true">
-              <img src="../assets/screens/roachnet-native-roachclaw.jpg" alt="RoachClaw native workbench" />
-              <span class="screen-version-chip">RoachNet v1.0.2</span>
-            </div>
-
-            <div class="hero-signal-board hero-signal-board--compact">
-              <article class="hero-signal-card">
-                <span>Account</span>
-                <strong>Your threads follow the account, not whichever tab happens to be open.</strong>
-              </article>
-              <article class="hero-signal-card">
-                <span>Bridge</span>
-                <strong>Pair a device when you want the heavier work kept on your own machine.</strong>
-              </article>
-            </div>
-
-            <div class="panel-note-grid">
-              <article class="panel-note-card">
-                <span class="feature-card__eyebrow">Cloud mode</span>
-                <strong>Works when your machines are asleep.</strong>
-                <p>Open the page, sign in, and keep moving. No paired Mac required.</p>
-              </article>
-              <article class="panel-note-card">
-                <span class="feature-card__eyebrow">Local mode</span>
-                <strong>Use your own box when you want the private lane.</strong>
-                <p>Pair a RoachTail device and keep the heavier work on the machine you already trust.</p>
-              </article>
-            </div>
-          </article>
-
-          <article class="roachclaw-panel roachclaw-panel--auth" data-reveal>
-            <div class="account-inline-status">
-              <div>
-                <span class="feature-card__eyebrow">Account</span>
-                <h2 id="roachclaw-auth-title">Checking account state…</h2>
-                <p id="roachclaw-auth-body">Loading the auth and hosted-chat state for this deploy.</p>
+    <div class="page-view page-view--roachclaw rc-standalone" id="view-roachclaw">
+      <div class="rc-sidebar-overlay" aria-hidden="true"></div>
+      <div class="rc-layout">
+        <aside class="rc-sidebar">
+          <div class="rc-sidebar__head">
+            <a class="rc-sidebar__brand" href="https://roachnet.org/" aria-label="Back to RoachNet">
+              <img class="brand-mark" src="../assets/roachclaw-logo.png" alt="RoachClaw logo" />
+              <div class="brand-copy">
+                <strong>RoachClaw</strong>
+                <span class="brand-kicker">offline on purpose</span>
               </div>
-              <div class="account-status-badge" id="roachclaw-auth-badge">Loading</div>
-            </div>
+            </a>
+            <button class="rc-sidebar__new-btn" id="roachclaw-new-thread" type="button" aria-label="New chat">
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M9 3v12M3 9h12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+            </button>
+          </div>
 
-            <form class="account-form" id="roachclaw-auth-form">
-              <label class="account-field">
-                <span>Email</span>
-                <input
-                  id="roachclaw-email"
-                  type="email"
-                  autocomplete="email"
-                  placeholder="you@roachnet.org"
-                  required
-                />
-              </label>
+          <nav class="rc-sidebar__nav" aria-label="RoachClaw navigation">
+            <a href="https://roachnet.org/" class="rc-sidebar__link">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8l6-5.5L14 8M3.5 7v5.5a1 1 0 001 1h7a1 1 0 001-1V7" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              Mission
+            </a>
+            <a href="https://roachnet.org/home/" class="rc-sidebar__link">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8l6-5.5L14 8M3.5 7v5.5a1 1 0 001 1h7a1 1 0 001-1V7" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              Home
+            </a>
+            <a href="https://apps.roachnet.org/" class="rc-sidebar__link">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><rect x="2" y="3" width="12" height="10" rx="2" stroke="currentColor" stroke-width="1.4"/><path d="M5.5 7l2 2 2-2" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              Apps
+            </a>
+            <a href="https://accounts.roachnet.org/" class="rc-sidebar__link">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="5.5" r="3" stroke="currentColor" stroke-width="1.4"/><path d="M2.5 14c0-3 2.5-4.5 5.5-4.5s5.5 1.5 5.5 4.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+              Account
+            </a>
+            <a href="https://roachnet.org/api/" class="rc-sidebar__link">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><rect x="2" y="3" width="12" height="10" rx="2" stroke="currentColor" stroke-width="1.4"/><path d="M5.5 7l2 2 2-2" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              API
+            </a>
+          </nav>
 
-              <label class="account-field">
-                <span>Password</span>
-                <input
-                  id="roachclaw-password"
-                  type="password"
-                  autocomplete="current-password"
-                  placeholder="Use your account password"
-                  required
-                />
-              </label>
+          <div class="rc-sidebar__divider"></div>
 
-              <div class="account-actions-inline">
-                <button class="cta cta--primary" id="roachclaw-auth-submit" type="submit">
-                  Sign in to RoachClaw
-                </button>
-                <button class="cta cta--ghost" id="roachclaw-signout" type="button" hidden>
-                  Sign out
-                </button>
-              </div>
-
-              <p class="account-form__note" id="roachclaw-auth-note">
-                Need an account first? Make one on the Accounts page, then sign in here.
-              </p>
-              <p class="account-form__feedback" id="roachclaw-auth-feedback" aria-live="polite"></p>
-            </form>
-
-            <div class="account-actions-inline">
-              <a class="cta cta--ghost" href="https://accounts.roachnet.org/">Create account</a>
-              <a class="cta cta--ghost" href="https://roachnet.org/iOS/">RoachNetiOS</a>
-            </div>
-          </article>
-
-          <article class="roachclaw-panel roachclaw-panel--auth" data-reveal>
-            <div class="account-inline-status">
-              <div>
-                <span class="feature-card__eyebrow">Device bridge</span>
-                <h2 id="roachclaw-bridge-title">Works in any browser. Better with your own box behind it.</h2>
-                <p id="roachclaw-bridge-body">
-                  Pair a RoachTail device and your hardware does the model work. No paired device? RoachBrain Cloud handles the thread here instead.
-                </p>
-              </div>
-              <div class="account-status-badge" id="roachclaw-bridge-badge">Unpaired</div>
-            </div>
-
-            <form class="account-form" id="roachclaw-bridge-form">
-              <label class="account-field">
-                <span>Bridge URL</span>
-                <input
-                  id="roachclaw-bridge-url"
-                  type="url"
-                  inputmode="url"
-                  autocomplete="url"
-                  placeholder="https://your-device.roachtail"
-                />
-              </label>
-
-              <label class="account-field">
-                <span>Bridge token</span>
-                <input
-                  id="roachclaw-bridge-token"
-                  type="password"
-                  autocomplete="off"
-                  placeholder="One-time or peer token from your RoachNet device"
-                />
-              </label>
-
-              <label class="account-field">
-                <span>Device label</span>
-                <input
-                  id="roachclaw-bridge-label"
-                  type="text"
-                  autocomplete="off"
-                  maxlength="120"
-                  placeholder="Studio Mac mini"
-                />
-              </label>
-
-              <div class="account-actions-inline">
-                <button class="cta cta--primary" id="roachclaw-bridge-submit" type="submit">
-                  Pair device
-                </button>
-                <button class="cta cta--ghost" id="roachclaw-bridge-clear" type="button">
-                  Clear device
-                </button>
-              </div>
-
-              <p class="account-form__note">
-                The token stays in this browser. The site handles account auth and thread ownership. Your RoachNet device does the heavier work when paired.
-              </p>
-              <p class="account-form__feedback" id="roachclaw-bridge-feedback" aria-live="polite"></p>
-            </form>
-          </article>
-
-          <article class="roachclaw-panel roachclaw-panel--threads" data-reveal>
-            <div class="roachclaw-threads-head">
-              <div>
-                <span class="feature-card__eyebrow">Threads</span>
-                <h2>Your chat history.</h2>
-              </div>
-              <button class="cta cta--ghost" id="roachclaw-new-chat" type="button" disabled>
-                New chat
-              </button>
-            </div>
-
-            <div class="roachclaw-thread-list" id="roachclaw-thread-list" aria-live="polite">
-              <div class="roachclaw-thread-empty">
-                Sign in to load your own RoachClaw threads.
+          <div class="rc-sidebar__threads">
+            <span class="rc-sidebar__section-label">Threads</span>
+            <div class="rc-thread-list" id="roachclaw-thread-list">
+              <div class="rc-thread-empty">
+                <p>No threads yet. Sign in to start a conversation.</p>
               </div>
             </div>
-          </article>
+          </div>
+
+          <div class="rc-sidebar__foot">
+            <div class="rc-lane-status">
+              <div class="rc-lane-dot rc-lane-dot--web" aria-label="Web lane active"></div>
+              <span>Web lane active</span>
+            </div>
+            <div class="rc-lane-status rc-lane-status--dim">
+              <div class="rc-lane-dot rc-lane-dot--local" aria-label="Local lane offline"></div>
+              <span>Local lane — pair from RoachNet</span>
+            </div>
+          </div>
         </aside>
 
-        <section class="roachclaw-workspace">
-          <article class="roachclaw-panel roachclaw-panel--workspace-head" data-reveal>
-            <div class="roachclaw-workspace-head__copy">
-              <span class="feature-card__eyebrow">Hosted RoachClaw</span>
-              <h2 id="roachclaw-workspace-title">Secure chat from anywhere.</h2>
-              <p id="roachclaw-workspace-body">
-                Threads stay with your login. Local models, vault files, and machine paths stay on your devices unless you bridge them on purpose.
-              </p>
-
-              <div class="poster-actions">
-                <a class="cta cta--ghost" href="https://roachnet.org/api/">Read the API</a>
-                <a class="cta cta--ghost" href="https://roachnet.org/iOS/">Get RoachNetiOS</a>
+        <main class="rc-main">
+          <header class="rc-main__topbar">
+            <div class="rc-main__topbar-left">
+              <button class="rc-sidebar-toggle" id="rc-sidebar-toggle" type="button" aria-label="Toggle sidebar">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M3 5h14M3 10h14M3 15h14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+              </button>
+              <span class="rc-main__thread-title">New conversation</span>
+            </div>
+            <div class="rc-main__topbar-right">
+              <div class="rc-model-badge">
+                <div class="rc-lane-dot rc-lane-dot--web"></div>
+                <span>Hosted model</span>
               </div>
+              <button class="rc-account-chip" id="roachclaw-account-chip" type="button">Sign in</button>
             </div>
+          </header>
 
-            <div class="roachclaw-chip-grid" aria-label="Hosted chat status">
-              <article class="roachclaw-status-tile" data-state="pending">
-                <span>Account</span>
-                <strong id="roachclaw-status-account">Checking</strong>
-              </article>
-              <article class="roachclaw-status-tile" data-state="live">
-                <span>Provider</span>
-                <strong id="roachclaw-status-provider">RoachBrain Cloud</strong>
-              </article>
-              <article class="roachclaw-status-tile" data-state="ready">
-                <span>Model</span>
-                <strong id="roachclaw-status-model">Cloud model ready</strong>
-              </article>
-            </div>
-          </article>
+          <div class="rc-chat-area">
+            <div class="rc-chat-scroll" id="roachclaw-log">
+              <div class="rc-empty-state">
+                <div class="rc-empty-state__icon" aria-hidden="true">
+                  <svg width="48" height="48" viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="22" stroke="url(#rc-grad)" stroke-width="2" opacity="0.5"/><path d="M16 20c0-4.4 3.6-8 8-8s8 3.6 8 8" stroke="url(#rc-grad)" stroke-width="2" stroke-linecap="round"/><circle cx="18" cy="28" r="2" fill="var(--rn-cyan)"/><circle cx="24" cy="28" r="2" fill="var(--rn-blue)"/><circle cx="30" cy="28" r="2" fill="var(--rn-green)"/><defs><linearGradient id="rc-grad" x1="4" y1="4" x2="44" y2="44"><stop stop-color="var(--rn-blue)"/><stop offset="1" stop-color="var(--rn-cyan)"/></linearGradient></defs></svg>
+                </div>
+                <h1 class="rc-empty-state__heading">What can RoachClaw help with?</h1>
+                <p class="rc-empty-state__sub">Your threads stay with your account, not this browser tab. Use the web lane anywhere. Pair your local runtime when you want the private lane.</p>
 
-          <article class="roachclaw-panel roachclaw-panel--chat" data-reveal>
-            <div class="roachclaw-log" id="roachclaw-log">
-              <div class="roachclaw-empty-state" id="roachclaw-empty-state">
-                <span class="feature-card__eyebrow">First prompt</span>
-                <h3>Ask for something useful.</h3>
-                <p>
-                  The browser gets the thread. It does not get your machine state unless you deliberately bridge it.
-                </p>
+                <div class="rc-starter-grid">
+                  <button class="rc-starter-card" type="button" data-starter="explain">
+                    <div class="rc-starter-card__icon">
+                      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="10" cy="10" r="7.5" stroke="currentColor" stroke-width="1.4"/><path d="M10 13v-3M10 7.5v0" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+                    </div>
+                    <strong>Explain something</strong>
+                    <span>Break down a concept, tool, or workflow in plain language.</span>
+                  </button>
+                  <button class="rc-starter-card" type="button" data-starter="draft">
+                    <div class="rc-starter-card__icon">
+                      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 14.5V16h1.5L14 7.5 12.5 6 4 14.5z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/><path d="M11.5 5l3 3" stroke="currentColor" stroke-width="1.4"/></svg>
+                    </div>
+                    <strong>Draft a message</strong>
+                    <span>Write an email, commit message, or a quick reply.</span>
+                  </button>
+                  <button class="rc-starter-card" type="button" data-starter="debug">
+                    <div class="rc-starter-card__icon">
+                      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><rect x="3.5" y="5.5" width="13" height="9" rx="2" stroke="currentColor" stroke-width="1.4"/><path d="M7 9l2 2 4-4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </div>
+                    <strong>Debug a problem</strong>
+                    <span>Walk through an error, config issue, or unexpected behaviour.</span>
+                  </button>
+                  <button class="rc-starter-card" type="button" data-starter="summarize">
+                    <div class="rc-starter-card__icon">
+                      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 5h12M4 8.5h9M4 12h10M4 15.5h7" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+                    </div>
+                    <strong>Summarize content</strong>
+                    <span>Condense a doc, thread, or page into the key points.</span>
+                  </button>
+                </div>
 
-                <div class="roachclaw-starter-grid">
-                  <button class="roachclaw-starter" data-roachclaw-starter="What is RoachNet and what can it do across desktop, iOS, and the Apps store?">
-                    <strong>What is RoachNet?</strong>
-                    <span>Good place to start.</span>
-                  </button>
-                  <button class="roachclaw-starter" data-roachclaw-starter="Help me map out a RoachTail + RoachSync device setup without exposing my public IP.">
-                    <strong>Set up RoachTail</strong>
-                    <span>Private multi-device bridge, explained.</span>
-                  </button>
-                  <button class="roachclaw-starter" data-roachclaw-starter="Give me a practical list of RoachNet Apps packs to install first for maps, medicine, and dev.">
-                    <strong>What should I install first?</strong>
-                    <span>First-run app pack suggestions.</span>
-                  </button>
+                <div class="rc-info-strip">
+                  <div class="rc-info-strip__item">
+                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M7 1v12M1 7h12" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+                    <span>Account-scoped threads</span>
+                  </div>
+                  <div class="rc-info-strip__item">
+                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><circle cx="7" cy="7" r="5.5" stroke="currentColor" stroke-width="1.2"/><path d="M7 4v3l2 1.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+                    <span>Works when your machines are asleep</span>
+                  </div>
+                  <div class="rc-info-strip__item">
+                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2 7a5 5 0 0110 0 5 5 0 01-10 0z" stroke="currentColor" stroke-width="1.2"/><path d="M7 5v4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+                    <span>Private by default — no data leaks sideways</span>
+                  </div>
                 </div>
               </div>
             </div>
 
-            <form class="roachclaw-composer" id="roachclaw-composer">
-              <label class="roachclaw-composer__field" for="roachclaw-prompt">
-                <span class="feature-card__eyebrow">Prompt</span>
-                <textarea
-                  id="roachclaw-prompt"
-                  rows="4"
-                  placeholder="Ask RoachClaw something practical."
-                ></textarea>
-              </label>
-
-              <div class="roachclaw-composer__actions">
-                <p class="account-form__feedback" id="roachclaw-chat-feedback" aria-live="polite"></p>
-                <button class="cta cta--primary" id="roachclaw-send" type="submit" disabled>
-                  Send
-                </button>
+            <div class="rc-composer">
+              <div class="rc-composer__inner">
+                <textarea id="roachclaw-input" class="rc-composer__textarea" placeholder="Message RoachClaw..." rows="1"></textarea>
+                <div class="rc-composer__controls">
+                  <span class="rc-composer__hint" id="roachclaw-hint">Web lane · hosted models</span>
+                  <button class="rc-composer__send" id="roachclaw-send" type="button" aria-label="Send message">
+                    <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M3.5 9h11M10 4.5L14.5 9 10 13.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  </button>
+                </div>
               </div>
-            </form>
-          </article>
+              <p class="rc-composer__disclaimer">RoachClaw uses hosted models on the web lane. Pair your local runtime for the private lane.</p>
+            </div>
+          </div>
+        </main>
+      </div>
+
+      <div class="rc-auth-gate" id="roachclaw-auth-gate" hidden>
+        <div class="rc-auth-gate__backdrop" aria-hidden="true"></div>
+        <section class="rc-auth-gate__window" aria-labelledby="roachclaw-gate-title">
+          <span class="rc-auth-gate__eyebrow">RoachClaw web lane</span>
+          <h2 id="roachclaw-gate-title">Sign in and pick up where you left off.</h2>
+          <p id="roachclaw-gate-copy">
+            Threads follow your account. The browser does not get your machine state unless you deliberately pair it later.
+          </p>
+
+          <div class="account-auth-card__tabs" role="tablist" aria-label="RoachClaw account mode">
+            <button class="account-tab is-active" data-roachclaw-auth-mode="signin" type="button">Sign in</button>
+            <button class="account-tab" data-roachclaw-auth-mode="signup" type="button">Create account</button>
+          </div>
+
+          <form class="account-form" id="roachclaw-auth-form">
+            <label class="account-field" id="roachclaw-auth-name-field" hidden>
+              <span>Name</span>
+              <input id="roachclaw-auth-name" type="text" autocomplete="nickname" maxlength="60" placeholder="How RoachNet should label this account" />
+            </label>
+
+            <label class="account-field">
+              <span>Email</span>
+              <input id="roachclaw-auth-email" type="email" autocomplete="email" placeholder="you@roachnet.org" required />
+            </label>
+
+            <label class="account-field">
+              <span>Password</span>
+              <input id="roachclaw-auth-password" type="password" autocomplete="current-password" placeholder="Use your account password" required />
+            </label>
+
+            <div class="rc-auth-gate__actions">
+              <button class="cta cta--primary" id="roachclaw-auth-submit" type="submit">Sign in</button>
+              <a class="cta cta--ghost" href="https://accounts.roachnet.org/">Account</a>
+            </div>
+            <p class="account-form__note" id="roachclaw-auth-note">Use the same account that owns your RoachClaw threads.</p>
+            <p class="account-form__feedback" id="roachclaw-auth-feedback" aria-live="polite"></p>
+          </form>
+
+          <div class="rc-auth-gate__meta" aria-hidden="true">
+            <span class="rc-auth-gate__chip">Hosted threads from anywhere</span>
+            <span class="rc-auth-gate__chip">Your runtime stays on your hardware</span>
+          </div>
         </section>
-
-        <aside class="roachclaw-rail roachclaw-rail--right">
-          <article class="roachclaw-panel roachclaw-panel--meta" data-reveal>
-            <span class="feature-card__eyebrow">Security</span>
-            <h2>Only your account sees the thread.</h2>
-            <p>
-              Sessions only load threads tied to the signed-in account. The server verifies the token before it writes anything.
-            </p>
-          </article>
-
-          <article class="roachclaw-panel roachclaw-panel--meta" data-reveal>
-            <span class="feature-card__eyebrow">Local device</span>
-            <h2>The web lane stops at the edge.</h2>
-            <p>
-              Thread history lives on the server. Your runtime, vault, models, and file paths stay on your own machine until you deliberately bridge them.
-            </p>
-            <div class="account-actions-inline">
-              <a class="cta cta--ghost" href="https://roachnet.org/api/">API docs</a>
-              <a class="cta cta--ghost" href="https://accounts.roachnet.org/">Accounts</a>
-            </div>
-          </article>
-
-          <article class="roachclaw-panel roachclaw-panel--meta" data-reveal>
-            <span class="feature-card__eyebrow">What comes next</span>
-            <h2>Use the web when away. Pair when home.</h2>
-            <p>
-              Web chat is the easy front door. Local models, vault state, and full device control still live in the paired runtime.
-            </p>
-            <div class="account-actions-inline">
-              <a class="cta cta--ghost" href="https://roachnet.org/iOS/">Pair devices</a>
-              <a class="cta cta--ghost" href="https://apps.roachnet.org/">Browse Apps</a>
-            </div>
-          </article>
-        </aside>
-      </section>
-    </main>
-
-    <footer class="site-footer">
-      <div class="site-footer__copy">
-        <strong>RoachClaw</strong>
-        <span>Secure account chat from anywhere, with your own hardware when you want it and RoachBrain Cloud when you do not.</span>
       </div>
-      <nav class="site-footer__nav" aria-label="Footer">
-        <a href="https://roachnet.org/home/">Home</a>
-        <a href="https://accounts.roachnet.org/">Account</a>
-        <a href="https://roachnet.org/api/">API</a>
-        <a href="https://apps.roachnet.org/">Apps</a>
-        <a href="https://github.com/AHGRoach/RoachNet" target="_blank" rel="noreferrer">GitHub</a>
-      </nav>
-      <div class="site-footer__meta">
-        <a
-          class="netlify-badge"
-          href="https://www.netlify.com"
-          target="_blank"
-          rel="noreferrer"
-          aria-label="Proudly powered by Netlify"
-        >
-          <span>Proudly powered by Netlify</span>
-          <img
-            src="https://www.netlify.com/assets/badges/netlify-badge-color-accent.svg"
-            alt="Netlify"
-            loading="lazy"
-          />
-        </a>
-      </div>
-    </footer>
+
+      <footer class="site-footer rc-footer">
+        <div class="site-footer__copy">
+          <strong>RoachClaw</strong>
+          <span>AI chat that follows your account, not your browser tab. Use the web lane anywhere. Pair your local runtime when you want the private lane — offline on purpose.</span>
+        </div>
+        <nav class="site-footer__nav" aria-label="Footer">
+          <a href="https://roachnet.org/">Mission</a>
+          <a href="https://roachnet.org/home/">Home</a>
+          <a href="https://accounts.roachnet.org/">Account</a>
+          <a href="https://apps.roachnet.org/">Apps</a>
+          <a href="https://roachnet.org/api/">API</a>
+          <a href="https://github.com/AHGRoach/RoachNet" target="_blank" rel="noreferrer">GitHub</a>
+        </nav>
+        <div class="site-footer__meta">
+          <a
+            class="netlify-badge"
+            href="https://www.netlify.com"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="Proudly powered by Netlify"
+          >
+            <span>Proudly powered by Netlify</span>
+            <img
+              src="https://www.netlify.com/assets/badges/netlify-badge-color-accent.svg"
+              alt="Netlify"
+              loading="lazy"
+            />
+          </a>
+        </div>
+      </footer>
+    </div>
 
     <script src="../site-config.js"></script>
-    <script src="../app.js"></script>
     <script src="../roachclaw.js" type="module"></script>
   </body>
 </html>
