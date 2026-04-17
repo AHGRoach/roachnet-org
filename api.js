@@ -194,9 +194,9 @@ const apiGroups = [
         handler: 'RoachNet-iOS release asset',
         request: ['No HTTP body. Static packaging contract for sideload tooling.'],
         response: [
-          'Release asset: https://github.com/AHGRoach/RoachNet-iOS/releases/latest/download/RoachNetiOS-v0.1.2-unsigned.ipa',
+          'Release asset: https://github.com/AHGRoach/RoachNet-iOS/releases/latest/download/RoachNetiOS-v0.1.3-unsigned.ipa',
           'Download the IPA and share it to SideStore on-device.',
-          'Version: 0.1.2',
+          'Version: 0.1.3',
           'Display name: RoachNetiOS',
         ],
         implementation:

@@ -1,5 +1,5 @@
 window.__ROACHNET_SITE_CONFIG__ = {
-  "releaseVersion": "1.0.2",
+  "releaseVersion": "1.0.3",
   "auth": {
     "enabled": true,
     "provider": "supabase",
