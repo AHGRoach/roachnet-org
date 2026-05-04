@@ -1,4 +1,4 @@
-const owner = 'AHGRoach'
+const owner = 'RoachWares'
 const repo = 'RoachNet'
 const releaseVersion = window.__ROACHNET_SITE_CONFIG__?.releaseVersion || '1.0.4'
 const latestReleaseApi = `https://api.github.com/repos/${owner}/${repo}/releases/latest`
@@ -9,11 +9,6 @@ const hostedDownloads = {
     url: `${latestDownloadBase}/RoachNet-Setup-macOS.dmg`,
     name: 'RoachNet-Setup-macOS.dmg',
     version: releaseVersion,
-  },
-  win: {
-    url: `${latestDownloadBase}/RoachNet-Setup-windows-x64-beta.exe`,
-    name: 'RoachNet-Setup-windows-x64-beta.exe',
-    version: '0.0.1 beta',
   },
 }
 
@@ -825,8 +820,7 @@ function detectPlatform() {
   const platform = navigator.platform.toLowerCase()
 
   if (platform.includes('mac') || ua.includes('mac os')) return 'mac'
-  if (platform.includes('win') || ua.includes('windows')) return 'win'
-  return 'linux'
+  return 'mac'
 }
 
 function setDownloadButton() {
@@ -834,7 +828,7 @@ function setDownloadButton() {
 
   const platformKey = detectPlatform()
   const asset = hostedDownloads[platformKey] || hostedDownloads.mac
-  const label = platformKey === 'mac' ? 'macOS' : platformKey === 'win' ? 'Windows 11' : 'Linux'
+  const label = 'macOS'
 
   primaryDownloadButton.textContent = `Download RoachNet ${asset.version} for ${label}`
   primaryDownloadButton.onclick = () => {
@@ -863,14 +857,10 @@ async function loadLatestRelease() {
     const platformKey = detectPlatform()
     const asset =
       state.latestRelease.assets?.find((candidate) =>
-        platformKey === 'win'
-          ? /RoachNet-Setup-windows-x64-beta\.exe/i.test(candidate.name)
-          : /RoachNet-Setup-macOS\.dmg/i.test(candidate.name)
+        /RoachNet-Setup-macOS\.dmg/i.test(candidate.name)
       ) || null
-    const version = platformKey === 'win'
-      ? '0.0.1 beta'
-      : state.latestRelease.tag_name?.replace(/^v/i, '') || releaseVersion
-    const label = platformKey === 'win' ? 'Windows 11' : 'macOS'
+    const version = state.latestRelease.tag_name?.replace(/^v/i, '') || releaseVersion
+    const label = 'macOS'
 
     primaryDownloadButton.textContent = `Download RoachNet ${version} for ${label}`
     primaryDownloadButton.onclick = () => {

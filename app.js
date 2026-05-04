@@ -1,4 +1,4 @@
-const owner = 'AHGRoach'
+const owner = 'RoachWares'
 const repo = 'RoachNet'
 const releaseVersion = window.__ROACHNET_SITE_CONFIG__?.releaseVersion || '1.0.4'
 const latestReleaseApi = `https://api.github.com/repos/${owner}/${repo}/releases/latest`
@@ -9,11 +9,6 @@ const hostedDownloads = {
     url: `${latestDownloadBase}/RoachNet-Setup-macOS.dmg`,
     name: 'RoachNet-Setup-macOS.dmg',
     version: releaseVersion,
-  },
-  win: {
-    url: `${latestDownloadBase}/RoachNet-Setup-windows-x64-beta.exe`,
-    name: 'RoachNet-Setup-windows-x64-beta.exe',
-    version: '0.0.1 beta',
   },
 }
 
@@ -62,19 +57,6 @@ const platformPresets = {
     label: 'macOS',
     patterns: [/^RoachNet-Setup-macOS\.dmg$/i, /RoachNet-Setup-.*-mac-.*\.dmg$/i, /RoachNet-Setup-.*-mac-.*\.zip$/i],
   },
-  win: {
-    label: 'Windows 11',
-    patterns: [
-      /^RoachNet-Setup-windows-x64-beta\.exe$/i,
-      /^RoachNet-Setup-.*windows.*\.exe$/i,
-      /^RoachNet-Setup-.*win.*\.exe$/i,
-      /^RoachNet-Setup-windows-x64-beta\.zip$/i,
-    ],
-  },
-  linux: {
-    label: 'Linux',
-    patterns: [/RoachNet-Setup-.*-linux-.*\.AppImage$/i, /RoachNet-Setup-.*-linux-.*\.deb$/i],
-  },
 }
 
 let latestRelease = null
@@ -95,7 +77,7 @@ let landingNoiseVisualProgress = 0
 let landingNoiseFrame = 0
 
 const homebrewCommand =
-  'brew update && brew tap --force AHGRoach/roachnet && brew install --cask roachnet'
+  'brew update && brew tap --force RoachWares/roachnet && brew install --cask roachnet'
 const homebrewHelperUrl = '/downloads/RoachNet-Homebrew.command.zip'
 const homePageUrl = 'https://roachnet.org/home/'
 
@@ -533,11 +515,7 @@ function detectPlatform() {
     return 'mac'
   }
 
-  if (platform.includes('win') || ua.includes('windows')) {
-    return 'win'
-  }
-
-  return 'linux'
+  return 'mac'
 }
 
 function findAssetForPlatform(platformKey) {

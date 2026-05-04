@@ -27,7 +27,7 @@ fi
 
 echo "Refreshing Homebrew metadata ..."
 brew update --quiet
-brew tap --force AHGRoach/roachnet
+brew tap --force RoachWares/roachnet
 
 if brew list --cask roachnet >/dev/null 2>&1; then
   brew reinstall --cask --force roachnet

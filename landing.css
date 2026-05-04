@@ -483,6 +483,63 @@ body.rn-body .site-footer { display: none; }
   color: var(--why-text-soft);
 }
 
+.company-hero {
+  padding-bottom: 54px;
+}
+
+.company-signal {
+  margin-top: 42px;
+}
+
+.company-grid {
+  max-width: var(--why-wide-width);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.company-card {
+  min-height: 210px;
+  padding: 28px;
+  border: 1px solid var(--why-border);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.035);
+  box-shadow: 0 22px 70px rgba(0, 0, 0, 0.28);
+}
+
+.company-card span {
+  display: block;
+  margin-bottom: 18px;
+  color: var(--why-text-soft);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+}
+
+.company-card h3 {
+  margin: 0 0 12px;
+  color: var(--why-text);
+  font-size: 1.28rem;
+  line-height: 1.16;
+}
+
+.company-card p {
+  margin: 0;
+  color: var(--why-text-muted);
+  font-size: 0.98rem;
+  line-height: 1.58;
+}
+
+.company-list {
+  margin-top: 28px;
+}
+
+.company-cta {
+  max-width: 720px;
+}
+
 /* 8) Accent statement */
 .why-section--accent {
   padding: 40px 0;
@@ -1028,6 +1085,11 @@ body.rn-body .why-cap-card[data-reveal]:nth-child(3) { transition-delay: 240ms; 
   }
 
   .why-capabilities {
+    grid-template-columns: 1fr;
+    max-width: var(--why-content-width);
+  }
+
+  .company-grid {
     grid-template-columns: 1fr;
     max-width: var(--why-content-width);
   }

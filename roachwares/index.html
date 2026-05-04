@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RoachWares LLC - Software behind RoachNet</title>
+    <meta
+      name="description"
+      content="RoachWares LLC is the Indiana software company behind RoachNet: offline-first tools for AI, archives, games, media, and dev work."
+    />
+    <meta name="theme-color" content="#05060a" />
+    <link rel="canonical" href="https://roachwares.roachnet.org/" />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="RoachWares LLC" />
+    <meta
+      property="og:description"
+      content="The software company behind RoachNet. We build tools that keep the important stuff on hardware you own."
+    />
+    <meta property="og:url" content="https://roachwares.roachnet.org/" />
+    <meta property="og:image" content="https://roachnet.org/assets/screens/roachnet-native-home.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="RoachWares LLC" />
+    <meta
+      name="twitter:description"
+      content="Offline-first software from the company behind RoachNet. Cloud where useful. Disk where it matters."
+    />
+    <meta name="twitter:image" content="https://roachnet.org/assets/screens/roachnet-native-home.jpg" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap"
+    />
+    <link rel="stylesheet" href="../app.css" />
+    <link rel="stylesheet" href="../app-polish.css" />
+    <link rel="stylesheet" href="../landing.css" />
+  </head>
+  <body class="rn-body" data-page="roachwares">
+    <div class="dither-bg" aria-hidden="true">
+      <canvas id="dither-canvas"></canvas>
+    </div>
+
+    <header class="rn-nav">
+      <div class="rn-nav-inner">
+        <a href="https://roachwares.roachnet.org/" class="rn-logo" aria-label="RoachWares home">
+          <img class="rn-logo-img" src="../assets/roachnet-logo.png" alt="RoachWares logo" />
+          <span class="rn-logo-text">RoachWares</span>
+        </a>
+        <nav class="rn-nav-links">
+          <a href="https://roachnet.org/" class="rn-nav-link">Mission</a>
+          <a href="https://roachnet.org/home/" class="rn-nav-link">Home</a>
+          <a href="https://apps.roachnet.org" class="rn-nav-link">Apps</a>
+          <a href="https://roachnet.org/roachclaw/" class="rn-nav-link">RoachClaw</a>
+          <a href="#top" class="rn-nav-link is-current">RoachWares</a>
+        </nav>
+        <div class="rn-nav-cta">
+          <a class="rn-nav-ghost" href="https://roachnet.org/api/">API</a>
+          <a class="rn-nav-primary" href="https://github.com/RoachWares" target="_blank" rel="noreferrer">GitHub</a>
+        </div>
+      </div>
+    </header>
+
+    <div class="landing-scroll-progress" aria-hidden="true"></div>
+
+    <main id="top" class="rn-main">
+      <section class="why-hero company-hero">
+        <div class="why-hero__inner">
+          <p class="why-hero__kicker">RoachWares LLC · Indiana</p>
+          <h1 class="why-hero__title">Software that keeps the important stuff on disk.</h1>
+          <p class="why-hero__lede">
+            RoachWares builds RoachNet and the tools around it: local AI, vaults,
+            games, media, docs, and dev environments that do not fall apart when
+            somebody else moves a login server.
+          </p>
+          <div class="why-hero__signal company-signal" aria-hidden="true">
+            <div class="why-hero__signal-core">
+              <span class="why-hero__signal-core-ring"></span>
+              <span class="why-hero__signal-core-ring"></span>
+              <span class="why-hero__signal-core-dot"></span>
+            </div>
+            <div class="why-hero__signal-rails">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="why-section" data-reveal>
+        <div class="why-section__inner">
+          <h2 class="why-heading">The company behind the bunker.</h2>
+          <p class="why-prose">
+            RoachWares LLC exists to build boring, stubborn software for people
+            who would rather own their working set than rent it from a dashboard.
+            RoachNet is the first spine: one native app for AI, archive, games,
+            media, notes, maps, and dev work.
+          </p>
+          <p class="why-prose">
+            We use online infrastructure when it helps with releases, accounts,
+            support, and public metadata. The product itself still treats the
+            network as optional plumbing. Useful when present. Not load-bearing.
+          </p>
+        </div>
+      </section>
+
+      <section class="why-section" data-reveal>
+        <div class="company-grid">
+          <article class="company-card">
+            <span>Product</span>
+            <h3>RoachNet</h3>
+            <p>Offline-first AI, archive, games, media, docs, and dev tools in one native macOS shell.</p>
+          </article>
+          <article class="company-card">
+            <span>Release Lanes</span>
+            <h3>GitHub, Homebrew, SideStore</h3>
+            <p>Public builds ship from the RoachWares organization. No personal-profile scavenger hunt.</p>
+          </article>
+          <article class="company-card">
+            <span>Control Plane</span>
+            <h3>Convex where it fits</h3>
+            <p>Release metadata and account-aware coordination can live online. Vaults and models stay local first.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="why-section why-section--accent" data-reveal>
+        <div class="why-section__inner">
+          <p class="why-accent-line">
+            The company can use cloud rails. The user should not have to live on them.
+          </p>
+        </div>
+      </section>
+
+      <section class="why-section" data-reveal>
+        <div class="why-section__inner">
+          <h2 class="why-heading">What ships from here.</h2>
+          <ul class="why-list company-list">
+            <li>Native RoachNet builds for Apple Silicon Macs.</li>
+            <li>RoachNet iOS companion builds and SideStore feeds.</li>
+            <li>Homebrew casks that install from public release artifacts.</li>
+            <li>Public docs, API surfaces, and release notes written like humans work here.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="why-section why-section--final" data-reveal>
+        <div class="why-section__inner">
+          <p class="why-final-line">
+            RoachWares is the company.<br />
+            RoachNet is the thing we are bolting to disk.
+          </p>
+        </div>
+      </section>
+
+      <section class="why-section why-section--cta" data-reveal>
+        <div class="why-cta company-cta">
+          <p class="why-cta__text">
+            Start with the release. Audit the source. Install the thing on your own metal.
+          </p>
+          <div class="why-cta__buttons">
+            <a class="rn-btn rn-btn-primary" href="https://github.com/RoachWares/RoachNet/releases/latest" target="_blank" rel="noreferrer">Latest release</a>
+            <a class="rn-btn rn-btn-ghost" href="https://github.com/RoachWares" target="_blank" rel="noreferrer">RoachWares GitHub</a>
+          </div>
+        </div>
+      </section>
+
+      <div class="why-bottom-mark" aria-hidden="true">
+        <span class="why-bottom-wordmark">RoachWares</span>
+        <span class="why-bottom-tag">company behind RoachNet</span>
+      </div>
+    </main>
+
+    <footer class="rn-footer">
+      <div class="rn-footer-inner">
+        <div class="rn-footer-copy">
+          <strong>RoachWares LLC</strong>
+          <span>Software for RoachNet and the tools that keep it standing.</span>
+        </div>
+        <nav class="rn-footer-nav" aria-label="Footer">
+          <a href="https://roachnet.org/">Mission</a>
+          <a href="https://roachnet.org/home/">Home</a>
+          <a href="https://roachnet.org/api/">API</a>
+          <a href="https://github.com/RoachWares" target="_blank" rel="noreferrer">GitHub</a>
+        </nav>
+        <div class="rn-footer-meta">
+          <div class="rn-footer-brand" aria-hidden="true">
+            <span>RoachWares</span>
+          </div>
+          <a
+            class="rn-release-chip"
+            href="https://github.com/RoachWares/RoachNet/releases/latest"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="Latest RoachNet release"
+          >RoachNet v1.0.4</a>
+        </div>
+      </div>
+    </footer>
+
+    <script src="../landing-script.js"></script>
+  </body>
+</html>

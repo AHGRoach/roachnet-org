@@ -61,7 +61,7 @@
         <div class="rn-nav-cta">
           <a class="rn-nav-ghost" href="https://accounts.roachnet.org/">Account</a>
           <a class="rn-nav-ghost" href="https://roachnet.org/api/">API</a>
-          <a class="rn-nav-primary" href="https://github.com/AHGRoach/RoachNet" target="_blank" rel="noreferrer">GitHub</a>
+          <a class="rn-nav-primary" href="https://github.com/RoachWares/RoachNet" target="_blank" rel="noreferrer">GitHub</a>
         </div>
       </div>
     </header>
@@ -270,7 +270,7 @@
           <a href="https://roachnet.org/roachclaw/">RoachClaw</a>
           <a href="https://roachnet.org/iOS/">iOS</a>
           <a href="https://roachnet.org/api/">API</a>
-          <a href="https://github.com/AHGRoach/RoachNet" target="_blank" rel="noreferrer">GitHub</a>
+          <a href="https://github.com/RoachWares/RoachNet" target="_blank" rel="noreferrer">GitHub</a>
         </nav>
         <div class="rn-footer-meta">
           <div class="rn-footer-brand" aria-hidden="true">
@@ -279,7 +279,7 @@
           <a
             class="rn-release-chip"
             id="footer-release-badge"
-            href="https://github.com/AHGRoach/RoachNet/releases/latest"
+            href="https://github.com/RoachWares/RoachNet/releases/latest"
             target="_blank"
             rel="noreferrer"
             aria-label="Latest RoachNet release"
@@ -388,7 +388,7 @@
         const badge = document.getElementById('footer-release-badge')
         if (!badge) return
         try {
-          const r = await fetch('https://api.github.com/repos/AHGRoach/RoachNet/releases/latest', {
+          const r = await fetch('https://api.github.com/repos/RoachWares/RoachNet/releases/latest', {
             headers: { Accept: 'application/vnd.github+json' }
           })
           if (!r.ok) return

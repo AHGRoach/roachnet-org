@@ -92,7 +92,7 @@ const apiGroups = [
     basePath: '/brew',
     summary: 'Direct cask install for Apple Silicon Macs that bypasses Setup.app but lands on the same runtime API after boot.',
     stack: 'homebrew-roachnet cask -> postflight config writer -> ~/RoachNet/app/RoachNet.app -> run-roachnet.mjs contained runtime bootstrap',
-    callers: ['brew update && brew tap --force AHGRoach/roachnet && brew install --cask roachnet', 'RoachNet-Homebrew.command', 'RoachNet.app first launch after cask install'],
+    callers: ['brew update && brew tap --force RoachWares/roachnet && brew install --cask roachnet', 'RoachNet-Homebrew.command', 'RoachNet.app first launch after cask install'],
     endpoints: [
       {
         id: 'brew-install-contract',
@@ -175,10 +175,10 @@ const apiGroups = [
         handler: 'RoachNet-SideStore/apps.json',
         request: ['No HTTP body. Static source metadata consumed by SideStore.'],
         response: [
-          'Source URL: https://raw.githubusercontent.com/AHGRoach/RoachNet-SideStore/main/apps.json',
-          'Source repo: https://github.com/AHGRoach/RoachNet-SideStore',
+          'Source URL: https://raw.githubusercontent.com/RoachWares/RoachNet-SideStore/main/apps.json',
+          'Source repo: https://github.com/RoachWares/RoachNet-SideStore',
           'App: RoachNetiOS',
-          'Bundle identifier: com.ahgrecords.RoachNetCompanion',
+          'Bundle identifier: com.roachwares.RoachNetCompanion',
           'Use the raw source URL in SideStore when adding the feed manually.',
         ],
         implementation:
@@ -194,7 +194,7 @@ const apiGroups = [
         handler: 'RoachNet-iOS release asset',
         request: ['No HTTP body. Static packaging contract for sideload tooling.'],
         response: [
-          'Release asset: https://github.com/AHGRoach/RoachNet-iOS/releases/latest/download/RoachNetiOS-v0.1.4-unsigned.ipa',
+          'Release asset: https://github.com/RoachWares/RoachNet-iOS/releases/latest/download/RoachNetiOS-v0.1.4-unsigned.ipa',
           'Download the IPA and share it to SideStore on-device.',
           'Version: 0.1.4',
           'Display name: RoachNetiOS',
