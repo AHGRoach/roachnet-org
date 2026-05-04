@@ -491,6 +491,87 @@ body.rn-body .site-footer { display: none; }
   margin-top: 42px;
 }
 
+.company-hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin: 26px auto 0;
+}
+
+.company-status,
+.company-proof {
+  width: min(100%, var(--why-wide-width));
+  margin: 0 auto;
+  padding: 30px;
+  border: 1px solid var(--why-border);
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.025);
+  box-shadow: 0 28px 90px rgba(0, 0, 0, 0.3);
+}
+
+.company-status__label {
+  margin-bottom: 10px;
+  font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.76rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.company-status__grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 26px;
+}
+
+.company-status__grid a {
+  min-height: 160px;
+  padding: 18px;
+  border: 1px solid var(--why-border);
+  border-radius: 16px;
+  color: inherit;
+  text-decoration: none;
+  background: rgba(0, 0, 0, 0.22);
+  transition: border-color 220ms ease, transform 220ms ease, background 220ms ease;
+}
+
+.company-status__grid a:hover {
+  border-color: rgba(88, 255, 168, 0.35);
+  background: rgba(255, 255, 255, 0.045);
+  transform: translateY(-2px);
+}
+
+.company-status__grid span,
+.company-card span {
+  font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+.company-status__grid span {
+  display: block;
+  margin-bottom: 12px;
+  color: var(--why-text-soft);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.company-status__grid strong {
+  display: block;
+  color: var(--why-text);
+  font-size: 1rem;
+  line-height: 1.25;
+}
+
+.company-status__grid small {
+  display: block;
+  margin-top: 10px;
+  color: var(--why-text-muted);
+  font-size: 0.84rem;
+  line-height: 1.55;
+}
+
 .company-grid {
   max-width: var(--why-wide-width);
   margin: 0 auto;
@@ -1093,6 +1174,10 @@ body.rn-body .why-cap-card[data-reveal]:nth-child(3) { transition-delay: 240ms; 
     grid-template-columns: 1fr;
     max-width: var(--why-content-width);
   }
+
+  .company-status__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
 @media (max-width: 640px) {
@@ -1118,6 +1203,16 @@ body.rn-body .why-cap-card[data-reveal]:nth-child(3) { transition-delay: 240ms; 
     max-width: none;
     font-size: 1rem;
     line-height: 1.62;
+  }
+
+  .company-status,
+  .company-proof {
+    padding: 22px;
+    border-radius: 18px;
+  }
+
+  .company-status__grid {
+    grid-template-columns: 1fr;
   }
 
   .why-hero__signal {

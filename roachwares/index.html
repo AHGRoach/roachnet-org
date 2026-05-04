@@ -56,6 +56,7 @@
           <a href="#top" class="rn-nav-link is-current">RoachWares</a>
         </nav>
         <div class="rn-nav-cta">
+          <a class="rn-nav-ghost" href="https://accounts.roachnet.org/">Account</a>
           <a class="rn-nav-ghost" href="https://roachnet.org/api/">API</a>
           <a class="rn-nav-primary" href="https://github.com/RoachWares" target="_blank" rel="noreferrer">GitHub</a>
         </div>
@@ -74,6 +75,10 @@
             games, media, docs, and dev environments that do not fall apart when
             somebody else moves a login server.
           </p>
+          <div class="company-hero__actions" aria-label="RoachWares links">
+            <a class="rn-btn rn-btn-primary" href="https://github.com/RoachWares/RoachNet/releases/latest" target="_blank" rel="noreferrer">Latest RoachNet release</a>
+            <a class="rn-btn rn-btn-ghost" href="https://roachnet.org/home/">Explore RoachNet</a>
+          </div>
           <div class="why-hero__signal company-signal" aria-hidden="true">
             <div class="why-hero__signal-core">
               <span class="why-hero__signal-core-ring"></span>
@@ -103,6 +108,37 @@
             support, and public metadata. The product itself still treats the
             network as optional plumbing. Useful when present. Not load-bearing.
           </p>
+        </div>
+      </section>
+
+      <section class="why-section" data-reveal>
+        <div class="company-status">
+          <div>
+            <p class="why-prose company-status__label">Public rails</p>
+            <h2 class="why-heading">Release machinery, not rented identity.</h2>
+          </div>
+          <div class="company-status__grid">
+            <a href="https://github.com/RoachWares" target="_blank" rel="noreferrer">
+              <span>GitHub</span>
+              <strong>RoachWares org</strong>
+              <small>Public source for the native app and release artifacts.</small>
+            </a>
+            <a href="https://roachnet.org/brew/">
+              <span>Homebrew</span>
+              <strong>Apple Silicon cask</strong>
+              <small>Installs from the same DMG users can inspect.</small>
+            </a>
+            <a href="https://roachnet.org/iOS/">
+              <span>iOS</span>
+              <strong>Companion feed</strong>
+              <small>Unsigned IPA and SideStore metadata under RoachWares.</small>
+            </a>
+            <a href="https://roachnet.org/api/">
+              <span>Convex</span>
+              <strong>Optional control plane</strong>
+              <small>Useful for account-aware metadata. Not the spine.</small>
+            </a>
+          </div>
         </div>
       </section>
 
@@ -143,6 +179,20 @@
             <li>Homebrew casks that install from public release artifacts.</li>
             <li>Public docs, API surfaces, and release notes written like humans work here.</li>
           </ul>
+        </div>
+      </section>
+
+      <section class="why-section" data-reveal>
+        <div class="company-proof">
+          <p class="why-prose company-status__label">Operating rule</p>
+          <h2 class="why-heading">Keep the public face clean. Keep the user&apos;s machine quiet.</h2>
+          <p class="why-prose">
+            The site, GitHub releases, Homebrew tap, SideStore feed, and Convex
+            hooks exist so people can find and install RoachNet. They do not get
+            to become the product. The product is still the native app, the vault,
+            the runtime, and the files sitting where the user can actually reach
+            them.
+          </p>
         </div>
       </section>
 
