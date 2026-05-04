@@ -5,18 +5,6 @@ publish = "."
 directory = "netlify/functions"
 
 [[redirects]]
-from = "http://roachwares.roachnet.org/*"
-to = "https://roachwares.roachnet.org/:splat"
-status = 301
-force = true
-
-[[redirects]]
-from = "https://roachwares.roachnet.org/*"
-to = "/roachwares/:splat"
-status = 200
-force = true
-
-[[redirects]]
 from = "/apps"
 to = "/app-store.html"
 status = 200
@@ -45,6 +33,18 @@ status = 200
 from = "/brew/*"
 to = "/brew/:splat"
 status = 200
+
+[[redirects]]
+from = "/roachwares"
+to = "https://roachwares.roachnet.org/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/roachwares/*"
+to = "https://roachwares.roachnet.org/:splat"
+status = 301
+force = true
 
 [[redirects]]
 from = "/account"
