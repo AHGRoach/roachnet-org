@@ -312,6 +312,93 @@ const aiPacks = [
   },
 ]
 
+const roachVoicePacks = [
+  {
+    id: 'roachvoice-cloner-forge',
+    title: 'RoachVoice Cloner Forge',
+    subtitle: 'Heavy local voice-cloning shelf',
+    category: 'Voice AI',
+    section: 'Voice Packs',
+    size: '1.7 GB',
+    status: 'Voice cloning',
+    source: 'RoachSpeech Core ML pack',
+    summary:
+      'The full local cloning lane for RoachClaw: Chatterbox-derived Core ML speech, reference voices, and no Python service hiding in the wall.',
+    accent: 'magenta',
+    machineFit: 'Best on Apple Silicon Macs with comfortable storage and memory headroom',
+    includes: [
+      'RoachVoice Chatterbox Core ML components',
+      'Local reference-voice cloning lane',
+      'Optional install so the public baseline stays lean',
+    ],
+    installIntent: {
+      action: 'roachspeech-pack',
+      pack: 'roachvoice-chatterbox-coreml',
+      kind: 'roachVoice',
+      url: 'https://github.com/RoachWares/RoachNet/releases/download/v1.0.5/roachvoice-chatterbox-coreml.zip',
+    },
+    iconBand: 'RoachVoice',
+    iconMonogram: 'CBX',
+    iconFamily: 'voice',
+  },
+  {
+    id: 'roachvoice-small-narrator',
+    title: 'RoachVoice Small Narrator',
+    subtitle: 'Tiny native narration fallback',
+    category: 'Voice AI',
+    section: 'Voice Packs',
+    size: '87 MB',
+    status: 'Baseline voice',
+    source: 'RoachSpeech Core ML pack',
+    summary:
+      'A small Kokoro-derived narrator pack for read-aloud and basic local speech when you do not need full cloning yet. Useful, boring, and hard to kill.',
+    accent: 'green',
+    machineFit: 'Good on every Apple Silicon Mac and bundled in the baseline desktop build',
+    includes: [
+      'Compact Core ML narrator model',
+      'Local read-aloud voice table',
+      'Falls back cleanly when the cloning shelf is too heavy',
+    ],
+    installIntent: {
+      action: 'roachspeech-pack',
+      pack: 'roachvoice-kokoro-82m-int8-coreml',
+      kind: 'roachVoice',
+      url: 'https://github.com/RoachWares/RoachNet/releases/download/v1.0.5/roachvoice-kokoro-82m-int8-coreml.zip',
+    },
+    iconBand: 'RoachVoice',
+    iconMonogram: 'K82',
+    iconFamily: 'voice',
+  },
+  {
+    id: 'roachwhisper-listener',
+    title: 'RoachWhisper Listener',
+    subtitle: 'Local STT for transcripts and lyrics',
+    category: 'Speech AI',
+    section: 'Voice Packs',
+    size: '144 MB',
+    status: 'Baseline STT',
+    source: 'RoachSpeech Core ML pack',
+    summary:
+      'The local listening shelf for RoachSpeech: speech-to-text, transcript sidecars, and lyric extraction for vault media without renting ears from a cloud.',
+    accent: 'cyan',
+    machineFit: 'Good on every Apple Silicon Mac and bundled in the baseline desktop build',
+    includes: [
+      'RoachWhisper Core ML encoder and decoder',
+      'Transcript sidecars for vault audio and video',
+      'Local STT fallback when the network is dead weight',
+    ],
+    installIntent: {
+      action: 'roachspeech-pack',
+      pack: 'roachwhisper-openai-whisper-base-en-coreml',
+      kind: 'roachWhisper',
+      url: 'https://github.com/RoachWares/RoachNet/releases/download/v1.0.5/roachwhisper-openai-whisper-base-en-coreml.zip',
+    },
+    iconBand: 'RoachWhisper',
+    iconMonogram: 'WSP',
+    iconFamily: 'voice',
+  },
+]
+
 const curatedMapPacks = [
   {
     id: 'map-global-mini',
@@ -397,6 +484,209 @@ const curatedMapPacks = [
       'Good for dense-route travel without the full region',
       'Still works with the same contained Maps runtime',
     ],
+  },
+]
+
+const curatedTierPacks = [
+  {
+    id: 'stack-dev-studio-essentials',
+    title: 'Dev Studio Essentials',
+    subtitle: 'Core coding docs for the native Dev lane',
+    categorySlug: 'computing',
+    tierSlug: 'computing-essential',
+    status: 'Best first dev stack',
+    accent: 'violet',
+    machineFit: 'Good first install for RoachClaw and the native Dev workspace',
+    summary:
+      'Python docs, coding practice, and JavaScript fundamentals in one tier install for a fresh RoachNet Dev lane.',
+    includes: [
+      'Python Docs and Corey Schafer Python tutorials',
+      'freeCodeCamp JavaScript algorithms',
+      'Queues through the same desktop education-tier action',
+    ],
+    iconBand: 'Stack',
+    iconMonogram: 'DEV',
+    iconFamily: 'development',
+  },
+  {
+    id: 'stack-security-privacy-essentials',
+    title: 'Security & Privacy Essentials',
+    subtitle: 'Security Q&A, Tor notes, and privacy reference',
+    categorySlug: 'security-privacy',
+    tierSlug: 'security-privacy-essential',
+    status: 'Good first defense shelf',
+    accent: 'cyan',
+    machineFit: 'Small enough for most installs and useful beside RoachTail setup',
+    summary:
+      'A compact security and privacy stack for threat-model checks, Tor notes, and defensive reference from the Apps lane.',
+    includes: [
+      'Security Q&A',
+      'Tor Q&A',
+      'Installs as one named tier pack',
+    ],
+    iconBand: 'Stack',
+    iconMonogram: 'SEC',
+    iconFamily: 'security',
+  },
+  {
+    id: 'stack-audio-production-essentials',
+    title: 'Audio Production Essentials',
+    subtitle: 'Theory and audio-reference shelves for studio work',
+    categorySlug: 'music-audio',
+    tierSlug: 'music-audio-essential',
+    status: 'Studio starter',
+    accent: 'magenta',
+    machineFit: 'Fast add-on for label, studio, and music-production installs',
+    summary:
+      'Open Music Theory and Dalitio Music Theory bundled as a first audio shelf for the workstation.',
+    includes: [
+      'Open Music Theory',
+      'Dalitio Music Theory',
+      'Useful next to music tooling and RoachClaw notes',
+    ],
+    iconBand: 'Stack',
+    iconMonogram: 'AUD',
+    iconFamily: 'audio',
+  },
+  {
+    id: 'stack-field-travel-essentials',
+    title: 'Field Travel Essentials',
+    subtitle: 'Travel guide shelf that pairs with offline maps',
+    categorySlug: 'travel-field-guides',
+    tierSlug: 'travel-field-guides-essential',
+    status: 'Map companion',
+    accent: 'blue',
+    machineFit: 'Light install that belongs beside Base Atlas and Global Mini',
+    summary:
+      'Wikivoyage Europe staged as a practical travel shelf for checking routes, cities, and field notes offline.',
+    includes: [
+      'Wikivoyage Europe',
+      'Travel notes that pair with RoachAtlas maps',
+      'Desktop installs it through the education-tier lane',
+    ],
+    iconBand: 'Stack',
+    iconMonogram: 'TRV',
+    iconFamily: 'travel',
+  },
+  {
+    id: 'stack-infra-operator-standard',
+    title: 'Infra Operator Standard',
+    subtitle: 'Ops docs for servers, databases, and containers',
+    categorySlug: 'it-infrastructure',
+    tierSlug: 'it-infrastructure-standard',
+    status: 'Operator shelf',
+    accent: 'bronze',
+    machineFit: 'Best once the base runtime is settled and storage has room',
+    summary:
+      'Nginx, PostgreSQL, Redis, Docker, Kubernetes, Ask Ubuntu, Android, and DBA references in one operator stack.',
+    includes: [
+      'Nginx, PostgreSQL, Redis, Docker, and Kubernetes docs',
+      'Ask Ubuntu, DBA, and Android Q&A shelves',
+      'Built for long self-hosted maintenance sessions',
+    ],
+    iconBand: 'Stack',
+    iconMonogram: 'OPS',
+    iconFamily: 'infrastructure',
+  },
+  {
+    id: 'stack-roacharcade-reference-standard',
+    title: 'RoachArcade Reference Standard',
+    subtitle: 'Game help, board rules, and dev answers',
+    categorySlug: 'games-pop-culture',
+    tierSlug: 'games-pop-culture-standard',
+    status: 'Arcade side shelf',
+    accent: 'magenta',
+    machineFit: 'Good beside RoachArcade when the game lane needs answers, rules, or dev context',
+    summary:
+      'Gaming Q&A, board-game rules, game-development answers, and chess reference bundled as the offline side shelf for RoachArcade.',
+    includes: [
+      'Gaming, Board Games, Game Development, and Chess Q&A',
+      'Useful beside emulation, mods, cheats, and backlog cleanup',
+      'Installs through the existing games-pop-culture tier action',
+    ],
+    iconBand: 'Stack',
+    iconMonogram: 'PLAY',
+    iconFamily: 'culture',
+  },
+  {
+    id: 'stack-vault-reader-compact',
+    title: 'Vault Reader Compact',
+    subtitle: 'Tiny dictionary shelf for the eBook lane',
+    categorySlug: 'dictionaries-primary-sources',
+    tierSlug: 'dictionaries-primary-sources-essential',
+    status: 'Reader helper',
+    accent: 'violet',
+    machineFit: 'Tiny enough for every install and useful next to the Vault reader',
+    summary:
+      'A compact Wiktionary shelf for quick word checks while RoachNet keeps the larger book vault under your own roof.',
+    includes: [
+      'Simple English Wiktionary',
+      'Pairs with the native Vault reader and RoachBrain notes',
+      'Keeps lookup local instead of throwing the reader back into a browser',
+    ],
+    iconBand: 'Stack',
+    iconMonogram: 'READ',
+    iconFamily: 'library',
+  },
+  {
+    id: 'stack-creator-lab-standard',
+    title: 'Creator Lab Standard',
+    subtitle: 'Design and graphics references for visual work',
+    categorySlug: 'design-visual-media',
+    tierSlug: 'design-visual-media-standard',
+    status: 'Visual workbench',
+    accent: 'violet',
+    machineFit: 'Good for design-heavy Macs with room for a real graphics shelf',
+    summary:
+      'Blender and computer-graphics reference packed as a creator shelf for RoachNet projects, assets, and visual work.',
+    includes: [
+      'Blender Q&A',
+      'Computer Graphics Q&A',
+      'Useful beside media, app UI work, and asset cleanup',
+    ],
+    iconBand: 'Stack',
+    iconMonogram: 'MAKE',
+    iconFamily: 'design',
+  },
+  {
+    id: 'stack-data-lab-standard',
+    title: 'Data Lab Standard',
+    subtitle: 'Stats, PyData, and ML docs in one shelf',
+    categorySlug: 'machine-learning',
+    tierSlug: 'machine-learning-standard',
+    status: 'RoachClaw research shelf',
+    accent: 'cyan',
+    machineFit: 'Good second install for RoachClaw users doing data or model work',
+    summary:
+      'scikit-learn, PyTorch, TensorFlow, statistics, and data-science Q&A staged as a practical RoachClaw research shelf.',
+    includes: [
+      'scikit-learn, PyTorch, TensorFlow, and statistics docs',
+      'Corey Schafer Pandas and Matplotlib tutorials',
+      'Data Science Q&A for local troubleshooting',
+    ],
+    iconBand: 'Stack',
+    iconMonogram: 'DATA',
+    iconFamily: 'ml',
+  },
+  {
+    id: 'stack-mac-maintenance-compact',
+    title: 'Mac Maintenance Compact',
+    subtitle: 'Package-manager and Linux docs for fixing machines',
+    categorySlug: 'platforms-systems',
+    tierSlug: 'platforms-systems-essential',
+    status: 'Small repair kit',
+    accent: 'bronze',
+    machineFit: 'Small enough for every Apple Silicon install and useful when tooling gets loud',
+    summary:
+      'Homebrew Q&A plus Arch and Alpine docs as a small maintenance shelf for fixing local machines without waiting on a tab.',
+    includes: [
+      'Homebrew Q&A',
+      'Arch Linux Docs',
+      'Alpine Linux Docs',
+    ],
+    iconBand: 'Stack',
+    iconMonogram: 'FIX',
+    iconFamily: 'systems',
   },
 ]
 
@@ -949,6 +1239,41 @@ function toCatalog() {
 
     ensureUniqueIconMonograms(educationItems)
 
+    const stackItems = curatedTierPacks.map((pack) => {
+      const category = kiwixData.categories.find((candidate) => candidate.slug === pack.categorySlug)
+      const tier = category?.tiers.find((candidate) => candidate.slug === pack.tierSlug)
+      const resources = tier?.resources || []
+      const totalSizeMB = resources.reduce((sum, resource) => sum + (resource.size_mb || 0), 0)
+
+      return {
+        id: pack.id,
+        title: pack.title,
+        subtitle: pack.subtitle,
+        category: 'Starter Stacks',
+        section: 'Starter Stacks',
+        size: formatSizeFromMB(totalSizeMB),
+        status: pack.status,
+        source: 'RoachNet Apps',
+        summary: pack.summary,
+        featured: pack.id === 'stack-dev-studio-essentials',
+        accent: pack.accent,
+        machineFit: pack.machineFit,
+        includes: pack.includes,
+        installLabel: modelPackInstallLabel(),
+        detailLabel: 'Open manifest',
+        detailUrl: './collections/kiwix-categories.json',
+        installIntent: {
+          action: 'education-tier',
+          category: pack.categorySlug,
+          tier: pack.tierSlug,
+        },
+        iconBand: pack.iconBand,
+        iconMonogram: pack.iconMonogram,
+        iconFamily: pack.iconFamily,
+        iconAsset: iconAssetForItem(pack.id),
+      }
+    })
+
     const wikipediaItems = wikipediaData.options
       .filter((option) => option.id !== 'none')
       .map((option) => ({
@@ -1009,6 +1334,7 @@ function toCatalog() {
         iconMonogram: shortMonogram(item.title),
       })),
       ...mapItems,
+      ...stackItems,
       ...educationItems,
       ...wikipediaItems,
       ...aiPacks.map((item) => ({
@@ -1017,6 +1343,13 @@ function toCatalog() {
         detailLabel: 'Open RoachClaw',
         detailUrl: 'https://roachnet.org/#screens',
         iconFamily: 'models',
+        iconAsset: iconAssetForItem(item.id),
+      })),
+      ...roachVoicePacks.map((item) => ({
+        ...item,
+        installLabel: modelPackInstallLabel(),
+        detailLabel: 'Open RoachSpeech notes',
+        detailUrl: 'https://roachnet.org/roachclaw/',
         iconAsset: iconAssetForItem(item.id),
       })),
     ]

@@ -113,3 +113,56 @@ if (revealTargets.length && "IntersectionObserver" in window) {
 } else {
   revealTargets.forEach((el) => el.classList.add("is-visible"));
 }
+
+const navShell = document.querySelector(".site-nav, .rn-nav");
+
+function syncNavShell() {
+  if (!navShell) return;
+  navShell.classList.toggle("is-scrolled", window.scrollY > 14);
+}
+
+window.addEventListener("scroll", syncNavShell, { passive: true });
+syncNavShell();
+
+const microTargets = document.querySelectorAll(
+  [
+    ".cta",
+    ".rn-btn",
+    ".rn-nav-primary",
+    ".rn-nav-ghost",
+    ".site-header__action",
+    ".app-store-card__action",
+    ".app-detail-sheet__primary",
+    ".app-detail-sheet__secondary",
+    ".app-detail-sheet__close",
+    ".feature-card",
+    ".support-card",
+    ".account-mini-card",
+    ".app-store-card",
+    ".app-store-featured",
+    ".apps-toolbar",
+    ".app-detail-sheet",
+    ".apps-return-strip",
+    ".feature-ledger__row",
+    ".apps-hero-ledger__item",
+    ".api-route-card",
+    ".api-docs-hero__meta article",
+    ".brew-card",
+    ".ios-card",
+  ].join(", ")
+);
+
+microTargets.forEach((target) => {
+  target.addEventListener("pointermove", (event) => {
+    const rect = target.getBoundingClientRect();
+    const x = Math.max(0, Math.min(1, (event.clientX - rect.left) / Math.max(rect.width, 1)));
+    const y = Math.max(0, Math.min(1, (event.clientY - rect.top) / Math.max(rect.height, 1)));
+    target.style.setProperty("--rn-hover-x", `${(x * 100).toFixed(2)}%`);
+    target.style.setProperty("--rn-hover-y", `${(y * 100).toFixed(2)}%`);
+  });
+
+  target.addEventListener("pointerleave", () => {
+    target.style.setProperty("--rn-hover-x", "50%");
+    target.style.setProperty("--rn-hover-y", "50%");
+  });
+});

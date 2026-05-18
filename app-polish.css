@@ -7415,6 +7415,39 @@ body .app-screen-shot:hover img {
 }
 
 @media (max-width: 760px) {
+  html,
+  body {
+    overflow-x: hidden;
+  }
+
+  body:not([data-page="landing"]) .site-header,
+  body:not([data-page="landing"]) .site-header__inner,
+  body:not([data-page="landing"]) .page-shell,
+  body:not([data-page="landing"]) .hero-shell,
+  body:not([data-page="landing"]) .site-footer,
+  body:not([data-page="landing"]) .rn-main,
+  body:not([data-page="landing"]) .rn-footer-inner {
+    width: min(100% - 22px, 100%) !important;
+    max-width: min(100% - 22px, 100%) !important;
+    min-width: 0 !important;
+  }
+
+  body:not([data-page="landing"]) .site-header__panel,
+  body:not([data-page="landing"]) .site-header__nav,
+  body:not([data-page="landing"]) .site-header__actions,
+  body:not([data-page="landing"]) .hero-copy,
+  body:not([data-page="landing"]) .hero-visual,
+  body:not([data-page="landing"]) .feature-card,
+  body:not([data-page="landing"]) .support-card,
+  body:not([data-page="landing"]) .apps-toolbar,
+  body:not([data-page="landing"]) .app-store-card,
+  body:not([data-page="landing"]) .app-detail-sheet,
+  body:not([data-page="landing"]) .screen-frame,
+  body:not([data-page="landing"]) .app-screen-shot {
+    max-width: 100%;
+    min-width: 0;
+  }
+
   body:not([data-page="landing"]) .hero-copy h1,
   body[data-page="api"] .api-docs-sidebar__intro h1,
   body[data-page="account"] .account-poster h1,
@@ -7422,6 +7455,7 @@ body .app-screen-shot:hover img {
     font-size: clamp(2.2rem, 11.8vw, 3.8rem);
     line-height: 0.98;
     letter-spacing: -0.05em;
+    overflow-wrap: anywhere;
   }
 
   body:not([data-page="landing"]) .hero-body,
@@ -7431,6 +7465,86 @@ body .app-screen-shot:hover img {
     max-width: none;
     font-size: 1rem;
     line-height: 1.58;
+    overflow-wrap: break-word;
+    word-break: normal;
+  }
+
+  body:not([data-page="landing"]) .cta,
+  body:not([data-page="landing"]) .rn-btn,
+  body:not([data-page="landing"]) .site-header__action {
+    width: 100%;
+    max-width: 100%;
+    justify-content: center;
+    white-space: normal;
+  }
+
+  body[data-page="home"] .hero {
+    grid-template-columns: 1fr !important;
+    min-height: 0;
+    gap: 30px;
+    overflow: hidden;
+  }
+
+  body[data-page="home"] .hero-copy,
+  body[data-page="home"] .hero-body,
+  body[data-page="home"] .hero-visual {
+    width: 100%;
+    max-width: 100% !important;
+    min-width: 0;
+  }
+
+  body[data-page="home"] .hero h1 {
+    max-width: 100%;
+    font-size: clamp(3rem, 15vw, 4rem);
+    line-height: 0.96;
+  }
+
+  body[data-page="home"] .hero-actions,
+  body[data-page="home"] .hero-links {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  body[data-page="home"] .hero-status {
+    display: grid;
+    grid-template-columns: 1fr;
+    min-height: 0;
+    padding: 10px 12px;
+    border-radius: 22px;
+    overflow: hidden;
+  }
+
+  body[data-page="home"] .screen-frame--hero {
+    width: 100%;
+    min-height: 0;
+    padding: 10px;
+    border-radius: 22px;
+    transform: none !important;
+  }
+
+  body[data-page="home"] .screen-frame--hero::after {
+    inset: 10px;
+    border-radius: 16px;
+  }
+
+  body[data-page="home"] .screen-frame__image {
+    border-radius: 14px;
+  }
+
+  body:not([data-page="landing"]) .site-header__status {
+    display: none;
+  }
+
+  body:not([data-page="landing"]) .site-header .site-nav {
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    overflow-x: auto;
+    padding-bottom: 3px;
+    scrollbar-width: none;
+  }
+
+  body:not([data-page="landing"]) .site-header .site-nav::-webkit-scrollbar {
+    display: none;
   }
 
   body .site-footer__copy,
@@ -7447,5 +7561,280 @@ body .app-screen-shot:hover img {
 
   body[data-page="apps"] .apps-store-sidebar__card h2 {
     font-size: clamp(1.22rem, 6vw, 1.46rem);
+  }
+}
+
+/* RoachNet v1.0.5 public-surface microinteraction pass */
+body {
+  --rn-hover-x: 50%;
+  --rn-hover-y: 50%;
+}
+
+body .site-nav,
+body .rn-nav {
+  transition:
+    border-color 220ms ease,
+    background 220ms ease,
+    box-shadow 220ms ease,
+    transform 220ms var(--rn-ease-fluid, cubic-bezier(0.16, 1, 0.3, 1));
+}
+
+body .site-nav.is-scrolled,
+body .rn-nav.is-scrolled {
+  border-bottom-color: rgba(132, 255, 83, 0.18);
+  box-shadow:
+    0 14px 46px rgba(0, 0, 0, 0.34),
+    0 0 34px rgba(132, 255, 83, 0.05);
+}
+
+body .cta,
+body .rn-btn,
+body .rn-nav-primary,
+body .rn-nav-ghost,
+body .site-header__action,
+body .app-store-card__action,
+body .app-detail-sheet__primary,
+body .app-detail-sheet__secondary,
+body .app-detail-sheet__close {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+body .cta::after,
+body .rn-btn::after,
+body .rn-nav-primary::after,
+body .rn-nav-ghost::after,
+body .site-header__action::after,
+body .app-store-card__action::after,
+body .app-detail-sheet__primary::after,
+body .app-detail-sheet__secondary::after,
+body .app-detail-sheet__close::after {
+  content: "";
+  position: absolute;
+  inset: -55%;
+  z-index: -1;
+  background:
+    radial-gradient(circle at var(--rn-hover-x) var(--rn-hover-y), rgba(255, 255, 255, 0.22), transparent 18%),
+    linear-gradient(110deg, transparent 0 36%, rgba(255, 255, 255, 0.13) 48%, transparent 60%);
+  opacity: 0;
+  transform: translateX(-18%);
+  transition:
+    opacity 180ms ease,
+    transform 420ms var(--rn-ease-fluid, cubic-bezier(0.16, 1, 0.3, 1));
+}
+
+body .cta:hover::after,
+body .cta:focus-visible::after,
+body .rn-btn:hover::after,
+body .rn-btn:focus-visible::after,
+body .rn-nav-primary:hover::after,
+body .rn-nav-primary:focus-visible::after,
+body .rn-nav-ghost:hover::after,
+body .rn-nav-ghost:focus-visible::after,
+body .site-header__action:hover::after,
+body .site-header__action:focus-visible::after,
+body .app-store-card__action:hover::after,
+body .app-store-card__action:focus-visible::after,
+body .app-detail-sheet__primary:hover::after,
+body .app-detail-sheet__primary:focus-visible::after,
+body .app-detail-sheet__secondary:hover::after,
+body .app-detail-sheet__secondary:focus-visible::after,
+body .app-detail-sheet__close:hover::after,
+body .app-detail-sheet__close:focus-visible::after {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+body .feature-card,
+body .support-card,
+body .account-mini-card,
+body .app-store-card,
+body .app-store-featured,
+body .apps-toolbar,
+body .app-detail-sheet,
+body .apps-return-strip,
+body .feature-ledger__row,
+body .apps-hero-ledger__item,
+body[data-page="api"] .api-route-card,
+body[data-page="api"] .api-docs-hero__meta article,
+body[data-page="brew"] .brew-card,
+body[data-page="ios"] .ios-card {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+body .feature-card::after,
+body .support-card::after,
+body .account-mini-card::after,
+body .app-store-card::after,
+body .app-store-featured::after,
+body .apps-toolbar::after,
+body .app-detail-sheet::after,
+body .apps-return-strip::after,
+body .feature-ledger__row::after,
+body .apps-hero-ledger__item::after,
+body[data-page="api"] .api-route-card::after,
+body[data-page="api"] .api-docs-hero__meta article::after,
+body[data-page="brew"] .brew-card::after,
+body[data-page="ios"] .ios-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    radial-gradient(circle at var(--rn-hover-x) var(--rn-hover-y), rgba(132, 255, 83, 0.11), transparent 34%),
+    linear-gradient(115deg, transparent 0 34%, rgba(255, 255, 255, 0.055) 50%, transparent 66%);
+  opacity: 0;
+  transition: opacity 220ms ease;
+  pointer-events: none;
+}
+
+body .feature-card:hover::after,
+body .support-card:hover::after,
+body .account-mini-card:hover::after,
+body .app-store-card:hover::after,
+body .app-store-featured:hover::after,
+body .apps-toolbar:hover::after,
+body .app-detail-sheet:hover::after,
+body .apps-return-strip:hover::after,
+body .feature-ledger__row:hover::after,
+body .apps-hero-ledger__item:hover::after,
+body[data-page="api"] .api-route-card:hover::after,
+body[data-page="api"] .api-docs-hero__meta article:hover::after,
+body[data-page="brew"] .brew-card:hover::after,
+body[data-page="ios"] .ios-card:hover::after {
+  opacity: 1;
+}
+
+body .site-footer a,
+body .rn-footer a {
+  transition:
+    color 160ms ease,
+    text-shadow 160ms ease,
+    transform 160ms ease;
+}
+
+body .site-footer a:hover,
+body .site-footer a:focus-visible,
+body .rn-footer a:hover,
+body .rn-footer a:focus-visible {
+  color: rgba(132, 255, 83, 0.94);
+  text-shadow: 0 0 14px rgba(132, 255, 83, 0.24);
+  transform: translateY(-1px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body .site-nav,
+  body .rn-nav,
+  body .cta,
+  body .rn-btn,
+  body .feature-card,
+  body .support-card,
+  body .app-store-card,
+  body .app-screen-shot img,
+  body .screen-frame__image,
+  body .site-footer a {
+    transition: none !important;
+    transform: none !important;
+  }
+}
+
+/* Final mobile safety pass for the public RoachNet shell. */
+html,
+body {
+  overflow-x: clip;
+}
+
+body .bg-glow {
+  contain: paint;
+}
+
+body:not([data-page="landing"]) code,
+body:not([data-page="landing"]) pre,
+body:not([data-page="landing"]) .feature-card h3,
+body:not([data-page="landing"]) .download-card h3,
+body:not([data-page="landing"]) .download-hero-card h3,
+body:not([data-page="landing"]) .download-side-card h3 {
+  max-width: 100%;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+@media (max-width: 760px) {
+  body .bg-glow {
+    display: none;
+  }
+
+  body:not([data-page="landing"]) .brand-copy span {
+    display: none;
+  }
+
+  body[data-page="home"] .hero {
+    overflow: visible;
+  }
+
+  body[data-page="home"] .hero-copy,
+  body[data-page="home"] .hero-body {
+    max-width: min(100%, 32ch) !important;
+  }
+
+  body[data-page="home"] .hero h1 {
+    max-width: min(100%, 10ch);
+    overflow-wrap: normal;
+    word-break: normal;
+  }
+
+  body[data-page="home"] .hero-body {
+    font-size: 0.97rem;
+    line-height: 1.58;
+  }
+
+  body[data-page="home"] .hero-actions .cta,
+  body[data-page="home"] .downloads-actions .cta {
+    min-height: 50px;
+    padding-inline: 14px;
+    font-size: 0.92rem;
+  }
+
+  body[data-page="home"] .homebrew-inline {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  body[data-page="home"] .homebrew-inline code {
+    white-space: normal;
+    word-break: break-word;
+  }
+
+  body:not([data-page="landing"]) .netlify-badge,
+  body:not([data-page="landing"]) .rn-netlify-badge {
+    max-width: 100%;
+    min-width: 0;
+    overflow: hidden;
+  }
+
+  body:not([data-page="landing"]) .netlify-badge img,
+  body:not([data-page="landing"]) .rn-netlify-badge img {
+    width: 42px;
+    max-width: 42px;
+    flex: 0 1 42px;
+  }
+
+  body[data-page="ios"] .ios-shot-wall,
+  body[data-page="ios"] .ios-shot-wall--editorial {
+    grid-auto-columns: minmax(100%, 100%) !important;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto;
+  }
+
+  body[data-page="ios"] .ios-shot-card,
+  body[data-page="ios"] .ios-shot-card--feature,
+  body[data-page="ios"] .ios-shot-card--compact,
+  body[data-page="ios"] .ios-shot-card--wide {
+    width: 100%;
+    max-width: 100%;
   }
 }

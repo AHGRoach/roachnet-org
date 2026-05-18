@@ -1,5 +1,5 @@
 const defaultSiteConfig = {
-  releaseVersion: '1.0.4',
+  releaseVersion: '1.0.5',
   auth: {
     enabled: false,
     provider: 'supabase',

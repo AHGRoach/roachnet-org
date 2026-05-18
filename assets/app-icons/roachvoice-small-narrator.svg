@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-labelledby="title desc">
+  <title id="title">RoachVoice Small Narrator</title>
+  <desc id="desc">A compact RoachVoice narrator icon with a small speaker and speech lines.</desc>
+  <defs>
+    <linearGradient id="narratorGlow" x1="20" y1="18" x2="106" y2="110" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#d7ff73"/>
+      <stop offset="1" stop-color="#38ff8d"/>
+    </linearGradient>
+    <filter id="narratorShadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="0" stdDeviation="4" flood-color="#56ff9a" flood-opacity=".45"/>
+    </filter>
+  </defs>
+  <rect width="128" height="128" rx="28" fill="#050707"/>
+  <path d="M28 51h17l27-20v66L45 77H28z" fill="#0b120d" stroke="url(#narratorGlow)" stroke-width="4" stroke-linejoin="round" filter="url(#narratorShadow)"/>
+  <path d="M84 47c8 8 8 26 0 34M94 36c15 16 15 40 0 56" fill="none" stroke="#ecfeff" stroke-width="4" stroke-linecap="round" opacity=".9"/>
+  <path d="M36 102h56" stroke="#56ff9a" stroke-width="3" stroke-linecap="round" opacity=".7"/>
+  <circle cx="32" cy="27" r="5" fill="#d7ff73"/>
+  <circle cx="48" cy="22" r="3" fill="#56ff9a"/>
+  <circle cx="62" cy="25" r="2.5" fill="#ecfeff"/>
+</svg>

@@ -1,6 +1,6 @@
 const owner = 'RoachWares'
 const repo = 'RoachNet'
-const releaseVersion = window.__ROACHNET_SITE_CONFIG__?.releaseVersion || '1.0.4'
+const releaseVersion = window.__ROACHNET_SITE_CONFIG__?.releaseVersion || '1.0.5'
 const latestReleaseApi = `https://api.github.com/repos/${owner}/${repo}/releases/latest`
 const latestReleasePage = `https://github.com/${owner}/${repo}/releases/latest`
 const latestDownloadBase = `https://github.com/${owner}/${repo}/releases/latest/download`
@@ -32,6 +32,16 @@ const sectionDefinitions = [
       'City detail, road networks, coastlines, and small-town coverage grouped into named installs.',
     icon: 'MAP',
     layout: 'map',
+  },
+  {
+    key: 'Starter Stacks',
+    navLabel: 'Stacks',
+    eyebrow: 'One-tap stacks',
+    title: 'Tier packs that seed a fresh RoachNet fast.',
+    description:
+      'Curated bundles that install through the same native desktop tier actions as the rest of the catalog.',
+    icon: 'STK',
+    layout: 'grid',
   },
   {
     key: 'Medicine',
@@ -310,6 +320,7 @@ const sectionSlugLookup = new Map(sectionDefinitions.map((section) => [slugify(s
 const sectionGlyphs = {
   Today: '✦',
   'Map Regions': '🌍',
+  'Starter Stacks': '▦',
   Medicine: '🩺',
   'Survival & Preparedness': '🏕',
   'Education & Reference': '📖',
@@ -350,6 +361,7 @@ const todayRows = [
     note: 'Good first adds once the shell is in place.',
     sections: [
       'Map Regions',
+      'Starter Stacks',
       'Medicine',
       'Open Courses & Lectures',
       'Science & Simulations',
@@ -1165,6 +1177,18 @@ function buildInstallUrl(item) {
   if (!item?.installIntent) return ''
 
   const params = new URLSearchParams()
+  const installMetadata = {
+    id: item.id,
+    title: item.title,
+    category: item.section || item.category,
+  }
+
+  Object.entries(installMetadata).forEach(([key, value]) => {
+    if (value !== null && value !== undefined && value !== '') {
+      params.set(key, value)
+    }
+  })
+
   Object.entries(item.installIntent).forEach(([key, value]) => {
     if (value !== null && value !== undefined && value !== '') {
       params.set(key, value)

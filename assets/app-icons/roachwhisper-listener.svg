@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-labelledby="title desc">
+  <title id="title">RoachWhisper Listener</title>
+  <desc id="desc">A RoachWhisper STT icon with an ear, waveform, and transcript lines.</desc>
+  <defs>
+    <linearGradient id="listenerGlow" x1="18" y1="18" x2="112" y2="112" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#5ee7ff"/>
+      <stop offset=".55" stop-color="#56ff9a"/>
+      <stop offset="1" stop-color="#d7ff73"/>
+    </linearGradient>
+    <filter id="listenerShadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="0" stdDeviation="4" flood-color="#5ee7ff" flood-opacity=".42"/>
+    </filter>
+  </defs>
+  <rect width="128" height="128" rx="28" fill="#050707"/>
+  <path d="M76 92c-17 0-26-11-26-26 0-18 11-31 29-31 13 0 23 8 23 21 0 10-5 16-14 21-6 3-8 6-8 11v4" fill="none" stroke="url(#listenerGlow)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" filter="url(#listenerShadow)"/>
+  <path d="M78 51c6 0 10 4 10 10 0 5-3 8-8 11" fill="none" stroke="#ecfeff" stroke-width="4" stroke-linecap="round"/>
+  <path d="M24 59c4-9 8-9 12 0s8 9 12 0M24 73c4-9 8-9 12 0s8 9 12 0" fill="none" stroke="#56ff9a" stroke-width="3" stroke-linecap="round"/>
+  <path d="M25 98h44M25 108h67" stroke="#ecfeff" stroke-width="3" stroke-linecap="round" opacity=".75"/>
+</svg>

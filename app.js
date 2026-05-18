@@ -1,6 +1,6 @@
 const owner = 'RoachWares'
 const repo = 'RoachNet'
-const releaseVersion = window.__ROACHNET_SITE_CONFIG__?.releaseVersion || '1.0.4'
+const releaseVersion = window.__ROACHNET_SITE_CONFIG__?.releaseVersion || '1.0.5'
 const latestReleaseApi = `https://api.github.com/repos/${owner}/${repo}/releases/latest`
 const latestReleasePage = `https://github.com/${owner}/${repo}/releases/latest`
 const latestDownloadBase = `https://github.com/${owner}/${repo}/releases/latest/download`
@@ -302,6 +302,10 @@ const storeSectionMeta = {
   'Model Packs': {
     eyebrow: 'RoachClaw models',
     blurb: 'Contained RoachClaw-ready model installs for the native AI workspace.',
+  },
+  'Voice Packs': {
+    eyebrow: 'RoachVoice packs',
+    blurb: 'Local Core ML voices for RoachClaw. Cloning belongs on your machine, not in a rented throat.',
   },
 }
 
@@ -1871,6 +1875,58 @@ loadLatestRelease()
 startHeroTelemetry()
 loadAppStoreCatalog()
 setInstallStepState(1)
+
+;(() => {
+  const navShell = document.querySelector('.site-nav, .rn-nav')
+
+  const syncNavShell = () => {
+    if (!navShell) return
+    navShell.classList.toggle('is-scrolled', window.scrollY > 14)
+  }
+
+  window.addEventListener('scroll', syncNavShell, { passive: true })
+  syncNavShell()
+
+  const microSelector = [
+    '.cta',
+    '.rn-btn',
+    '.rn-nav-primary',
+    '.rn-nav-ghost',
+    '.site-header__action',
+    '.app-store-card__action',
+    '.app-detail-sheet__primary',
+    '.app-detail-sheet__secondary',
+    '.app-detail-sheet__close',
+    '.feature-card',
+    '.support-card',
+    '.account-mini-card',
+    '.app-store-card',
+    '.app-store-featured',
+    '.apps-toolbar',
+    '.app-detail-sheet',
+    '.apps-return-strip',
+    '.feature-ledger__row',
+    '.apps-hero-ledger__item',
+    '.api-route-card',
+    '.api-docs-hero__meta article',
+    '.brew-card',
+    '.ios-card',
+  ].join(', ')
+
+  document.addEventListener(
+    'pointermove',
+    (event) => {
+      const target = event.target?.closest?.(microSelector)
+      if (!target) return
+      const rect = target.getBoundingClientRect()
+      const x = Math.max(0, Math.min(1, (event.clientX - rect.left) / Math.max(rect.width, 1)))
+      const y = Math.max(0, Math.min(1, (event.clientY - rect.top) / Math.max(rect.height, 1)))
+      target.style.setProperty('--rn-hover-x', `${(x * 100).toFixed(2)}%`)
+      target.style.setProperty('--rn-hover-y', `${(y * 100).toFixed(2)}%`)
+    },
+    { passive: true }
+  )
+})()
 
 /* ── Landing page: scroll progress bar & reveal observer ────────────────── */
 ;(() => {

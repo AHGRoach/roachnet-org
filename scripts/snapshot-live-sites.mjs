@@ -13,7 +13,7 @@ const allowedHosts = new Set([
 const seedUrls = [
   "https://roachnet.org/",
   "https://roachnet.org/home/",
-  "https://roachnet.org/iOS/",
+  "https://roachnet.org/ios/",
   "https://roachnet.org/api/",
   "https://roachnet.org/brew/",
   "https://roachnet.org/roachclaw/",
