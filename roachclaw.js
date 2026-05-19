@@ -105,7 +105,11 @@ if (root) {
   function setAuthMode(nextMode) {
     authMode = nextMode === 'signup' ? 'signup' : 'signin'
     authModeButtons.forEach((button) => {
-      button.classList.toggle('is-active', button.dataset.roachclawAuthMode === authMode)
+      const isActive = button.dataset.roachclawAuthMode === authMode
+      button.classList.toggle('is-active', isActive)
+      button.setAttribute('role', 'tab')
+      button.setAttribute('aria-selected', isActive ? 'true' : 'false')
+      button.tabIndex = isActive ? 0 : -1
     })
 
     if (authNameField) {
@@ -183,7 +187,7 @@ if (root) {
     if (accountChip) {
       accountChip.textContent = session?.user ? sessionLabel(session) : 'Sign in'
       accountChip.dataset.state = session?.user ? 'live' : 'ready'
-      accountChip.title = session?.user ? 'Click to sign out.' : 'Sign in to unlock RoachClaw.'
+      accountChip.title = session?.user ? 'Click to sign out.' : 'Sign in to use RoachClaw.'
     }
 
     if (modelBadgeText) {
@@ -602,7 +606,7 @@ if (root) {
     }
     setGateFeedback('')
     showGate()
-    setComposerFeedback('Sign in to unlock your account-scoped threads.', 'muted')
+    setComposerFeedback('Sign in to use your account-scoped threads.', 'muted')
   }
 
   async function initializeAuthState() {

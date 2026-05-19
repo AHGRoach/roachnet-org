@@ -9549,3 +9549,916 @@ body:not([data-page="apps"]) .hero-signal-board {
     display: none;
   }
 }
+
+/* ─── End-cap override: shared footer/layout cleanup ───────── */
+body:not([data-page="landing"]) {
+  min-height: 100svh;
+  background-color: #010403;
+}
+
+body:not([data-page="landing"]) .rn-dither-field {
+  inset: 0 !important;
+  width: 100vw !important;
+  height: 100svh !important;
+  min-height: 0 !important;
+  max-height: 100svh !important;
+  contain: strict;
+  overflow: hidden;
+}
+
+body:not([data-page="landing"]) .rn-dither-field canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+body[data-page="home"] .page-shell,
+body[data-page="brew"] .page-shell,
+body[data-page="ios"] .page-shell,
+body[data-page="account"] .page-shell,
+body[data-page="roachclaw"] .page-shell,
+body[data-page="sitemap"] .page-shell {
+  padding-bottom: clamp(8px, 1.8vw, 18px) !important;
+}
+
+body[data-page="api"] .api-docs-shell,
+body[data-page="apps"] .apps-store-main {
+  padding-bottom: clamp(20px, 3vw, 34px) !important;
+}
+
+body:not([data-page="landing"]) .site-footer {
+  width: min(var(--rn-poster-max), calc(100vw - 34px));
+  margin: clamp(10px, 1.8vw, 18px) auto 0 !important;
+  padding-top: clamp(14px, 2.2vw, 24px);
+  padding-bottom: calc(clamp(8px, 1.4vw, 14px) + env(safe-area-inset-bottom, 0px)) !important;
+  border-top: 1px solid rgba(142, 255, 174, 0.1);
+}
+
+body[data-page="apps"] .site-footer,
+body[data-page="api"] .site-footer {
+  width: min(1440px, calc(100vw - 44px));
+}
+
+body:not([data-page="landing"]) .site-footer::after {
+  content: "";
+  display: block;
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  height: max(2px, env(safe-area-inset-bottom, 0px));
+  background: #010403;
+}
+
+/* ─── End-cap override: nav and sidebar interaction polish ─── */
+body:not([data-page="landing"]) .site-header__panel {
+  align-items: center;
+  gap: 10px;
+  border-color: rgba(142, 255, 174, 0.13) !important;
+  background:
+    radial-gradient(circle at var(--rn-hover-x, 50%) 0%, rgba(50, 255, 126, 0.08), transparent 42%),
+    linear-gradient(180deg, rgba(9, 15, 14, 0.86), rgba(2, 5, 6, 0.72)) !important;
+}
+
+body:not([data-page="landing"]) .site-header .site-nav {
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  max-width: min(56vw, 620px);
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x proximity;
+  scrollbar-width: none;
+}
+
+body:not([data-page="landing"]) .site-header .site-nav a[href*="sitemap"] {
+  display: none !important;
+}
+
+body:not([data-page="landing"]) .site-header .site-nav a {
+  flex: 0 0 auto;
+  scroll-snap-align: center;
+}
+
+body:not([data-page="landing"]) .site-header .site-nav a.is-current,
+body:not([data-page="landing"]) .site-header .site-nav a[aria-current="page"] {
+  color: #f7fff9;
+  border-color: rgba(50, 255, 126, 0.3);
+  background:
+    radial-gradient(circle at var(--rn-hover-x, 50%) 0%, rgba(50, 255, 126, 0.16), transparent 72%),
+    linear-gradient(180deg, rgba(50, 255, 126, 0.14), rgba(92, 141, 255, 0.065));
+}
+
+body:not([data-page="landing"]) .site-header__actions {
+  flex-wrap: nowrap;
+  max-width: min(36vw, 420px);
+  overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-width: none;
+}
+
+body[data-page="api"] .api-docs-sidebar {
+  top: 18px;
+  max-height: calc(100svh - 36px);
+  grid-template-rows: auto auto auto minmax(0, 1fr) auto;
+  overflow: hidden;
+  gap: 14px;
+  padding: 20px;
+}
+
+body[data-page="api"] .api-docs-sidebar__nav {
+  min-height: 0;
+  overflow: auto;
+  padding-right: 6px;
+  margin-right: -6px;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(50, 255, 126, 0.32) transparent;
+}
+
+body[data-page="api"] .api-docs-group {
+  min-height: 54px;
+  padding: 11px 12px;
+  border-radius: 15px;
+}
+
+body[data-page="api"] .api-docs-group.is-active {
+  border-color: rgba(50, 255, 126, 0.28);
+  background:
+    radial-gradient(circle at var(--rn-hover-x, 50%) 0%, rgba(50, 255, 126, 0.14), transparent 70%),
+    linear-gradient(90deg, rgba(50, 255, 126, 0.13), rgba(92, 141, 255, 0.05)) !important;
+}
+
+body[data-page="api"] .api-docs-sidebar__links {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+body[data-page="apps"] .apps-store-sidebar {
+  gap: 14px;
+  padding: 24px 18px 22px 24px;
+}
+
+body[data-page="apps"] .apps-store-sidebar__nav {
+  gap: 5px;
+  padding-right: 7px;
+  scrollbar-color: rgba(50, 255, 126, 0.34) rgba(255, 255, 255, 0.035);
+}
+
+body[data-page="apps"] .apps-nav-highlight {
+  right: 7px;
+  border-color: rgba(50, 255, 126, 0.2);
+  background:
+    radial-gradient(circle at 12% 0%, rgba(50, 255, 126, 0.16), transparent 70%),
+    linear-gradient(90deg, rgba(50, 255, 126, 0.12), rgba(92, 141, 255, 0.07));
+}
+
+body[data-page="apps"] .apps-nav-item {
+  min-height: 39px;
+  padding: 0 10px;
+  border-radius: 13px;
+}
+
+body[data-page="apps"] .apps-nav-item--active {
+  border-color: rgba(50, 255, 126, 0.24);
+  background:
+    linear-gradient(90deg, rgba(50, 255, 126, 0.15), rgba(92, 141, 255, 0.055)),
+    rgba(255, 255, 255, 0.035);
+}
+
+@media (max-width: 980px) {
+  body[data-page="api"] .api-docs-sidebar {
+    position: sticky;
+    top: 8px;
+    z-index: 6;
+    max-height: none;
+    overflow: visible;
+  }
+
+  body[data-page="api"] .api-docs-sidebar__intro {
+    display: none;
+  }
+
+  body[data-page="api"] .api-docs-sidebar__nav {
+    display: flex;
+    overflow-x: auto;
+    overflow-y: hidden;
+    gap: 8px;
+    padding: 0 0 6px;
+    margin: 0;
+    scroll-snap-type: x proximity;
+  }
+
+  body[data-page="api"] .api-docs-group {
+    min-width: 208px;
+    scroll-snap-align: start;
+  }
+
+  body[data-page="apps"] .apps-store-sidebar {
+    position: sticky;
+    top: 0;
+    z-index: 8;
+    max-height: none;
+    backdrop-filter: blur(22px) saturate(1.2);
+    -webkit-backdrop-filter: blur(22px) saturate(1.2);
+  }
+
+  body[data-page="apps"] .apps-store-sidebar__card {
+    display: none;
+  }
+}
+
+@media (max-width: 760px) {
+  body:not([data-page="landing"]) .site-header .site-nav,
+  body:not([data-page="landing"]) .site-header__actions {
+    max-width: 100%;
+  }
+
+  body[data-page="api"] .api-docs-sidebar__stats,
+  body[data-page="api"] .api-docs-sidebar__links {
+    display: none;
+  }
+
+  body[data-page="apps"] .apps-store-sidebar {
+    padding: 14px 14px 12px;
+  }
+
+  body[data-page="apps"] .apps-store-back {
+    display: none;
+  }
+
+  body:not([data-page="landing"]) .site-footer,
+  body[data-page="apps"] .site-footer,
+  body[data-page="api"] .site-footer {
+    width: min(100vw - 24px, 100%);
+    margin-top: 12px !important;
+    padding-bottom: calc(10px + env(safe-area-inset-bottom, 0px)) !important;
+  }
+}
+
+/* 2026-05-19 broad UX pass: nav rails, focus, motion, and responsive edge cases. */
+:root {
+  --rn-focus-ring: rgba(50, 255, 126, 0.56);
+  --rn-focus-halo: rgba(50, 255, 126, 0.14);
+}
+
+::selection {
+  background: rgba(50, 255, 126, 0.28);
+  color: #f7fff9;
+}
+
+:where(a, button, input, textarea, select):focus-visible {
+  outline: 2px solid var(--rn-focus-ring);
+  outline-offset: 4px;
+  box-shadow: 0 0 0 6px var(--rn-focus-halo);
+}
+
+.rn-anchor-target {
+  outline: none;
+  animation: rn-anchor-pulse 900ms var(--rn-ease-soft, cubic-bezier(0.22, 1, 0.36, 1));
+}
+
+@keyframes rn-anchor-pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(50, 255, 126, 0);
+  }
+
+  38% {
+    box-shadow: 0 0 0 6px rgba(50, 255, 126, 0.11);
+  }
+
+  100% {
+    box-shadow: 0 0 0 0 rgba(50, 255, 126, 0);
+  }
+}
+
+body:not([data-page="landing"]) .brand-lockup,
+body:not([data-page="landing"]) .brand-copy,
+body:not([data-page="landing"]) .site-header__panel {
+  min-width: 0;
+}
+
+body:not([data-page="landing"]) .brand-copy strong,
+body:not([data-page="landing"]) .brand-kicker,
+body:not([data-page="landing"]) .site-header__status {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+body:not([data-page="landing"]) .brand-kicker,
+body:not([data-page="landing"]) .site-header__status {
+  white-space: nowrap;
+}
+
+body:not([data-page="landing"]) .site-header .site-nav,
+body:not([data-page="landing"]) .site-header__actions,
+body[data-page="landing"] .rn-nav-links,
+body[data-page="landing"] .rn-nav-cta,
+body[data-page="api"] .api-docs-topbar__links,
+body[data-page="apps"] .apps-store-topbar__status {
+  scroll-padding-inline: 18px;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+
+body:not([data-page="landing"]) .site-header .site-nav.is-scrollable-x,
+body:not([data-page="landing"]) .site-header__actions.is-scrollable-x,
+body[data-page="landing"] .rn-nav-links.is-scrollable-x,
+body[data-page="landing"] .rn-nav-cta.is-scrollable-x,
+body[data-page="api"] .api-docs-topbar__links.is-scrollable-x,
+body[data-page="apps"] .apps-store-topbar__status.is-scrollable-x {
+  mask-image: linear-gradient(90deg, transparent 0, #000 22px, #000 calc(100% - 22px), transparent 100%);
+}
+
+body:not([data-page="landing"]) .site-header .site-nav.is-scrollable-x:not(.is-at-end-x),
+body:not([data-page="landing"]) .site-header__actions.is-scrollable-x:not(.is-at-end-x),
+body[data-page="landing"] .rn-nav-links.is-scrollable-x:not(.is-at-end-x),
+body[data-page="landing"] .rn-nav-cta.is-scrollable-x:not(.is-at-end-x),
+body[data-page="api"] .api-docs-topbar__links.is-scrollable-x:not(.is-at-end-x),
+body[data-page="apps"] .apps-store-topbar__status.is-scrollable-x:not(.is-at-end-x) {
+  padding-right: max(10px, env(safe-area-inset-right, 0px));
+}
+
+body:not([data-page="landing"]) .site-header .site-nav.is-scrollable-x.is-scrolled-x,
+body:not([data-page="landing"]) .site-header__actions.is-scrollable-x.is-scrolled-x,
+body[data-page="landing"] .rn-nav-links.is-scrollable-x.is-scrolled-x,
+body[data-page="landing"] .rn-nav-cta.is-scrollable-x.is-scrolled-x,
+body[data-page="api"] .api-docs-topbar__links.is-scrollable-x.is-scrolled-x,
+body[data-page="apps"] .apps-store-topbar__status.is-scrollable-x.is-scrolled-x {
+  padding-left: max(10px, env(safe-area-inset-left, 0px));
+}
+
+body:not([data-page="landing"]) .site-header[data-scrolled="true"] .site-header__panel,
+body:not([data-page="landing"]) .site-header.is-scrolled .site-header__panel,
+body:not([data-page="landing"]) .site-header[data-scrolled="true"] .brand-lockup,
+body:not([data-page="landing"]) .site-header.is-scrolled .brand-lockup {
+  border-color: rgba(50, 255, 126, 0.16) !important;
+  background:
+    radial-gradient(circle at var(--rn-hover-x, 50%) 0%, rgba(50, 255, 126, 0.1), transparent 42%),
+    linear-gradient(180deg, rgba(5, 10, 10, 0.9), rgba(2, 5, 6, 0.8)) !important;
+}
+
+body:not([data-page="landing"]) .site-header .site-nav a[aria-current="page"]::before,
+body[data-page="landing"] .rn-nav-link[aria-current="page"]::before,
+body[data-page="apps"] .apps-nav-item[aria-current="page"]::before,
+body[data-page="api"] .api-docs-group[aria-pressed="true"]::before,
+body[data-page="api"] .api-route-card[aria-pressed="true"]::before {
+  opacity: 1;
+}
+
+body[data-page="api"] .api-docs-group[aria-pressed="true"],
+body[data-page="api"] .api-method-chip[aria-pressed="true"],
+body[data-page="api"] .api-route-card[aria-pressed="true"],
+.account-tab[aria-selected="true"] {
+  border-color: rgba(50, 255, 126, 0.28);
+  box-shadow:
+    inset 0 -1px 0 rgba(50, 255, 126, 0.42),
+    0 0 0 1px rgba(50, 255, 126, 0.08);
+}
+
+body[data-page="api"] .api-route-card[aria-pressed="true"] {
+  background:
+    radial-gradient(circle at var(--rn-hover-x, 50%) 0%, rgba(50, 255, 126, 0.12), transparent 70%),
+    linear-gradient(180deg, rgba(16, 24, 22, 0.94), rgba(8, 13, 16, 0.98));
+}
+
+body[data-page="roachclaw"] .rc-sidebar__link:hover,
+body[data-page="roachclaw"] .rc-sidebar__link:focus-visible,
+body[data-page="roachclaw"] .rc-starter-card:hover,
+body[data-page="roachclaw"] .rc-starter-card:focus-visible,
+body[data-page="account"] .account-tab:hover,
+body[data-page="account"] .account-tab:focus-visible,
+.account-tab[aria-selected="true"] {
+  transform: translateY(-1px);
+  color: #f7fff9;
+}
+
+body.is-polish-ready .screen-frame__image,
+body.is-polish-ready .app-screen-shot img {
+  opacity: 0.001;
+  transition:
+    opacity 360ms ease,
+    filter 360ms ease,
+    transform 520ms var(--rn-ease-soft, cubic-bezier(0.22, 1, 0.36, 1));
+}
+
+body.is-polish-ready .screen-frame.is-media-loaded .screen-frame__image,
+body.is-polish-ready .app-screen-shot.is-media-loaded img,
+body.is-polish-ready .screen-frame__image.is-media-loaded,
+body.is-polish-ready .app-screen-shot img.is-media-loaded {
+  opacity: 1;
+}
+
+body:not([data-page="landing"]) .screen-frame,
+body:not([data-page="landing"]) .app-screen-shot {
+  backface-visibility: hidden;
+}
+
+body[data-page="home"] .surface-card:focus-within,
+body[data-page="home"] .download-hero-card:focus-visible,
+body[data-page="home"] .download-side-card:focus-visible,
+body[data-page="ios"] .ios-shot-card:focus-within,
+body[data-page="apps"] .apps-card:focus-within,
+body[data-page="api"] .api-route-card:focus-visible,
+body[data-page="roachclaw"] .rc-starter-card:focus-visible,
+body[data-page="account"] .account-panel:focus-within {
+  border-color: rgba(50, 255, 126, 0.24) !important;
+  box-shadow:
+    0 30px 76px rgba(0, 0, 0, 0.28),
+    0 0 0 1px rgba(50, 255, 126, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06) !important;
+}
+
+body[data-page="apps"] .app-detail-overlay:not([hidden]) {
+  animation: rn-overlay-in 180ms ease both;
+}
+
+body[data-page="apps"] .app-detail-overlay:not([hidden]) .app-detail-sheet {
+  animation: rn-sheet-in 260ms var(--rn-ease-soft, cubic-bezier(0.22, 1, 0.36, 1)) both;
+}
+
+@keyframes rn-overlay-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes rn-sheet-in {
+  from {
+    opacity: 0;
+    transform: translateY(18px) scale(0.985);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@media (hover: none) {
+  body:not([data-page="landing"]) .surface-card:hover,
+  body:not([data-page="landing"]) .download-hero-card:hover,
+  body:not([data-page="landing"]) .download-side-card:hover,
+  body:not([data-page="landing"]) .support-card:hover,
+  body:not([data-page="landing"]) .pillar-card:hover,
+  body:not([data-page="landing"]) .usecase-card:hover,
+  body:not([data-page="landing"]) .shelf-card:hover,
+  body[data-page="ios"] .ios-shot-card:hover,
+  body[data-page="api"] .api-route-card:hover,
+  body[data-page="apps"] .apps-card:hover,
+  body[data-page="roachclaw"] .roachclaw-panel:hover {
+    transform: none;
+  }
+}
+
+@media (max-width: 760px) {
+  body:not([data-page="landing"]) .brand-lockup {
+    align-items: center;
+    gap: 10px;
+  }
+
+  body:not([data-page="landing"]) .brand-copy {
+    max-width: min(100%, 58vw);
+  }
+
+  body:not([data-page="landing"]) .brand-mark {
+    width: 48px;
+    height: 48px;
+  }
+
+  body:not([data-page="landing"]) .site-header__status {
+    max-width: 42vw;
+    font-size: 0.68rem;
+  }
+
+  body:not([data-page="landing"]) .site-header__panel {
+    border-radius: 20px;
+  }
+
+  body[data-page="home"] .homebrew-inline,
+  body[data-page="brew"] .download-meta,
+  body[data-page="home"] .home-download-note {
+    overflow-wrap: anywhere;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+@media (max-width: 560px) {
+  body:not([data-page="landing"]) .site-header {
+    width: min(100%, calc(100vw - 20px));
+    overflow: visible;
+  }
+
+  body:not([data-page="landing"]) .brand-lockup {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 48px minmax(0, 1fr);
+    grid-template-areas:
+      "mark copy"
+      "status status";
+    align-items: center;
+    justify-items: start;
+    padding: 14px !important;
+    overflow: hidden;
+  }
+
+  body:not([data-page="landing"]) .brand-mark {
+    grid-area: mark;
+  }
+
+  body:not([data-page="landing"]) .brand-copy {
+    grid-area: copy;
+    max-width: 100%;
+  }
+
+  body:not([data-page="landing"]) .site-header__status {
+    grid-area: status;
+    justify-self: start;
+    max-width: 100%;
+    margin-top: 10px;
+    white-space: normal;
+  }
+
+  body:not([data-page="landing"]) .site-header__actions {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    overflow: visible;
+    mask-image: none !important;
+  }
+
+  body:not([data-page="landing"]) .site-header__actions a,
+  body:not([data-page="landing"]) .site-header__actions button {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* Render-smoke cleanup: keep narrow utility rails readable. */
+body[data-page="apps"] .apps-store-sidebar__card h2 {
+  max-width: 100%;
+  overflow: visible;
+  overflow-wrap: normal;
+  word-break: normal;
+  hyphens: manual;
+  font-size: clamp(1.08rem, 1.22vw, 1.32rem);
+  line-height: 1.08;
+  letter-spacing: -0.035em;
+  text-wrap: balance;
+}
+
+body[data-page="apps"] .apps-store-sidebar__card,
+body[data-page="apps"] .apps-artifact-lane,
+body[data-page="api"] .api-docs-hero,
+body[data-page="api"] .api-route-pane,
+body[data-page="api"] .api-detail-pane {
+  min-width: 0;
+}
+
+body[data-page="api"] .api-docs-hero p,
+body[data-page="api"] .api-detail-block p,
+body[data-page="api"] .api-route-card p {
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 760px) {
+  body[data-page="api"] .api-docs-topbar {
+    grid-template-columns: 1fr;
+  }
+
+  body[data-page="api"] .api-docs-search,
+  body[data-page="api"] .api-docs-topbar__links {
+    width: 100%;
+    min-width: 0;
+  }
+
+  body[data-page="api"] .api-method-chip {
+    flex: 0 0 auto;
+  }
+}
+
+/* Controller handoff polish: keep chrome compact, screenshots framed, and footers flush. */
+body:not([data-page="landing"]) {
+  overflow-x: clip;
+}
+
+body:not([data-page="landing"]) .site-header {
+  overscroll-behavior: contain;
+}
+
+body:not([data-page="landing"]) .site-header__panel,
+body:not([data-page="landing"]) .site-header__actions,
+body:not([data-page="landing"]) .site-header .site-nav {
+  min-width: 0;
+}
+
+body:not([data-page="landing"]) .site-header .site-nav,
+body:not([data-page="landing"]) .site-header__actions {
+  overscroll-behavior-inline: contain;
+}
+
+body:not([data-page="landing"]) .site-header .site-nav a,
+body:not([data-page="landing"]) .site-header__actions a,
+body[data-page="landing"] .rn-nav-link,
+body[data-page="landing"] .rn-nav-ghost,
+body[data-page="landing"] .rn-nav-primary {
+  touch-action: manipulation;
+}
+
+body:not([data-page="landing"]) .hero-visual,
+body[data-page="ios"] .ios-hero-visual,
+body[data-page="brew"] .hero-visual {
+  align-self: center;
+}
+
+body:not([data-page="apps"]) .screen-frame,
+body:not([data-page="apps"]) .app-screen-shot {
+  contain: paint;
+  isolation: isolate;
+}
+
+body:not([data-page="apps"]) .screen-frame__image,
+body:not([data-page="apps"]) .app-screen-shot img {
+  width: 100%;
+  height: 100%;
+  object-position: center;
+}
+
+body[data-page="home"] .screen-frame--hero,
+body[data-page="brew"] .screen-frame--hero,
+body[data-page="ios"] .ios-hero-visual .app-screen-shot {
+  max-height: min(62svh, 620px);
+}
+
+body[data-page="home"] .surface-card__shot,
+body[data-page="brew"] .surface-card__shot,
+body[data-page="ios"] .ios-shot-card .app-screen-shot {
+  max-height: min(54svh, 520px);
+}
+
+body[data-page="api"] .api-docs-sidebar__nav,
+body[data-page="apps"] .apps-store-sidebar__nav {
+  overscroll-behavior: contain;
+}
+
+body[data-page="api"] .api-docs-group,
+body[data-page="apps"] .apps-nav-item,
+body[data-page="api"] .api-route-card {
+  touch-action: manipulation;
+}
+
+body[data-page="api"] .api-docs-topbar,
+body[data-page="apps"] .apps-store-topbar {
+  backdrop-filter: blur(24px) saturate(1.18);
+  -webkit-backdrop-filter: blur(24px) saturate(1.18);
+}
+
+body:not([data-page="landing"]) .site-footer {
+  min-height: 0 !important;
+}
+
+body:not([data-page="landing"]) .site-footer__nav,
+body:not([data-page="landing"]) .site-footer__meta {
+  row-gap: 8px;
+}
+
+body:not([data-page="landing"]) .site-footer__nav a,
+body:not([data-page="landing"]) .rn-footer a {
+  touch-action: manipulation;
+}
+
+@media (min-width: 981px) {
+  body[data-page="api"] .api-docs-shell {
+    align-items: start;
+  }
+
+  body[data-page="apps"] .apps-store-main {
+    align-items: start;
+  }
+}
+
+@media (max-width: 860px) {
+  body:not([data-page="landing"]) .site-header__panel {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 8px;
+    padding: 9px;
+  }
+
+  body:not([data-page="landing"]) .site-header .site-nav,
+  body:not([data-page="landing"]) .site-header__actions {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  body:not([data-page="landing"]) .site-header__actions {
+    justify-content: flex-start;
+  }
+
+  body[data-page="api"] .api-docs-sidebar__nav,
+  body[data-page="apps"] .apps-store-sidebar__nav {
+    mask-image: linear-gradient(90deg, transparent 0, #000 18px, #000 calc(100% - 18px), transparent 100%);
+  }
+}
+
+@media (max-width: 560px) {
+  body:not([data-page="landing"]) .brand-copy {
+    max-width: calc(100vw - 112px);
+  }
+
+  body:not([data-page="landing"]) .brand-copy strong {
+    font-size: clamp(0.98rem, 5vw, 1.18rem);
+  }
+
+  body:not([data-page="apps"]) .screen-frame,
+  body:not([data-page="apps"]) .app-screen-shot {
+    border-radius: 18px;
+  }
+
+  body:not([data-page="landing"]) .site-footer__nav,
+  body:not([data-page="landing"]) .site-footer__meta {
+    justify-content: flex-start;
+  }
+}
+
+/* UI-Site-Polish-B: final mobile chrome guard for Dia 390px checks. */
+@media (max-width: 760px) {
+  body:not([data-page="landing"]) .site-header {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 8px;
+    width: min(calc(100vw - 18px), 100%);
+    padding-inline: 9px;
+    overflow: visible;
+  }
+
+  body:not([data-page="landing"]) .brand-lockup {
+    display: grid;
+    grid-template-columns: 48px minmax(0, 1fr);
+    grid-template-areas:
+      "mark copy"
+      "mark status";
+    width: 100%;
+    max-width: 100%;
+    padding: 9px 10px;
+    align-items: center;
+    overflow: visible;
+  }
+
+  body:not([data-page="landing"]) .brand-mark {
+    grid-area: mark;
+  }
+
+  body:not([data-page="landing"]) .brand-copy {
+    grid-area: copy;
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  body:not([data-page="landing"]) .brand-copy strong,
+  body:not([data-page="landing"]) .brand-kicker {
+    overflow: visible;
+    text-overflow: clip;
+    white-space: normal;
+  }
+
+  body:not([data-page="landing"]) .brand-copy strong {
+    line-height: 1.05;
+    text-wrap: balance;
+  }
+
+  body:not([data-page="landing"]) .brand-kicker {
+    display: block !important;
+    font-size: 0.62rem;
+    line-height: 1.1;
+  }
+
+  body:not([data-page="landing"]) .site-header__status {
+    display: inline-flex !important;
+    grid-area: status;
+    justify-self: start;
+    max-width: 100%;
+    margin-top: 4px;
+    overflow: visible;
+    text-overflow: clip;
+    white-space: normal;
+  }
+
+  body:not([data-page="landing"]) .site-header__panel,
+  body:not([data-page="landing"]) .site-header .site-nav,
+  body:not([data-page="landing"]) .site-header__actions {
+    width: 100%;
+    max-width: 100%;
+    overflow: visible;
+    mask-image: none !important;
+    -webkit-mask-image: none !important;
+  }
+
+  body:not([data-page="landing"]) .site-header .site-nav,
+  body:not([data-page="landing"]) .site-header__actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 6px;
+  }
+
+  body:not([data-page="landing"]) .site-header .site-nav a,
+  body:not([data-page="landing"]) .site-action-pill {
+    flex: 1 1 auto;
+    min-width: max-content;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 430px) {
+  body:not([data-page="landing"]) .site-header {
+    width: min(calc(100vw - 14px), 100%);
+    padding-inline: 7px;
+  }
+
+  body:not([data-page="landing"]) .brand-lockup {
+    grid-template-columns: 44px minmax(0, 1fr);
+    padding-inline: 9px;
+  }
+
+  body:not([data-page="landing"]) .brand-mark {
+    width: 44px;
+    height: 44px;
+  }
+
+  body:not([data-page="landing"]) .site-header .site-nav a,
+  body:not([data-page="landing"]) .site-action-pill {
+    min-width: calc(33.333% - 6px);
+    padding-inline: 10px;
+  }
+}
+
+/* Controller QA fix: keep the mobile status pill inside the brand card. */
+@media (max-width: 560px) {
+  body:not([data-page="landing"]) .brand-lockup {
+    grid-template-areas:
+      "mark copy"
+      "status status";
+  }
+
+  body:not([data-page="landing"]) .site-header__status {
+    justify-self: start;
+    max-width: 100%;
+    margin-left: 0 !important;
+    margin-top: 10px;
+  }
+
+  body[data-page="account"] .account-page,
+  body[data-page="account"] .account-hero,
+  body[data-page="account"] .account-poster,
+  body[data-page="account"] .account-auth-shell {
+    box-sizing: border-box;
+    width: auto;
+    max-width: none;
+    min-width: 0;
+  }
+
+  body[data-page="account"] .account-page {
+    margin-inline: 12px;
+  }
+
+  body[data-page="account"] .account-poster,
+  body[data-page="account"] .account-auth-shell {
+    padding: 20px !important;
+    overflow: hidden;
+  }
+
+  body[data-page="account"] .account-poster h1 {
+    max-width: 9.5ch;
+    font-size: clamp(2.05rem, 9.4vw, 2.35rem);
+    line-height: 1.04;
+    overflow-wrap: normal;
+    word-break: normal;
+  }
+
+  body[data-page="account"] .account-poster > p,
+  body[data-page="account"] .account-chip,
+  body[data-page="account"] .account-mini-card {
+    max-width: 100%;
+    min-width: 0;
+    overflow-wrap: break-word;
+  }
+
+  body[data-page="account"] .account-poster > p {
+    max-width: 29ch;
+  }
+
+  body[data-page="account"] .account-poster .poster-actions,
+  body[data-page="account"] .account-poster .cta {
+    width: 100%;
+    max-width: 100%;
+  }
+}

@@ -51,7 +51,7 @@
           <img class="rn-logo-img" src="./assets/roachnet-logo.png" alt="RoachNet logo" />
           <span class="rn-logo-text">RoachNet</span>
         </a>
-        <nav class="rn-nav-links">
+        <nav class="rn-nav-links" aria-label="Primary">
           <a href="#top" class="rn-nav-link is-current">Mission</a>
           <a href="https://roachnet.org/home/" class="rn-nav-link">Home</a>
           <a href="https://apps.roachnet.org" class="rn-nav-link">Apps</a>
@@ -320,18 +320,25 @@
       ;(function () {
         const canvas = document.getElementById('dither-canvas');
         if (!canvas) return;
-        const ctx = canvas.getContext('2d');
-        const SCALE = 4;          // pixel size for dithered look
+        const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+        const ctx = canvas.getContext('2d', { alpha: true, desynchronized: true });
+        if (!ctx) return;
         let w, h, cols, rows;
         let scrollY = 0;
-        let time = 0;
+        let pointerX = 0.5;
+        let pointerY = 0.28;
+        let smoothX = pointerX;
+        let smoothY = pointerY;
+        let start = performance.now();
+        let lastDraw = 0;
         let raf;
 
         function resize() {
           w = window.innerWidth;
           h = window.innerHeight;
-          canvas.width = Math.ceil(w / SCALE);
-          canvas.height = Math.ceil(h / SCALE);
+          const scale = w < 720 ? 8 : w > 1440 ? 5 : 6;
+          canvas.width = Math.ceil(w / scale);
+          canvas.height = Math.ceil(h / scale);
           cols = canvas.width;
           rows = canvas.height;
         }
@@ -344,53 +351,80 @@
           [15/16,  7/16, 13/16,  5/16]
         ];
 
-        function draw() {
-          time += 0.003;
+        function draw(now) {
+          if (document.visibilityState === 'hidden') {
+            raf = requestAnimationFrame(draw);
+            return;
+          }
+
+          if (!reducedMotion.matches && lastDraw && now - lastDraw < 50) {
+            raf = requestAnimationFrame(draw);
+            return;
+          }
+
+          lastDraw = now;
+          const time = reducedMotion.matches ? 0 : (now - start) / 1000;
           const imgData = ctx.createImageData(cols, rows);
           const data = imgData.data;
-          const scroll = scrollY * 0.0003;
+          const scrollable = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
+          const scroll = Math.min(1, Math.max(0, scrollY / scrollable));
+          smoothX += (pointerX - smoothX) * 0.075;
+          smoothY += (pointerY - smoothY) * 0.075;
+          const centerX = smoothX * 0.58 + 0.21;
+          const centerY = smoothY * 0.48 + 0.12 + scroll * 0.05;
 
           for (let y = 0; y < rows; y++) {
             for (let x = 0; x < cols; x++) {
-              // Multiple layered noise-like patterns with parallax
               const px = x / cols;
               const py = y / rows;
-              const layer1 = Math.sin((px * 6.0 + time * 0.7) + scroll * 2) *
-                            Math.cos((py * 8.0 - time * 0.5) + scroll) * 0.5 + 0.5;
-              const layer2 = Math.sin((px * 14.0 - time * 1.1) + scroll * 3) *
-                            Math.cos((py * 10.0 + time * 0.3) - scroll * 1.5) * 0.5 + 0.5;
-              const layer3 = Math.sin((px * 3.0 + py * 4.0 + time * 0.2) + scroll) * 0.5 + 0.5;
-
-              const combined = (layer1 * 0.35 + layer2 * 0.25 + layer3 * 0.4);
-              const threshold = bayer[y % 4][x % 4];
+              const dx = px - centerX;
+              const dy = py - centerY;
+              const radius = Math.sqrt(dx * dx + dy * dy);
+              const horizon = Math.max(0, 1 - Math.abs(py - 0.34 - scroll * 0.08) * 2.4);
+              const layer1 = Math.sin(radius * 38 - time * 1.8 + scroll * 9) * 0.5 + 0.5;
+              const layer2 = Math.sin(px * 16 + py * 9 + time * 0.5 + scroll * 4) * 0.5 + 0.5;
+              const layer3 = Math.cos((px - py) * 22 - time * 0.36 + smoothX * 1.4) * 0.5 + 0.5;
+              const combined = layer1 * 0.36 + layer2 * 0.26 + layer3 * 0.24 + horizon * 0.14;
+              const vignette = Math.max(0, 1 - radius * 1.45);
+              const threshold = bayer[y % 4][x % 4] - vignette * 0.11;
               const on = combined > threshold ? 1 : 0;
-
-              // Purple-tinted dithering
               const idx = (y * cols + x) * 4;
-              data[idx]     = on * 18;   // R
-              data[idx + 1] = on * 8;    // G
-              data[idx + 2] = on * 28;   // B
-              data[idx + 3] = on * 40;   // A — subtle
+              data[idx] = on ? 28 + Math.round(vignette * 52) : 4;
+              data[idx + 1] = on ? 12 + Math.round(horizon * 36) : 2;
+              data[idx + 2] = on ? 42 + Math.round(vignette * 70) : 10;
+              data[idx + 3] = on ? 32 + Math.round(vignette * 38 + horizon * 18) : 0;
             }
           }
 
           ctx.putImageData(imgData, 0, 0);
-          raf = requestAnimationFrame(draw);
+          canvas.parentElement?.style.setProperty('--landing-dither-scroll', scroll.toFixed(4));
+          if (!reducedMotion.matches) {
+            raf = requestAnimationFrame(draw);
+          }
         }
 
         window.addEventListener('scroll', function () {
           scrollY = window.scrollY;
         }, { passive: true });
 
+        window.addEventListener('pointermove', function (event) {
+          pointerX = Math.max(0, Math.min(1, event.clientX / Math.max(1, w)));
+          pointerY = Math.max(0, Math.min(1, event.clientY / Math.max(1, h)));
+        }, { passive: true });
+
         window.addEventListener('resize', function () {
           resize();
+          draw(performance.now());
         });
 
-        // Respect reduced motion
-        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-
         resize();
-        draw();
+        draw(performance.now());
+        reducedMotion.addEventListener?.('change', function () {
+          if (raf) cancelAnimationFrame(raf);
+          raf = 0;
+          start = performance.now();
+          draw(performance.now());
+        });
       })();
     </script>
     <script>

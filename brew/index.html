@@ -75,7 +75,7 @@
             <button class="cta cta--ghost" data-homebrew-copy type="button">Copy brew command</button>
           </div>
 
-          <p class="hero-footnote">Apple Silicon only. Assumes Homebrew is already installed. If it is not, <a href="https://brew.sh" target="_blank" rel="noreferrer">grab it first</a>. Then come back. We kept the lights on.</p>
+          <p class="hero-footnote">Apple Silicon only. Assumes Homebrew is already installed. If it is not, <a href="https://brew.sh" target="_blank" rel="noreferrer">install it first</a>, then come back.</p>
           <p class="download-meta">Current cask target: RoachNet 1.0.5 · DMG SHA-256 <code>332057c4f85d136882971957d907bec82e7657833272d30d0849990590e1d122</code> · <code>brew update &amp;&amp; brew tap --force RoachWares/roachnet &amp;&amp; brew install --cask roachnet</code></p>
           <p class="homebrew-note" id="homebrew-note">
             The cask writes the contained config, clears only launch-blocking bundle metadata, and boots the runtime without leaning on host Homebrew libraries.
@@ -141,7 +141,7 @@
           <article class="runtime-card" role="listitem" data-reveal>
             <span class="feature-card__eyebrow">App bundle</span>
             <h3><code>~/RoachNet/app/RoachNet.app</code></h3>
-            <p>Pulled from the DMG, launch-blocking metadata cleared, signed locally. Launches clean, no macOS drama.</p>
+            <p>Pulled from the same DMG as Setup.app, with launch-blocking metadata cleared at the app boundary.</p>
           </article>
 
           <article class="runtime-card" role="listitem" data-reveal>
@@ -173,7 +173,7 @@
         <div class="card-grid card-grid--support" role="list">
           <article class="support-card" role="listitem" data-reveal>
             <span class="feature-card__eyebrow">Portable Node</span>
-            <h3>Ships its own Node runtime. Does not touch yours, and does not care what version Homebrew installed during its little growth spurt.</h3>
+            <h3>Ships its own Node runtime. It does not touch your global install or depend on whichever Node version Homebrew just adopted.</h3>
           </article>
 
           <article class="support-card" role="listitem" data-reveal>
@@ -216,7 +216,7 @@
     <footer class="site-footer">
       <div class="site-footer__copy">
         <strong>RoachNet Brew</strong>
-        <span>Homebrew cask for Apple Silicon. RoachNet in <code>~/RoachNet</code>. Three commands, clear files.</span>
+        <span>Homebrew cask for Apple Silicon. RoachNet in <code>~/RoachNet</code>. Three commands, visible files.</span>
       </div>
       <nav class="site-footer__nav" aria-label="Footer">
         <a href="https://roachnet.org/home/">Home</a>

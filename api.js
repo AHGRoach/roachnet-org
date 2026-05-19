@@ -1949,7 +1949,12 @@ function renderGroupNav() {
   groupNav.innerHTML = items
     .map(
       (item) => `
-        <button class="api-docs-group${item.id === activeGroup ? ' is-active' : ''}" data-group-id="${item.id}" type="button">
+        <button
+          class="api-docs-group${item.id === activeGroup ? ' is-active' : ''}"
+          data-group-id="${item.id}"
+          type="button"
+          aria-pressed="${item.id === activeGroup ? 'true' : 'false'}"
+        >
           <span class="api-docs-group__copy">
             <strong>${item.label}</strong>
             <small>${item.summary}</small>
@@ -1981,7 +1986,12 @@ function renderMethodFilter() {
   methodFilter.innerHTML = methodOrder
     .map(
       (method) => `
-        <button class="api-method-chip${method === activeMethod ? ' is-active' : ''}" data-method="${method}" type="button">
+        <button
+          class="api-method-chip${method === activeMethod ? ' is-active' : ''}"
+          data-method="${method}"
+          type="button"
+          aria-pressed="${method === activeMethod ? 'true' : 'false'}"
+        >
           ${method}
           <span>${counts[method]}</span>
         </button>
@@ -2088,7 +2098,12 @@ function renderRouteList() {
   routeList.innerHTML = filtered
     .map(
       (route) => `
-        <button class="api-route-card${route.id === activeRouteId ? ' is-active' : ''}" data-route-id="${route.id}" type="button">
+        <button
+          class="api-route-card${route.id === activeRouteId ? ' is-active' : ''}"
+          data-route-id="${route.id}"
+          type="button"
+          aria-pressed="${route.id === activeRouteId ? 'true' : 'false'}"
+        >
           <div class="api-route-card__top">
             <span class="api-route-card__method api-route-card__method--${route.method.toLowerCase()}">${route.method}</span>
             <span class="api-route-card__group">${route.groupLabel}</span>

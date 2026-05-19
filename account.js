@@ -112,7 +112,11 @@ function setMode(nextMode) {
   accountMode = nextMode === 'signup' ? 'signup' : 'signin'
 
   tabs.forEach((tab) => {
-    tab.classList.toggle('is-active', tab.dataset.accountMode === accountMode)
+    const isActive = tab.dataset.accountMode === accountMode
+    tab.classList.toggle('is-active', isActive)
+    tab.setAttribute('role', 'tab')
+    tab.setAttribute('aria-selected', isActive ? 'true' : 'false')
+    tab.tabIndex = isActive ? 0 : -1
   })
 
   if (displayNameField) {
