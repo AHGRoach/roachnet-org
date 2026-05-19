@@ -3,10 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>RoachNet Account</title>
+    <title>RoachNet Account: Essentials That Travel with You</title>
     <meta
       name="description"
-      content="One account for the web side of things. RoachClaw chat, saved installs, device links — synced so your local machine can stay offline on purpose."
+      content="Your RoachNet account handles saved threads, picks, and settings that travel with you. Your data stays yours, this is just the web side."
     />
     <meta name="theme-color" content="#0a1016" />
     <link rel="canonical" href="https://accounts.roachnet.org/" />
@@ -14,6 +14,21 @@
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="RoachNet Account: Essentials That Travel with You" />
+    <meta
+      property="og:description"
+      content="Your RoachNet account stores settings and picks that travel with you while keeping your data private."
+    />
+    <meta property="og:url" content="https://accounts.roachnet.org/" />
+    <meta property="og:image" content="https://roachnet.org/assets/screens/roachnet-native-roachclaw.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="RoachNet Account: Essentials That Travel with You" />
+    <meta
+      name="twitter:description"
+      content="Your RoachNet account stores settings and picks that travel with you while keeping your data private."
+    />
+    <meta name="twitter:image" content="https://roachnet.org/assets/screens/roachnet-native-roachclaw.jpg" />
     <link rel="stylesheet" href="/app.css" />
     <link rel="stylesheet" href="/app-polish.css" />
     <link rel="stylesheet" href="/roachclaw-web.css" />
@@ -31,7 +46,7 @@
           <img class="brand-mark" src="/assets/roachnet-logo.png" alt="RoachNet logo" />
           <div class="brand-copy">
             <strong>RoachNet Account</strong>
-            <span class="brand-kicker">offline on purpose</span>
+            <span class="brand-kicker">thin web layer, thick local boundary</span>
           </div>
           <span class="site-header__status">Accounts</span>
         </a>
@@ -39,7 +54,7 @@
         <div class="site-header__panel">
           <nav class="site-nav site-nav--primary" aria-label="Account links">
             <a href="https://roachnet.org/">RoachNet</a>
-            <a href="/roachclaw" class="site-nav__link" data-route="roachclaw">RoachClaw</a>
+            <a href="/roachclaw" class="site-nav__link" data-route="roachclaw">Claw</a>
             <a href="https://roachnet.org/api/">API</a>
             <a href="https://www.roachwares.org/">RoachWares</a>
             <a href="https://stream.roachnet.org/">Stream</a>
@@ -51,9 +66,9 @@
         <section class="account-hero" data-reveal-group>
           <article class="account-poster">
             <span class="eyebrow">Account</span>
-            <h1>Your machine stays yours. This is just the web half.</h1>
+            <h1>Your machine stays yours. This is just the web pocket.</h1>
             <p>
-              Most of RoachNet belongs on your hardware. That is the point. This account only holds the thin web layer that earns its keep: chat threads, saved app picks, device links, and settings that need to follow you.
+              Most of RoachNet belongs on your hardware. That is the point. This account holds only what travels: threads, picks, links, and settings.
             </p>
 
             <div class="account-chip-row" aria-label="Account features">
@@ -72,11 +87,11 @@
             <div class="hero-signal-board hero-signal-board--compact">
               <article class="hero-signal-card" data-reveal>
                 <span>Syncs</span>
-                <strong>App picks, device links, and web settings. The metadata that earns its keep on a server.</strong>
+                <strong>App picks, device links, and web settings. The metadata that has a reason to sync.</strong>
               </article>
               <article class="hero-signal-card" data-reveal>
                 <span>Stays home</span>
-                <strong>Runtime, models, vault, and files. Your hardware, your rules — offline on purpose.</strong>
+                <strong>Runtime, models, vault, and files. Your hardware, your rules, no cloud custody.</strong>
               </article>
             </div>
 
@@ -84,13 +99,13 @@
               <article class="account-mini-card" data-reveal>
                 <span class="feature-card__eyebrow">What syncs</span>
                 <strong>App picks, device links, web settings.</strong>
-                <p>The useful metadata that keeps your devices in step. Nothing more. Nothing less.</p>
+                <p>The useful metadata that keeps your devices in step. Nothing more.</p>
               </article>
 
               <article class="account-mini-card" data-reveal>
                 <span class="feature-card__eyebrow">What stays local</span>
                 <strong>Runtime, models, vault, file paths.</strong>
-                <p>Desktop data stays on your box. Period. The internet is an optional bonus, not a dependency.</p>
+                <p>Desktop data stays on your box. Period. The internet is a convenience, not custody.</p>
               </article>
 
               <article class="account-mini-card" data-reveal>
@@ -124,17 +139,17 @@
             <form class="account-form" id="account-form">
               <label class="account-field account-name-field" id="account-name-field" hidden>
                 <span>Name</span>
-                <input id="account-display-name" type="text" autocomplete="nickname" maxlength="60" placeholder="How RoachNet should label this account" />
+                <input id="account-display-name" type="text" autocomplete="nickname" maxlength="60" placeholder="Studio name, handle, or whatever fits" />
               </label>
 
               <label class="account-field">
                 <span>Email</span>
-                <input id="account-email" type="email" autocomplete="email" placeholder="you@roachnet.org" required />
+                <input id="account-email" type="email" autocomplete="email" placeholder="you@example.com" required />
               </label>
 
               <label class="account-field">
                 <span>Password</span>
-                <input id="account-password" type="password" autocomplete="current-password" placeholder="Use a strong password" required />
+                <input id="account-password" type="password" autocomplete="current-password" placeholder="Strong password" required />
               </label>
 
               <input id="account-started-at" type="hidden" />
@@ -182,7 +197,7 @@
           <article class="account-panel" data-reveal>
             <span class="feature-card__eyebrow">Desktop &amp; phone</span>
             <h3>The real work lives in the app.</h3>
-            <p>This account handles identity and sync metadata. Runtime, vault, and local services stay on your hardware — where they belong. It's just a quieter, saner foundation.</p>
+            <p>This account handles identity and sync metadata. Runtime, vault, and local services stay on your hardware, where they belong. Quiet foundation, not fake cloud runtime.</p>
             <div class="account-actions-inline">
               <a class="cta cta--ghost" href="https://roachnet.org/ios/">RoachNetiOS</a>
               <a class="cta cta--ghost" href="/roachclaw" data-route="roachclaw">RoachClaw web chat</a>
@@ -192,7 +207,7 @@
           <article class="account-panel" data-reveal>
             <span class="feature-card__eyebrow">Privacy</span>
             <h3>No local path dump. No fake cloud runtime.</h3>
-            <p>The server stores what a server should: identity and sync metadata. File paths, runtime secrets, and vault content never leave your machine. Your environment stays self-contained — offline on purpose.</p>
+            <p>The server stores what a server should: identity and sync metadata. File paths, runtime secrets, and vault content never leave your machine.</p>
             <div class="account-actions-inline">
               <a class="cta cta--ghost" href="https://roachnet.org/api/">API docs</a>
               <a class="cta cta--ghost" href="https://roachnet.org/">Back to RoachNet</a>
@@ -204,13 +219,14 @@
       <footer class="site-footer">
         <div class="site-footer__copy">
           <strong>RoachNet Account</strong>
-          <span>Identity and sync metadata for RoachClaw, saved installs, and linked devices. The heavy lifting stays on your machine — offline on purpose.</span>
+          <span>Identity and sync metadata for RoachClaw, saved installs, and linked devices. The heavy lifting stays on your machine.</span>
         </div>
         <nav class="site-footer__nav" aria-label="Footer">
           <a href="https://roachnet.org/">Home</a>
           <a href="/roachclaw" data-route="roachclaw">RoachClaw</a>
           <a href="https://apps.roachnet.org/">Apps</a>
           <a href="https://roachnet.org/api/">API</a>
+          <a href="https://roachnet.org/sitemap/">Sitemap</a>
           <a href="https://www.roachwares.org/">RoachWares</a>
           <a href="https://stream.roachnet.org/">Stream</a>
           <a href="https://github.com/RoachWares/RoachNet" target="_blank" rel="noreferrer">GitHub</a>
@@ -247,7 +263,7 @@
               <img class="brand-mark" src="/assets/roachclaw-logo.png" alt="RoachClaw logo" />
               <div class="brand-copy">
                 <strong>RoachClaw</strong>
-                <span class="brand-kicker">offline on purpose</span>
+                <span class="brand-kicker">web lane, local lane, clear boundary</span>
               </div>
             </a>
             <button class="rc-sidebar__new-btn" id="roachclaw-new-thread" type="button" aria-label="New chat">
@@ -401,12 +417,12 @@
           <form class="account-form" id="roachclaw-auth-form">
             <label class="account-field" id="roachclaw-auth-name-field" hidden>
               <span>Name</span>
-              <input id="roachclaw-auth-name" type="text" autocomplete="nickname" maxlength="60" placeholder="How RoachNet should label this account" />
+              <input id="roachclaw-auth-name" type="text" autocomplete="nickname" maxlength="60" placeholder="Studio name, handle, or whatever fits" />
             </label>
 
             <label class="account-field">
               <span>Email</span>
-              <input id="roachclaw-auth-email" type="email" autocomplete="email" placeholder="you@roachnet.org" required />
+              <input id="roachclaw-auth-email" type="email" autocomplete="email" placeholder="you@example.com" required />
             </label>
 
             <label class="account-field">
@@ -432,13 +448,14 @@
       <footer class="site-footer rc-footer">
         <div class="site-footer__copy">
           <strong>RoachClaw</strong>
-          <span>AI chat that follows your account, not your browser tab. Use the web lane anywhere. Pair your local runtime when you want the private lane — offline on purpose.</span>
+          <span>AI chat that follows your account, not your browser tab. Use the web lane anywhere. Pair your local runtime when you want the private lane.</span>
         </div>
         <nav class="site-footer__nav" aria-label="Footer">
           <a href="/" data-route="account">Account</a>
           <a href="https://roachnet.org/">RoachNet</a>
           <a href="https://apps.roachnet.org/">Apps</a>
           <a href="https://roachnet.org/api/">API</a>
+          <a href="https://roachnet.org/sitemap/">Sitemap</a>
           <a href="https://www.roachwares.org/">RoachWares</a>
           <a href="https://stream.roachnet.org/">Stream</a>
           <a href="https://github.com/RoachWares/RoachNet" target="_blank" rel="noreferrer">GitHub</a>
@@ -466,5 +483,6 @@
     <script src="/router.js"></script>
     <script src="/account.js" type="module"></script>
     <script src="/roachclaw.js" type="module"></script>
+    <script src="/site-polish.js" type="module"></script>
   </body>
 </html>

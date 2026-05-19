@@ -641,13 +641,13 @@ const apiGroups = [
         method: 'POST',
         path: '/install',
         title: 'Forward one install intent',
-        summary: 'Accepts the same install-intent payloads used by apps.roachnet.org and forwards them into the desktop runtime.',
+        summary: 'Accepts the same install-intent payloads used by apps.roachnet.org and queues the matching native install.',
         handler: 'CompanionController.install',
-        request: ['Body: install intent payload from the Apps catalog, including action/slug/category/model/url metadata'],
-        response: ['JSON: { ok, action, result }'],
+        request: ['Body: install intent payload from the Apps catalog, including action, slug, category, model, url, pack, and filetype metadata'],
+        response: ['JSON: { ok, action, message, jobId?, jobIds?, queued? }'],
         implementation:
-          'Normalizes the incoming intent, maps it onto the existing runtime install actions, and dispatches it into the same content/model install flows the website already uses. The iOS app keeps a local pending-install queue when this bridge is unavailable, then flushes the queue back through this route on reconnect. The mobile app also accepts roachnet://install-content deep links, so the website, Apps store, and phone app all share the same install-intent contract.',
-        usedBy: ['Apps tab install buttons in RoachNet iOS', 'roachnet://install-content handoff into RoachNetiOS', 'Reconnect flush for queued mobile installs'],
+          'The native runtime now resolves Apps descriptors directly, verifies checksums when present, and routes each action into the same map, ZIM, Wikipedia, RoachClaw, and RoachSpeech install lanes used by the macOS roachnet://install-content handoff. The iOS app keeps a local pending-install queue when this bridge is unavailable, then flushes the queue through this route on reconnect.',
+        usedBy: ['Apps tab install buttons in RoachNet iOS', 'roachnet://install-content handoff into RoachNet on macOS and iOS', 'Reconnect flush for queued mobile installs'],
       },
       {
         id: 'companion-services-affect',
@@ -889,7 +889,7 @@ const apiGroups = [
         request: [
           'Body: { url, packID, kind }',
           'kind is roachVoice or roachWhisper',
-          'url should point at a RoachWares release archive such as roachvoice-chatterbox-coreml.zip',
+          'url should point at a same-origin Apps descriptor such as https://apps.roachnet.org/downloads/model-packs/roachvoice-chatterbox-coreml.json',
         ],
         response: [
           'JSON: { success, ok, message, packID, kind, jobId }',
@@ -913,7 +913,7 @@ const apiGroups = [
           'Release-ready packs require RoachWares/RoachNet provenance and non-empty .mlmodelc payloads',
         ],
         implementation:
-          'The public v1.0.5 bundle ships RoachWhisper plus the small Kokoro narrator by default, while Chatterbox voice cloning installs as an optional first-party pack so the setup app stays lean without losing the feature.',
+          'The public v1.0.5 bundle ships RoachWhisper plus the small Kokoro narrator by default, while Chatterbox voice cloning installs as an optional first-party pack surfaced by Apps.RoachNet.org. The App Store hosts the descriptor and checksum contract; the large archive resolves from public source rails so the setup app stays lean without losing the feature.',
         usedBy: ['RoachSpeech release gate', 'RoachNet Apps catalog', 'public model-pack docs'],
       },
     ],

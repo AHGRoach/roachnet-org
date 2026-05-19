@@ -1,0 +1,149 @@
+{
+  "schema": "org.roachnet.apps.download-descriptor.v1",
+  "id": "roachvoice-small-narrator",
+  "title": "RoachVoice Small Narrator",
+  "category": "Voice AI",
+  "section": "Voice Packs",
+  "action": "roachspeech-pack",
+  "kind": "roachVoice",
+  "tier": "small-narrator",
+  "filename": "roachvoice-kokoro-82m-int8-coreml.zip",
+  "key": "model-packs/roachvoice-kokoro-82m-int8-coreml.zip",
+  "internetArchiveKey": "model-packs__roachvoice-kokoro-82m-int8-coreml.zip",
+  "descriptorUrl": "https://apps.roachnet.org/downloads/model-packs/roachvoice-kokoro-82m-int8-coreml.json",
+  "bytes": 80330676,
+  "size": "76.6 MB",
+  "sha256": "6c6036764fba780a6df20f0dacf5c9dced06b9fd8dd1611edd143f240ad10f6c",
+  "chunkSizeBytes": 8388608,
+  "parts": [
+    {
+      "index": 0,
+      "key": "model-packs__roachvoice-kokoro-82m-int8-coreml.zip.rnpart0001",
+      "url": "https://archive.org/download/roachnet-apps-catalog-v1_0_5/model-packs__roachvoice-kokoro-82m-int8-coreml.zip.rnpart0001",
+      "offset": 0,
+      "bytes": 8388608,
+      "sha256": "8507b1c4d023e7ad957ebb567c6b79356b6ca5484c45ee43808ba0e5e09d34b8",
+      "encoding": "roachnet-ia-chunk-v1",
+      "header": "ROACHNET-IA-CHUNK-v1 0 8388608 8507b1c4d023e7ad957ebb567c6b79356b6ca5484c45ee43808ba0e5e09d34b8\n",
+      "encodedBytes": 8388704
+    },
+    {
+      "index": 1,
+      "key": "model-packs__roachvoice-kokoro-82m-int8-coreml.zip.rnpart0002",
+      "url": "https://archive.org/download/roachnet-apps-catalog-v1_0_5/model-packs__roachvoice-kokoro-82m-int8-coreml.zip.rnpart0002",
+      "offset": 8388608,
+      "bytes": 8388608,
+      "sha256": "a50bde1a2aac130d7f33b75444af8e0f4a2748f77d1a67ecac030f1725259225",
+      "encoding": "roachnet-ia-chunk-v1",
+      "header": "ROACHNET-IA-CHUNK-v1 1 8388608 a50bde1a2aac130d7f33b75444af8e0f4a2748f77d1a67ecac030f1725259225\n",
+      "encodedBytes": 8388704
+    },
+    {
+      "index": 2,
+      "key": "model-packs__roachvoice-kokoro-82m-int8-coreml.zip.rnpart0003",
+      "url": "https://archive.org/download/roachnet-apps-catalog-v1_0_5/model-packs__roachvoice-kokoro-82m-int8-coreml.zip.rnpart0003",
+      "offset": 16777216,
+      "bytes": 8388608,
+      "sha256": "c17b2fe01d360a726907d15405f2a2db82788b64484ed55d4fbdb5dfd908596f",
+      "encoding": "roachnet-ia-chunk-v1",
+      "header": "ROACHNET-IA-CHUNK-v1 2 8388608 c17b2fe01d360a726907d15405f2a2db82788b64484ed55d4fbdb5dfd908596f\n",
+      "encodedBytes": 8388704
+    },
+    {
+      "index": 3,
+      "key": "model-packs__roachvoice-kokoro-82m-int8-coreml.zip.rnpart0004",
+      "url": "https://archive.org/download/roachnet-apps-catalog-v1_0_5/model-packs__roachvoice-kokoro-82m-int8-coreml.zip.rnpart0004",
+      "offset": 25165824,
+      "bytes": 8388608,
+      "sha256": "e87b00280cd58d07212bc66d8db95d1f0310bdd24e7137484808e40a995b90fb",
+      "encoding": "roachnet-ia-chunk-v1",
+      "header": "ROACHNET-IA-CHUNK-v1 3 8388608 e87b00280cd58d07212bc66d8db95d1f0310bdd24e7137484808e40a995b90fb\n",
+      "encodedBytes": 8388704
+    },
+    {
+      "index": 4,
+      "key": "model-packs__roachvoice-kokoro-82m-int8-coreml.zip.rnpart0005",
+      "url": "https://archive.org/download/roachnet-apps-catalog-v1_0_5/model-packs__roachvoice-kokoro-82m-int8-coreml.zip.rnpart0005",
+      "offset": 33554432,
+      "bytes": 8388608,
+      "sha256": "fde414065eb6efb094db29df108798d868496bb644f43e088a51650d5fb85620",
+      "encoding": "roachnet-ia-chunk-v1",
+      "header": "ROACHNET-IA-CHUNK-v1 4 8388608 fde414065eb6efb094db29df108798d868496bb644f43e088a51650d5fb85620\n",
+      "encodedBytes": 8388704
+    },
+    {
+      "index": 5,
+      "key": "model-packs__roachvoice-kokoro-82m-int8-coreml.zip.rnpart0006",
+      "url": "https://archive.org/download/roachnet-apps-catalog-v1_0_5/model-packs__roachvoice-kokoro-82m-int8-coreml.zip.rnpart0006",
+      "offset": 41943040,
+      "bytes": 8388608,
+      "sha256": "6785ae8fcd9aafb2ad84b04b3efaab63af013ebf9c6c3f4d650fa35cd3f5b191",
+      "encoding": "roachnet-ia-chunk-v1",
+      "header": "ROACHNET-IA-CHUNK-v1 5 8388608 6785ae8fcd9aafb2ad84b04b3efaab63af013ebf9c6c3f4d650fa35cd3f5b191\n",
+      "encodedBytes": 8388704
+    },
+    {
+      "index": 6,
+      "key": "model-packs__roachvoice-kokoro-82m-int8-coreml.zip.rnpart0007",
+      "url": "https://archive.org/download/roachnet-apps-catalog-v1_0_5/model-packs__roachvoice-kokoro-82m-int8-coreml.zip.rnpart0007",
+      "offset": 50331648,
+      "bytes": 8388608,
+      "sha256": "3dc7677ac9415a21619805dbcc18feb30b5387375b4398a5f9b434d4552d4901",
+      "encoding": "roachnet-ia-chunk-v1",
+      "header": "ROACHNET-IA-CHUNK-v1 6 8388608 3dc7677ac9415a21619805dbcc18feb30b5387375b4398a5f9b434d4552d4901\n",
+      "encodedBytes": 8388704
+    },
+    {
+      "index": 7,
+      "key": "model-packs__roachvoice-kokoro-82m-int8-coreml.zip.rnpart0008",
+      "url": "https://archive.org/download/roachnet-apps-catalog-v1_0_5/model-packs__roachvoice-kokoro-82m-int8-coreml.zip.rnpart0008",
+      "offset": 58720256,
+      "bytes": 8388608,
+      "sha256": "f2d42190fb5ca3af51e7c49a5636efe699a347445ddbcefd5c0865a81a877be7",
+      "encoding": "roachnet-ia-chunk-v1",
+      "header": "ROACHNET-IA-CHUNK-v1 7 8388608 f2d42190fb5ca3af51e7c49a5636efe699a347445ddbcefd5c0865a81a877be7\n",
+      "encodedBytes": 8388704
+    },
+    {
+      "index": 8,
+      "key": "model-packs__roachvoice-kokoro-82m-int8-coreml.zip.rnpart0009",
+      "url": "https://archive.org/download/roachnet-apps-catalog-v1_0_5/model-packs__roachvoice-kokoro-82m-int8-coreml.zip.rnpart0009",
+      "offset": 67108864,
+      "bytes": 8388608,
+      "sha256": "e496be00b7cdab3ce62361360d5ccb30c4cde3e6a8981717cf721720d75b19ce",
+      "encoding": "roachnet-ia-chunk-v1",
+      "header": "ROACHNET-IA-CHUNK-v1 8 8388608 e496be00b7cdab3ce62361360d5ccb30c4cde3e6a8981717cf721720d75b19ce\n",
+      "encodedBytes": 8388704
+    },
+    {
+      "index": 9,
+      "key": "model-packs__roachvoice-kokoro-82m-int8-coreml.zip.rnpart0010",
+      "url": "https://archive.org/download/roachnet-apps-catalog-v1_0_5/model-packs__roachvoice-kokoro-82m-int8-coreml.zip.rnpart0010",
+      "offset": 75497472,
+      "bytes": 4833204,
+      "sha256": "0b385131d454751655cad2ce686287707ee6d427598bb4b0e7b8ee31688a462d",
+      "encoding": "roachnet-ia-chunk-v1",
+      "header": "ROACHNET-IA-CHUNK-v1 9 4833204 0b385131d454751655cad2ce686287707ee6d427598bb4b0e7b8ee31688a462d\n",
+      "encodedBytes": 4833300
+    }
+  ],
+  "sources": [
+    {
+      "type": "internet-archive-parts",
+      "label": "Internet Archive chunked public item",
+      "url": "https://archive.org/details/roachnet-apps-catalog-v1_0_5",
+      "partCount": 10,
+      "partSize": 8388608,
+      "status": "published-after-upload"
+    },
+    {
+      "type": "internet-archive",
+      "label": "Internet Archive single-object fallback",
+      "url": "https://archive.org/download/roachnet-apps-catalog-v1_0_5/model-packs__roachvoice-kokoro-82m-int8-coreml.zip",
+      "status": "single-object-pending"
+    }
+  ],
+  "checksumUrl": "https://apps.roachnet.org/downloads/model-packs/roachvoice-kokoro-82m-int8-coreml.zip.sha256",
+  "status": "descriptor-ready-chunked-source-live",
+  "policy": "Apps.RoachNet.org hosts descriptors and checksums. Large archives live on public source rails and Internet Archive mirrors, not this machine, Netlify, GitHub source, or R2."
+}

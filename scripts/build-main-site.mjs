@@ -22,6 +22,9 @@ const copyList = [
   "router.js",
   "site-account.js",
   "site-config.js",
+  "site-polish.js",
+  "robots.txt",
+  "sitemap.xml",
   "apple-touch-icon.png",
   "favicon.ico",
   "favicon-16x16.png",
@@ -35,6 +38,7 @@ const copyList = [
   "iOS",
   "ios",
   "roachclaw",
+  "sitemap",
 ];
 
 await rm(outDir, { recursive: true, force: true });

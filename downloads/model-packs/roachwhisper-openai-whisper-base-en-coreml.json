@@ -1,0 +1,226 @@
+{
+  "schema": "org.roachnet.apps.download-descriptor.v1",
+  "id": "roachwhisper-listener",
+  "title": "RoachWhisper Listener",
+  "category": "Speech AI",
+  "section": "Voice Packs",
+  "action": "roachspeech-pack",
+  "kind": "roachWhisper",
+  "tier": "speech-to-text",
+  "filename": "roachwhisper-openai-whisper-base-en-coreml.zip",
+  "key": "model-packs/roachwhisper-openai-whisper-base-en-coreml.zip",
+  "internetArchiveKey": "model-packs__roachwhisper-openai-whisper-base-en-coreml.zip",
+  "descriptorUrl": "https://apps.roachnet.org/downloads/model-packs/roachwhisper-openai-whisper-base-en-coreml.json",
+  "bytes": 134362528,
+  "size": "128.1 MB",
+  "sha256": "3257147455f31f36d4cb2ee550b71c1e71c86081130f88fc29dbc4f357c58422",
+  "chunkSizeBytes": 8388608,
+  "parts": [
+    {
+      "index": 0,
+      "key": "model-packs__roachwhisper-openai-whisper-base-en-coreml.zip.rnpart0001",
+      "url": "https://archive.org/download/roachnet-apps-catalog-v1_0_5/model-packs__roachwhisper-openai-whisper-base-en-coreml.zip.rnpart0001",
+      "offset": 0,
+      "bytes": 8388608,
+      "sha256": "4ded37234e3cf1dfa9ef53202424101e306c5b288b311a1ba24241ab9e6babb4",
+      "encoding": "roachnet-ia-chunk-v1",
+      "header": "ROACHNET-IA-CHUNK-v1 0 8388608 4ded37234e3cf1dfa9ef53202424101e306c5b288b311a1ba24241ab9e6babb4\n",
+      "encodedBytes": 8388704
+    },
+    {
+      "index": 1,
+      "key": "model-packs__roachwhisper-openai-whisper-base-en-coreml.zip.rnpart0002",
+      "url": "https://archive.org/download/roachnet-apps-catalog-v1_0_5/model-packs__roachwhisper-openai-whisper-base-en-coreml.zip.rnpart0002",
+      "offset": 8388608,
+      "bytes": 8388608,
+      "sha256": "8412d53004ae2717e4c4e856cb5b2255f6eab8079196088ef0b0db924d43654f",
+      "encoding": "roachnet-ia-chunk-v1",
+      "header": "ROACHNET-IA-CHUNK-v1 1 8388608 8412d53004ae2717e4c4e856cb5b2255f6eab8079196088ef0b0db924d43654f\n",
+      "encodedBytes": 8388704
+    },
+    {
+      "index": 2,
+      "key": "model-packs__roachwhisper-openai-whisper-base-en-coreml.zip.rnpart0003",
+      "url": "https://archive.org/download/roachnet-apps-catalog-v1_0_5/model-packs__roachwhisper-openai-whisper-base-en-coreml.zip.rnpart0003",
+      "offset": 16777216,
+      "bytes": 8388608,
+      "sha256": "ef1c91fa1c2275bebd997205f12f513b4cb64b1e090bd699c67c3d99155c88e1",
+      "encoding": "roachnet-ia-chunk-v1",
+      "header": "ROACHNET-IA-CHUNK-v1 2 8388608 ef1c91fa1c2275bebd997205f12f513b4cb64b1e090bd699c67c3d99155c88e1\n",
+      "encodedBytes": 8388704
+    },
+    {
+      "index": 3,
+      "key": "model-packs__roachwhisper-openai-whisper-base-en-coreml.zip.rnpart0004",
+      "url": "https://archive.org/download/roachnet-apps-catalog-v1_0_5/model-packs__roachwhisper-openai-whisper-base-en-coreml.zip.rnpart0004",
+      "offset": 25165824,
+      "bytes": 8388608,
+      "sha256": "7a536afc1b2fad1ee95aa2eff1017e848cf5d1fd2d34f3026c2f552b76ec2f69",
+      "encoding": "roachnet-ia-chunk-v1",
+      "header": "ROACHNET-IA-CHUNK-v1 3 8388608 7a536afc1b2fad1ee95aa2eff1017e848cf5d1fd2d34f3026c2f552b76ec2f69\n",
+      "encodedBytes": 8388704
+    },
+    {
+      "index": 4,
+      "key": "model-packs__roachwhisper-openai-whisper-base-en-coreml.zip.rnpart0005",
+      "url": "https://archive.org/download/roachnet-apps-catalog-v1_0_5/model-packs__roachwhisper-openai-whisper-base-en-coreml.zip.rnpart0005",
+      "offset": 33554432,
+      "bytes": 8388608,
+      "sha256": "a58828b72f910b89a3cd0f488ff61fadc7ed1e1dc40a37d878d3ae3c221618b6",
+      "encoding": "roachnet-ia-chunk-v1",
+      "header": "ROACHNET-IA-CHUNK-v1 4 8388608 a58828b72f910b89a3cd0f488ff61fadc7ed1e1dc40a37d878d3ae3c221618b6\n",
+      "encodedBytes": 8388704
+    },
+    {
+      "index": 5,
+      "key": "model-packs__roachwhisper-openai-whisper-base-en-coreml.zip.rnpart0006",
+      "url": "https://archive.org/download/roachnet-apps-catalog-v1_0_5/model-packs__roachwhisper-openai-whisper-base-en-coreml.zip.rnpart0006",
+      "offset": 41943040,
+      "bytes": 8388608,
+      "sha256": "c7b8b086b3a3e3b4c85b72e610b4febde3833f52cd733c18651673a9cb9003b8",
+      "encoding": "roachnet-ia-chunk-v1",
+      "header": "ROACHNET-IA-CHUNK-v1 5 8388608 c7b8b086b3a3e3b4c85b72e610b4febde3833f52cd733c18651673a9cb9003b8\n",
+      "encodedBytes": 8388704
+    },
+    {
+      "index": 6,
+      "key": "model-packs__roachwhisper-openai-whisper-base-en-coreml.zip.rnpart0007",
+      "url": "https://archive.org/download/roachnet-apps-catalog-v1_0_5/model-packs__roachwhisper-openai-whisper-base-en-coreml.zip.rnpart0007",
+      "offset": 50331648,
+      "bytes": 8388608,
+      "sha256": "79ab3981d116df81bb1d2b6c670821df3e81a85b561ca3eb3fc8b71012af1a09",
+      "encoding": "roachnet-ia-chunk-v1",
+      "header": "ROACHNET-IA-CHUNK-v1 6 8388608 79ab3981d116df81bb1d2b6c670821df3e81a85b561ca3eb3fc8b71012af1a09\n",
+      "encodedBytes": 8388704
+    },
+    {
+      "index": 7,
+      "key": "model-packs__roachwhisper-openai-whisper-base-en-coreml.zip.rnpart0008",
+      "url": "https://archive.org/download/roachnet-apps-catalog-v1_0_5/model-packs__roachwhisper-openai-whisper-base-en-coreml.zip.rnpart0008",
+      "offset": 58720256,
+      "bytes": 8388608,
+      "sha256": "592dad1406dddb7e88ca0cc319bfd87999cc958968dc9a60bfff6364e8e8f788",
+      "encoding": "roachnet-ia-chunk-v1",
+      "header": "ROACHNET-IA-CHUNK-v1 7 8388608 592dad1406dddb7e88ca0cc319bfd87999cc958968dc9a60bfff6364e8e8f788\n",
+      "encodedBytes": 8388704
+    },
+    {
+      "index": 8,
+      "key": "model-packs__roachwhisper-openai-whisper-base-en-coreml.zip.rnpart0009",
+      "url": "https://archive.org/download/roachnet-apps-catalog-v1_0_5/model-packs__roachwhisper-openai-whisper-base-en-coreml.zip.rnpart0009",
+      "offset": 67108864,
+      "bytes": 8388608,
+      "sha256": "1b4d39c230807ba3deda4708e3a9e6cdfdae54c91dbc687b6bcb7a0573a87610",
+      "encoding": "roachnet-ia-chunk-v1",
+      "header": "ROACHNET-IA-CHUNK-v1 8 8388608 1b4d39c230807ba3deda4708e3a9e6cdfdae54c91dbc687b6bcb7a0573a87610\n",
+      "encodedBytes": 8388704
+    },
+    {
+      "index": 9,
+      "key": "model-packs__roachwhisper-openai-whisper-base-en-coreml.zip.rnpart0010",
+      "url": "https://archive.org/download/roachnet-apps-catalog-v1_0_5/model-packs__roachwhisper-openai-whisper-base-en-coreml.zip.rnpart0010",
+      "offset": 75497472,
+      "bytes": 8388608,
+      "sha256": "ab6b61cdc015e172e981a0672dc332c149787019ebe1bb6e07cce30f2bfac93c",
+      "encoding": "roachnet-ia-chunk-v1",
+      "header": "ROACHNET-IA-CHUNK-v1 9 8388608 ab6b61cdc015e172e981a0672dc332c149787019ebe1bb6e07cce30f2bfac93c\n",
+      "encodedBytes": 8388704
+    },
+    {
+      "index": 10,
+      "key": "model-packs__roachwhisper-openai-whisper-base-en-coreml.zip.rnpart0011",
+      "url": "https://archive.org/download/roachnet-apps-catalog-v1_0_5/model-packs__roachwhisper-openai-whisper-base-en-coreml.zip.rnpart0011",
+      "offset": 83886080,
+      "bytes": 8388608,
+      "sha256": "1c8b81be9e3db63a4e144cd3926fbdaed0be3911c6ef3255d1a92d12394a1816",
+      "encoding": "roachnet-ia-chunk-v1",
+      "header": "ROACHNET-IA-CHUNK-v1 10 8388608 1c8b81be9e3db63a4e144cd3926fbdaed0be3911c6ef3255d1a92d12394a1816\n",
+      "encodedBytes": 8388705
+    },
+    {
+      "index": 11,
+      "key": "model-packs__roachwhisper-openai-whisper-base-en-coreml.zip.rnpart0012",
+      "url": "https://archive.org/download/roachnet-apps-catalog-v1_0_5/model-packs__roachwhisper-openai-whisper-base-en-coreml.zip.rnpart0012",
+      "offset": 92274688,
+      "bytes": 8388608,
+      "sha256": "d582d72a3f34133c8d99bdf2b183d02b5f50e508086f0310acc968ced35f0bee",
+      "encoding": "roachnet-ia-chunk-v1",
+      "header": "ROACHNET-IA-CHUNK-v1 11 8388608 d582d72a3f34133c8d99bdf2b183d02b5f50e508086f0310acc968ced35f0bee\n",
+      "encodedBytes": 8388705
+    },
+    {
+      "index": 12,
+      "key": "model-packs__roachwhisper-openai-whisper-base-en-coreml.zip.rnpart0013",
+      "url": "https://archive.org/download/roachnet-apps-catalog-v1_0_5/model-packs__roachwhisper-openai-whisper-base-en-coreml.zip.rnpart0013",
+      "offset": 100663296,
+      "bytes": 8388608,
+      "sha256": "b6dd98c9d36d30077c5761508831ce63578ead2c67e35f01d8a2607ba5ae6709",
+      "encoding": "roachnet-ia-chunk-v1",
+      "header": "ROACHNET-IA-CHUNK-v1 12 8388608 b6dd98c9d36d30077c5761508831ce63578ead2c67e35f01d8a2607ba5ae6709\n",
+      "encodedBytes": 8388705
+    },
+    {
+      "index": 13,
+      "key": "model-packs__roachwhisper-openai-whisper-base-en-coreml.zip.rnpart0014",
+      "url": "https://archive.org/download/roachnet-apps-catalog-v1_0_5/model-packs__roachwhisper-openai-whisper-base-en-coreml.zip.rnpart0014",
+      "offset": 109051904,
+      "bytes": 8388608,
+      "sha256": "25fed3676c7e7349eb6e7cf16168727dfe75ef7566b02661e094a8719b13c998",
+      "encoding": "roachnet-ia-chunk-v1",
+      "header": "ROACHNET-IA-CHUNK-v1 13 8388608 25fed3676c7e7349eb6e7cf16168727dfe75ef7566b02661e094a8719b13c998\n",
+      "encodedBytes": 8388705
+    },
+    {
+      "index": 14,
+      "key": "model-packs__roachwhisper-openai-whisper-base-en-coreml.zip.rnpart0015",
+      "url": "https://archive.org/download/roachnet-apps-catalog-v1_0_5/model-packs__roachwhisper-openai-whisper-base-en-coreml.zip.rnpart0015",
+      "offset": 117440512,
+      "bytes": 8388608,
+      "sha256": "125b26f91127f707a0ea304cf04aec622b1798110681029eea3c61e7d7b809e9",
+      "encoding": "roachnet-ia-chunk-v1",
+      "header": "ROACHNET-IA-CHUNK-v1 14 8388608 125b26f91127f707a0ea304cf04aec622b1798110681029eea3c61e7d7b809e9\n",
+      "encodedBytes": 8388705
+    },
+    {
+      "index": 15,
+      "key": "model-packs__roachwhisper-openai-whisper-base-en-coreml.zip.rnpart0016",
+      "url": "https://archive.org/download/roachnet-apps-catalog-v1_0_5/model-packs__roachwhisper-openai-whisper-base-en-coreml.zip.rnpart0016",
+      "offset": 125829120,
+      "bytes": 8388608,
+      "sha256": "c2b98103afc66cd6407f1d34d544d893ce701ccdca82c1bee178e1915116d51d",
+      "encoding": "roachnet-ia-chunk-v1",
+      "header": "ROACHNET-IA-CHUNK-v1 15 8388608 c2b98103afc66cd6407f1d34d544d893ce701ccdca82c1bee178e1915116d51d\n",
+      "encodedBytes": 8388705
+    },
+    {
+      "index": 16,
+      "key": "model-packs__roachwhisper-openai-whisper-base-en-coreml.zip.rnpart0017",
+      "url": "https://archive.org/download/roachnet-apps-catalog-v1_0_5/model-packs__roachwhisper-openai-whisper-base-en-coreml.zip.rnpart0017",
+      "offset": 134217728,
+      "bytes": 144800,
+      "sha256": "2c4e8d41231ec2ef679ecf41f0e8832ed69150b75b27b062dc97eb322099047e",
+      "encoding": "roachnet-ia-chunk-v1",
+      "header": "ROACHNET-IA-CHUNK-v1 16 144800 2c4e8d41231ec2ef679ecf41f0e8832ed69150b75b27b062dc97eb322099047e\n",
+      "encodedBytes": 144896
+    }
+  ],
+  "sources": [
+    {
+      "type": "internet-archive-parts",
+      "label": "Internet Archive chunked public item",
+      "url": "https://archive.org/details/roachnet-apps-catalog-v1_0_5",
+      "partCount": 17,
+      "partSize": 8388608,
+      "status": "published-after-upload"
+    },
+    {
+      "type": "internet-archive",
+      "label": "Internet Archive single-object fallback",
+      "url": "https://archive.org/download/roachnet-apps-catalog-v1_0_5/model-packs__roachwhisper-openai-whisper-base-en-coreml.zip",
+      "status": "single-object-pending"
+    }
+  ],
+  "checksumUrl": "https://apps.roachnet.org/downloads/model-packs/roachwhisper-openai-whisper-base-en-coreml.zip.sha256",
+  "status": "descriptor-ready-chunked-source-live",
+  "policy": "Apps.RoachNet.org hosts descriptors and checksums. Large archives live on public source rails and Internet Archive mirrors, not this machine, Netlify, GitHub source, or R2."
+}

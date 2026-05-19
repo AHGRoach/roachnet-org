@@ -14,6 +14,8 @@
     "build:config": "node scripts/render-site-config.mjs",
     "build:catalog": "node scripts/build-app-store-catalog.mjs",
     "build:apps": "node scripts/build-apps-site.mjs",
+    "stage:apps-model-packs": "node scripts/stage-apps-model-packs.mjs",
+    "publish:apps-model-packs:ia": "node scripts/upload-apps-model-packs-ia.mjs",
     "build:accounts": "node scripts/build-accounts-site.mjs"
   },
   "optionalDependencies": {

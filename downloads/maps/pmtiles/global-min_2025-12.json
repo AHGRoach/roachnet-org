@@ -1,0 +1,36 @@
+{
+  "schema": "org.roachnet.apps.download-descriptor.v1",
+  "id": "map-global-mini",
+  "title": "Global Mini Atlas",
+  "category": "Maps",
+  "section": "Map Picks",
+  "action": "direct-download",
+  "kind": null,
+  "tier": null,
+  "filename": "global-min_2025-12.pmtiles",
+  "key": "maps/pmtiles/global-min_2025-12.pmtiles",
+  "internetArchiveKey": "maps__pmtiles__global-min_2025-12.pmtiles",
+  "descriptorUrl": "https://apps.roachnet.org/downloads/maps/pmtiles/global-min_2025-12.json",
+  "bytes": null,
+  "size": "176 MB",
+  "sha256": null,
+  "chunkSizeBytes": null,
+  "parts": [],
+  "sources": [
+    {
+      "type": "public-source",
+      "label": "Original public source",
+      "url": "https://github.com/RoachWares/RoachNet-Maps/raw/refs/heads/master/pmtiles/global-min_2025-12.pmtiles",
+      "status": "active"
+    },
+    {
+      "type": "internet-archive",
+      "label": "RoachNet Internet Archive mirror",
+      "url": "https://archive.org/download/roachnet-apps-catalog-v1_0_5/maps__pmtiles__global-min_2025-12.pmtiles",
+      "status": "mirror-pending"
+    }
+  ],
+  "checksumUrl": null,
+  "status": "descriptor-ready-public-source-first",
+  "policy": "Apps.RoachNet.org hosts descriptors and checksums. Large archives live on public source rails and Internet Archive mirrors, not this machine, Netlify, GitHub source, or R2."
+}

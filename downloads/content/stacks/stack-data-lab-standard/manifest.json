@@ -1,0 +1,23 @@
+{
+  "schema": "org.roachnet.apps.download-descriptor.v1",
+  "id": "stack-data-lab-standard",
+  "title": "Data Lab Standard",
+  "category": "Starter Stacks",
+  "section": "Starter Stacks",
+  "action": "education-tier",
+  "kind": null,
+  "tier": null,
+  "filename": "manifest.bin",
+  "key": "content/stacks/stack-data-lab-standard/manifest.bin",
+  "internetArchiveKey": "content__stacks__stack-data-lab-standard__manifest.bin",
+  "descriptorUrl": "https://apps.roachnet.org/downloads/content/stacks/stack-data-lab-standard/manifest.json",
+  "bytes": null,
+  "size": "799 MB",
+  "sha256": null,
+  "chunkSizeBytes": null,
+  "parts": [],
+  "sources": [],
+  "checksumUrl": null,
+  "status": "descriptor-ready-public-source-first",
+  "policy": "Apps.RoachNet.org hosts descriptors and checksums. Large archives live on public source rails and Internet Archive mirrors, not this machine, Netlify, GitHub source, or R2."
+}

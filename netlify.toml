@@ -35,6 +35,17 @@ to = "/brew/:splat"
 status = 200
 
 [[redirects]]
+from = "/sitemap"
+to = "/sitemap/"
+status = 200
+
+[[redirects]]
+from = "/sitemap.html"
+to = "/sitemap/"
+status = 301
+force = true
+
+[[redirects]]
 from = "/roachwares"
 to = "https://www.roachwares.org/"
 status = 301

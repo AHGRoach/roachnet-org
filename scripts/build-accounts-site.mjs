@@ -21,6 +21,7 @@ async function main() {
     'roachclaw-web.css',
     'router.js',
     'site-account.js',
+    'site-polish.js',
     'site-config.js',
     'assets',
     'favicon.ico',

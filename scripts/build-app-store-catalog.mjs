@@ -70,6 +70,18 @@ const categoryBands = {
   'dictionaries-primary-sources': 'LIB',
 }
 
+const artifactOrigin = {
+  provider: 'Apps.RoachNet.org',
+  engine: 'Static descriptors + open distribution sources',
+  publicBaseUrl: 'https://apps.roachnet.org/downloads',
+  storefrontUrl: 'https://apps.roachnet.org',
+  mirrorPolicy: 'canonical-source-first',
+  note:
+    'Apps.RoachNet.org owns the catalog and same-origin install descriptors. Large archives stay on open public distribution lanes referenced by hash, not on a private machine or R2 bucket.',
+}
+
+const roachSpeechPackBaseUrl = `${artifactOrigin.publicBaseUrl}/model-packs`
+
 const courseStatusMap = {
   essential: 'Great first install',
   standard: 'Recommended next install',
@@ -120,7 +132,7 @@ const aiPacks = [
     status: 'Lean coding lane',
     source: 'Contained Ollama lane',
     summary:
-      'A roomier coding lane than Quickstart without jumping straight to the heavier packs. Good when you want better local code help without turning the machine into a space heater.',
+      'A roomier coding lane than Quickstart without jumping straight to the heavier packs. Good when you want better local code help without tying up the whole machine.',
     accent: 'cyan',
     machineFit: 'Best on everyday Apple Silicon Macs that want a small but useful local coding lane',
     includes: [
@@ -310,6 +322,106 @@ const aiPacks = [
     iconBand: 'RoachClaw',
     iconMonogram: 'Q32',
   },
+  {
+    id: 'roachclaw-modern-generalist',
+    title: 'RoachClaw Modern Generalist',
+    subtitle: 'Contained qwen3:4b daily shelf',
+    category: 'Local AI',
+    section: 'Model Packs',
+    size: '2.6 GB',
+    status: 'Modern small lane',
+    source: 'Contained Ollama lane',
+    summary:
+      'A newer small general lane for notes, summaries, and fast local answers when you want something sharper than the first-boot pack without waking the whole bunker.',
+    accent: 'green',
+    machineFit: 'Best on 16 GB Apple Silicon machines that need a quick everyday local model',
+    includes: [
+      'Contained Qwen3 4B model queue',
+      'Good fit for vault notes, planning, and short RoachClaw replies',
+      'Light enough to keep beside dev, music, and the rest of the shell',
+    ],
+    installIntent: {
+      action: 'roachclaw-model',
+      model: 'qwen3:4b',
+    },
+    iconBand: 'RoachClaw',
+    iconMonogram: 'Q3',
+  },
+  {
+    id: 'roachclaw-modern-balanced',
+    title: 'RoachClaw Modern Balanced',
+    subtitle: 'Contained qwen3:8b stronger daily shelf',
+    category: 'Local AI',
+    section: 'Model Packs',
+    size: '5.2 GB',
+    status: 'Better local thinking',
+    source: 'Contained Ollama lane',
+    summary:
+      'A stronger modern general lane for users who want more patient local reasoning without jumping straight into workstation-only territory.',
+    accent: 'cyan',
+    machineFit: 'Best on M-series Macs with enough memory for a serious always-local assistant',
+    includes: [
+      'Contained Qwen3 8B model queue',
+      'Good for docs, vault notes, planning, and mixed work',
+      'Keeps the useful stuff local without pretending RAM is infinite',
+    ],
+    installIntent: {
+      action: 'roachclaw-model',
+      model: 'qwen3:8b',
+    },
+    iconBand: 'RoachClaw',
+    iconMonogram: 'Q8',
+  },
+  {
+    id: 'roachclaw-open-reasoner',
+    title: 'RoachClaw Open Reasoner',
+    subtitle: 'Contained gpt-oss:20b reasoning shelf',
+    category: 'Local AI',
+    section: 'Model Packs',
+    size: '13 GB',
+    status: 'Open-weight heavy lane',
+    source: 'Contained Ollama lane',
+    summary:
+      'A heavier open-weight reasoning shelf for machines with headroom. It is not the first thing you install on a cramped Mac, but it earns its space when the work gets thorny.',
+    accent: 'magenta',
+    machineFit: 'Best on higher-memory Apple Silicon and RoachTail-assisted setups',
+    includes: [
+      'Contained GPT-OSS 20B model queue',
+      'Useful for longer planning, analysis, and agent-style work',
+      'Optional by design, because nobody needs a surprise 13 GB houseguest',
+    ],
+    installIntent: {
+      action: 'roachclaw-model',
+      model: 'gpt-oss:20b',
+    },
+    iconBand: 'RoachClaw',
+    iconMonogram: 'G20',
+  },
+  {
+    id: 'roachclaw-modern-coder-heavy',
+    title: 'RoachClaw Modern Coder Heavy',
+    subtitle: 'Contained qwen3-coder:30b workstation shelf',
+    category: 'Local AI',
+    section: 'Model Packs',
+    size: '19 GB',
+    status: 'Big code shelf',
+    source: 'Contained Ollama lane',
+    summary:
+      'A modern heavyweight coding shelf for long-context work and serious refactors. It is for Macs with headroom, not for pretending a tiny machine is a server rack.',
+    accent: 'blue',
+    machineFit: 'Best on high-memory Apple Silicon or RoachTail-assisted multi-machine setups',
+    includes: [
+      'Contained Qwen3 Coder 30B model queue',
+      'Long-context coding and agent work',
+      'Optional because big models should ask before moving in',
+    ],
+    installIntent: {
+      action: 'roachclaw-model',
+      model: 'qwen3-coder:30b',
+    },
+    iconBand: 'RoachClaw',
+    iconMonogram: 'QC30',
+  },
 ]
 
 const roachVoicePacks = [
@@ -335,8 +447,12 @@ const roachVoicePacks = [
       action: 'roachspeech-pack',
       pack: 'roachvoice-chatterbox-coreml',
       kind: 'roachVoice',
-      url: 'https://github.com/RoachWares/RoachNet/releases/download/v1.0.5/roachvoice-chatterbox-coreml.zip',
+      url: `${roachSpeechPackBaseUrl}/roachvoice-chatterbox-coreml.json`,
+      checksumUrl: `${roachSpeechPackBaseUrl}/roachvoice-chatterbox-coreml.zip.sha256`,
+      artifactKey: 'model-packs/roachvoice-chatterbox-coreml.zip',
+      artifactProvider: artifactOrigin.provider,
     },
+    artifact: mirrorArtifact('model-packs/roachvoice-chatterbox-coreml.zip', { checksum: true, status: 'published' }),
     iconBand: 'RoachVoice',
     iconMonogram: 'CBX',
     iconFamily: 'voice',
@@ -363,8 +479,12 @@ const roachVoicePacks = [
       action: 'roachspeech-pack',
       pack: 'roachvoice-kokoro-82m-int8-coreml',
       kind: 'roachVoice',
-      url: 'https://github.com/RoachWares/RoachNet/releases/download/v1.0.5/roachvoice-kokoro-82m-int8-coreml.zip',
+      url: `${roachSpeechPackBaseUrl}/roachvoice-kokoro-82m-int8-coreml.json`,
+      checksumUrl: `${roachSpeechPackBaseUrl}/roachvoice-kokoro-82m-int8-coreml.zip.sha256`,
+      artifactKey: 'model-packs/roachvoice-kokoro-82m-int8-coreml.zip',
+      artifactProvider: artifactOrigin.provider,
     },
+    artifact: mirrorArtifact('model-packs/roachvoice-kokoro-82m-int8-coreml.zip', { checksum: true, status: 'published' }),
     iconBand: 'RoachVoice',
     iconMonogram: 'K82',
     iconFamily: 'voice',
@@ -391,8 +511,12 @@ const roachVoicePacks = [
       action: 'roachspeech-pack',
       pack: 'roachwhisper-openai-whisper-base-en-coreml',
       kind: 'roachWhisper',
-      url: 'https://github.com/RoachWares/RoachNet/releases/download/v1.0.5/roachwhisper-openai-whisper-base-en-coreml.zip',
+      url: `${roachSpeechPackBaseUrl}/roachwhisper-openai-whisper-base-en-coreml.json`,
+      checksumUrl: `${roachSpeechPackBaseUrl}/roachwhisper-openai-whisper-base-en-coreml.zip.sha256`,
+      artifactKey: 'model-packs/roachwhisper-openai-whisper-base-en-coreml.zip',
+      artifactProvider: artifactOrigin.provider,
     },
+    artifact: mirrorArtifact('model-packs/roachwhisper-openai-whisper-base-en-coreml.zip', { checksum: true, status: 'published' }),
     iconBand: 'RoachWhisper',
     iconMonogram: 'WSP',
     iconFamily: 'voice',
@@ -709,6 +833,48 @@ function formatSizeFromBytes(sizeBytes) {
   }
 
   return formatSizeFromMB(sizeBytes / (1024 * 1024))
+}
+
+function basenameFromUrl(url) {
+  try {
+    return path.basename(new URL(url).pathname)
+  } catch {
+    return ''
+  }
+}
+
+function artifactUrl(key) {
+  return `${artifactOrigin.publicBaseUrl}/${key}`
+}
+
+function descriptorKeyForArchiveKey(key) {
+  if (/\.json$/i.test(key)) return key
+  if (/\.[^/.]+$/.test(key)) return key.replace(/\.[^/.]+$/i, '.json')
+  return `${key}.json`
+}
+
+function mirrorArtifact(key, options = {}) {
+  return {
+    provider: artifactOrigin.provider,
+    engine: artifactOrigin.engine,
+    key: descriptorKeyForArchiveKey(key),
+    url: artifactUrl(descriptorKeyForArchiveKey(key)),
+    status: options.status || 'descriptor-backed',
+    sourceUrl: options.sourceUrl || null,
+    checksumUrl: options.checksum ? artifactUrl(`${key}.sha256`) : null,
+    mirrorPolicy: artifactOrigin.mirrorPolicy,
+    note: options.note || 'Installed through a same-origin Apps descriptor with public sources and checksums.',
+  }
+}
+
+function sourceMirrorArtifact(key, sourceUrl, options = {}) {
+  return mirrorArtifact(key, {
+    sourceUrl,
+    status: options.status || 'source-with-managed-mirror',
+    note:
+      options.note ||
+      'RoachNet keeps the canonical source visible and uses the Apps descriptor when a managed source is staged.',
+  })
 }
 
 function titleCaseWords(value) {
@@ -1115,7 +1281,7 @@ function summaryForResource(categorySlug, resource, tierLabel) {
     lead = `A named ${bandName} install that keeps the useful material close.`
   }
 
-  return `${lead} ${resource.title} lands as its own ${bandName} app inside RoachNet instead of falling into Downloads.`
+  return `${lead} ${resource.title} lands as its own ${bandName} app inside RoachNet with a clear shelf, route, and install intent.`
 }
 
 function modelPackInstallLabel() {
@@ -1153,6 +1319,10 @@ function toCatalog() {
       installIntent: {
         action: 'base-map-assets',
       },
+      artifact: mirrorArtifact('maps/base-atlas/manifest.json', {
+        status: 'manifest-backed',
+        note: 'Base map assets are resolved by the native installer from the Apps catalog and downloads bucket.',
+      }),
       iconBand: 'RoachNet',
       iconMonogram: 'MAP',
       iconFamily: 'maps',
@@ -1192,6 +1362,10 @@ function toCatalog() {
           action: 'map-collection',
           slug: collection.slug,
         },
+        artifact: mirrorArtifact(`maps/collections/${collection.slug}/manifest.json`, {
+          status: 'manifest-backed',
+          note: 'Regional map collections resolve through the Apps catalog and same-origin descriptors when managed assets are available.',
+        }),
         iconBand: 'Maps',
         iconMonogram: shortMonogram(collection.name),
         iconFamily: 'maps',
@@ -1229,6 +1403,10 @@ function toCatalog() {
             category: category.slug,
             resource: resource.id,
           },
+          artifact: sourceMirrorArtifact(`content/zim/${basenameFromUrl(resource.url) || `${resource.id}.zim`}`, resource.url, {
+            status: 'source-with-managed-mirror',
+            note: 'The source library remains visible; RoachNet can prefer an Apps descriptor once that object is staged.',
+          }),
           iconBand: iconBandForResource(category.slug, resource),
           iconFamily: iconFamilyForCategorySlug(category.slug),
           iconAsset: iconAssetForItem(`course-${resource.id}`),
@@ -1267,6 +1445,10 @@ function toCatalog() {
           category: pack.categorySlug,
           tier: pack.tierSlug,
         },
+        artifact: mirrorArtifact(`content/stacks/${pack.id}/manifest.json`, {
+          status: 'manifest-backed',
+          note: 'Starter stacks stay as catalog manifests that point RoachNet at individual mirrored or source-backed objects.',
+        }),
         iconBand: pack.iconBand,
         iconMonogram: pack.iconMonogram,
         iconFamily: pack.iconFamily,
@@ -1306,6 +1488,10 @@ function toCatalog() {
           action: 'wikipedia-option',
           option: option.id,
         },
+        artifact: sourceMirrorArtifact(`content/wikipedia/${basenameFromUrl(option.url) || `${option.id}.zim`}`, option.url, {
+          status: 'source-with-managed-mirror',
+          note: 'Wikipedia options keep Kiwix as the canonical source and reserve an Apps descriptor path for RoachNet-managed sources.',
+        }),
         iconBand: 'WIKI',
         iconMonogram: shortMonogram(option.name),
         iconFamily: 'wikipedia',
@@ -1325,9 +1511,17 @@ function toCatalog() {
         detailUrl: './collections/maps.json',
         installIntent: {
           action: 'direct-download',
-          url: item.url,
+          url: artifactUrl(descriptorKeyForArchiveKey(`maps/pmtiles/${basenameFromUrl(item.url)}`)),
+          sourceUrl: item.url,
+          mirrorUrl: artifactUrl(descriptorKeyForArchiveKey(`maps/pmtiles/${basenameFromUrl(item.url)}`)),
+          artifactKey: `maps/pmtiles/${basenameFromUrl(item.url)}`,
+          artifactProvider: artifactOrigin.provider,
           filetype: 'map',
         },
+        artifact: sourceMirrorArtifact(`maps/pmtiles/${basenameFromUrl(item.url)}`, item.url, {
+          status: 'source-with-managed-mirror',
+          note: 'Direct map picks keep their original source and expose an Apps descriptor URL for the native installer when staged.',
+        }),
         iconBand: 'Maps',
         iconFamily: 'maps',
         iconAsset: iconAssetForItem(item.id),
@@ -1342,6 +1536,16 @@ function toCatalog() {
         installLabel: modelPackInstallLabel(),
         detailLabel: 'Open RoachClaw',
         detailUrl: 'https://roachnet.org/#screens',
+        artifact: {
+          provider: 'Contained Ollama runtime',
+          bucket: null,
+          key: item.installIntent.model,
+          url: null,
+          status: 'runtime-pull',
+          sourceUrl: `ollama://${item.installIntent.model}`,
+          checksumUrl: null,
+          note: 'RoachClaw model packs are runtime pulls, not static ZIPs. The Apps catalog still owns the install handoff.',
+        },
         iconFamily: 'models',
         iconAsset: iconAssetForItem(item.id),
       })),
@@ -1357,6 +1561,7 @@ function toCatalog() {
     return {
       updatedAt: new Date().toISOString(),
       featuredId: 'base-atlas',
+      artifactOrigin,
       items,
     }
   })

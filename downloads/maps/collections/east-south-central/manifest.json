@@ -1,0 +1,23 @@
+{
+  "schema": "org.roachnet.apps.download-descriptor.v1",
+  "id": "map-east-south-central",
+  "title": "East South Central",
+  "category": "Maps",
+  "section": "Map Regions",
+  "action": "map-collection",
+  "kind": null,
+  "tier": null,
+  "filename": "manifest.bin",
+  "key": "maps/collections/east-south-central/manifest.bin",
+  "internetArchiveKey": "maps__collections__east-south-central__manifest.bin",
+  "descriptorUrl": "https://apps.roachnet.org/downloads/maps/collections/east-south-central/manifest.json",
+  "bytes": null,
+  "size": "1.6 GB",
+  "sha256": null,
+  "chunkSizeBytes": null,
+  "parts": [],
+  "sources": [],
+  "checksumUrl": null,
+  "status": "descriptor-ready-public-source-first",
+  "policy": "Apps.RoachNet.org hosts descriptors and checksums. Large archives live on public source rails and Internet Archive mirrors, not this machine, Netlify, GitHub source, or R2."
+}

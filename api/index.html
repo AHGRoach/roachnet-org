@@ -3,10 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>RoachNet API</title>
+    <title>RoachNet API: Clear Calls, Inputs, and Context</title>
     <meta
       name="description"
-      content="RoachNet v1.0.5 API notes for contained runtime, setup, RoachTail, RoachSync, Homebrew, hosted chat, local RoachBrain wiki, RoachSpeech model packs, and command-bar docs."
+      content="Explore RoachNet’s API with detailed calls, inputs, and outputs. Setup, runtime, and local context without haunted code."
     />
     <meta name="theme-color" content="#0a1016" />
     <link rel="canonical" href="https://roachnet.org/api/" />
@@ -15,18 +15,18 @@
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="RoachNet API" />
+    <meta property="og:title" content="RoachNet API: Clear Calls, Inputs, and Context" />
     <meta
       property="og:description"
-      content="Grouped docs for setup, runtime, secure bridge routes, Homebrew bootstrap, hosted RoachClaw chat, local RoachBrain context, and native RoachSpeech packs."
+      content="Explore RoachNet’s API details with calls, inputs, and outputs for setup and runtime."
     />
     <meta property="og:url" content="https://roachnet.org/api/" />
     <meta property="og:image" content="https://roachnet.org/assets/screens/roachnet-native-dev.jpg" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="RoachNet API" />
+    <meta name="twitter:title" content="RoachNet API: Clear Calls, Inputs, and Context" />
     <meta
       name="twitter:description"
-      content="Runtime, setup, sync, bridge, hosted chat, local RoachBrain context, RoachSpeech model packs, and command-bar docs for RoachNet."
+      content="Explore RoachNet’s API details with calls, inputs, and outputs for setup and runtime."
     />
     <meta name="twitter:image" content="https://roachnet.org/assets/screens/roachnet-native-dev.jpg" />
     <link rel="stylesheet" href="../app.css" />
@@ -42,28 +42,26 @@
           <img class="api-docs-brand__mark" src="../assets/roachnet-logo.png" alt="RoachNet logo" />
           <div class="api-docs-brand__copy">
             <span>RoachNet API</span>
-            <strong>v1.0.5 routes, with the reason attached.</strong>
+            <strong>v1.0.5 routes with the wires showing.</strong>
           </div>
         </a>
 
-          <section class="api-docs-sidebar__intro">
-            <span class="api-docs-kicker">Reference</span>
-            <h1>Everything the stack exposes, without the fog.</h1>
-            <p>Setup, runtime, RoachTail, RoachSync, Homebrew bootstrap, the companion bridge, hosted RoachClaw chat, local RoachBrain context, RoachSpeech model packs, and command-bar handoff for the v1.0.5 lane. Click a route. The contract comes into focus.</p>
-          </section>
+        <section class="api-docs-sidebar__intro">
+          <span class="api-docs-kicker">Reference</span>
+          <h1>The blueprint, wires and all.</h1>
+          <p>Setup, runtime, Homebrew, iOS, hosted chat, local context, and model-pack intents. See calls, inputs, and handoffs—no ghost code.</p>
+        </section>
 
         <div class="api-docs-sidebar__stats" id="api-stats"></div>
         <nav class="api-docs-sidebar__nav" id="api-group-nav"></nav>
 
         <div class="api-docs-sidebar__links">
-          <a class="cta cta--ghost" href="https://roachnet.org/home/">Back to RoachNet</a>
+          <a class="cta cta--ghost" href="https://roachnet.org/home/">Home</a>
           <a class="cta cta--ghost" href="https://roachnet.org/roachclaw/">RoachClaw</a>
           <a class="cta cta--ghost" href="https://accounts.roachnet.org/">Account</a>
           <a class="cta cta--ghost" href="https://roachnet.org/brew/">Homebrew</a>
           <a class="cta cta--ghost" href="https://roachnet.org/ios/">RoachNet iOS</a>
           <a class="cta cta--ghost" href="https://apps.roachnet.org/">Browse Apps</a>
-          <a class="cta cta--ghost" href="https://www.roachwares.org/">RoachWares</a>
-          <a class="cta cta--ghost" href="https://stream.roachnet.org/">Stream</a>
         </div>
       </aside>
 
@@ -71,23 +69,16 @@
         <header class="api-docs-topbar">
           <div class="api-docs-topbar__title">
             <span class="api-docs-kicker">API</span>
-            <strong id="api-view-title">All endpoints, grouped</strong>
+            <strong id="api-view-title">v1.0.5 routes, grouped</strong>
           </div>
 
           <label class="api-docs-search" for="api-search">
             <span class="sr-only">Search RoachNet API routes</span>
-            <input id="api-search" type="search" autocomplete="off" placeholder="Search path, controller, service, or caller" />
+            <input id="api-search" type="search" autocomplete="off" placeholder="Search route, service, caller, or handoff" />
           </label>
 
           <div class="api-docs-topbar__links">
             <a href="https://github.com/RoachWares/RoachNet" target="_blank" rel="noreferrer">GitHub</a>
-            <a href="https://roachnet.org/roachclaw/" target="_blank" rel="noreferrer">RoachClaw</a>
-            <a href="https://accounts.roachnet.org/" target="_blank" rel="noreferrer">Account</a>
-            <a href="https://roachnet.org/brew/" target="_blank" rel="noreferrer">Brew</a>
-            <a href="https://roachnet.org/ios/" target="_blank" rel="noreferrer">iOS</a>
-            <a href="https://apps.roachnet.org" target="_blank" rel="noreferrer">Apps</a>
-            <a href="https://www.roachwares.org/" target="_blank" rel="noreferrer">RoachWares</a>
-            <a href="https://stream.roachnet.org/" target="_blank" rel="noreferrer">Stream</a>
             <a href="https://github.com/RoachWares/RoachNet/releases/tag/v1.0.5" target="_blank" rel="noreferrer">v1.0.5</a>
           </div>
         </header>
@@ -113,13 +104,15 @@
     <footer class="site-footer">
       <div class="site-footer__copy">
         <strong>RoachNet API</strong>
-        <span>RoachNet v1.0.5 setup, runtime, RoachTail, RoachSync, hosted RoachClaw, local RoachBrain context, RoachSpeech packs, and install lanes with implementation notes attached.</span>
+        <span>RoachNet v1.0.5 setup, runtime, companion, hosted RoachClaw, local context, and model-pack intents. Compact docs for the parts that actually move.</span>
       </div>
       <nav class="site-footer__nav" aria-label="Footer">
         <a href="https://roachnet.org/home/">Home</a>
         <a href="https://roachnet.org/roachclaw/">RoachClaw</a>
         <a href="https://accounts.roachnet.org/">Account</a>
         <a href="https://roachnet.org/brew/">Brew</a>
+        <a href="https://roachnet.org/ios/">iOS</a>
+        <a href="https://roachnet.org/sitemap/">Sitemap</a>
         <a href="https://www.roachwares.org/">RoachWares</a>
         <a href="https://stream.roachnet.org/">Stream</a>
         <a href="https://github.com/RoachWares/RoachNet" target="_blank" rel="noreferrer">GitHub</a>
@@ -144,5 +137,6 @@
 
     <script src="../app.js"></script>
     <script src="../api.js" type="module"></script>
+    <script src="../site-polish.js" type="module"></script>
   </body>
 </html>

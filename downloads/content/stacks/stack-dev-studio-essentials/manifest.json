@@ -1,0 +1,23 @@
+{
+  "schema": "org.roachnet.apps.download-descriptor.v1",
+  "id": "stack-dev-studio-essentials",
+  "title": "Dev Studio Essentials",
+  "category": "Starter Stacks",
+  "section": "Starter Stacks",
+  "action": "education-tier",
+  "kind": null,
+  "tier": null,
+  "filename": "manifest.bin",
+  "key": "content/stacks/stack-dev-studio-essentials/manifest.bin",
+  "internetArchiveKey": "content__stacks__stack-dev-studio-essentials__manifest.bin",
+  "descriptorUrl": "https://apps.roachnet.org/downloads/content/stacks/stack-dev-studio-essentials/manifest.json",
+  "bytes": null,
+  "size": "4.3 GB",
+  "sha256": null,
+  "chunkSizeBytes": null,
+  "parts": [],
+  "sources": [],
+  "checksumUrl": null,
+  "status": "descriptor-ready-public-source-first",
+  "policy": "Apps.RoachNet.org hosts descriptors and checksums. Large archives live on public source rails and Internet Archive mirrors, not this machine, Netlify, GitHub source, or R2."
+}

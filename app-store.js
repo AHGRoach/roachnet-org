@@ -17,9 +17,9 @@ const sectionDefinitions = [
     key: 'Today',
     navLabel: 'Today',
     eyebrow: 'Today in RoachNet Apps',
-    title: 'The packs you actually reach for.',
+    title: 'Useful packs with a place to land.',
     description:
-      'Maps, shelves, guides, and model packs that hand straight into the native app.',
+      'Maps, shelves, guides, and model packs that hand straight into the native app with a route attached.',
     icon: 'NOW',
     layout: 'today',
   },
@@ -59,7 +59,7 @@ const sectionDefinitions = [
     eyebrow: 'Field guides',
     title: 'Planning, gear, food, routes, and bad-weather thinking in one place.',
     description:
-      'Video series, manuals, and deep reading for people who actually think about prep, not just people who like the idea of it.',
+      'Video series, manuals, route notes, and deep reading for people who want useful material on disk.',
     icon: 'SUR',
     layout: 'grid',
   },
@@ -219,7 +219,7 @@ const sectionDefinitions = [
     eyebrow: 'Defense shelf',
     title: 'Privacy, defense, reverse-engineering, and security reference for the machine you actually trust.',
     description:
-      'A tighter shelf for threat models, Tor, edge security, and the questions that tend to matter after midnight.',
+      'A tighter shelf for threat models, Tor, edge security, and defensive work that should not depend on a tab staying open.',
     icon: 'SEC',
     layout: 'grid',
   },
@@ -372,7 +372,7 @@ const todayRows = [
   },
   {
     title: 'Editors’ picks',
-    note: 'A mix of field packs, study shelves, and RoachClaw picks worth adding next.',
+    note: 'Field packs, study shelves, and RoachClaw picks worth adding next.',
     sections: [
       'Math & Problem Solving',
       'Law, History & Society',
@@ -1274,6 +1274,37 @@ function buildFallbackDetail(item, section, blurb) {
   ]
 }
 
+function getArtifactLabel(item) {
+  const artifact = item.artifact || {}
+
+  if (artifact.provider === 'Apps.RoachNet.org') {
+    if (artifact.status === 'published' || artifact.status === 'descriptor-backed') {
+      return 'Apps descriptor'
+    }
+
+    if (artifact.status === 'manifest-backed') {
+      return 'Catalog manifest'
+    }
+
+    return 'Source descriptor'
+  }
+
+  if (artifact.status === 'runtime-pull') {
+    return 'Runtime pull'
+  }
+
+  return 'Catalog handoff'
+}
+
+function getArtifactTone(item) {
+  const status = item.artifact?.status || ''
+
+  if (status === 'published' || status === 'descriptor-backed') return 'green'
+  if (status === 'runtime-pull') return 'violet'
+  if (status.includes('mirror')) return 'cyan'
+  return 'blue'
+}
+
 function enrichItem(item) {
   const copy = itemCopy[item.id] || {}
   const section = sectionLookup.get(item.section) || sectionLookup.get('Today')
@@ -1289,7 +1320,9 @@ function enrichItem(item) {
     sectionMeta: section,
     codeLabel: `${item.iconBand || section.navLabel} · ${deriveIconMonogram(item)}`,
     installUrl: buildInstallUrl(item),
-    metaRow: [section.navLabel, tier.label, item.size].filter(Boolean),
+    artifactLabel: getArtifactLabel(item),
+    artifactTone: getArtifactTone(item),
+    metaRow: [section.navLabel, tier.label, item.size, getArtifactLabel(item)].filter(Boolean),
   }
 }
 
@@ -1306,6 +1339,13 @@ function matchesQuery(item, query) {
     item.summary,
     item.blurb,
     item.machineFit,
+    item.artifactLabel,
+    item.artifact?.provider,
+    item.artifact?.status,
+    item.artifact?.key,
+    item.artifact?.url,
+    item.installIntent?.artifactProvider,
+    item.installIntent?.artifactKey,
     ...(item.includes || []),
     ...(item.detail || []),
   ].join(' '))
@@ -1418,6 +1458,7 @@ function renderBadgeRow(item) {
       <span class="apps-pill apps-pill--${item.tier.tone}">${item.tier.label}</span>
       <span class="apps-pill">${escapeHtml(item.status)}</span>
       <span class="apps-pill">${escapeHtml(item.size)}</span>
+      <span class="apps-pill apps-pill--artifact apps-pill--artifact-${item.artifactTone}">${escapeHtml(item.artifactLabel)}</span>
     </div>
   `
 }
@@ -1961,6 +2002,15 @@ function renderStore() {
 
 function renderDetail(item) {
   const detailUrl = item.detailUrl || item.primaryUrl
+  const artifact = item.artifact || {}
+  const artifactUrl = artifact.url || item.installIntent?.mirrorUrl || item.installIntent?.url || ''
+  const artifactRows = [
+    ['Artifact lane', item.artifactLabel],
+    ['Provider', artifact.provider || item.installIntent?.artifactProvider || 'RoachNet catalog'],
+    ['Object key', artifact.key || item.installIntent?.artifactKey],
+    ['Download URL', artifactUrl],
+    ['Source fallback', artifact.sourceUrl],
+  ].filter(([, value]) => Boolean(value))
 
   return `
     <article class="apps-detail">
@@ -2002,6 +2052,12 @@ function renderDetail(item) {
               <div><dt>Tier</dt><dd>${escapeHtml(item.tier.label)}</dd></div>
               <div><dt>Size</dt><dd>${escapeHtml(item.size || 'Unknown')}</dd></div>
               <div><dt>Source</dt><dd>${escapeHtml(item.source || 'RoachNet mirror')}</dd></div>
+              ${artifactRows
+                .map(
+                  ([label, value]) =>
+                    `<div><dt>${escapeHtml(label)}</dt><dd>${escapeHtml(value)}</dd></div>`
+                )
+                .join('')}
             </dl>
           </section>
           <section>
@@ -2112,6 +2168,24 @@ sidebarNav?.addEventListener('click', (event) => {
   if (!button) return
 
   setActiveSection(button.dataset.section || 'Today')
+})
+
+document.querySelectorAll('[data-apps-section-jump]').forEach((link) => {
+  link.addEventListener('click', (event) => {
+    const section = link.getAttribute('data-apps-section-jump') || 'Today'
+    if (!sectionLookup.has(section)) {
+      return
+    }
+
+    event.preventDefault()
+    setActiveSection(section)
+    requestAnimationFrame(() => {
+      document.querySelector('.apps-store-main')?.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start',
+      })
+    })
+  })
 })
 
 searchInput?.addEventListener('input', (event) => {

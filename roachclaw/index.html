@@ -3,10 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>RoachClaw</title>
+    <title>RoachClaw AI Chat: Private, Smart, and Local</title>
     <meta
       name="description"
-      content="RoachClaw on the web: secure account chat from anywhere, with your own hardware when you want it and hosted RoachBrain when you do not."
+      content="RoachClaw is AI chat that knows your context and respects privacy. Fix, build, or refine anywhere with local pairing."
     />
     <meta name="theme-color" content="#0a1016" />
     <link rel="canonical" href="https://roachnet.org/roachclaw/" />
@@ -15,18 +15,18 @@
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="RoachClaw" />
+    <meta property="og:title" content="RoachClaw AI Chat: Private, Smart, and Local" />
     <meta
       property="og:description"
-      content="Account-scoped RoachClaw chat from anywhere, with hosted replies by default and your own paired hardware when you want it."
+      content="Local AI chat with RoachClaw. Keep privacy and context close while you fix, build, or refine."
     />
     <meta property="og:url" content="https://roachnet.org/roachclaw/" />
     <meta property="og:image" content="https://roachnet.org/assets/screens/roachnet-native-roachclaw.jpg" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="RoachClaw" />
+    <meta name="twitter:title" content="RoachClaw AI Chat: Private, Smart, and Local" />
     <meta
       name="twitter:description"
-      content="Account-scoped RoachClaw chat from anywhere, with hosted replies by default and your own paired hardware when you want it."
+      content="Local AI chat with RoachClaw. Keep privacy and context close while you fix, build, or refine."
     />
     <meta name="twitter:image" content="https://roachnet.org/assets/screens/roachnet-native-roachclaw.jpg" />
     <link rel="stylesheet" href="../app.css" />
@@ -46,7 +46,7 @@
               <img class="brand-mark" src="../assets/roachclaw-logo.png" alt="RoachClaw logo" />
               <div class="brand-copy">
                 <strong>RoachClaw</strong>
-                <span class="brand-kicker">offline on purpose</span>
+                <span class="brand-kicker">local lane when you mean it</span>
               </div>
             </a>
             <button class="rc-sidebar__new-btn" id="roachclaw-new-thread" type="button" aria-label="New chat">
@@ -127,8 +127,8 @@
                 <div class="rc-empty-state__icon" aria-hidden="true">
                   <svg width="48" height="48" viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="22" stroke="url(#rc-grad)" stroke-width="2" opacity="0.5"/><path d="M16 20c0-4.4 3.6-8 8-8s8 3.6 8 8" stroke="url(#rc-grad)" stroke-width="2" stroke-linecap="round"/><circle cx="18" cy="28" r="2" fill="var(--rn-cyan)"/><circle cx="24" cy="28" r="2" fill="var(--rn-blue)"/><circle cx="30" cy="28" r="2" fill="var(--rn-green)"/><defs><linearGradient id="rc-grad" x1="4" y1="4" x2="44" y2="44"><stop stop-color="var(--rn-blue)"/><stop offset="1" stop-color="var(--rn-cyan)"/></linearGradient></defs></svg>
                 </div>
-                <h1 class="rc-empty-state__heading">What can RoachClaw help with?</h1>
-                <p class="rc-empty-state__sub">Your threads stay with your account, not this browser tab. Use the web lane anywhere. Pair your local runtime when you want the private lane.</p>
+                <h1 class="rc-empty-state__heading">What’s the plan today—fix, build, or refine?</h1>
+                <p class="rc-empty-state__sub">Your threads stay with your account, not this browser tab. Use the web lane anywhere. Pair your local runtime when you want the private lane and the vault in earshot.</p>
 
                 <div class="rc-starter-grid">
                   <button class="rc-starter-card" type="button" data-starter="explain">
@@ -172,7 +172,7 @@
                   </div>
                   <div class="rc-info-strip__item">
                     <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2 7a5 5 0 0110 0 5 5 0 01-10 0z" stroke="currentColor" stroke-width="1.2"/><path d="M7 5v4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
-                    <span>Private by default — no data leaks sideways</span>
+                    <span>Private by default. No sideways data detours.</span>
                   </div>
                 </div>
               </div>
@@ -180,7 +180,7 @@
 
             <div class="rc-composer">
               <div class="rc-composer__inner">
-                <textarea id="roachclaw-input" class="rc-composer__textarea" placeholder="Message RoachClaw..." rows="1"></textarea>
+                <textarea id="roachclaw-input" class="rc-composer__textarea" placeholder="Ask RoachClaw. Debugs, drafts, maps, mixes, plans..." rows="1"></textarea>
                 <div class="rc-composer__controls">
                   <span class="rc-composer__hint" id="roachclaw-hint">Web lane · hosted models</span>
                   <button class="rc-composer__send" id="roachclaw-send" type="button" aria-label="Send message">
@@ -188,7 +188,7 @@
                   </button>
                 </div>
               </div>
-              <p class="rc-composer__disclaimer">RoachClaw uses hosted models on the web lane. Pair your local runtime for the private lane.</p>
+              <p class="rc-composer__disclaimer">The web lane uses hosted models. Pair your local runtime when the prompt needs your vault, projects, or private files.</p>
             </div>
           </div>
         </main>
@@ -211,12 +211,12 @@
           <form class="account-form" id="roachclaw-auth-form">
             <label class="account-field" id="roachclaw-auth-name-field" hidden>
               <span>Name</span>
-              <input id="roachclaw-auth-name" type="text" autocomplete="nickname" maxlength="60" placeholder="How RoachNet should label this account" />
+              <input id="roachclaw-auth-name" type="text" autocomplete="nickname" maxlength="60" placeholder="Studio name, handle, or whatever fits" />
             </label>
 
             <label class="account-field">
               <span>Email</span>
-              <input id="roachclaw-auth-email" type="email" autocomplete="email" placeholder="you@roachnet.org" required />
+              <input id="roachclaw-auth-email" type="email" autocomplete="email" placeholder="you@example.com" required />
             </label>
 
             <label class="account-field">
@@ -242,7 +242,7 @@
       <footer class="site-footer rc-footer">
         <div class="site-footer__copy">
           <strong>RoachClaw</strong>
-          <span>AI chat that follows your account, not your browser tab. Use the web lane anywhere. Pair your local runtime when you want the private lane — offline on purpose.</span>
+          <span>AI chat that follows your account, not your browser tab. Use the web lane anywhere. Pair locally for privacy and context.</span>
         </div>
         <nav class="site-footer__nav" aria-label="Footer">
           <a href="https://roachnet.org/">Mission</a>
@@ -250,6 +250,7 @@
           <a href="https://accounts.roachnet.org/">Account</a>
           <a href="https://apps.roachnet.org/">Apps</a>
           <a href="https://roachnet.org/api/">API</a>
+          <a href="https://roachnet.org/sitemap/">Sitemap</a>
           <a href="https://www.roachwares.org/">RoachWares</a>
           <a href="https://stream.roachnet.org/">Stream</a>
           <a href="https://github.com/RoachWares/RoachNet" target="_blank" rel="noreferrer">GitHub</a>
@@ -275,5 +276,6 @@
 
     <script src="../site-config.js"></script>
     <script src="../roachclaw.js" type="module"></script>
+    <script src="../site-polish.js" type="module"></script>
   </body>
 </html>

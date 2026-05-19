@@ -3,4 +3,5 @@ website-apps-dist/
 website-accounts-dist/
 live-site-snapshots/
 .netlify/
+.wrangler/
 node_modules/

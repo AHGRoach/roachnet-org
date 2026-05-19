@@ -1,0 +1,23 @@
+{
+  "schema": "org.roachnet.apps.download-descriptor.v1",
+  "id": "map-mid-atlantic",
+  "title": "Mid-Atlantic",
+  "category": "Maps",
+  "section": "Map Regions",
+  "action": "map-collection",
+  "kind": null,
+  "tier": null,
+  "filename": "manifest.bin",
+  "key": "maps/collections/mid-atlantic/manifest.bin",
+  "internetArchiveKey": "maps__collections__mid-atlantic__manifest.bin",
+  "descriptorUrl": "https://apps.roachnet.org/downloads/maps/collections/mid-atlantic/manifest.json",
+  "bytes": null,
+  "size": "1.2 GB",
+  "sha256": null,
+  "chunkSizeBytes": null,
+  "parts": [],
+  "sources": [],
+  "checksumUrl": null,
+  "status": "descriptor-ready-public-source-first",
+  "policy": "Apps.RoachNet.org hosts descriptors and checksums. Large archives live on public source rails and Internet Archive mirrors, not this machine, Netlify, GitHub source, or R2."
+}
